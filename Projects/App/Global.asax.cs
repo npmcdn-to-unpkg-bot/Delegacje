@@ -12,9 +12,6 @@ namespace CrazyAppsStudio.Delegacje.App
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             Bootstrapper.Initialise();
-
-            //this is needed by the sql spatial types so the DbGeography methods work well on machines without sql sever installed
-            SqlServerTypes.Utilities.LoadNativeAssemblies(Server.MapPath("~/bin"));
         }
     }
 }
