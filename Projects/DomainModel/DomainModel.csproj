@@ -53,6 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripsContext.cs" />
+    <Compile Include="Migrations\201512092027318_InitialCreate.cs" />
+    <Compile Include="Migrations\201512092027318_InitialCreate.Designer.cs">
+      <DependentUpon>201512092027318_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +69,11 @@
       <Project>{781ef112-026b-4fdf-b78c-dc8a68284444}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512092027318_InitialCreate.resx">
+      <DependentUpon>201512092027318_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
