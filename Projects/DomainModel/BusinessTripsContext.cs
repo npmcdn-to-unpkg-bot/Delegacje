@@ -8,7 +8,16 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 {
     public class BusinessTripsContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<BusinessTrip> Clearings { get; set; }
+        public DbSet<BusinessTrip> BusinessTrips { get; set; }
+		public DbSet<Country> Countries { get; set; }
+		public DbSet<Expense> Expenses { get; set; }
+		public DbSet<MileageAllowance> MileageAllowances { get; set; }
+
+		public DbSet<Subsistence> Subsistences { get; set; }
+
+		public DbSet<SubsistenceMeals> SubsistenceMeals { get; set; }
+
+		public DbSet<VehicleType> VehicleTypes { get; set; }
 
         public BusinessTripsContext()
             : base("BusinessTripsEntities")
