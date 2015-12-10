@@ -76,10 +76,19 @@
   <ItemGroup>
     <Compile Include="DTO\ClearingSearchItemDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Expense.cs" />
+    <Compile Include="Entities\MileageAllowance.cs" />
+    <Compile Include="Entities\Subsistence.cs" />
+    <Compile Include="Entities\SubsistenceMeals.cs" />
+    <Compile Include="Entities\VehicleType.cs" />
+    <Compile Include="Enums\ExpenseDocumentType.cs" />
+    <Compile Include="Enums\ExpenseType.cs" />
+    <Compile Include="Enums\MealType.cs" />
     <Compile Include="Extensions\ClearingsExtensions.cs" />
     <Compile Include="Extensions\UsersExtensions.cs" />
-    <Compile Include="Clearing.cs" />
-    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Entities\BusinessTrip.cs" />
+    <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

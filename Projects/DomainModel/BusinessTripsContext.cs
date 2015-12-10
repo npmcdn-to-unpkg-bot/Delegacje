@@ -2,12 +2,13 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using CrazyAppsStudio.Delegacje.Domain.Entities;
 
 namespace CrazyAppsStudio.Delegacje.DomainModel
 {
     public class BusinessTripsContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Clearing> Clearings { get; set; }
+        public DbSet<BusinessTrip> Clearings { get; set; }
 
         public BusinessTripsContext()
             : base("BusinessTripsEntities")

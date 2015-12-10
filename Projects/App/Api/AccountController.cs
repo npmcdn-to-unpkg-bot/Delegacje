@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using CrazyAppsStudio.Delegacje.Domain.Entities;
 
 namespace CrazyAppsStudio.Delegacje.App.Controllers
 {

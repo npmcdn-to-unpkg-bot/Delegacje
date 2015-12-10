@@ -57,6 +57,26 @@
     <Compile Include="Migrations\201512092027318_InitialCreate.Designer.cs">
       <DependentUpon>201512092027318_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512102121007_RenameClearingsToBusinessTrips.cs" />
+    <Compile Include="Migrations\201512102121007_RenameClearingsToBusinessTrips.Designer.cs">
+      <DependentUpon>201512102121007_RenameClearingsToBusinessTrips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512102145556_AddExpensesAndRelated.cs" />
+    <Compile Include="Migrations\201512102145556_AddExpensesAndRelated.Designer.cs">
+      <DependentUpon>201512102145556_AddExpensesAndRelated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512102155548_AddMileageAllowanceAndRelated.cs" />
+    <Compile Include="Migrations\201512102155548_AddMileageAllowanceAndRelated.Designer.cs">
+      <DependentUpon>201512102155548_AddMileageAllowanceAndRelated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512102157230_RenameCountryKeyInExpenses.cs" />
+    <Compile Include="Migrations\201512102157230_RenameCountryKeyInExpenses.Designer.cs">
+      <DependentUpon>201512102157230_RenameCountryKeyInExpenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512102221112_AddSubsistenceAndRelated.cs" />
+    <Compile Include="Migrations\201512102221112_AddSubsistenceAndRelated.Designer.cs">
+      <DependentUpon>201512102221112_AddSubsistenceAndRelated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,7 +94,23 @@
     <EmbeddedResource Include="Migrations\201512092027318_InitialCreate.resx">
       <DependentUpon>201512092027318_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512102121007_RenameClearingsToBusinessTrips.resx">
+      <DependentUpon>201512102121007_RenameClearingsToBusinessTrips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512102145556_AddExpensesAndRelated.resx">
+      <DependentUpon>201512102145556_AddExpensesAndRelated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512102155548_AddMileageAllowanceAndRelated.resx">
+      <DependentUpon>201512102155548_AddMileageAllowanceAndRelated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512102157230_RenameCountryKeyInExpenses.resx">
+      <DependentUpon>201512102157230_RenameCountryKeyInExpenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512102221112_AddSubsistenceAndRelated.resx">
+      <DependentUpon>201512102221112_AddSubsistenceAndRelated.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

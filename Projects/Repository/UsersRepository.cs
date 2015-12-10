@@ -2,6 +2,7 @@
 using CrazyAppsStudio.Delegacje.Domain.Extensions;
 using CrazyAppsStudio.Delegacje.DomainModel;
 using System.Linq;
+using CrazyAppsStudio.Delegacje.Domain.Entities;
 
 namespace CrazyAppsStudio.Delegacje.Repository
 {

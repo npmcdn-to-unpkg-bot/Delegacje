@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using CrazyAppsStudio.Delegacje.Domain.Entities;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
     public static class ClearingsExtensions
     {
-        public static IQueryable<Clearing> SearchByText(this IQueryable<Clearing> clearings, string text)
+        public static IQueryable<BusinessTrip> SearchByText(this IQueryable<BusinessTrip> clearings, string text)
         {
             if (string.IsNullOrEmpty(text))
                 return clearings;
@@ -15,7 +16,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             return clearings.Where(s => s.Title.ToLower().Contains(text.Trim().ToLower()));
         }
 
-        public static ClearingSearchItemDTO MapToSearchItem(this Clearing clearings)
+        public static ClearingSearchItemDTO MapToSearchItem(this BusinessTrip clearings)
         {
             ClearingSearchItemDTO clearingDTO = new ClearingSearchItemDTO()
             {

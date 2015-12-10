@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace CrazyAppsStudio.Delegacje.Domain
+namespace CrazyAppsStudio.Delegacje.Domain.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        public virtual List<Clearing> Clearings { get; set; }
+        public virtual List<BusinessTrip> BusinessTrips { get; set; }
 
         public ApplicationUser()
         {
-            this.Clearings = new List<Clearing>();
+            this.BusinessTrips = new List<BusinessTrip>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
