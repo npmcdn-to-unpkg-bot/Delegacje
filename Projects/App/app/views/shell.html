@@ -1,5 +1,17 @@
-﻿<div>
-    <h1>Shell Header</h1>
-    <div class="page-host" data-bind="router: { transition:'entrance' }"></div>
-    <h6>Shell Footer</h6>
+﻿<nav class="m-navbar">
+    <div class="container">
+        <div class="row">
+            <!--ko compose: { view: 'top_navigation_bar' } --><!--/ko-->
+        </div>
+    </div>
+</nav>    
+
+<div id="mainContainer" class="container">
+    <div class="row">
+        <div data-bind="router: { transition:'entrance' }"></div>
+    </div>
 </div>
+
+<footer class="m-footer">
+    &copy; CrazyAppsStudio 2015
+</footer>

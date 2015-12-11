@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Swipe.WebApi.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CrazyAppsStudio.Delegacje.App.WebApiApplication" Language="C#" %>

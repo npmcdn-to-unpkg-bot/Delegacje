@@ -1,0 +1,75 @@
+﻿<div>
+
+    <form>
+        <h5>Nagłówek</h5>
+
+        <div class="row">
+            <div class="six columns">
+                <label for="tbName">Nazwa Raportu</label>
+                <input type="text" class="u-full-width" id="tbName" maxlength="50" autofocus>
+            </div>
+            <div class="six columns">
+                <label for="tbBusinessReason">Business Reason</label>
+                <input type="text" class="u-full-width" id="tbBusinessReason" maxlength="100">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="tbDate">Data</label>
+                <input type="text" class="u-full-width" id="tbDate" maxlength="10">
+            </div>
+            <div class="six columns">
+                <label for="tbBusinessPurpose">Business Purpose</label>
+                <input type="text" class="u-full-width" id="tbBusinessPurpose" maxlength="100">
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <label for="tbComment">Komentarz</label>
+                <input type="text" class="u-full-width" id="tbComment" maxlength="255">
+            </div>
+        </div>
+
+
+        <h5>Kilometrówka</h5>
+        <div class="row">
+            <div class="six columns">
+                <label for="ddlKmVehicle">Pojazd</label>
+                <select class="u-full-width">
+                    <option>Motocykl</option>
+                    <option>Samochód (Pojemność 1)</option>
+                    <option>Samochód (Pojemność 2)</option>
+                </select>
+            </div>
+            <div class="six columns">
+                <label for="tbKmRate">Stawka</label>
+                <input type="text" disabled class="u-full-width" id="tbKmRate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="tbKmDate">Data</label>
+                <input type="text" class="u-full-width" id="tbKmDate" maxlength="10">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="tbKmCount">Ilość Kilometrów</label>
+                <input type="text" class="u-full-width" id="tbKmCount" maxlength="10">
+            </div>
+            <div class="six columns">
+                <label for="tbKMTotal">Wyliczona Kwota</label>
+                <input type="text" class="u-full-width" id="tbKMTotal" disabled>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <label for="tbKMComment">Komentarz</label>
+                <input type="text" class="u-full-width" id="tbKMComment" maxlength="255">
+            </div>
+        </div>
+        
+
+        <input class="button-primary" type="submit" value="Stwórz Raport">
+    </form>
+</div>
