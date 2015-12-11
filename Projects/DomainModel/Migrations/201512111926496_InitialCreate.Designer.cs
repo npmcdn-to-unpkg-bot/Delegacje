@@ -13,7 +13,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201512111900028_InitialCreate"; }
+            get { return "201512111926496_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

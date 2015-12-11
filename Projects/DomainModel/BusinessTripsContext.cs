@@ -26,16 +26,16 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+		{
+			base.OnModelCreating(modelBuilder);
+
 			modelBuilder.Entity<Role>().ToTable("Roles", "dbo");
 			modelBuilder.Entity<User>().ToTable("Users", "dbo");
 			modelBuilder.Entity<UserRole>().ToTable("UserRoles", "dbo");
 			modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
 			modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
 
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
         }
 
         public static BusinessTripsContext Create()

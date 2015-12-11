@@ -14,7 +14,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			AutomaticMigrationsEnabled = false;
 			AutomaticMigrationDataLossAllowed = false;
 
-			ContextKey = "CrazyAppsStudio.Delegacje.DomainModel.BusinessTripsContext";
+			//ContextKey = "CrazyAppsStudio.Delegacje.DomainModel.BusinessTripsContext";
 		}
 
 		protected override void Seed(CrazyAppsStudio.Delegacje.DomainModel.BusinessTripsContext context)
