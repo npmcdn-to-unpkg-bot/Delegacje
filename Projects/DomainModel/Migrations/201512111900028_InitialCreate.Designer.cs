@@ -7,13 +7,13 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddExpensesAndRelated : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddExpensesAndRelated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512102145556_AddExpensesAndRelated"; }
+            get { return "201512111900028_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

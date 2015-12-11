@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
+using CrazyAppsStudio.Delegacje.DomainModel;
+using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 
 namespace CrazyAppsStudio.Delegacje.App.Controllers
 {
@@ -16,25 +18,25 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
-        private ApplicationUserManager _userManager;
+        private DelegacjeUserManager _userManager;
 
         public AccountController()
         {
 
         }
 
-        public AccountController(ApplicationUserManager userManager,
+		public AccountController(DelegacjeUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
 
-        public ApplicationUserManager UserManager
+		public DelegacjeUserManager UserManager
         {
             get
             {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+				return _userManager ?? Request.GetOwinContext().GetUserManager<DelegacjeUserManager>();
             }
             private set
             {
@@ -321,7 +323,7 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
 				return BadRequest(ModelState);
 			}
 
-			var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+			var user = new User() { UserName = model.Email, Email = model.Email };
 
 			IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

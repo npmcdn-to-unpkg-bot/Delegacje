@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
+using CrazyAppsStudio.Delegacje.DomainModel;
+using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 
 namespace CrazyAppsStudio.Delegacje.App.Providers
 {
@@ -27,9 +29,9 @@ namespace CrazyAppsStudio.Delegacje.App.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+			var userManager = context.OwinContext.GetUserManager<DelegacjeUserManager>();
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            User user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
             {
@@ -37,10 +39,12 @@ namespace CrazyAppsStudio.Delegacje.App.Providers
                 return;
             }
 
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
-               OAuthDefaults.AuthenticationType);
-            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
-                CookieAuthenticationDefaults.AuthenticationType);
+			//ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
+			//   OAuthDefaults.AuthenticationType);
+			ClaimsIdentity oAuthIdentity = await userManager.CreateIdentityAsync(user, OAuthDefaults.AuthenticationType);
+			//ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
+			//	CookieAuthenticationDefaults.AuthenticationType);
+			ClaimsIdentity cookiesIdentity = await userManager.CreateIdentityAsync(user, CookieAuthenticationDefaults.AuthenticationType);
 
             AuthenticationProperties properties = CreateProperties(user.UserName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);

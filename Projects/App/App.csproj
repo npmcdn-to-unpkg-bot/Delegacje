@@ -191,6 +191,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiBackend\App_Start\DelegacjeUserManager.cs" />
     <Compile Include="Api\BaseProfileController.cs" />
     <Compile Include="Api\FriendsController.cs" />
     <Compile Include="ApiBackend\App_Start\FilterConfig.cs" />

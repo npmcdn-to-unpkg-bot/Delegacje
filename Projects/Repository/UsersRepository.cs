@@ -3,6 +3,7 @@ using CrazyAppsStudio.Delegacje.Domain.Extensions;
 using CrazyAppsStudio.Delegacje.DomainModel;
 using System.Linq;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
+using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 
 namespace CrazyAppsStudio.Delegacje.Repository
 {
@@ -15,11 +16,11 @@ namespace CrazyAppsStudio.Delegacje.Repository
             this.context = _context;
         }
 
-        public IQueryable<ApplicationUser> UsersQueryable
+        public IQueryable<User> UsersQueryable
         {
             get
             {
-                return this.context.Users.AsQueryable<ApplicationUser>();
+                return this.context.Users.AsQueryable<User>();
             }
         }
     }

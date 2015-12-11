@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
+using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
     public static class UsersExtensions
     {
-        public static IQueryable<ApplicationUser> SearchByText(this IQueryable<ApplicationUser> users, string text)
+        public static IQueryable<User> SearchByText(this IQueryable<User> users, string text)
         {
             if (string.IsNullOrEmpty(text))
                 return users;
@@ -16,7 +17,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             return users.Where(s => s.UserName.ToLower().Contains(text.Trim().ToLower()));
         }
 
-        public static UserDetailsDTO MapToDetails(this ApplicationUser user)
+        public static UserDetailsDTO MapToDetails(this User user)
         {
             UserDetailsDTO userDTO = new UserDetailsDTO()
             {

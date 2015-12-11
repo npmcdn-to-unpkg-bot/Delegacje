@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,11 +29,11 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		[MaxLength(255)]
 		public string Notes { get; set; }
 
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
 
 		public virtual ICollection<Expense> Expenses { get; set; }
 
