@@ -18,7 +18,8 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 
 		public DbSet<SubsistenceMeals> SubsistenceMeals { get; set; }
 
-		public DbSet<VehicleType> VehicleTypes { get; set; }		
+		public DbSet<VehicleType> VehicleTypes { get; set; }
+		public DbSet<UserRole> UserRoles { get; set; }		
 
         public BusinessTripsContext()
             : base("BusinessTripsEntities")
