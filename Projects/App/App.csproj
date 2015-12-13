@@ -216,9 +216,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\main.js" />
-    <Content Include="app\views\my_reports.html" />
-    <Content Include="app\views\my_reports.js">
-      <DependentUpon>my_reports.html</DependentUpon>
+    <Content Include="app\services\dictionaries.js" />
+    <Content Include="app\services\mileageAllowanceFactory.js" />
+    <Content Include="app\services\expensesFactory.js" />
+    <Content Include="app\services\reportFactory.js" />
+    <Content Include="app\views\modals\expense.html" />
+    <Content Include="app\views\modals\expense.js">
+      <DependentUpon>expense.html</DependentUpon>
     </Content>
     <Content Include="app\views\report.html" />
     <Content Include="app\views\report.js">

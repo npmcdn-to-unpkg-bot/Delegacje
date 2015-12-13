@@ -3,8 +3,7 @@
         router: router,
         activate: function () {
             router.map([
-                { route: '', title: 'Nowy Raport', moduleId: 'views/report' },
-                { route: 'MojeRaporty', title: 'Moje Raporty', moduleId: 'views/my_reports' }
+                { route: '', title: 'Nowy Raport', moduleId: 'views/report' }
             ]).buildNavigationModel();
             
             return router.activate();

@@ -1,0 +1,78 @@
+﻿<div class="messageBox">
+    <div class="modal-header">
+        <h3>Nowy Wydatek</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="container">
+            <div class="row">
+                <div class="six columns">
+                    <label for="ddlExpenseType">Rodzaj Kosztu</label>
+                    <select id="ddlExpenseType"
+                            class="u-full-width"
+                            data-bind="options: ExpenseTypes,
+                                        optionsCaption: '-- Wybierz --' ,
+                                        optionsText: 'Name' ,
+                                        value: expense.Type"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="tbExpenseDate">Data</label>
+                    <input type="text" class="u-full-width" id="tbExpenseDate" data-bind="value: expense.Date" />
+                </div>
+                <div class="six columns">
+                    <label for="tbExpenseCity">Miasto</label>
+                    <input type="text" class="u-full-width" id="tbExpenseCity" data-bind="value: expense.City" maxlength="255" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="ddlExpenseCountry">Kraj</label>
+                    <select id="ddlExpenseCountry"
+                            class="u-full-width"
+                            data-bind="options: Countries,
+                                        optionsCaption: '-- Wybierz --' ,
+                                        optionsText: 'Name' ,
+                                        value: expense.Country"></select>
+                </div>
+                <div class="six columns">
+                    <label for="tbExpenseCurrency">Waluta</label>
+                    <input type="text" class="u-full-width" id="tbExpenseCurrency" disabled data-bind="value: expense.Country() != undefined ? expense.Country().CurrencyName : '-'" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="tbExpenseAmount">Kwota</label>
+                    <input type="text" class="u-full-width" id="tbExpenseAmount" data-bind="value: expense.Amount" maxlength="20" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="ddlExpenseDocument">Dokument</label>
+                    <select id="ddlExpenseDocument"
+                            class="u-full-width"
+                            data-bind="options: DocumentTypes,
+                                        optionsCaption: '-- Wybierz --' ,
+                                        optionsText: 'Name' ,
+                                        value: expense.Document"></select>
+                </div>
+                <div class="six columns">
+                    <label for="tbExpenseVAT">VAT</label>
+                    <input type="text" class="u-full-width" id="tbExpenseVAT" data-bind="value: expense.VATRate" maxlength="20" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="tbComment">Komentarz</label>
+                    <input type="text" class="u-full-width" id="tbComment" data-bind="value: expense.Notes" maxlength="255">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="button" data-bind="click: Cancel">Anuluj</button>
+        <button class="button button-primary" data-bind="click: Confirm">Dodaj Do Raportu</button>
+    </div>
+</div>
