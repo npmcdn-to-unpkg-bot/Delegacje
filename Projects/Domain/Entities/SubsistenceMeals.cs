@@ -1,5 +1,4 @@
-﻿using CrazyAppsStudio.Delegacje.Domain.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public int Id { get; set; }
 
 		[Required]
-		public MealType Type { get; set; }
+		public virtual MealType Type { get; set; }
 
 		[Required]
 		public int SubsistenceId { get; set; }

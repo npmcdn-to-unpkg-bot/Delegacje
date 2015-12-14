@@ -1,5 +1,4 @@
-﻿using CrazyAppsStudio.Delegacje.Domain.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public virtual BusinessTrip Trip { get; set; }
 
 		[Required]
-		public ExpenseType Type { get; set; }
+		public virtual ExpenseType Type { get; set; }
 
 		[Required]
 		public DateTime Date { get; set; }

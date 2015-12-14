@@ -3,5 +3,6 @@
     public interface ITasksRepository
     {
         UsersTasks UsersTasks { get; }
+        DictionariesTasks DictionariesTasks { get; }
     }
 }

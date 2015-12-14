@@ -79,6 +79,22 @@
     <Compile Include="Migrations\201512111926496_InitialCreate.Designer.cs">
       <DependentUpon>201512111926496_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512142214350_expense-types-moved-to-db.cs" />
+    <Compile Include="Migrations\201512142214350_expense-types-moved-to-db.Designer.cs">
+      <DependentUpon>201512142214350_expense-types-moved-to-db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512142220050_expense-document-types-moved-to-db.cs" />
+    <Compile Include="Migrations\201512142220050_expense-document-types-moved-to-db.Designer.cs">
+      <DependentUpon>201512142220050_expense-document-types-moved-to-db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512142223106_meal-types-moved-to-db.cs" />
+    <Compile Include="Migrations\201512142223106_meal-types-moved-to-db.Designer.cs">
+      <DependentUpon>201512142223106_meal-types-moved-to-db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512142313208_countries-updated.cs" />
+    <Compile Include="Migrations\201512142313208_countries-updated.Designer.cs">
+      <DependentUpon>201512142313208_countries-updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +112,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512111926496_InitialCreate.resx">
       <DependentUpon>201512111926496_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512142214350_expense-types-moved-to-db.resx">
+      <DependentUpon>201512142214350_expense-types-moved-to-db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512142220050_expense-document-types-moved-to-db.resx">
+      <DependentUpon>201512142220050_expense-document-types-moved-to-db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512142223106_meal-types-moved-to-db.resx">
+      <DependentUpon>201512142223106_meal-types-moved-to-db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512142313208_countries-updated.resx">
+      <DependentUpon>201512142313208_countries-updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,12 +16,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public string Name { get; set; }
 
 		[Required, MaxLength(10)]
-		public string CultureCodeString { get; set; }
-
-		[Required, MaxLength(50)]
-		public string CurrencyName { get; set; }
-
-		[Required, MaxLength(10)]
 		public string CurrencyCode { get; set; }
 
 		[Required]

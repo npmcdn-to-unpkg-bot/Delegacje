@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'knockout', 'jquery', 'services/dictionaries', 'services/reportFactory', 'services/expensesFactory', 'views/modals/expense'], function (app, ko, $, dictionaries, fReport, fExpense, mExpense) {
+﻿define(['durandal/app', 'knockout', 'jquery', 'services/dictionaries', 'factories/reportFactory', 'factories/expensesFactory', 'views/modals/expense'], function (app, ko, $, dictionaries, fReport, fExpense, mExpense) {
 
     var vm = {
         //report data

@@ -1,17 +1,17 @@
-﻿<nav class="m-navbar">
-    <div class="container">
-        <div class="row">
-            <!--ko compose: { view: 'top_navigation_bar' } --><!--/ko-->
+﻿<div>
+    <nav class="m-navbar">
+        <div class="container">
+            <div class="row">
+                <!--ko compose: { view: 'top_navigation_bar' } --><!--/ko-->
+            </div>
         </div>
-    </div>
-</nav>    
+    </nav>
 
-<div id="mainContainer" class="container">
-    <div class="row">
-        <div data-bind="router: { transition:'entrance' }"></div>
+    <div id="mainContainer">
+        <div data-bind="router: { transition: 'entrance' }"></div>
     </div>
+
+    <footer class="m-footer">
+        &copy; CrazyAppsStudio 2015
+    </footer>
 </div>
-
-<footer class="m-footer">
-    &copy; CrazyAppsStudio 2015
-</footer>

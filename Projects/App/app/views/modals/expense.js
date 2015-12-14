@@ -1,4 +1,4 @@
-﻿define(['plugins/dialog', 'knockout', 'jquery', 'services/dictionaries', 'services/expensesFactory'], function (dialog, ko, $, dictionaries, fExpense) {
+﻿define(['plugins/dialog', 'knockout', 'jquery', 'services/dictionaries', 'factories/expensesFactory'], function (dialog, ko, $, dictionaries, fExpense) {
 
     var vm = {
         //report data

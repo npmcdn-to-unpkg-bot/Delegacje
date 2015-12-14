@@ -77,9 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\ClearingSearchItemDTO.cs" />
+    <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Expense.cs" />
+    <Compile Include="Entities\ExpenseDocumentType.cs" />
+    <Compile Include="Entities\MealType.cs" />
+    <Compile Include="Entities\ExpenseType.cs" />
     <Compile Include="Entities\Identity\Role.cs" />
     <Compile Include="Entities\Identity\UserClaim.cs" />
     <Compile Include="Entities\Identity\UserLogin.cs" />
@@ -88,9 +92,6 @@
     <Compile Include="Entities\Subsistence.cs" />
     <Compile Include="Entities\SubsistenceMeals.cs" />
     <Compile Include="Entities\VehicleType.cs" />
-    <Compile Include="Enums\ExpenseDocumentType.cs" />
-    <Compile Include="Enums\ExpenseType.cs" />
-    <Compile Include="Enums\MealType.cs" />
     <Compile Include="Extensions\ClearingsExtensions.cs" />
     <Compile Include="Extensions\UsersExtensions.cs" />
     <Compile Include="Entities\BusinessTrip.cs" />

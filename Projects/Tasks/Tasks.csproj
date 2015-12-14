@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TasksRepository.cs" />
+    <Compile Include="DictionariesTasks.cs" />
     <Compile Include="UsersTasks.cs" />
     <Compile Include="ITasksRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

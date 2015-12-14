@@ -6,11 +6,11 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 {
     public class UsersTasks
     {
-        private RepositoriesFacade repo;
+        private Repositories repo;
 
         public UsersTasks()
         {
-            repo = new RepositoriesFacade();
+            repo = new Repositories();
         }
 
         public UserDetailsDTO GetUserData(string username)

@@ -1,4 +1,4 @@
-﻿define(['knockout', 'services/mileageAllowanceFactory'], function (ko, fMileage) {
+﻿define(['knockout', 'factories/mileageAllowanceFactory'], function (ko, fMileage) {
     function BusinessTrip() {
         this.Id = ko.observable();
         this.Title = ko.observable('');
