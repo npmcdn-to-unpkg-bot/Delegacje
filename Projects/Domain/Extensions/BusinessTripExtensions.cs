@@ -16,9 +16,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             return clearings.Where(s => s.Title.ToLower().Contains(text.Trim().ToLower()));
         }
 
-        public static ClearingSearchItemDTO MapToSearchItem(this BusinessTrip clearings)
+        public static BusinessTripSearchItemDTO MapToSearchItem(this BusinessTrip clearings)
         {
-            ClearingSearchItemDTO clearingDTO = new ClearingSearchItemDTO()
+            BusinessTripSearchItemDTO clearingDTO = new BusinessTripSearchItemDTO()
             {
                 //Id = user.Id,
                 //Email = user.Email,

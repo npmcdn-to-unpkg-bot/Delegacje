@@ -29,5 +29,10 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			});
 			this.repo.SaveChanges();
         }
+
+        public IEnumerable<BusinessTripSearchItemDTO> GetForUser(int userId)
+        {
+            return repo.BusinessTrips.GetForUser(userId);
+        }
 	}
 }

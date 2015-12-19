@@ -1,4 +1,5 @@
 using CrazyAppsStudio.Delegacje.App.Controllers;
+using CrazyAppsStudio.Delegacje.Repository;
 using CrazyAppsStudio.Delegacje.Tasks;
 using Microsoft.Practices.Unity;
 using System.Web.Http;
@@ -34,6 +35,7 @@ namespace CrazyAppsStudio.Delegacje.App
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<ITasksRepository, TasksRepository>();
+            container.RegisterType<IRepositories, Repositories>();
 
             //this line is quite a mystery but apparently we need to register account related controllers like that to make them wotk with Unity DI
             container.RegisterType<AccountController>(new InjectionConstructor());

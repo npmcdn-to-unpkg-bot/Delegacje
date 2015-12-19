@@ -16,6 +16,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
         {
             this.UsersTasks = new UsersTasks();
             this.DictionariesTasks = new DictionariesTasks();
+            this.BusinessTripsTasks = new BusinessTripsTasks();
         }
     }
 }

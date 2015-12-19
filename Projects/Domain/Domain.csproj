@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AddBusinessTripDTO.cs" />
-    <Compile Include="DTO\ClearingSearchItemDTO.cs" />
+    <Compile Include="DTO\BusinessTripSearchItemDTO.cs" />
     <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
     <Compile Include="Entities\Country.cs" />

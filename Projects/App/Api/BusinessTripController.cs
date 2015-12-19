@@ -1,5 +1,6 @@
 ﻿using CrazyAppsStudio.Delegacje.Domain.DTO;
 using CrazyAppsStudio.Delegacje.Tasks;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
@@ -28,6 +29,13 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 			{
 				return BadRequest(this.ModelState);
 			}			
+        }
+
+        [Route("")]
+        [HttpGet]
+        public IEnumerable<BusinessTripSearchItemDTO> GetForUser()
+        {
+            return tasks.BusinessTripsTasks.GetForUser(1);
         }
     }
 }

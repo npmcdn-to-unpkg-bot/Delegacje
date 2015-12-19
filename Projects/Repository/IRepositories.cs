@@ -12,5 +12,6 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
         UsersRepository Users { get; set; }
         DictionariesRepository Dictionaries { get; set; }
+        BusinessTripsRepository BusinessTrips { get; set; }
     }
 }

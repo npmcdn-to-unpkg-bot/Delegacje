@@ -203,7 +203,6 @@
     <Compile Include="Api\DictionariesController.cs" />
     <Compile Include="ApiBackend\App_Start\FilterConfig.cs" />
     <Compile Include="ApiBackend\App_Start\IdentityConfig.cs" />
-    <Compile Include="ApiBackend\App_Start\UnityConfig.cs" />
     <Compile Include="ApiBackend\App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
