@@ -4,5 +4,6 @@
     {
         UsersTasks UsersTasks { get; }
         DictionariesTasks DictionariesTasks { get; }
+		BusinessTripsTasks BusinessTripsTasks { get; }
     }
 }

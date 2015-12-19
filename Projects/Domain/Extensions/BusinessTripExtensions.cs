@@ -6,7 +6,7 @@ using CrazyAppsStudio.Delegacje.Domain.Entities;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
-    public static class ClearingsExtensions
+    public static class BusinessTripExtensions
     {
         public static IQueryable<BusinessTrip> SearchByText(this IQueryable<BusinessTrip> clearings, string text)
         {

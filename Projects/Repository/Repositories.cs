@@ -8,6 +8,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
         public UsersRepository Users { get; set; }
         public DictionariesRepository Dictionaries { get; set; }
+		public BusinessTripsRepository BusinessTrips { get; set; }
 
         public Repositories()
         {
@@ -15,6 +16,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
             this.Users = new UsersRepository(context);
             this.Dictionaries = new DictionariesRepository(context);
+			this.BusinessTrips = new BusinessTripsRepository(context);
         }
 
         public void SaveChanges()

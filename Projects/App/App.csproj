@@ -199,6 +199,7 @@
   <ItemGroup>
     <Compile Include="ApiBackend\App_Start\DelegacjeUserManager.cs" />
     <Compile Include="Api\BaseProfileController.cs" />
+    <Compile Include="Api\BusinessTripController.cs" />
     <Compile Include="Api\DictionariesController.cs" />
     <Compile Include="ApiBackend\App_Start\FilterConfig.cs" />
     <Compile Include="ApiBackend\App_Start\IdentityConfig.cs" />
@@ -406,6 +407,7 @@
     <None Include="Properties\PublishProfiles\swipeapi - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\views\BusinessTrip\" />
     <Folder Include="less\Theme\" />
   </ItemGroup>
   <PropertyGroup>

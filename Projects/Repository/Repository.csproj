@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessTripsRepository.cs" />
     <Compile Include="DictionariesRepository.cs" />
     <Compile Include="IRepositories.cs" />
     <Compile Include="UsersRepository.cs" />

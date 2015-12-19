@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AddBusinessTripDTO.cs" />
     <Compile Include="DTO\ClearingSearchItemDTO.cs" />
     <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="Entities\Subsistence.cs" />
     <Compile Include="Entities\SubsistenceMeals.cs" />
     <Compile Include="Entities\VehicleType.cs" />
-    <Compile Include="Extensions\ClearingsExtensions.cs" />
+    <Compile Include="Extensions\BusinessTripExtensions.cs" />
     <Compile Include="Extensions\UsersExtensions.cs" />
     <Compile Include="Entities\BusinessTrip.cs" />
     <Compile Include="Entities\Identity\User.cs" />
