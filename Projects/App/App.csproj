@@ -332,6 +332,7 @@
     <Content Include="lib\durandal\js\viewLocator.js" />
     <Content Include="lib\jquery\jquery-1.9.1.js" />
     <Content Include="lib\knockout\knockout-3.1.0.js" />
+    <Content Include="lib\knockout\mapping.js" />
     <Content Include="lib\require\almond-custom.js" />
     <Content Include="lib\require\r.js" />
     <Content Include="lib\require\require.js" />

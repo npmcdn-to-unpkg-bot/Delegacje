@@ -7,7 +7,7 @@
         //dictiopnaries
         ExpenseTypes: dictionaries.ExpenseTypes,
         Countries: dictionaries.Countries,
-        DocumentTypes: dictionaries.DocumentTypes,
+        ExpenseDocumentTypes: dictionaries.ExpenseDocumentTypes,
 
         //actions
         Confirm: function () {

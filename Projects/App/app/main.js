@@ -5,6 +5,7 @@
         'plugins' : '../lib/durandal/js/plugins',
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-3.1.0',
+        'mapping': '../lib/knockout/mapping',
         'jquery': '../lib/jquery/jquery-1.9.1'
     }
 });
