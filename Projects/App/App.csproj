@@ -251,6 +251,8 @@
     <Content Include="app\factories\mileageAllowanceFactory.js" />
     <Content Include="app\factories\expensesFactory.js" />
     <Content Include="app\factories\reportFactory.js" />
+    <Content Include="app\services\api.js" />
+    <Content Include="app\services\urls.js" />
     <Content Include="app\services\localStorage.js" />
     <Content Include="app\views\modals\expense.html" />
     <Content Include="app\views\modals\expense.js">

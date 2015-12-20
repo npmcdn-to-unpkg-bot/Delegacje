@@ -9,12 +9,12 @@
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (system, app, viewLocator) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'services/dictionaries'], function (system, app, viewLocator, dictionaries) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Durandal Starter Kit';
+    app.title = 'Delegacje';
 
     app.configurePlugins({
         router:true,
@@ -24,7 +24,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
     app.start().then(function() {
         viewLocator.useConvention('views', 'views');
 
-        //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('views/shell');
+        dictionaries.Reload().then(function (result) {
+            app.setRoot('views/shell');
+        })
     });
 });
