@@ -1,5 +1,6 @@
 ﻿using CrazyAppsStudio.Delegacje.Domain.DTO;
 using CrazyAppsStudio.Delegacje.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -20,15 +21,22 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		[HttpPut]
 		public IHttpActionResult CreateBusinessTrip(AddBusinessTripDTO businessTrip)
         {
-			if (this.ModelState.IsValid)
+			try
 			{
-				this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip);
-				return Ok("Delegacja została stworzona");
+				if (this.ModelState.IsValid)
+				{
+					this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip);
+					return Ok("Delegacja została stworzona");
+				}
+				else
+				{
+					return BadRequest(this.ModelState);
+				}
 			}
-			else
+			catch (Exception e)
 			{
-				return BadRequest(this.ModelState);
-			}			
+				return InternalServerError();
+			}
         }
 
         [Route("")]

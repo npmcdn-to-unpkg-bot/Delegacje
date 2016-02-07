@@ -18,5 +18,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		public string BusinessPurpose { get; set; }
 		[MaxLength(255, ErrorMessage = "Maksymalna długość: 255 znaków")]
 		public string Notes { get; set; }
+
+		public ExpenseDTO[] Expenses { get; set; }
+		public MileageAllowanceDTO[] MileageAllowances { get; set; }
+		public SubsistenceDTO[] Subsistences { get; set; }
 	}
 }

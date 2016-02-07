@@ -5,47 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrazyAppsStudio.Delegacje.Domain.Entities
+namespace CrazyAppsStudio.Delegacje.Domain.DTO
 {
-	public class Expense
+	public class ExpenseDTO
 	{
-		[Key]
-		public int Id { get; set; }
-
-		[Required]
-		public int BusinessTripId { get; set; }
-
-		[Required]
-		public virtual BusinessTrip Trip { get; set; }
-
+		public int? ExpenseId { get; set; }
 		[Required]
 		public int ExpenseTypeId { get; set; }
-
-		[Required]
-		public virtual ExpenseType Type { get; set; }
-
 		[Required]
 		public DateTime Date { get; set; }
-
 		[Required, MaxLength(255)]
 		public string City { get; set; }
-
+		[Required]
 		public decimal Amount { get; set; }
-
 		[Required]
 		public int CountryId { get; set; }
-
-		[Required]
-		public virtual Country Country { get; set; }
-
 		[Required, MaxLength(10)]
-		public string CurrencyCode { get; set; }
-
+		public string CurrencyCode { get; set; } //TODO: store currency codes and exchange rates in database, including historical values - MS 07/02/2016
 		[Required]
 		public double ExchangeRate { get; set; }
-
 		[Required]
-
 		public bool ExchangeRateModifiedByUser { get; set; }
 
 		public double VATRate { get; set; }

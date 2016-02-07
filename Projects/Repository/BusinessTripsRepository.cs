@@ -26,9 +26,9 @@ namespace CrazyAppsStudio.Delegacje.Repository
             }
         }
 
-		public void Create(BusinessTrip businessTrip)
+		public BusinessTrip Create(BusinessTrip businessTrip)
 		{
-			this.context.BusinessTrips.Add(businessTrip);
+			return this.context.BusinessTrips.Add(businessTrip);
 		}
 
         public IEnumerable<BusinessTripSearchItemDTO> GetForUser(int userId)

@@ -13,6 +13,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public int Id { get; set; }
 
 		[Required]
+		public int MealTypeId { get; set; }
+
+		[Required]
 		public virtual MealType Type { get; set; }
 
 		[Required]
