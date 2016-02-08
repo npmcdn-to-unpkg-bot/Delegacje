@@ -1,0 +1,58 @@
+<!--top bar-->
+<div ng-include="'system/templates/topbar/topbar.html'"></div>
+
+<div class="row login-form">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card">
+            <form name="form" ng-submit="vm.login()" novalidate>
+                <div class="card-content">
+                    <span class="card-title black-text hide-on-small-only" data-translate="Sign In"></span>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi mdi-account prefix"></i>
+                            <input id="username" name="username" type="text" class="validate" autofocus ng-model="vm.userName" required>
+                            <label for="username" data-error="wrong" data-translate="Username" class="active"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi mdi-keyboard-variant prefix"></i>
+                            <input id="password" name="password" type="password" class="validate" ng-model="vm.password" required>
+                            <label for="password" data-translate="Password" class="active">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s11 offset-s1">
+                            Security
+                            <p>
+                                <input name="publicComputer" type="radio" id="publicComputer"
+                                       ng-model="vm.publicComputer"
+                                       ng-value="true" />
+                                <label for="publicComputer" translate="Public or shared computer"></label>
+                            </p>
+                            <p>
+                                <input name="publicComputer" type="radio" id="privateComputer"
+                                       ng-model="vm.publicComputer"
+                                       ng-value="false" />
+                                <label for="privateComputer" translate="Private computer"></label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-action right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                            ng-disabled="form.$invalid || vm.isBusy" data-translate="Sign In">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <p translate-values="{ tenant: vm.tenant }" translate="" class="center">
+            Don't have a login? Contact your representative and request one.
+        </p>
+    </div>
+</div>
+
+

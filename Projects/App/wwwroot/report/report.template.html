@@ -1,0 +1,85 @@
+﻿<div class="container report-container">
+    <div class="row">
+        <div class="twelve columns text-center">
+            <h1>Moje Raporty</h1>
+
+            <p>01/02/2016</p>
+        </div>
+    </div>
+
+    <div class="v-spacer v-spacer40"></div>
+    <!--identyfikator raportu-->
+    <div class="row">
+        <div class="ten columns offset-by-one">
+            <h2 class="section section-1">Identyfikatory Raportu</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="five columns offset-by-one">
+            <div class="form-line">
+                <span class="form-row-label">Nazwa Raportu</span>
+                <input type="text" />
+            </div>
+            <div class="form-line">
+                <span class="form-row-label">Powód Podróży</span>
+                <input type="text" />
+            </div>
+            <div class="form-line">
+                <span class="form-row-label">Cel Podróży</span>
+                <input type="text" />
+            </div>
+        </div>
+        <div class="five columns text-center">
+            <div class="form-line form-textarea-container">
+                <span class="form-textarea-header">
+                    Komentarz
+                </span>
+
+                <textarea></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="v-spacer v-spacer60"></div>
+    <!--szczegóły raportu-->
+    <div class="row">
+        <div class="ten columns offset-by-one">
+            <h2 class="section section-2">Szczegóły Raportu</h2>
+        </div>
+
+        <div class="ten columns offset-by-one text-center">
+            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Expenses' }" ng-click="vm.toggleSection('Expenses')">Wydatki</span>
+            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Mileage' }" ng-click="vm.toggleSection('Mileage')">Kilometrówka</span>
+            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Diet' }" ng-click="vm.toggleSection('Diet')">Dieta</span>
+        </div>
+    </div>
+    <div class="v-spacer v-spacer40"></div>
+    <div ng-include="'wwwroot/report/expenses.template.html'" ng-show="vm.visibleSection == 'Expenses'"></div>
+    <div ng-include="'wwwroot/report/mileage.template.html'" ng-show="vm.visibleSection == 'Mileage'"></div>
+    <div ng-include="'wwwroot/report/diet.template.html'" ng-show="vm.visibleSection == 'Diet'"></div>
+    
+
+    <div class="v-spacer v-spacer60"></div>
+    <!--podsumowanie-->
+    <div class="row">
+        <div class="ten columns offset-by-one">
+            <h2 class="section section-3">Podsumowanie</h2>
+
+            <span class="total-counter">
+                0 PLN
+            </span>
+        </div>
+    </div>
+
+    <div class="v-spacer v-spacer60"></div>
+    <!--przyciski-->
+    <div class="row">
+        <div class="five columns offset-by-one text-right">
+            <a class="button button-primary" ui-sref="landing">Zapisz</a>
+        </div>
+        <div class="five columns">
+            <a class="button" ui-sref="landing">Anuluj</a>
+        </div>
+    </div>
+</div>

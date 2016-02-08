@@ -1,0 +1,40 @@
+﻿<div class="container text-center">
+    <div class="row">
+        <div class="twelve columns">
+            <h1>Moje Raporty</h1>
+
+            <div class="v-spacer v-spacer30"></div>
+            <div class="spinner-circular" ng-show="!vm.reports()"></div>
+
+
+            <p ng-show="vm.reports() && vm.reports().length == 0" class="dimmed">Dodaj swój pierwszy raport, uporządkuj swoje delegacje i sprawnie rozlicz faktury!</p>
+
+
+            <table class="u-full-width" ng-show="vm.reports() && vm.reports().length > 0">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Nazwa</th>
+                        <th>Powód</th>
+                        <th>Cel</th>
+                        <th>Kwota</th>
+                        <th>Komentarz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in vm.reports()">
+                        <td>{{r.Date}}</td>
+                        <td>{{r.Title}}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{r.AmountTotal}}</td>
+                        <td>{{r.Note}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="v-spacer v-spacer30"></div>
+            <a class="button button-primary" ui-sref="report-new">Dodaj Nowy</a>
+        </div> 
+    </div>
+</div>

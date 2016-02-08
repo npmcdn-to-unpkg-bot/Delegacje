@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/index.css",
+    "inputFile": "wwwroot/css/index.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-totalCounter.css",
+    "inputFile": "wwwroot/css/module/m-totalCounter.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-tables.css",
+    "inputFile": "wwwroot/css/module/m-tables.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-spacers.css",
+    "inputFile": "wwwroot/css/module/m-spacers.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-loginForm.css",
+    "inputFile": "wwwroot/css/module/m-loginForm.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-form.css",
+    "inputFile": "wwwroot/css/module/m-form.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-containers.css",
+    "inputFile": "wwwroot/css/module/m-containers.less"
+  },
+  {
+    "outputFile": "wwwroot/css/theme/themes.css",
+    "inputFile": "wwwroot/css/theme/themes.less"
+  },
+  {
+    "outputFile": "wwwroot/css/layout/l-index.css",
+    "inputFile": "wwwroot/css/layout/l-index.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-spinners.css",
+    "inputFile": "wwwroot/css/module/m-spinners.less"
+  }
+]

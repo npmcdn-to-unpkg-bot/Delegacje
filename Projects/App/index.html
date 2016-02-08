@@ -1,20 +1,42 @@
 ﻿<!DOCTYPE html>
-<html>
-    <head>
-        <title>Delegacje</title>
-        
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-        <link href="less/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div id="applicationHost">
-            <div class="splash">
-            </div>
-        </div>
+    <title>Delegacje</title>
 
-        <script src="lib/require/require.js" data-main="app/main"></script>
-    </body>
+    <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="wwwroot/lib/angular-toastr/dist/angular-toastr.css" rel="stylesheet" />
+    <link href="wwwroot/lib/skeleton/css/skeleton.css" rel="stylesheet" />
+    <link href="wwwroot/css/index.css" rel="stylesheet" />
+</head>
+
+<body class="theme-1">
+    <div>
+        <div ng-class="{ 'toast': flash, 'green': flash.type === 'success', 'red': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+        <div ui-view></div>
+    </div>
+
+    <script src="wwwroot/lib/angular/angular.js"></script>
+    <script src="wwwroot/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="wwwroot/lib/angular-smart-table/dist/smart-table.js"></script>
+    <script src="wwwroot/lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="wwwroot/lib/ngstorage/ngstorage.min.js"></script>
+
+    <script src="wwwroot/app.module.js"></script>
+    <script src="wwwroot/app.config.js"></script>
+    <script src="wwwroot/app.constants.js"></script>
+
+    <script src="wwwroot/authentication/authentication.service.js"></script>
+
+    <script src="wwwroot/dictionaries/dictionaries.service.js"></script>
+
+    <script src="wwwroot/system/http.interceptor.js"></script>
+    <script src="wwwroot/system/landing.controller.js"></script>
+
+    <script src="wwwroot/report/userReports.service.js"></script>
+    <script src="wwwroot/report/report.controller.js"></script>
+</body>
 </html>

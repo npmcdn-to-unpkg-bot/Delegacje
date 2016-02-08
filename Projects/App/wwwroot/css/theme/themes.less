@@ -1,0 +1,40 @@
+﻿/*@font-face
+{
+    font-family: 'DidactGothic';
+    src: url('../fonts/DidactGothic.ttf');
+}
+
+@fontFamily: 'DidactGothic';*/
+
+@color: #333;
+@color-accent: #08c;
+@color-contrast: #fff;
+
+@bg-light: #fff;
+@bg-dark: #EEEEEE;
+@bg-darker: darken(@bg-dark, 20%);
+@bg-shadow: darken(@bg-darker, 20%);
+
+@mainBgUrl: url('../img/bg_main.jpg');
+
+//////////////////////////////////////////////////////
+// THEME BUILDING
+.themeDefs(1) {
+    //default theme, no changes here
+}
+
+@numberOfThemes: 1; //controls theme loop
+
+.buildThemes(@index) when (@index < @numberOfThemes + 1) {
+    .theme-@{index} {
+     //   color: @color;
+     //   background: url('../img/bg_main.jpg') no-repeat  center center fixed;
+     //   background-size: cover;
+        
+    }
+
+    .buildThemes(@index + 1);
+}
+//stop loop
+.buildThemes(@index) {}
+.buildThemes(1);

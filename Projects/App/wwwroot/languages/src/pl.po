@@ -1,0 +1,62 @@
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /templates/login/login.html
+msgid "Sign In"
+msgstr "Zaloguj"
+
+#. Label for username text box
+msgid "Username"
+msgstr "Login"
+
+#. Label for password text box
+msgid "Password"
+msgstr "Hasło"
+
+#. Security label above 'public/shared computer' and 'private computer'
+msgid "Security"
+msgstr "Bezpieczeństwo"
+
+#. As in you are currently using a public computer (e.g. in an Internet cafe/at the airport)
+msgid "Public or shared computer"
+msgstr "Komputer publiczny lub współużytkowany"
+
+#. As in you are currently using a private computer
+msgid "Private computer"
+msgstr "Komputer prywatny"
+
+#. Tenant is the name of the company providing this service
+msgid "Don't have a login? Contact your representative and request one."
+msgstr "Nie masz konta? Skontaktuj się z przedstawicielem {{tenant}} i poproś o rejestrację."
+
+#: /userDetails/templates/supplierData.html
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Company"
+msgstr "Grupa"
+
+#: /layout/sideMenu-{size}.html
+msgid "Home"
+msgstr "Strona główna"
+
+msgid "New Quotes"
+msgstr "Nowe wyceny"
+
+msgid "Latest New Quotes"
+msgstr "Najnowsze nowe wyceny"
+
+msgid "Open Quotes"
+msgstr "Otwarte wyceny"
+
+msgid "Latest Open Quotes"
+msgstr "Najnowsze otwarte wyceny"
+
+msgid "Sign Out"
+msgstr "Wyloguj"
+
+msgid "View All"
+msgstr "Pokaż wszystko"

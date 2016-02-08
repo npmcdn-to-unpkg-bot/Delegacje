@@ -1,0 +1,62 @@
+﻿"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /templates/login/login.html
+msgid "Sign In"
+msgstr ""
+
+#. Label for username text box
+msgid "Username"
+msgstr ""
+
+#. Label for password text box
+msgid "Password"
+msgstr ""
+
+#. Security label above 'public/shared computer' and 'private computer'
+msgid "Security"
+msgstr ""
+
+#. As in you are currently using a public computer (e.g. in an Internet cafe/at the airport)
+msgid "Public or shared computer"
+msgstr ""
+
+#. As in you are currently using a private computer
+msgid "Private computer"
+msgstr ""
+
+#. Tenant is the name of the company providing this service
+msgid "Don't have a login? Contact your {{tenant}} representative and request one."
+msgstr ""
+
+#: /userDetails/templates/supplierData.html
+msgid "Name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+#: /layout/sideMenu-{size}.html
+msgid "Home"
+msgstr ""
+
+msgid "New Quotes"
+msgstr ""
+
+msgid "Latest New Quotes"
+msgstr ""
+
+msgid "Open Quotes"
+msgstr ""
+
+msgid "Latest Open Quotes"
+msgstr ""
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View All"
+msgstr ""

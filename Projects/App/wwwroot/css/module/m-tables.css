@@ -1,0 +1,21 @@
+﻿table {
+  border: 1px solid #B7BBC7;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+th,
+td {
+  border-bottom: none;
+  text-transform: uppercase;
+}
+td {
+  padding: 1px 4px;
+}
+th {
+  padding: 18px 4px;
+}
+tr:last-child td {
+  padding-bottom: 30px;
+}

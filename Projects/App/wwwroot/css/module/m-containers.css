@@ -1,0 +1,23 @@
+﻿.login-form-container {
+  padding: 10px;
+}
+.details-switch-container {
+  display: inline-block;
+  width: 200px;
+  background-color: #F8F8FB;
+  border: 1px solid #EDEEF2;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: smaller;
+  margin: 0 6px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.details-switch-container.active {
+  border-color: #75A6E1;
+  border-width: 4px;
+  margin: 0 2px;
+}

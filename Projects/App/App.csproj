@@ -246,98 +246,72 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\main.js" />
-    <Content Include="app\services\dictionaries.js" />
-    <Content Include="app\factories\mileageAllowanceFactory.js" />
-    <Content Include="app\factories\expensesFactory.js" />
-    <Content Include="app\factories\reportFactory.js" />
-    <Content Include="app\services\api.js" />
-    <Content Include="app\services\urls.js" />
-    <Content Include="app\services\localStorage.js" />
-    <Content Include="app\views\modals\expense.html" />
-    <Content Include="app\views\modals\expense.js">
-      <DependentUpon>expense.html</DependentUpon>
+    <Content Include="wwwroot\css\img\spinner-circular.gif" />
+    <Content Include="wwwroot\css\index.css">
+      <DependentUpon>index.less</DependentUpon>
     </Content>
-    <Content Include="app\views\report.html" />
-    <Content Include="app\views\report.js">
-      <DependentUpon>report.html</DependentUpon>
+    <Content Include="wwwroot\css\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
     </Content>
-    <Content Include="app\views\reportsList.html" />
-    <Content Include="app\views\reportsList.js">
-      <DependentUpon>reportsList.html</DependentUpon>
+    <Content Include="wwwroot\css\layout\l-index.css">
+      <DependentUpon>l-index.less</DependentUpon>
     </Content>
-    <Content Include="app\views\shell.html" />
-    <Content Include="app\views\shell.js">
-      <DependentUpon>shell.html</DependentUpon>
+    <Content Include="wwwroot\css\layout\l-index.min.css">
+      <DependentUpon>l-index.css</DependentUpon>
     </Content>
-    <Content Include="app\views\top_navigation_bar.html" />
-    <Content Include="app\views\top_navigation_bar.js">
-      <DependentUpon>top_navigation_bar.html</DependentUpon>
+    <Content Include="wwwroot\css\module\m-containers.css">
+      <DependentUpon>m-containers.less</DependentUpon>
     </Content>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Global.asax" />
-    <Content Include="Index.html" />
-    <Content Include="less\Base\base.css">
-      <DependentUpon>base.less</DependentUpon>
+    <Content Include="wwwroot\css\module\m-containers.min.css">
+      <DependentUpon>m-containers.css</DependentUpon>
     </Content>
-    <Content Include="less\Base\base.min.css">
-      <DependentUpon>base.css</DependentUpon>
-    </Content>
-    <Content Include="less\Layout\l-shell.css">
-      <DependentUpon>l-shell.less</DependentUpon>
-    </Content>
-    <Content Include="less\Layout\l-shell.min.css">
-      <DependentUpon>l-shell.css</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-footer.css">
-      <DependentUpon>m-footer.less</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-footer.min.css">
-      <DependentUpon>m-footer.css</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-form.css">
+    <Content Include="wwwroot\css\module\m-form.css">
       <DependentUpon>m-form.less</DependentUpon>
     </Content>
-    <Content Include="less\Module\m-form.min.css">
+    <Content Include="wwwroot\css\module\m-form.min.css">
       <DependentUpon>m-form.css</DependentUpon>
     </Content>
-    <Content Include="less\Module\m-navbar.css">
-      <DependentUpon>m-navbar.less</DependentUpon>
+    <Content Include="wwwroot\css\module\m-loginForm.css">
+      <DependentUpon>m-loginForm.less</DependentUpon>
     </Content>
-    <Content Include="less\Module\m-navbar.min.css">
-      <DependentUpon>m-navbar.css</DependentUpon>
+    <Content Include="wwwroot\css\module\m-loginForm.min.css">
+      <DependentUpon>m-loginForm.css</DependentUpon>
     </Content>
-    <Content Include="less\styles.css">
-      <DependentUpon>styles.less</DependentUpon>
+    <Content Include="wwwroot\css\module\m-spacers.css">
+      <DependentUpon>m-spacers.less</DependentUpon>
     </Content>
-    <Content Include="less\styles.min.css">
-      <DependentUpon>styles.css</DependentUpon>
+    <Content Include="wwwroot\css\module\m-spacers.min.css">
+      <DependentUpon>m-spacers.css</DependentUpon>
     </Content>
-    <Content Include="less\VendorCss\durandal.css" />
-    <Content Include="lib\durandal\js\activator.js" />
-    <Content Include="lib\durandal\js\app.js" />
-    <Content Include="lib\durandal\js\binder.js" />
-    <Content Include="lib\durandal\js\composition.js" />
-    <Content Include="lib\durandal\js\events.js" />
-    <Content Include="lib\durandal\js\plugins\dialog.js" />
-    <Content Include="lib\durandal\js\plugins\history.js" />
-    <Content Include="lib\durandal\js\plugins\http.js" />
-    <Content Include="lib\durandal\js\plugins\observable.js" />
-    <Content Include="lib\durandal\js\plugins\router.js" />
-    <Content Include="lib\durandal\js\plugins\serializer.js" />
-    <Content Include="lib\durandal\js\plugins\widget.js" />
-    <Content Include="lib\durandal\js\system.js" />
-    <Content Include="lib\durandal\js\transitions\entrance.js" />
-    <Content Include="lib\durandal\js\viewEngine.js" />
-    <Content Include="lib\durandal\js\viewLocator.js" />
-    <Content Include="lib\jquery\jquery-1.9.1.js" />
-    <Content Include="lib\knockout\knockout-3.1.0.js" />
-    <Content Include="lib\knockout\mapping.js" />
-    <Content Include="lib\require\almond-custom.js" />
-    <Content Include="lib\require\r.js" />
-    <Content Include="lib\require\require.js" />
-    <Content Include="lib\require\text.js" />
-    <Content Include="less\VendorCss\skeleton.css" />
+    <Content Include="wwwroot\css\module\m-spinners.css">
+      <DependentUpon>m-spinners.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-spinners.min.css">
+      <DependentUpon>m-spinners.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-tables.css">
+      <DependentUpon>m-tables.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-tables.min.css">
+      <DependentUpon>m-tables.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-totalCounter.css">
+      <DependentUpon>m-totalCounter.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-totalCounter.min.css">
+      <DependentUpon>m-totalCounter.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\theme\themes.css">
+      <DependentUpon>themes.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\theme\themes.min.css">
+      <DependentUpon>themes.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\factories\mileageAllowanceFactory.js" />
+    <Content Include="wwwroot\factories\expensesFactory.js" />
+    <Content Include="wwwroot\factories\reportFactory.js" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -347,6 +321,72 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="wwwroot\app.config.js" />
+    <Content Include="wwwroot\app.constants.js" />
+    <Content Include="wwwroot\app.module.js" />
+    <Content Include="wwwroot\authentication\authentication.service.js" />
+    <Content Include="wwwroot\authentication\login.controller.js" />
+    <Content Include="wwwroot\authentication\login.template.html" />
+    <Content Include="wwwroot\dictionaries\dictionaries.service.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="index.html" />
+    <Content Include="wwwroot\languages\src\README-LOCALIZATION.txt" />
+    <Content Include="wwwroot\lib\angular-smart-table\dist\smart-table.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\dist\smart-table.min.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\gulpFile.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\index.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\bottom.txt" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\smart-table.module.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stConfig.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stPagination.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stPipe.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stSearch.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stSelectRow.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stSort.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\stTable.js" />
+    <Content Include="wwwroot\lib\angular-smart-table\src\top.txt" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.css" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.js" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.min.css" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.min.js" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.tpls.js" />
+    <Content Include="wwwroot\lib\angular-toastr\dist\angular-toastr.tpls.min.js" />
+    <Content Include="wwwroot\lib\angular-toastr\gulpfile.js" />
+    <Content Include="wwwroot\lib\angular-toastr\index.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\common.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\resolve.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\state.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\stateDirectives.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\stateFilters.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\templateFactory.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\urlMatcherFactory.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\urlRouter.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\view.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\viewDirective.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\src\viewScroll.js" />
+    <Content Include="wwwroot\lib\angular\angular-csp.css" />
+    <Content Include="wwwroot\lib\angular\angular.js" />
+    <Content Include="wwwroot\lib\angular\angular.min.js" />
+    <Content Include="wwwroot\lib\angular\index.js" />
+    <Content Include="wwwroot\lib\ngstorage\ngStorage.js" />
+    <Content Include="wwwroot\lib\ngstorage\ngStorage.min.js" />
+    <Content Include="wwwroot\lib\ngstorage\package.js" />
+    <Content Include="wwwroot\lib\skeleton\css\normalize.css" />
+    <Content Include="wwwroot\lib\skeleton\css\skeleton.css" />
+    <Content Include="wwwroot\lib\skeleton\images\favicon.png" />
+    <Content Include="wwwroot\lib\skeleton\index.html" />
+    <Content Include="wwwroot\report\userReports.service.js" />
+    <Content Include="wwwroot\report\diet.template.html" />
+    <Content Include="wwwroot\report\expenses.template.html" />
+    <Content Include="wwwroot\report\mileage.template.html" />
+    <Content Include="wwwroot\report\report.controller.js" />
+    <Content Include="wwwroot\report\report.template.html" />
+    <Content Include="wwwroot\system\exception.decorator.js" />
+    <Content Include="wwwroot\system\http.interceptor.js" />
+    <Content Include="wwwroot\system\landing.controller.js" />
+    <Content Include="wwwroot\system\landing.html" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -361,30 +401,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="less\styles.less" />
-    <Content Include="less\styles.css.map">
-      <DependentUpon>styles.css</DependentUpon>
-    </Content>
-    <Content Include="less\Base\base.less" />
-    <Content Include="less\Base\base.css.map">
-      <DependentUpon>base.css</DependentUpon>
-    </Content>
-    <Content Include="less\Layout\l-shell.less" />
-    <Content Include="less\Layout\l-shell.css.map">
-      <DependentUpon>l-shell.css</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-navbar.less" />
-    <Content Include="less\Module\m-navbar.css.map">
-      <DependentUpon>m-navbar.css</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-footer.less" />
-    <Content Include="less\Module\m-footer.css.map">
-      <DependentUpon>m-footer.css</DependentUpon>
-    </Content>
-    <Content Include="less\Module\m-form.less" />
-    <Content Include="less\Module\m-form.css.map">
-      <DependentUpon>m-form.css</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -405,13 +421,67 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\swipeapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - Web Deploy.pubxml" />
+    <Content Include="wwwroot\css\index.less" />
+    <Content Include="wwwroot\css\layout\l-index.less" />
+    <Content Include="wwwroot\css\module\m-containers.less" />
+    <Content Include="wwwroot\css\module\m-form.less" />
+    <Content Include="wwwroot\css\module\m-loginForm.less" />
+    <Content Include="wwwroot\css\module\m-spacers.less" />
+    <Content Include="wwwroot\css\module\m-tables.less" />
+    <Content Include="wwwroot\css\module\m-totalCounter.less" />
+    <Content Include="wwwroot\css\theme\themes.less" />
+    <Content Include="wwwroot\languages\.tfignore" />
+    <Content Include="wwwroot\languages\en.json" />
+    <Content Include="wwwroot\languages\pl.json" />
+    <Content Include="wwwroot\languages\src\en.po" />
+    <Content Include="wwwroot\languages\src\ichorsuppliers.pot" />
+    <Content Include="wwwroot\languages\src\pl.po" />
+    <Content Include="wwwroot\lib\angular-smart-table\.bower.json" />
+    <Content Include="wwwroot\lib\angular-smart-table\.travis.yml" />
+    <Content Include="wwwroot\lib\angular-smart-table\bower.json" />
+    <Content Include="wwwroot\lib\angular-smart-table\changeLog.md" />
+    <Content Include="wwwroot\lib\angular-smart-table\dist\smart-table.min.js.map" />
+    <Content Include="wwwroot\lib\angular-smart-table\package.json" />
+    <Content Include="wwwroot\lib\angular-smart-table\readme.md" />
+    <Content Include="wwwroot\lib\angular-toastr\.bower.json" />
+    <Content Include="wwwroot\lib\angular-toastr\.npmignore" />
+    <Content Include="wwwroot\lib\angular-toastr\bower.json" />
+    <Content Include="wwwroot\lib\angular-toastr\CONTRIBUTING.md" />
+    <Content Include="wwwroot\lib\angular-toastr\LICENSE" />
+    <Content Include="wwwroot\lib\angular-toastr\README.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\.bower.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\bower.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\CHANGELOG.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\LICENSE" />
+    <Content Include="wwwroot\lib\angular-ui-router\README.md" />
+    <Content Include="wwwroot\lib\angular\.bower.json" />
+    <Content Include="wwwroot\lib\angular\angular.min.js.gzip" />
+    <Content Include="wwwroot\lib\angular\angular.min.js.map" />
+    <Content Include="wwwroot\lib\angular\bower.json" />
+    <Content Include="wwwroot\lib\angular\package.json" />
+    <Content Include="wwwroot\lib\angular\README.md" />
+    <Content Include="wwwroot\lib\ngstorage\.bower.json" />
+    <Content Include="wwwroot\lib\ngstorage\.editorconfig" />
+    <Content Include="wwwroot\lib\ngstorage\.gitattributes" />
+    <Content Include="wwwroot\lib\ngstorage\.npmignore" />
+    <Content Include="wwwroot\lib\ngstorage\bower.json" />
+    <Content Include="wwwroot\lib\ngstorage\LICENSE" />
+    <Content Include="wwwroot\lib\ngstorage\README.md" />
+    <Content Include="wwwroot\lib\skeleton\.bower.json" />
+    <Content Include="wwwroot\lib\skeleton\.gitignore" />
+    <Content Include="wwwroot\lib\skeleton\bower.json" />
+    <Content Include="wwwroot\lib\skeleton\LICENSE.md" />
+    <Content Include="wwwroot\lib\skeleton\README.md" />
+    <Content Include="wwwroot\css\module\m-spinners.less" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\views\BusinessTrip\" />
-    <Folder Include="less\Theme\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
