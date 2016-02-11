@@ -76,7 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\AddBusinessTripDTO.cs" />
+    <Compile Include="DTO\BusinessTripDTO.cs" />
     <Compile Include="DTO\BusinessTripSearchItemDTO.cs" />
     <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\ExpenseDTO.cs" />

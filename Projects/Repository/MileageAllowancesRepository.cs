@@ -28,6 +28,11 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		public IEnumerable<MileageAllowance> CreateSet(IEnumerable<MileageAllowance> mileageAllowances)
 		{
 			return this.context.MileageAllowances.AddRange(mileageAllowances);
-		}  
+		}
+
+		public void RemoveSet(IEnumerable<MileageAllowance> mileageAllowances)
+		{
+			this.context.MileageAllowances.RemoveRange(mileageAllowances);
+		}
 	}
 }

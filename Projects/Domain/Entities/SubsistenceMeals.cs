@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Entities
 {
-	public class SubsistenceMeals
+	public class SubsistenceMeal
 	{
 		[Key]
 		public int Id { get; set; }

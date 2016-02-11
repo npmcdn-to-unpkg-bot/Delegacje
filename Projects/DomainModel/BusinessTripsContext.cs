@@ -16,7 +16,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 
 		public DbSet<Subsistence> Subsistences { get; set; }
 
-		public DbSet<SubsistenceMeals> SubsistenceMeals { get; set; }
+		public DbSet<SubsistenceMeal> SubsistenceMeals { get; set; }
 
 		public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<ExpenseType> ExpenseTypes { get; set; }

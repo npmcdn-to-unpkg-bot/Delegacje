@@ -19,7 +19,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 
 		[Route("create")]
 		[HttpPut]
-		public IHttpActionResult CreateBusinessTrip(AddBusinessTripDTO businessTrip)
+		public IHttpActionResult CreateBusinessTrip(BusinessTripDTO businessTrip)
         {
 			try
 			{
@@ -38,6 +38,30 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 				return InternalServerError();
 			}
         }
+
+		[Route("update")]
+		[HttpPost]
+		public IHttpActionResult UpdateBusinessTrip(BusinessTripDTO businessTrip)
+		{
+			try
+			{
+				if (this.ModelState.IsValid)
+				{
+					if (!businessTrip.Id.HasValue)
+						return BadRequest("Brak Id Delegacji");
+					this.tasks.BusinessTripsTasks.UpdateBusinessTrip(businessTrip);
+					return Ok("Delegacja została zaktualizowana");
+				}
+				else
+				{
+					return BadRequest(this.ModelState);
+				}
+			}
+			catch (Exception e)
+			{
+				return InternalServerError();
+			}
+		}
 
         [Route("")]
         [HttpGet]

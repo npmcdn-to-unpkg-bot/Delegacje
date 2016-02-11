@@ -27,7 +27,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		[Required]
 		public DateTime EndDate { get; set; }
 
-		public virtual ICollection<SubsistenceMeals> Meals { get; set; }
+		public virtual ICollection<SubsistenceMeal> Meals { get; set; }
 
 		/// <summary>
 		/// Noclegi

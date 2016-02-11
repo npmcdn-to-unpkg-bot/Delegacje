@@ -25,9 +25,30 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			}
 		}
 
+		public IQueryable<SubsistenceMeal> MealsQueryable
+		{
+			get
+			{
+				return this.context.SubsistenceMeals.AsQueryable<SubsistenceMeal>();
+			}
+		}
+
 		public IEnumerable<Subsistence> CreateSet(IEnumerable<Subsistence> subsistences)
 		{
 			return this.context.Subsistences.AddRange(subsistences);
-		}  
+		}
+
+		public void RemoveSet(IEnumerable<Subsistence> subsistences)
+		{
+			this.context.Subsistences.RemoveRange(subsistences);
+		}
+
+		public void RemoveMealsForSubsistence(int subsistenceId)
+		{
+			List<SubsistenceMeal> meals = this.context.SubsistenceMeals.Where(sm => sm.SubsistenceId == subsistenceId).ToList();
+			this.context.SubsistenceMeals.RemoveRange(meals);
+		}
+
+
 	}
 }

@@ -34,5 +34,10 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		{
 			return this.context.Expenses.AddRange(expenses);
 		}       
+
+		public void RemoveSet(IEnumerable<Expense> expenses)
+		{
+			this.context.Expenses.RemoveRange(expenses);
+		}
 	}
 }
