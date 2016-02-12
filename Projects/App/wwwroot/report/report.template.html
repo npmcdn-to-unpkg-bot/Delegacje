@@ -3,7 +3,7 @@
         <div class="twelve columns text-center">
             <h1>Moje Raporty</h1>
 
-            <p>01/02/2016</p>
+            <p>{{vm.Report.Date}}</p>
         </div>
     </div>
 
@@ -19,15 +19,15 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Nazwa Raportu</span>
-                <input type="text" />
+                <input type="text" maxlength="100" ng-model="vm.Report.Title" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Powód Podróży</span>
-                <input type="text" />
+                <input type="text" maxlength="100" ng-model="vm.Report.BusinessReason" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Cel Podróży</span>
-                <input type="text" />
+                <input type="text" maxlength="100" ng-model="vm.Report.BusinessPurpose" />
             </div>
         </div>
         <div class="five columns text-center">
@@ -36,7 +36,7 @@
                     Komentarz
                 </span>
 
-                <textarea></textarea>
+                <textarea ng-trim="false" maxlength="255" ng-model="vm.Report.Notes"></textarea>
             </div>
         </div>
     </div>

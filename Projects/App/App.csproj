@@ -307,9 +307,6 @@
     <Content Include="wwwroot\css\theme\themes.min.css">
       <DependentUpon>themes.css</DependentUpon>
     </Content>
-    <Content Include="wwwroot\factories\mileageAllowanceFactory.js" />
-    <Content Include="wwwroot\factories\expensesFactory.js" />
-    <Content Include="wwwroot\factories\reportFactory.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -377,6 +374,7 @@
     <Content Include="wwwroot\lib\skeleton\css\skeleton.css" />
     <Content Include="wwwroot\lib\skeleton\images\favicon.png" />
     <Content Include="wwwroot\lib\skeleton\index.html" />
+    <Content Include="wwwroot\report\userReportsFactory.service.js" />
     <Content Include="wwwroot\report\userReports.service.js" />
     <Content Include="wwwroot\report\diet.template.html" />
     <Content Include="wwwroot\report\expenses.template.html" />

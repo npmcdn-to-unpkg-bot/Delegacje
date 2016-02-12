@@ -27,7 +27,5 @@
                     reports = response.data;
                 });
         }
-
-        reload();
     }
 })();

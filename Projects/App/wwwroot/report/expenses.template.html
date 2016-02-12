@@ -3,37 +3,37 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Kategoria</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.Type" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.Date" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Państwo</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.Country"  />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Miasto</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.City" />
             </div>
         </div>
         <div class="five columns">
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.Amount" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Dokument</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.Document" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Stawka VAT</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.NewExpense.VATRate" />
             </div>
             <div class="form-line">
-                <span class="form-row-label">Nie Zwracaj</span>
-                <input type="text" />
+                <span class="form-row-label"">Nie Zwracaj</span>
+                <input type="text" ng-model="vm.NewExpense.DoNotReturn" />
             </div>
         </div>
     </div>
@@ -44,13 +44,13 @@
                     Komentarz
                 </span>
 
-                <textarea></textarea>
+                <textarea ng-trim="false" maxlength="255" ng-model="vm.NewExpense.Notes"></textarea>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <a class="button button-primary">Dodaj</a>
+            <a class="button button-primary" ng-click="vm.AddExpenseToReport()">Dodaj</a>
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>
@@ -67,10 +67,22 @@
                         <th>Dokument</th>
                         <th>Nie Zwracaj</th>
                         <th>Komentarz</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    <tr ng-repeat="r in vm.Report.Expenses">
+                        <td>{{r.Date}}</td>
+                        <td>{{r.Type}}</td>
+                        <td>{{r.City}}</td>
+                        <td>{{r.Amount}}</td>
+                        <td>{{r.Document}}</td>
+                        <td>{{r.DoNotReturn}}</td>
+                        <td>{{r.Notes}}</td>
+                        <td>
+                            <a ng-click="vm.RemoveExpense(r)">Usuń</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 		</div>

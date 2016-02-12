@@ -3,19 +3,19 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.Report.MileageAllowance.Date" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Typ Pojazdu</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.Report.MileageAllowance.Type" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Dystans</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.Report.MileageAllowance.Distance" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <input type="text" />
+                <input type="text" ng-model="vm.Report.MileageAllowance.Amount" />
             </div>
         </div>
         <div class="five columns text-center">
@@ -24,11 +24,11 @@
                     Komentarz
                 </span>
 
-                <textarea></textarea>
+                <textarea ng-trim="false" maxlength="255" ng-model="vm.Report.MileageAllowance.Notes"></textarea>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="ten columns offset-by-one text-right">
             <a class="button button-primary">Dodaj</a>
         </div>
@@ -52,5 +52,5 @@
                 </tbody>
             </table>
 		</div>
-	</div>
+	</div>-->
 </div>
