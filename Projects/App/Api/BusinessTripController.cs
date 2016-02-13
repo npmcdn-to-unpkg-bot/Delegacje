@@ -69,5 +69,14 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         {
             return tasks.BusinessTripsTasks.GetForUser(1);
         }
+		
+		[Route("{businessTripId:int}")]
+		[HttpDelete]
+		public IHttpActionResult Remove(int businessTripId)
+		{
+			//TODO autoryzacja, user moze usuwac tylko wlasne delegacje
+			tasks.BusinessTripsTasks.DeleteBusinessTrip(businessTripId);
+			return Ok("Delegacja usunięta");
+		}
     }
 }

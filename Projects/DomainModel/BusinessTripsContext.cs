@@ -39,7 +39,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 			modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
 			modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
 
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
         }
 
         public static BusinessTripsContext Create()

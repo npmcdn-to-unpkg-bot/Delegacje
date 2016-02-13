@@ -270,5 +270,11 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				}
 			}
 		}
+		
+		public void DeleteBusinessTrip(int businessTripId)
+		{
+			this.repo.BusinessTrips.Remove(businessTripId);
+			this.repo.SaveChanges();
+		}
 	}
 }
