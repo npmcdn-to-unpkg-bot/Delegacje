@@ -21,13 +21,13 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Miasto</span>
-                <input type="text" ng-model="vm.NewExpense.City" />
+                <input type="text" ng-model="vm.NewExpense.City" maxlength="255" />
             </div>
         </div>
         <div class="five columns">
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <input type="text" ng-model="vm.NewExpense.Amount" />
+                <input type="text" ng-model="vm.NewExpense.Amount" numeric min="0" maxlength="10" decimals="2" />
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label">Dokument</span>

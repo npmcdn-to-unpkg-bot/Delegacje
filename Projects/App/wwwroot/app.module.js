@@ -6,6 +6,7 @@ angular.module('app', [
     'ngStorage',
     'ngAnimate',
     'ngDropdowns',
+    'purplefox.numeric',
 
     // Custom modules
 
