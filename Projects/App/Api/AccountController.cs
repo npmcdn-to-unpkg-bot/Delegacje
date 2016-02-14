@@ -14,7 +14,7 @@ using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 namespace CrazyAppsStudio.Delegacje.App.Controllers
 {
     [Authorize]
-    [RoutePrefix("Account")]
+    [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -315,7 +315,7 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
 
         // POST api/Account/Register
 		[AllowAnonymous]
-		[Route("Register")]
+		[Route("register")]
 		public async Task<IHttpActionResult> Register(RegisterBindingModel model)
 		{
 			if (!ModelState.IsValid)

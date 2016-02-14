@@ -246,6 +246,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\authentication\register.controller.js" />
+    <Content Include="wwwroot\authentication\register.template.html" />
     <Content Include="wwwroot\css\img\spinner-circular.gif" />
     <Content Include="wwwroot\css\index.css">
       <DependentUpon>index.less</DependentUpon>
