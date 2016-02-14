@@ -10,7 +10,8 @@
     function userReportsFactoryService($http) {
         var service = {
             getReport: getReport,
-            getExpense: getExpense
+            getExpense: getExpense,
+            getMileage: getMileage
         };
         return service;
 
@@ -24,12 +25,12 @@
             bt.Notes = '';
             bt.UserId = null;
             bt.Expenses = [];
-            bt.MileageAllowance = getMileageAllowance();
+            bt.MileageAllowances = [];
             bt.Subsistences = null;
             return bt;
         }
 
-        function getMileageAllowance() {
+        function getMileage() {
             var ma = {};
 
             ma.Type = '';

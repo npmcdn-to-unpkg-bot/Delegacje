@@ -3,22 +3,22 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <input type="text" ng-model="vm.Report.MileageAllowance.Date" />
+                <input type="text" ng-model="vm.NewMileage.Date" />
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label-two-line"">Typ Pojazdu</span>
                 <div dropdown-select="vm.Dictionaries.VehicleTypes"
-                     dropdown-model="vm.MileageAllowance.Type"
+                     dropdown-model="vm.NewMileage.Type"
                      dropdown-item-label="Name">
                 </div>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Dystans</span>
-                <input type="text" ng-model="vm.Report.MileageAllowance.Distance" numeric min="0" maxlength="10" decimals="0" />
+                <input type="text" ng-model="vm.NewMileage.Distance" numeric min="0" maxlength="10" decimals="0" />
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <input type="text" ng-model="vm.Report.MileageAllowance.Amount" numeric min="0" maxlength="10" decimals="2" />
+                <input type="text" ng-model="vm.NewMileage.Amount" numeric min="0" maxlength="10" decimals="2" />
             </div>
         </div>
         <div class="five columns text-center">
@@ -27,13 +27,13 @@
                     Komentarz
                 </span>
 
-                <textarea ng-trim="false" maxlength="255" ng-model="vm.Report.MileageAllowance.Notes"></textarea>
+                <textarea ng-trim="false" maxlength="255" ng-model="vm.NewMileage.Notes"></textarea>
             </div>
         </div>
     </div>
-    <!--<div class="row">
+    <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <a class="button button-primary">Dodaj</a>
+            <a class="button button-primary" ng-click="vm.AddMileageToReport()">Dodaj</a>
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>
@@ -51,9 +51,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    <tr ng-repeat="m in vm.Report.MileageAllowances">
+                        <td>{{m.Date}}</td>
+                        <td>{{m.Type}}</td>
+                        <td>{{m.Distance}}</td>
+                        <td>{{m.Amount}}</td>
+                        <td>{{m.Notes}}</td>
+                        <td>
+                            <a ng-click="vm.RemoveMileage(m)">Usuń</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 		</div>
-	</div>-->
+	</div>
 </div>

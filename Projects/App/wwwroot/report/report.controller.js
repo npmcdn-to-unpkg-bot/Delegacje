@@ -13,38 +13,6 @@
         vm.Dictionaries = dictionariesService;
         vm.Report = userReportsFactoryService.getReport();
 
-        vm.ddSelectOptions = [
-        {
-            text: 'Option1',
-            value: 'a value'
-        },
-        {
-            text: 'Option2',
-            value: 'another value',
-            someprop: 'somevalue'
-        },
-        {
-            // Any option with divider set to true will be a divider
-            // in the menu and cannot be selected.
-            divider: true
-        },
-        {
-            // Any divider option with a 'text' property will
-            // behave similarly to a divider and cannot be selected.
-            divider: true,
-            text: 'divider label'
-        },
-        {
-            // Example of an option with the 'href' property
-            text: 'Option4',
-            href: '#option4'
-        }
-        ];
-
-
-        //dropdown values
-        vm.SelectedCountry = '-';
-
         //expenses
         vm.NewExpense = userReportsFactoryService.getExpense();
         vm.AddExpenseToReport = function () {
@@ -59,6 +27,22 @@
                 }
             }
         };
+
+        //mileages
+        vm.NewMileage = userReportsFactoryService.getMileage();
+        vm.AddMileageToReport = function () {
+            vm.Report.MileageAllowances.push(vm.NewMileage);
+            vm.NewMileage = userReportsFactoryService.getMileage();
+        }
+        vm.RemoveMileage = function (mileage) {
+            for (var i = 0; i < vm.Report.MileageAllowances.length; i++) {
+                if (vm.Report.MileageAllowances[i] == mileage) {
+                    vm.Report.MileageAllowances.splice(i, 1);
+                    break;
+                }
+            }
+        };
+
 
         //ui switches
         vm.toggleSection = function (section) {
