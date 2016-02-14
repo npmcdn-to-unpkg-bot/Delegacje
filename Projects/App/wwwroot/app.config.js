@@ -18,6 +18,12 @@
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
+			.state('register', {
+				url: '/register',
+				templateUrl: 'wwwroot/authentication/register.template.html',
+				controller: 'RegisterController',
+				controllerAs: 'vm'
+			})
             .state('landing', {
                 url: '/landing',
                 controller: 'LandingController',

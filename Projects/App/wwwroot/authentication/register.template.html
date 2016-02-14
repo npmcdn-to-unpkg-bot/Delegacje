@@ -1,0 +1,41 @@
+﻿<div class="row login-form">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card">
+            <form name="form" ng-submit="vm.register()">
+                <div class="card-content">
+                    <span class="card-title black-text hide-on-small-only" data-translate="Register"></span>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi mdi-account prefix"></i>
+                            <input id="email" name="email" type="text" class="validate" autofocus ng-model="vm.registerModel.email" required>
+                            <label for="username" data-error="wrong" data-translate="Username" class="active">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi mdi-keyboard-variant prefix"></i>
+                            <input id="password" name="password" type="password" class="validate" ng-model="vm.registerModel.password" required>
+                            <label for="password" data-translate="Password" class="active">Hasło</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi mdi-keyboard-variant prefix"></i>
+                            <input id="confirmPassword" name="confirmPassword" type="password" class="validate" ng-model="vm.registerModel.confirmPassword" required>
+                            <label for="confirmPassword" data-translate="ConfirmPassword" class="active">Powtórz hasło</label>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="card-action right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                            ng-disabled="form.$invalid || vm.isBusy" data-translate="Register">
+                        Zarejestruj się
+                    </button>
+                </div>
+            </form>
+        </div>        
+    </div>
+</div>
+
+

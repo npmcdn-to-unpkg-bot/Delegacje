@@ -46,6 +46,12 @@ namespace CrazyAppsStudio.Delegacje.Repository
                 new BusinessTripSearchItemDTO() { Id = 5, AmountTotal = 100, Date = DateTime.Now, Note = "Note 5", Title = "Title 5" },
             };
         }
+
+		public void Remove(int businessTripId)
+		{
+			BusinessTrip trip = this.context.BusinessTrips.First(bt => bt.Id == businessTripId);
+			this.context.BusinessTrips.Remove(trip);			
+		}
 	}
 }
 ;
