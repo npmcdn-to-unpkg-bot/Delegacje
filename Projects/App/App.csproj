@@ -240,6 +240,12 @@
     <Content Include="wwwroot\css\module\m-containers.min.css">
       <DependentUpon>m-containers.css</DependentUpon>
     </Content>
+    <Content Include="wwwroot\css\module\m-dropdown.css">
+      <DependentUpon>m-dropdown.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-dropdown.min.css">
+      <DependentUpon>m-dropdown.css</DependentUpon>
+    </Content>
     <Content Include="wwwroot\css\module\m-form.css">
       <DependentUpon>m-form.less</DependentUpon>
     </Content>
@@ -452,6 +458,7 @@
     <Content Include="wwwroot\lib\ngDropdowns\bower.json" />
     <Content Include="wwwroot\lib\ngDropdowns\package.json" />
     <Content Include="wwwroot\lib\ngDropdowns\README.md" />
+    <Content Include="wwwroot\css\module\m-dropdown.less" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
