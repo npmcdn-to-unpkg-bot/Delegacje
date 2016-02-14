@@ -30,7 +30,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\CrazyAppsStudio.Delegacje.App.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>1591</NoWarn>
     <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
@@ -204,34 +205,6 @@
     <Compile Include="ApiBackend\App_Start\FilterConfig.cs" />
     <Compile Include="ApiBackend\App_Start\IdentityConfig.cs" />
     <Compile Include="ApiBackend\App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="ApiBackend\Filters\RequireHttpsAttribute.cs" />
@@ -307,7 +280,6 @@
     <Content Include="wwwroot\css\theme\themes.min.css">
       <DependentUpon>themes.css</DependentUpon>
     </Content>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -327,7 +299,9 @@
     <Content Include="wwwroot\dictionaries\dictionaries.service.js" />
     <Content Include="favicon.ico" />
     <Content Include="index.html" />
-    <Content Include="wwwroot\languages\src\README-LOCALIZATION.txt" />
+    <Content Include="wwwroot\lib\angular-animate\angular-animate.js" />
+    <Content Include="wwwroot\lib\angular-animate\angular-animate.min.js" />
+    <Content Include="wwwroot\lib\angular-animate\index.js" />
     <Content Include="wwwroot\lib\angular-smart-table\dist\smart-table.js" />
     <Content Include="wwwroot\lib\angular-smart-table\dist\smart-table.min.js" />
     <Content Include="wwwroot\lib\angular-smart-table\gulpFile.js" />
@@ -367,6 +341,13 @@
     <Content Include="wwwroot\lib\angular\angular.js" />
     <Content Include="wwwroot\lib\angular\angular.min.js" />
     <Content Include="wwwroot\lib\angular\index.js" />
+    <Content Include="wwwroot\lib\ngDropdowns\angular-dropdowns.css" />
+    <Content Include="wwwroot\lib\ngDropdowns\angular-dropdowns.js" />
+    <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.css" />
+    <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.js" />
+    <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.css" />
+    <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.js" />
+    <Content Include="wwwroot\lib\ngDropdowns\gulpfile.js" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.js" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.min.js" />
     <Content Include="wwwroot\lib\ngstorage\package.js" />
@@ -399,30 +380,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\delegacje-dev - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\delegacje-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - Web Deploy.pubxml" />
     <Content Include="wwwroot\css\index.less" />
@@ -434,13 +399,9 @@
     <Content Include="wwwroot\css\module\m-tables.less" />
     <Content Include="wwwroot\css\module\m-totalCounter.less" />
     <Content Include="wwwroot\css\theme\themes.less" />
-    <Content Include="wwwroot\languages\.tfignore" />
-    <Content Include="wwwroot\languages\en.json" />
-    <Content Include="wwwroot\languages\pl.json" />
-    <Content Include="wwwroot\languages\src\en.po" />
-    <Content Include="wwwroot\languages\src\ichorsuppliers.pot" />
-    <Content Include="wwwroot\languages\src\pl.po" />
+    <Content Include="wwwroot\css\module\m-spinners.less" />
     <Content Include="wwwroot\lib\angular-smart-table\.bower.json" />
+    <Content Include="wwwroot\lib\angular-smart-table\.gitignore" />
     <Content Include="wwwroot\lib\angular-smart-table\.travis.yml" />
     <Content Include="wwwroot\lib\angular-smart-table\bower.json" />
     <Content Include="wwwroot\lib\angular-smart-table\changeLog.md" />
@@ -477,7 +438,18 @@
     <Content Include="wwwroot\lib\skeleton\bower.json" />
     <Content Include="wwwroot\lib\skeleton\LICENSE.md" />
     <Content Include="wwwroot\lib\skeleton\README.md" />
-    <Content Include="wwwroot\css\module\m-spinners.less" />
+    <Content Include="wwwroot\lib\angular-animate\.bower.json" />
+    <Content Include="wwwroot\lib\angular-animate\angular-animate.min.js.map" />
+    <Content Include="wwwroot\lib\angular-animate\bower.json" />
+    <Content Include="wwwroot\lib\angular-animate\package.json" />
+    <Content Include="wwwroot\lib\angular-animate\README.md" />
+    <Content Include="wwwroot\lib\ngDropdowns\.bower.json" />
+    <Content Include="wwwroot\lib\ngDropdowns\.editorconfig" />
+    <Content Include="wwwroot\lib\ngDropdowns\.gitignore" />
+    <Content Include="wwwroot\lib\ngDropdowns\.jshintrc" />
+    <Content Include="wwwroot\lib\ngDropdowns\bower.json" />
+    <Content Include="wwwroot\lib\ngDropdowns\package.json" />
+    <Content Include="wwwroot\lib\ngDropdowns\README.md" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -4,6 +4,8 @@ angular.module('app', [
     // Angular modules
     'ui.router',
     'ngStorage',
+    'ngAnimate',
+    'ngDropdowns',
 
     // Custom modules
 
