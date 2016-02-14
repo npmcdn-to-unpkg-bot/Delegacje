@@ -38,5 +38,9 @@
   {
     "outputFile": "wwwroot/css/module/m-spinners.css",
     "inputFile": "wwwroot/css/module/m-spinners.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-dropdown.css",
+    "inputFile": "wwwroot/css/module/m-dropdown.less"
   }
 ]

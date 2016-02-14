@@ -7,11 +7,6 @@
         </div>
     </div>
 
-    <div dropdown-select="vm.Dictionaries.Countries"
-         dropdown-model="vm.SelectedCountry"
-         dropdown-item-label="Name">
-    </div>
-
     <div class="v-spacer v-spacer40"></div>
     <!--identyfikator raportu-->
     <div class="row">
@@ -23,20 +18,20 @@
     <div class="row">
         <div class="five columns offset-by-one">
             <div class="form-line">
-                <span class="form-row-label">Nazwa Raportu</span>
+                <span class="form-row-label-two-line">Nazwa Raportu</span>
                 <input type="text" maxlength="100" ng-model="vm.Report.Title" />
             </div>
             <div class="form-line">
-                <span class="form-row-label">Powód Podróży</span>
+                <span class="form-row-label-two-line"">Powód Podróży</span>
                 <input type="text" maxlength="100" ng-model="vm.Report.BusinessReason" />
             </div>
             <div class="form-line">
-                <span class="form-row-label">Cel Podróży</span>
+                <span class="form-row-label-two-line"">Cel Podróży</span>
                 <input type="text" maxlength="100" ng-model="vm.Report.BusinessPurpose" />
             </div>
         </div>
         <div class="five columns text-center">
-            <div class="form-line form-textarea-container">
+            <div class="form-line-textarea form-textarea-container">
                 <span class="form-textarea-header">
                     Komentarz
                 </span>

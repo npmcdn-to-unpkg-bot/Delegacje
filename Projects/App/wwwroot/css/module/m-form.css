@@ -1,15 +1,32 @@
 ﻿.form-line {
   display: block;
   margin-bottom: 4px;
+  height: 53px;
   overflow: auto;
 }
-.form-row-label {
+.form-line-textarea {
+  display: block;
+  margin-bottom: 4px;
+  overflow: auto;
+}
+.form-line-dropdown {
+  display: block;
+  margin-bottom: 4px;
+  height: 53px;
+}
+.form-row-label,
+.form-row-label-two-line {
   display: block;
   float: left;
   width: 80px;
   text-align: center;
   text-transform: uppercase;
   line-height: 16px;
+}
+.form-row-label {
+  padding-top: 11px;
+}
+.form-row-label-two-line {
   padding-top: 3px;
 }
 .form-textarea-header {
@@ -25,15 +42,23 @@
 .form-line input[type=text] {
   display: block;
   margin-left: 100px;
+  width: 200px;
+}
+.form-line input[type=checkbox] {
+  margin-left: 20px;
+  margin-top: 13px;
+  cursor: pointer;
 }
 .form-textarea-container {
   padding: 10px;
   color: #C7CAD6;
 }
-.form-line textarea {
+.form-line-textarea textarea {
   display: block;
   width: 100%;
   border: none;
   resize: none;
   height: 110px;
+  color: #6E768F;
+  font-family: 'Source Sans Pro', sans-serif;
 }

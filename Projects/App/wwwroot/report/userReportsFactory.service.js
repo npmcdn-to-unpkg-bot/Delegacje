@@ -17,11 +17,11 @@
         function getReport() {
             var bt = {};
             bt.Id = null;
-            bt.Title = 'Title';
+            bt.Title = '';
             bt.Date = formatDate(new Date());
-            bt.BusinessReason = 'BusinessReason';
-            bt.BusinessPurpose = 'BusinessPurpose';
-            bt.Notes = 'Notes';
+            bt.BusinessReason = '';
+            bt.BusinessPurpose = '';
+            bt.Notes = '';
             bt.UserId = null;
             bt.Expenses = [];
             bt.MileageAllowance = getMileageAllowance();
@@ -32,11 +32,11 @@
         function getMileageAllowance() {
             var ma = {};
 
-            ma.Type = 'Type';
-            ma.Date = 'Date';
-            ma.Distance = 'Distance';
-            ma.Notes = 'Mileage Notes';
-            ma.Amount = 'Amount';// function () {
+            ma.Type = '';
+            ma.Date = '';
+            ma.Distance = '';
+            ma.Notes = '';
+            ma.Amount = '';// function () {
                 //if (ma.Type == null || ma.Distance == null)
                   //  return '';
 
@@ -47,17 +47,17 @@
 
         function getExpense() {
             var exp = {};
-            exp.Type = 'Type';
-            exp.Date = 'Date';
-            exp.Country = 'Country';
-            exp.City = 'City';
-            exp.Amount = 'Amount';
-            exp.Document = 'Document';
-            exp.VATRate = 'VATRate';
-            exp.DoNotReturn = 'DoNotReturn'
+            exp.Type = '';
+            exp.Date = '';
+            exp.Country = '';
+            exp.City = '';
+            exp.Amount = '';
+            exp.Document = '';
+            exp.VATRate = '';
+            exp.DoNotReturn = false;
            // exp.CurrencyCode = null;
            // exp.ExchangeRate = null;
-            exp.Notes = 'Expense Notes';
+            exp.Notes = '';
             return exp;
         }
 

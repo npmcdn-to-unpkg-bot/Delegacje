@@ -10,6 +10,10 @@
   font-size: 14px;
   font-weight: normal;
 }
+input {
+  color: #6E768F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 h1 {
   font-size: 24px;
   line-height: 24px;
