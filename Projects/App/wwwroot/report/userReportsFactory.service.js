@@ -33,16 +33,17 @@
         function getMileage() {
             var ma = {};
 
-            ma.Type = '';
+            ma.Type = null;
             ma.Date = '';
             ma.Distance = '';
             ma.Notes = '';
-            ma.Amount = '';// function () {
-                //if (ma.Type == null || ma.Distance == null)
-                  //  return '';
+            ma.Amount = function () {
+                if (ma.Type == null || ma.Distance == '')
+                    return '';
 
-                //return ma.Type.Rate * ma.Distance;
-           // };
+                return ma.Type.Rate * ma.Distance;
+            };
+
             return ma;
         }
 

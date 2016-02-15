@@ -18,7 +18,7 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <input type="text" ng-model="vm.NewMileage.Amount" numeric min="0" maxlength="10" decimals="2" />
+                <span class="form-readonly-value">{{vm.NewMileage.Amount()}}</span>
             </div>
         </div>
         <div class="five columns text-center">
@@ -53,9 +53,9 @@
                 <tbody>
                     <tr ng-repeat="m in vm.Report.MileageAllowances">
                         <td>{{m.Date}}</td>
-                        <td>{{m.Type}}</td>
+                        <td>{{m.Type.Name}}</td>
                         <td>{{m.Distance}}</td>
-                        <td>{{m.Amount}}</td>
+                        <td>{{m.Amount()}}</td>
                         <td>{{m.Notes}}</td>
                         <td>
                             <a ng-click="vm.RemoveMileage(m)">Usuń</a>
