@@ -7,6 +7,7 @@ angular.module('app', [
     'ngAnimate',
     'ngDropdowns',
     'purplefox.numeric',
+    'ngDialog',
 
     // Custom modules
 

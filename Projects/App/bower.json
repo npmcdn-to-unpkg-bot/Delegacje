@@ -1,6 +1,6 @@
 {
-	"name": "ASP.NET",
-	"private": true,
+  "name": "ASP.NET",
+  "private": true,
   "dependencies": {
     "angular": "1.5.0",
     "angular-smart-table": "2.1.7",
@@ -10,6 +10,10 @@
     "angular-numeric-directive": "*",
     "ngDropdowns": "",
     "ngstorage": "0.3.10",
+    "ngDialog": "0.5.7",
     "skeleton": "2.0.4"
+  },
+  "resolutions": {
+    "angular": "^1.0.8"
   }
 }

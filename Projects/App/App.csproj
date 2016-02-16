@@ -362,6 +362,18 @@
     <Content Include="wwwroot\lib\angular\angular.js" />
     <Content Include="wwwroot\lib\angular\angular.min.js" />
     <Content Include="wwwroot\lib\angular\index.js" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog-custom-width.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog-theme-default.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog-theme-default.min.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog-theme-plain.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog-theme-plain.min.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog.css" />
+    <Content Include="wwwroot\lib\ngDialog\css\ngDialog.min.css" />
+    <Content Include="wwwroot\lib\ngDialog\js\ngDialog.js" />
+    <Content Include="wwwroot\lib\ngDialog\js\ngDialog.min.js" />
+    <Content Include="wwwroot\lib\ngDialog\karma.conf.js" />
+    <Content Include="wwwroot\lib\ngDialog\protractor.conf.js" />
+    <Content Include="wwwroot\lib\ngDialog\server.js" />
     <Content Include="wwwroot\lib\ngDropdowns\angular-dropdowns.css" />
     <Content Include="wwwroot\lib\ngDropdowns\angular-dropdowns.js" />
     <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.css" />
@@ -476,6 +488,12 @@
     <Content Include="wwwroot\lib\angular-numeric-directive\bower.json" />
     <Content Include="wwwroot\lib\angular-numeric-directive\package.json" />
     <Content Include="wwwroot\lib\angular-numeric-directive\README.md" />
+    <Content Include="wwwroot\lib\ngDialog\.bower.json" />
+    <Content Include="wwwroot\lib\ngDialog\bower.json" />
+    <Content Include="wwwroot\lib\ngDialog\CHANGELOG.md" />
+    <Content Include="wwwroot\lib\ngDialog\CONTRIBUTING.md" />
+    <Content Include="wwwroot\lib\ngDialog\package.json" />
+    <Content Include="wwwroot\lib\ngDialog\README.md" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
