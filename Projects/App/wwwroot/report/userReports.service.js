@@ -13,7 +13,9 @@
 
         var service = {
             reports: function () { return reports; },
-            reload: reload
+            reload: reload,
+            create: create,
+            remove: remove
         };
         return service;
 
@@ -25,6 +27,29 @@
                 .then(function (response) {
                     console.log(response);
                     reports = response.data;
+                });
+        }
+
+        function create(report) {
+
+            return $http
+                .put('../api/businessTrips/create', report)
+                .then(function (response) {
+                    console.log('Report creted');
+                });
+        }
+
+        function remove(Id) {
+            return $http
+                .delete('../api/businessTrips/' + Id)
+                .then(function (response) {
+                    for (var i = 0; i < reports.length; i++) {
+                        if (reports[i].Id == Id) {
+                            reports.splice(i, 1);
+                        };
+                    }
+
+                    console.log('Report removed');
                 });
         }
     }

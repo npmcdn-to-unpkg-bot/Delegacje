@@ -18,6 +18,7 @@
                         <th>Powód</th>
                         <th>Cel</th>
                         <th>Komentarz</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,9 @@
                         <td>{{r.Reason}}</td>
                         <td>{{r.Purpose}}</td>
                         <td>{{r.Note}}</td>
+                        <td>
+                            <a href="" ng-click="vm.remove(r)">Usuń</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

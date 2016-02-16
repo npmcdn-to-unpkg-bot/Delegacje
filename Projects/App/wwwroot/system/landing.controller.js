@@ -10,5 +10,8 @@
     function LandingController(userReportsService) {
         var vm = this;
         vm.reports = userReportsService.reports;
+        vm.remove = function (report) {
+            userReportsService.remove(report.Id);
+        }
     }
 })();
