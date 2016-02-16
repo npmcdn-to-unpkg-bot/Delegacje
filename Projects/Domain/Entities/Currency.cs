@@ -17,7 +17,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		/// <summary>
 		/// Exchange rate for 1 PLN
 		/// </summary>
-		public string ExchangeRate { get; set; }
+		public double ExchangeRate { get; set; }
 		[Required]
 		public DateTime DateRefreshed { get; set; }
 	}

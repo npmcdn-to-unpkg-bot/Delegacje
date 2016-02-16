@@ -66,5 +66,10 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		{
 			return this.context.Currencies.AsEnumerable();
 		}
+
+		public void AddCurrencies(IEnumerable<Currency> currencies)
+		{
+			this.context.Currencies.AddRange(currencies);
+		}
     }
 }

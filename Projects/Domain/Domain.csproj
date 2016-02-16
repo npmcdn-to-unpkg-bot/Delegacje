@@ -82,6 +82,7 @@
     <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\ExpenseDTO.cs" />
     <Compile Include="DTO\MileageAllowanceDTO.cs" />
+    <Compile Include="DTO\NBPCurrency.cs" />
     <Compile Include="DTO\SubsistenceDTO.cs" />
     <Compile Include="DTO\SubsistenceMealDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
