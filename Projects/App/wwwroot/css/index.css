@@ -260,6 +260,15 @@ th {
 tr:last-child td {
   padding-bottom: 30px;
 }
+.col50 {
+  width: 50px;
+}
+.col70 {
+  width: 70px;
+}
+.col140 {
+  width: 140px;
+}
 .total-counter {
   color: #73DBB0;
   font-size: 48px;
@@ -292,6 +301,12 @@ tr:last-child td {
 .wrap-dd-select .dropdown {
   border: 1px solid rgba(0, 0, 0, 0.17);
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+}
+.ngdialog-buttons {
+  text-align: right;
+}
+.ngdialog-buttons .button {
+  padding: 0 30px;
 }
 /*themes*/
 /*@font-face

@@ -31,16 +31,17 @@
         }
 
         function create(report) {
-
-            return $http
+            var promise = $http
                 .put('../api/businessTrips/create', report)
                 .then(function (response) {
                     console.log('Report creted');
                 });
+
+            return promise;
         }
 
         function remove(Id) {
-            return $http
+            var promise = $http
                 .delete('../api/businessTrips/' + Id)
                 .then(function (response) {
                     for (var i = 0; i < reports.length; i++) {
@@ -51,6 +52,8 @@
 
                     console.log('Report removed');
                 });
+
+            return promise;
         }
     }
 })();

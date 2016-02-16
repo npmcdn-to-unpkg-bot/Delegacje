@@ -42,5 +42,9 @@
   {
     "outputFile": "wwwroot/css/module/m-dropdown.css",
     "inputFile": "wwwroot/css/module/m-dropdown.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-dialog.css",
+    "inputFile": "wwwroot/css/module/m-dialog.less"
   }
 ]

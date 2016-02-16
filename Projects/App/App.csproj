@@ -388,6 +388,7 @@
     <Content Include="wwwroot\lib\skeleton\css\skeleton.css" />
     <Content Include="wwwroot\lib\skeleton\images\favicon.png" />
     <Content Include="wwwroot\lib\skeleton\index.html" />
+    <Content Include="wwwroot\report\popups\remove.warning.template.html" />
     <Content Include="wwwroot\report\userReportsFactory.service.js" />
     <Content Include="wwwroot\report\userReports.service.js" />
     <Content Include="wwwroot\report\diet.template.html" />
@@ -494,6 +495,7 @@
     <Content Include="wwwroot\lib\ngDialog\CONTRIBUTING.md" />
     <Content Include="wwwroot\lib\ngDialog\package.json" />
     <Content Include="wwwroot\lib\ngDialog\README.md" />
+    <Content Include="wwwroot\report\popups\creating.template.html" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

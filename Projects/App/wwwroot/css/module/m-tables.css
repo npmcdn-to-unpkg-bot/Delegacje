@@ -19,3 +19,12 @@ th {
 tr:last-child td {
   padding-bottom: 30px;
 }
+.col50 {
+  width: 50px;
+}
+.col70 {
+  width: 70px;
+}
+.col140 {
+  width: 140px;
+}

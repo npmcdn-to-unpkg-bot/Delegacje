@@ -13,12 +13,12 @@
             <table class="u-full-width" ng-show="vm.reports() && vm.reports().length > 0">
                 <thead>
                     <tr>
-                        <th>Data</th>
-                        <th>Nazwa</th>
-                        <th>Powód</th>
-                        <th>Cel</th>
+                        <th class="col70">Data</th>
+                        <th class="col140">Nazwa</th>
+                        <th class="col140">Powód</th>
+                        <th class="col140">Cel</th>
                         <th>Komentarz</th>
-                        <th></th>
+                        <th class="col50"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +28,9 @@
                         <td>{{r.Reason}}</td>
                         <td>{{r.Purpose}}</td>
                         <td>{{r.Note}}</td>
-                        <td>
-                            <a href="" ng-click="vm.remove(r)">Usuń</a>
+                        <td class="text-center">
+                            <a href="" ng-click="vm.remove(r)" ng-show="!r.isRemoving">Usuń</a>
+                            <span ng-show="r.isRemoving">...</span>
                         </td>
                     </tr>
                 </tbody>

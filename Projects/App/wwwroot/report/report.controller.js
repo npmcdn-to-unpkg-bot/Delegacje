@@ -5,9 +5,9 @@
          .module('app')
          .controller('ReportController', ReportController);
 
-    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService'];
+    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService', 'ngDialog', '$state'];
 
-    function ReportController(userReportsFactoryService, dictionariesService, userReportsService) {
+    function ReportController(userReportsFactoryService, dictionariesService, userReportsService, ngDialog, $state) {
         var vm = this;
         vm.visibleSection = 'Expenses';
         vm.Dictionaries = dictionariesService;
@@ -44,6 +44,14 @@
         };
 
         vm.Save = function () {
+            var creatingDialog = ngDialog.open({
+                template: 'wwwroot/report/popups/creating.template.html',
+                closeByEscape: false,
+                closeByDocument: false,
+                showClose: false,
+                closeByNavigation: false
+            });
+
             //prepare data
             var report = vm.Report;
 
@@ -60,7 +68,12 @@
                 report.MileageAllowances[j].Type = undefined;
             }
 
-            userReportsService.save(report);
+            var promise = userReportsService.create(report);
+            promise.then(function () {
+                creatingDialog.close();
+                userReportsService.reload();
+                $state.go('landing');
+            });
         };
 
 
