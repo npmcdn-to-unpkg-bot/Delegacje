@@ -27,6 +27,16 @@
             bt.Expenses = [];
             bt.MileageAllowances = [];
             bt.Subsistences = null;
+            bt.Total = function () {
+                var total = 0;
+                for (var e = 0; e < bt.Expenses.length; e++) {
+                    total += bt.Expenses[e].Amount;
+                }
+                for (var m = 0; m < bt.MileageAllowances.length; m++) {
+                    total += bt.MileageAllowances[m].Amount();
+                }
+                return total;
+            }
             return bt;
         }
 
