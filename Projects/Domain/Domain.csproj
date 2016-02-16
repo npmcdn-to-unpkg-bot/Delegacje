@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="DTO\BusinessTripDTO.cs" />
     <Compile Include="DTO\BusinessTripSearchItemDTO.cs" />
+    <Compile Include="DTO\CurrencyDTO.cs" />
     <Compile Include="DTO\DictionariesDTO.cs" />
     <Compile Include="DTO\ExpenseDTO.cs" />
     <Compile Include="DTO\MileageAllowanceDTO.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="DTO\SubsistenceMealDTO.cs" />
     <Compile Include="DTO\UserDetailsDTO.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Currency.cs" />
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\ExpenseDocumentType.cs" />
     <Compile Include="Entities\MealType.cs" />
