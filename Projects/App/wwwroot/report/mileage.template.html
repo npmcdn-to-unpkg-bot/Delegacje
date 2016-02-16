@@ -4,6 +4,7 @@
             <div class="form-line">
                 <span class="form-row-label">Data</span>
                 <input type="text" ng-model="vm.NewMileage.Date" />
+                <required-icon content="vm.NewMileage.Date"></required-icon>
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label-two-line"">Typ Pojazdu</span>
@@ -11,10 +12,12 @@
                      dropdown-model="vm.NewMileage.Type"
                      dropdown-item-label="Name">
                 </div>
+                <required-icon content="vm.NewMileage.Type"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Dystans</span>
                 <input type="text" ng-model="vm.NewMileage.Distance" numeric min="0" maxlength="10" decimals="0" />
+                <required-icon content="vm.NewMileage.Distance"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
@@ -33,7 +36,7 @@
     </div>
     <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <a class="button button-primary" ng-click="vm.AddMileageToReport()">Dodaj</a>
+            <input type="button" class="button button-primary" ng-click="vm.AddMileageToReport()" ng-disabled="!vm.MileageIsValid()" value="Dodaj" />
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>

@@ -55,7 +55,9 @@ h2.section-2:before {
 h2.section-3:before {
   content: "3";
 }
-.button {
+.button,
+input[type="submit"],
+input[type="button"] {
   background-color: #EFF1F6;
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -65,12 +67,16 @@ h2.section-3:before {
   padding: 0 60px;
   font-size: 14px;
 }
-.button.button-primary {
+.button.button-primary,
+input[type="submit"].button-primary,
+input[type="button"].button-primary {
   color: #6E768F;
   background-color: #70DAAE;
   border: 0;
 }
-.button.button-primary:hover {
+.button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="button"].button-primary:hover {
   color: #6E768F;
   background-color: #7DF2C1;
 }

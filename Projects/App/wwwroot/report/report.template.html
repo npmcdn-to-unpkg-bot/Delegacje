@@ -1,85 +1,89 @@
 ﻿<div class="container report-container">
-    <div class="row">
-        <div class="twelve columns text-center">
-            <h1>Moje Raporty</h1>
+    <form name="reportForm" ng-submit="vm.Save()" novalidate>
 
-            <p>{{vm.Report.Date}}</p>
-        </div>
-    </div>
+        <div class="row">
+            <div class="twelve columns text-center">
+                <h1>Moje Raporty</h1>
 
-    <div class="v-spacer v-spacer40"></div>
-    <!--identyfikator raportu-->
-    <div class="row">
-        <div class="ten columns offset-by-one">
-            <h2 class="section section-1">Identyfikatory Raportu</h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="five columns offset-by-one">
-            <div class="form-line">
-                <span class="form-row-label-two-line">Nazwa Raportu</span>
-                <input type="text" maxlength="100" ng-model="vm.Report.Title" />
-            </div>
-            <div class="form-line">
-                <span class="form-row-label-two-line"">Powód Podróży</span>
-                <input type="text" maxlength="100" ng-model="vm.Report.BusinessReason" />
-            </div>
-            <div class="form-line">
-                <span class="form-row-label-two-line"">Cel Podróży</span>
-                <input type="text" maxlength="100" ng-model="vm.Report.BusinessPurpose" />
+                <p>{{vm.Report.Date}}</p>
             </div>
         </div>
-        <div class="five columns text-center">
-            <div class="form-line-textarea form-textarea-container">
-                <span class="form-textarea-header">
-                    Komentarz
+
+        <div class="v-spacer v-spacer40"></div>
+        <!--identyfikator raportu-->
+        <div class="row">
+            <div class="ten columns offset-by-one">
+                <h2 class="section section-1">Identyfikatory Raportu</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="five columns offset-by-one">
+                <div class="form-line">
+                    <span class="form-row-label-two-line">Nazwa Raportu</span>
+                    <input type="text" maxlength="100" ng-model="vm.Report.Title" />
+                    <required-icon content="vm.Report.Title"></required-icon>
+                </div>
+                <div class="form-line">
+                    <span class="form-row-label-two-line" ">Powód Podróży</span>
+                    <input type="text" maxlength="100" ng-model="vm.Report.BusinessReason" />
+                </div>
+                <div class="form-line">
+                    <span class="form-row-label-two-line" ">Cel Podróży</span>
+                    <input type="text" maxlength="100" ng-model="vm.Report.BusinessPurpose" />
+                </div>
+            </div>
+            <div class="five columns text-center">
+                <div class="form-line-textarea form-textarea-container">
+                    <span class="form-textarea-header">
+                        Komentarz
+                    </span>
+
+                    <textarea ng-trim="false" maxlength="255" ng-model="vm.Report.Notes"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-spacer v-spacer60"></div>
+        <!--szczegóły raportu-->
+        <div class="row">
+            <div class="ten columns offset-by-one">
+                <h2 class="section section-2">Szczegóły Raportu</h2>
+            </div>
+
+            <div class="ten columns offset-by-one text-center">
+                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Expenses' }" ng-click="vm.toggleSection('Expenses')">Wydatki</span>
+                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Mileage' }" ng-click="vm.toggleSection('Mileage')">Kilometrówka</span>
+                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Diet' }" ng-click="vm.toggleSection('Diet')">Dieta</span>
+            </div>
+        </div>
+        <div class="v-spacer v-spacer40"></div>
+        <div ng-include="'wwwroot/report/expenses.template.html'" ng-show="vm.visibleSection == 'Expenses'"></div>
+        <div ng-include="'wwwroot/report/mileage.template.html'" ng-show="vm.visibleSection == 'Mileage'"></div>
+        <div ng-include="'wwwroot/report/diet.template.html'" ng-show="vm.visibleSection == 'Diet'"></div>
+
+
+        <div class="v-spacer v-spacer60"></div>
+        <!--podsumowanie-->
+        <div class="row">
+            <div class="ten columns offset-by-one">
+                <h2 class="section section-3">Podsumowanie</h2>
+
+                <span class="total-counter">
+                    {{vm.Report.Total()}} PLN
                 </span>
-
-                <textarea ng-trim="false" maxlength="255" ng-model="vm.Report.Notes"></textarea>
             </div>
         </div>
-    </div>
 
-    <div class="v-spacer v-spacer60"></div>
-    <!--szczegóły raportu-->
-    <div class="row">
-        <div class="ten columns offset-by-one">
-            <h2 class="section section-2">Szczegóły Raportu</h2>
+        <div class="v-spacer v-spacer60"></div>
+        <!--przyciski-->
+        <div class="row">
+            <div class="five columns offset-by-one text-right">
+                <input type="submit" value="Zapisz" class="button button-primary" ng-disabled="!vm.ReportIsValid()" />
+            </div>
+            <div class="five columns">
+                <a class="button" ui-sref="landing">Anuluj</a>
+            </div>
         </div>
-
-        <div class="ten columns offset-by-one text-center">
-            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Expenses' }" ng-click="vm.toggleSection('Expenses')">Wydatki</span>
-            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Mileage' }" ng-click="vm.toggleSection('Mileage')">Kilometrówka</span>
-            <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Diet' }" ng-click="vm.toggleSection('Diet')">Dieta</span>
-        </div>
-    </div>
-    <div class="v-spacer v-spacer40"></div>
-    <div ng-include="'wwwroot/report/expenses.template.html'" ng-show="vm.visibleSection == 'Expenses'"></div>
-    <div ng-include="'wwwroot/report/mileage.template.html'" ng-show="vm.visibleSection == 'Mileage'"></div>
-    <div ng-include="'wwwroot/report/diet.template.html'" ng-show="vm.visibleSection == 'Diet'"></div>
-    
-
-    <div class="v-spacer v-spacer60"></div>
-    <!--podsumowanie-->
-    <div class="row">
-        <div class="ten columns offset-by-one">
-            <h2 class="section section-3">Podsumowanie</h2>
-
-            <span class="total-counter">
-                {{vm.Report.Total()}} PLN
-            </span>
-        </div>
-    </div>
-
-    <div class="v-spacer v-spacer60"></div>
-    <!--przyciski-->
-    <div class="row">
-        <div class="five columns offset-by-one text-right">
-            <a class="button button-primary" ng-click="vm.Save()">Zapisz</a>
-        </div>
-        <div class="five columns">
-            <a class="button" ui-sref="landing">Anuluj</a>
-        </div>
-    </div>
+    </form>
 </div>

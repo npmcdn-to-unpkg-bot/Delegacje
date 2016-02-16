@@ -7,10 +7,12 @@
                      dropdown-model="vm.NewExpense.Type"
                      dropdown-item-label="Name">
                 </div>
+                <required-icon content="vm.NewExpense.Type"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Data</span>
                 <input type="text" ng-model="vm.NewExpense.Date" />
+                <required-icon content="vm.NewExpense.Date"></required-icon>
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label">Państwo</span>
@@ -18,16 +20,19 @@
                      dropdown-model="vm.NewExpense.Country"
                      dropdown-item-label="Name">
                 </div>
+                <required-icon content="vm.NewExpense.Country"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Miasto</span>
                 <input type="text" ng-model="vm.NewExpense.City" maxlength="255" />
+                <required-icon content="vm.NewExpense.City"></required-icon>
             </div>
         </div>
         <div class="five columns">
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
                 <input type="text" ng-model="vm.NewExpense.Amount" numeric min="0" maxlength="10" decimals="2" />
+                <required-icon content="vm.NewExpense.Amount"></required-icon>
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label">Dokument</span>
@@ -35,6 +40,7 @@
                      dropdown-model="vm.NewExpense.Document"
                      dropdown-item-label="Name">
                 </div>
+                <required-icon content="vm.NewExpense.Document"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Stawka VAT</span>
@@ -59,7 +65,7 @@
     </div>
     <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <a class="button button-primary" ng-click="vm.AddExpenseToReport()">Dodaj</a>
+            <input type="button" class="button button-primary" ng-click="vm.AddExpenseToReport()" ng-disabled="!vm.ExpenseIsValid()" value="Dodaj" />
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>

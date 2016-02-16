@@ -229,6 +229,7 @@
   <ItemGroup>
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
+    <Content Include="wwwroot\css\img\icons.png" />
     <Content Include="wwwroot\css\img\spinner-circular.gif" />
     <Content Include="wwwroot\css\index.css">
       <DependentUpon>index.less</DependentUpon>
@@ -247,6 +248,12 @@
     </Content>
     <Content Include="wwwroot\css\module\m-containers.min.css">
       <DependentUpon>m-containers.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-dialog.css">
+      <DependentUpon>m-dialog.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-dialog.min.css">
+      <DependentUpon>m-dialog.css</DependentUpon>
     </Content>
     <Content Include="wwwroot\css\module\m-dropdown.css">
       <DependentUpon>m-dropdown.less</DependentUpon>
@@ -400,6 +407,7 @@
     <Content Include="wwwroot\system\http.interceptor.js" />
     <Content Include="wwwroot\system\landing.controller.js" />
     <Content Include="wwwroot\system\landing.html" />
+    <Content Include="wwwroot\system\requiredIcon.directive.js" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -496,6 +504,7 @@
     <Content Include="wwwroot\lib\ngDialog\package.json" />
     <Content Include="wwwroot\lib\ngDialog\README.md" />
     <Content Include="wwwroot\report\popups\creating.template.html" />
+    <Content Include="wwwroot\css\module\m-dialog.less" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

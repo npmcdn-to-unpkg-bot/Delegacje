@@ -59,12 +59,12 @@
 
         function getExpense() {
             var exp = {};
-            exp.Type = '';
+            exp.Type = null;
             exp.Date = '';
-            exp.Country = '';
+            exp.Country = null;
             exp.City = '';
             exp.Amount = '';
-            exp.Document = '';
+            exp.Document = null;
             exp.VATRate = '';
             exp.DoNotReturn = false;
            // exp.CurrencyCode = null;

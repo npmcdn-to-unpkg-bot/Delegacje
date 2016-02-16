@@ -27,6 +27,23 @@
                 }
             }
         };
+        vm.ExpenseIsValid = function () {
+            return vm.NewExpense.Type != null
+            && vm.NewExpense.Date != ''
+            && vm.NewExpense.Country != null
+            && vm.NewExpense.City != ''
+            && vm.NewExpense.Amount != ''
+            && vm.NewExpense.Document != null;
+        }
+        vm.MileageIsValid = function () {
+            return vm.NewMileage.Type != null
+            && vm.NewMileage.Date != ''
+            && vm.NewMileage.Distance != '';
+        }
+        vm.ReportIsValid = function () {
+            return vm.Report.Title != ''
+            && vm.Report.Expenses.length > 0;
+        }
 
         //mileages
         vm.NewMileage = userReportsFactoryService.getMileage();

@@ -46,5 +46,9 @@
   {
     "outputFile": "wwwroot/css/module/m-dialog.css",
     "inputFile": "wwwroot/css/module/m-dialog.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-icons.css",
+    "inputFile": "wwwroot/css/module/m-icons.less"
   }
 ]

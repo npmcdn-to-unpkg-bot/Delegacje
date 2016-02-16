@@ -54,9 +54,10 @@
     border: 1px solid #C7CAD6;
 }
 
-.form-line input[type=text] {
+.form-line input[type=text], .form-line-dropdown > div {
     display: block;
-    margin-left: 100px;
+    float: left;
+    margin-left: 30px;
     width: 200px;
 }
 
@@ -80,3 +81,20 @@
         color: #6E768F;
     font-family: 'Source Sans Pro', sans-serif;
 }
+
+
+input:disabled {
+    opacity: 0.5;
+}
+
+/*form input.ng-invalid:not(.ng-pristine) {
+    box-shadow: 0px 0px 13px rgba(255, 133, 0, 0.9);
+}*/
+
+/*.form-line input.ng-invalid {
+    background-color: #FFEDED;
+}
+
+.form-line input.ng-valid-required {
+    background-color: #D8FFDD;
+}*/
