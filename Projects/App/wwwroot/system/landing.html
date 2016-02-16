@@ -17,7 +17,6 @@
                         <th>Nazwa</th>
                         <th>Powód</th>
                         <th>Cel</th>
-                        <th>Kwota</th>
                         <th>Komentarz</th>
                     </tr>
                 </thead>
@@ -25,9 +24,8 @@
                     <tr class="item" ng-repeat="r in vm.reports()">
                         <td>{{r.Date}}</td>
                         <td>{{r.Title}}</td>
-                        <td></td>
-                        <td></td>
-                        <td>{{r.AmountTotal}}</td>
+                        <td>{{r.Reason}}</td>
+                        <td>{{r.Purpose}}</td>
                         <td>{{r.Note}}</td>
                     </tr>
                 </tbody>

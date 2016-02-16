@@ -25,7 +25,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
 			BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
 				Title = businessTrip.Title,
-				Date = businessTrip.Date,
+				Date = Convert.ToDateTime(businessTrip.Date),
 				BusinessReason = businessTrip.BusinessReason,
 				BusinessPurpose = businessTrip.BusinessPurpose,
 				Notes = businessTrip.Notes,
@@ -118,7 +118,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			BusinessTrip trip = repo.BusinessTrips.GetById(businessTripDto.Id.Value);
 
 			trip.Title = businessTripDto.Title;
-			trip.Date = businessTripDto.Date;
+			trip.Date = Convert.ToDateTime(businessTripDto.Date);
 			trip.BusinessReason = businessTripDto.BusinessReason;
 			trip.BusinessPurpose = businessTripDto.BusinessPurpose;
 			trip.Notes = businessTripDto.Notes;

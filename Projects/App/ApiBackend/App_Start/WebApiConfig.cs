@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace CrazyAppsStudio.Delegacje.App
 {
@@ -7,6 +8,10 @@ namespace CrazyAppsStudio.Delegacje.App
     {
         public static void Register(HttpConfiguration config)
         {
+            //cors enabled
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors();
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

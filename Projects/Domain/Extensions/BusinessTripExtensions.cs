@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
+using Tools;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
@@ -16,16 +17,17 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             return clearings.Where(s => s.Title.ToLower().Contains(text.Trim().ToLower()));
         }
 
-        public static BusinessTripSearchItemDTO MapToSearchItem(this BusinessTrip clearings)
+        public static List<BusinessTripSearchItemDTO> MapToSearchItem(this IQueryable<BusinessTrip> clearings)
         {
-            BusinessTripSearchItemDTO clearingDTO = new BusinessTripSearchItemDTO()
+            return clearings.ToList().Select(bt => new BusinessTripSearchItemDTO()
             {
-                //Id = user.Id,
-                //Email = user.Email,
-                //Username = user.UserName
-            };
-
-            return clearingDTO;
+                Id = bt.Id,
+                Date = bt.Date.ToAppString(),
+                Note = bt.Notes,
+                Title = bt.Title,
+                Reason = bt.BusinessReason,
+                Purpose = bt.BusinessPurpose
+            }).ToList();
         }
     }
 }

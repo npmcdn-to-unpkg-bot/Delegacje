@@ -17,26 +17,26 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             this.tasks = tasks;
         }
 
-		[Route("create")]
-		[HttpPut]
-		public IHttpActionResult CreateBusinessTrip(BusinessTripDTO businessTrip)
+        [Route("create")]
+        [HttpPut]
+        public IHttpActionResult CreateBusinessTrip(BusinessTripDTO businessTrip)
         {
-			try
-			{
-				if (this.ModelState.IsValid)
-				{
-					this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip);
-					return Ok("Delegacja została stworzona");
-				}
-				else
-				{
-					return BadRequest(this.ModelState);
-				}
-			}
-			catch (Exception e)
-			{
-				return InternalServerError();
-			}
+            try
+            {
+                if (this.ModelState.IsValid)
+                {
+                    this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip);
+                    return Ok("Delegacja została stworzona");
+                }
+                else
+                {
+                    return BadRequest(this.ModelState);
+                }
+            }
+            catch
+            {
+                return InternalServerError();
+            }
         }
 
 		[Route("update")]
@@ -57,7 +57,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 					return BadRequest(this.ModelState);
 				}
 			}
-			catch (Exception e)
+			catch
 			{
 				return InternalServerError();
 			}

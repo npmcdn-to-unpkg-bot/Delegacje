@@ -12,7 +12,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		public int? Id { get; set; }
 		[Required]
 		public string Title { get; set; }
-		public DateTime Date { get; set; }
+		public string Date { get; set; }
 		[MaxLength(100, ErrorMessage = "Maksymalna długość: 100 znaków")]
 		public string BusinessReason { get; set; }
 		[MaxLength(100, ErrorMessage = "Maksymalna długość: 100 znaków")]
