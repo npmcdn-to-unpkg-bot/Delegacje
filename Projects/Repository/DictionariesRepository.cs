@@ -61,5 +61,10 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		{
 			return this.context.MealTypes.FirstOrDefault(m => m.Id == mealTypeId);
 		}
+
+		public IEnumerable<Currency> GetCurrencies()
+		{
+			return this.context.Currencies.AsEnumerable();
+		}
     }
 }

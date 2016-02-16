@@ -22,7 +22,9 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
         public DbSet<ExpenseType> ExpenseTypes { get; set; }
         public DbSet<ExpenseDocumentType> ExpenseDocumentTypes { get; set; }
         public DbSet<MealType> MealTypes { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }		
+        public DbSet<UserRole> UserRoles { get; set; }
+
+		public DbSet<Currency> Currencies { get; set; }
 
         public BusinessTripsContext()
             : base("BusinessTripsEntities")

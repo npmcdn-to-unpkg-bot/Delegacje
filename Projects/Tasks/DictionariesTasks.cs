@@ -26,5 +26,10 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
             return result;
         }
+
+		public void RefreshCurrencies()
+		{
+
+		}
     }
 }
