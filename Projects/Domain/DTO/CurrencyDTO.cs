@@ -10,5 +10,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 	{
 		public string Code { get; set; }
 		public double ExchangeRate { get; set; }
+		public string Name { get; set; }
 	}
 }

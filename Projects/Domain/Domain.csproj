@@ -101,6 +101,7 @@
     <Compile Include="Entities\SubsistenceMeals.cs" />
     <Compile Include="Entities\VehicleType.cs" />
     <Compile Include="Extensions\BusinessTripExtensions.cs" />
+    <Compile Include="Extensions\CurrencyExtensions.cs" />
     <Compile Include="Extensions\UsersExtensions.cs" />
     <Compile Include="Entities\BusinessTrip.cs" />
     <Compile Include="Entities\Identity\User.cs" />

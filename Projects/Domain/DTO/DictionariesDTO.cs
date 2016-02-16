@@ -18,5 +18,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
         public IEnumerable<ExpenseDocumentType> ExpenseDocumentTypes { get; set; }
 
         public IEnumerable<MealType> MealTypes { get; set; }
+
+		public IEnumerable<CurrencyDTO> Currencies { get; set; }
     }
 }

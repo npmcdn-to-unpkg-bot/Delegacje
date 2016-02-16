@@ -5,6 +5,7 @@ using System.Linq;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 using System.Collections.Generic;
+using System;
 
 namespace CrazyAppsStudio.Delegacje.Repository
 {
@@ -70,6 +71,6 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		public void AddCurrencies(IEnumerable<Currency> currencies)
 		{
 			this.context.Currencies.AddRange(currencies);
-		}
+		}		
     }
 }

@@ -2,6 +2,7 @@
 using CrazyAppsStudio.Delegacje.Domain.DTO;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Repository;
+using CrazyAppsStudio.Delegacje.Domain.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,11 +29,23 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                 ExpenseDocumentTypes = repo.Dictionaries.GetExpenseDocumentTypes(),
                 ExpenseTypes = repo.Dictionaries.GetExpenseTypes(),
                 MealTypes = repo.Dictionaries.GetMealTypes(),
-                VehicleTypes = repo.Dictionaries.GetVehicleTypes()
+                VehicleTypes = repo.Dictionaries.GetVehicleTypes(),
+				Currencies = this.GetAndRefreshCurrencies().Select(c => c.MapToDetails())
             };
 
             return result;
         }
+
+		public Currency[] GetAndRefreshCurrencies()
+		{
+			Currency eur = this.repo.Dictionaries.GetCurrencies().First(c => c.Code == "EUR");
+			if (eur.DateRefreshed.Date <= DateTime.Now.AddDays(-1).Date) //currencies older than 1 day need refresh
+			{
+				RefreshCurrencies();
+			}
+
+			return this.repo.Dictionaries.GetCurrencies().ToArray();
+		}
 
 		public void RefreshCurrencies()
 		{
