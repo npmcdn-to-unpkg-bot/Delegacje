@@ -20,7 +20,15 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
         public IEnumerable<Country> GetCountries()
         {
-            return this.context.Countries.AsEnumerable();
+            List<Country> countries = this.context.Countries
+                .OrderBy(c => c.Name)
+                .ToList();
+
+            var pl = countries.Where(c => c.Name == "Polska").First();
+            countries.Remove(pl);
+            countries.Insert(0, pl);
+
+            return countries.AsEnumerable();
         }
 
 		public Country GetCountry(int countryId)

@@ -16,6 +16,7 @@
             ExpenseTypes: $localStorage['ExpenseTypes'],
             ExpenseDocumentTypes: $localStorage['ExpenseDocumentTypes'],
             MealTypes: $localStorage['MealTypes'],
+            Currencies: $localStorage['Currencies'],
             reload: reload
         };
         return service;
@@ -32,6 +33,7 @@
                     $localStorage['ExpenseTypes'] = response.data.ExpenseTypes;
                     $localStorage['ExpenseDocumentTypes'] = response.data.ExpenseDocumentTypes;
                     $localStorage['MealTypes'] = response.data.MealTypes;
+                    $localStorage['Currencies'] = response.data.Currencies;
                 });
         }
     }

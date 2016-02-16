@@ -233,6 +233,8 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
             context.Countries.AddOrUpdate(vt => vt.Name, Panama);
             Country Peru = new Country() { Name = "Peru", CurrencyCode = "USD", SubsistenceAllowance = 50, AccomodationLimit = 150 };
             context.Countries.AddOrUpdate(vt => vt.Name, Peru);
+            Country Polska = new Country() { Name = "Polska", CurrencyCode = "PLN", SubsistenceAllowance = 0, AccomodationLimit = 0 };
+            context.Countries.AddOrUpdate(vt => vt.Name, Polska);
             Country Portugalia = new Country() { Name = "Portugalia", CurrencyCode = "EUR", SubsistenceAllowance = 49, AccomodationLimit = 120 };
             context.Countries.AddOrUpdate(vt => vt.Name, Portugalia);
             Country RepublikaPołudniowejAfryki = new Country() { Name = "Republika Południowej Afryki", CurrencyCode = "USD", SubsistenceAllowance = 52, AccomodationLimit = 275 };

@@ -267,6 +267,12 @@
     <Content Include="wwwroot\css\module\m-form.min.css">
       <DependentUpon>m-form.css</DependentUpon>
     </Content>
+    <Content Include="wwwroot\css\module\m-icons.css">
+      <DependentUpon>m-icons.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-icons.min.css">
+      <DependentUpon>m-icons.css</DependentUpon>
+    </Content>
     <Content Include="wwwroot\css\module\m-loginForm.css">
       <DependentUpon>m-loginForm.less</DependentUpon>
     </Content>
@@ -505,6 +511,7 @@
     <Content Include="wwwroot\lib\ngDialog\README.md" />
     <Content Include="wwwroot\report\popups\creating.template.html" />
     <Content Include="wwwroot\css\module\m-dialog.less" />
+    <Content Include="wwwroot\css\module\m-icons.less" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

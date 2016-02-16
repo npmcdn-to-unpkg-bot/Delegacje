@@ -46,6 +46,10 @@
                 <span class="form-row-label">Stawka VAT</span>
                 <input type="text" ng-model="vm.NewExpense.VATRate" />
             </div>
+            <div class="form-line" ng-show="vm.NewExpense.Country != null && vm.NewExpense.Country.CurrencyCode != 'PLN'">
+                <span class="form-row-label-two-line">Kwota Końcowa</span>
+                <span class="form-readonly-value">{{vm.NewExpense.FinalAmount()}}</span>
+            </div>
             <div class="form-line">
                 <span class="form-row-label"">Nie Zwracaj</span>
                 <input type="checkbox" ng-model="vm.NewExpense.DoNotReturn" />

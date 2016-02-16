@@ -48,7 +48,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 
 		public bool ExchangeRateModifiedByUser { get; set; }
 
-		public double VATRate { get; set; }
+		public double? VATRate { get; set; }
 
 		[MaxLength(255)]
 		public string Notes { get; set; }

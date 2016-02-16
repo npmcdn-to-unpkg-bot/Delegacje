@@ -36,7 +36,7 @@
                     total += bt.MileageAllowances[m].Amount();
                 }
                 return total;
-            }
+            };
             return bt;
         }
 
@@ -48,7 +48,7 @@
             ma.Distance = '';
             ma.Notes = '';
             ma.Amount = function () {
-                if (ma.Type == null || ma.Distance == '')
+                if (ma.Type === null || ma.Distance === '')
                     return '';
 
                 return ma.Type.Rate * ma.Distance;
@@ -62,14 +62,19 @@
             exp.Type = null;
             exp.Date = '';
             exp.Country = null;
+            exp.ExchangeRate = 1;
             exp.City = '';
             exp.Amount = '';
             exp.Document = null;
             exp.VATRate = '';
             exp.DoNotReturn = false;
-           // exp.CurrencyCode = null;
-           // exp.ExchangeRate = null;
             exp.Notes = '';
+            exp.FinalAmount = function () {
+                if (exp.Amount === '' || exp.Country === null)
+                    return '';
+
+                return (exp.Amount * exp.ExchangeRate).toFixed(2) + ' ' + exp.Country.CurrencyCode;
+            };
             return exp;
         }
 

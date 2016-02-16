@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201602162045518_AddCurrencies.Designer.cs">
       <DependentUpon>201602162045518_AddCurrencies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602162257533_vat rate optional.cs" />
+    <Compile Include="Migrations\201602162257533_vat rate optional.Designer.cs">
+      <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602162045518_AddCurrencies.resx">
       <DependentUpon>201602162045518_AddCurrencies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602162257533_vat rate optional.resx">
+      <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
