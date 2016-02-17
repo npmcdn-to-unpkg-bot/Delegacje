@@ -325,7 +325,7 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
 
 			var user = new User() { UserName = model.Email, Email = model.Email };
 
-			IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
 			if (!result.Succeeded)
 			{

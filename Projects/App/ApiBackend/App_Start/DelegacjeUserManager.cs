@@ -28,11 +28,11 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 			this.PasswordValidator = new PasswordValidator
 			{
 				RequiredLength = 6,
-				RequireNonLetterOrDigit = true,
-				RequireDigit = true,
-				RequireLowercase = true,
-				RequireUppercase = true
-			};
+				RequireNonLetterOrDigit = false,
+				RequireDigit = false,
+				RequireLowercase = false,
+				RequireUppercase = false
+            };
 		}
 
 		public static DelegacjeUserManager Create(BusinessTripsContext context)
