@@ -42,6 +42,7 @@
   padding: 0 6px;
 }
 .form-line input[type=text],
+.form-line input[type=password],
 .form-textarea-container,
 .form-readonly-value {
   -moz-border-radius: 12px;
@@ -50,6 +51,7 @@
   border: 1px solid #C7CAD6;
 }
 .form-line input[type=text],
+.form-line input[type=password],
 .form-line-dropdown > div {
   display: block;
   float: left;

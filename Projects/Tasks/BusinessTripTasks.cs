@@ -108,9 +108,9 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			this.repo.SaveChanges();
         }
 
-        public IEnumerable<BusinessTripSearchItemDTO> GetForUser(int userId)
+        public IEnumerable<BusinessTripSearchItemDTO> GetForUser(string user)
         {
-            return repo.BusinessTrips.GetForUser(userId);
+            return repo.BusinessTrips.GetForUser(user);
         }
 
 		public void UpdateBusinessTrip(BusinessTripDTO businessTripDto)

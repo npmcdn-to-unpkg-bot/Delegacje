@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
 	[RoutePrefix("api/businessTrips")]
-	//[Authorize]
+	[Authorize]
 	public class BusinessTripController : BaseProfileController
     {
 		private readonly ITasksRepository tasks;
@@ -67,7 +67,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         [HttpGet]
         public IEnumerable<BusinessTripSearchItemDTO> GetForUser()
         {
-            return tasks.BusinessTripsTasks.GetForUser(1);
+            return tasks.BusinessTripsTasks.GetForUser(this.UserName);
         }
 		
 		[Route("{businessTripId:int}")]

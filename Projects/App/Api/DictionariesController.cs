@@ -6,7 +6,7 @@ using System.Web.Http;
 namespace CrazyAppsStudio.Delegacje.App.Controllers
 {
     [RoutePrefix("api/dictionaries")]
-    //[Authorize]
+    [Authorize]
     public class DictionariesController : BaseProfileController
     {
         private readonly ITasksRepository tasks;

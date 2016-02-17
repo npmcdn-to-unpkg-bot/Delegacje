@@ -144,6 +144,7 @@ fieldset {
   padding: 0 6px;
 }
 .form-line input[type=text],
+.form-line input[type=password],
 .form-textarea-container,
 .form-readonly-value {
   -moz-border-radius: 12px;
@@ -152,6 +153,7 @@ fieldset {
   border: 1px solid #C7CAD6;
 }
 .form-line input[type=text],
+.form-line input[type=password],
 .form-line-dropdown > div {
   display: block;
   float: left;
@@ -211,6 +213,11 @@ input:disabled {
   border-color: #75A6E1;
   border-width: 4px;
   margin: 0 2px;
+}
+.user-data {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .v-spacer {
   width: 100%;

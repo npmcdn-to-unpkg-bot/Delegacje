@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
@@ -9,14 +10,14 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         {
             get
             {
-              AuthenticationHeaderValue authHeader = this.Request.Headers.Authorization;
-              return authHeader.Parameter;
+            //  AuthenticationHeaderValue authHeader = this.Request.Headers.Authorization;
+           //   return authHeader.Parameter;
 
-                //var user = this.User.Identity;
-                //if (user != null)
-                //    return user.Name;
-                //else
-                //    throw new AccessViolationException("Error reading token data");
+                var user = this.User.Identity;
+                if (user != null)
+                    return user.Name;
+                else
+                    throw new AccessViolationException("Error reading token data");
             }
         }
     }

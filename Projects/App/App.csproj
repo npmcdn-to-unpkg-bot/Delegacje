@@ -227,6 +227,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
     <Content Include="wwwroot\css\img\icons.png" />
@@ -512,6 +513,7 @@
     <Content Include="wwwroot\report\popups\creating.template.html" />
     <Content Include="wwwroot\css\module\m-dialog.less" />
     <Content Include="wwwroot\css\module\m-icons.less" />
+    <Content Include="wwwroot\authentication\userData.template.html" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

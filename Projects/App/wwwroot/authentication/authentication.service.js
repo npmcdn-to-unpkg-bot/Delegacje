@@ -5,15 +5,15 @@
         .module('app')
         .factory('authenticationService', authenticationService);
 
-    authenticationService.$inject = ['appSettings', '$http', '$localStorage'];
+    authenticationService.$inject = ['appSettings', '$http', '$localStorage', 'userReportsService', 'dictionariesService'];
 
     /* @ngInject */
-    function authenticationService(appSettings, $http, $localStorage,
-                                   $sessionStorage) {
+    function authenticationService(appSettings, $http, $localStorage, userReportsService, dictionariesService) {
         var service = {
             token: getToken,
             authenticate: authenticate,
             isAuthenticated: isAuthenticated,
+            user: function () { return $localStorage['user']; },
             logout: logout
         };
         return service;
@@ -36,7 +36,6 @@
          *        false for a private computer.
          */
         function saveToken(token) {
-            clearToken();
             $localStorage[appSettings.tokenName] = token;
         }
 
@@ -44,6 +43,7 @@
          * Deletes the authentication token from local/session storage
          */
         function clearToken() {
+            $localStorage['user'] = '';
             delete $localStorage[appSettings.tokenName];
         }
 
@@ -71,7 +71,7 @@
                 method: 'POST',
                 data: 'grant_type=password&username=' + encodeURIComponent(userName) +
                 '&password=' + encodeURIComponent(password),
-                url: appSettings.apiUrl.replace('api/', 'token'),
+                url: 'token',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -80,7 +80,10 @@
             return $http(request)
                 .then(function(response) {
                     var user = response.data;
+                    $localStorage['user'] = user.userName;
                     saveToken(user['access_token']);
+                    userReportsService.reload();
+                    dictionariesService.reload();
                 });
         }
 

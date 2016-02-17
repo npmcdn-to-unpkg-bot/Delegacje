@@ -3,8 +3,8 @@
 
     angular
         .module('app')
-        .config(config)
-        .run(run);
+        .config(config);
+       // .run(run);
 
     config.$inject = [
         '$stateProvider', '$urlRouterProvider', '$httpProvider', '$logProvider', 'appSettings'
@@ -44,11 +44,11 @@
         $httpProvider.interceptors.push('httpInterceptor');
     }
 
-    run.$inject = [ 'dictionariesService', 'userReportsService'];
+    //run.$inject = [ 'dictionariesService', 'userReportsService'];
 
-    function run(dictionariesService, userReportsService) {
-        dictionariesService.reload();
-        userReportsService.reload();
-    }
+    //function run(dictionariesService, userReportsService) {
+    //    dictionariesService.reload();
+    //    userReportsService.reload();
+    //}
 
 })();

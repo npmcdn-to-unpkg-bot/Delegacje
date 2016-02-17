@@ -37,9 +37,9 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			return this.context.BusinessTrips.FirstOrDefault(bt => bt.Id == businessTripId);
 		}	
 
-        public IEnumerable<BusinessTripSearchItemDTO> GetForUser(int userId)
+        public IEnumerable<BusinessTripSearchItemDTO> GetForUser(string user)
         {
-            return this.context.BusinessTrips.Where(b => b.UserId == userId).MapToSearchItem();
+            return this.context.BusinessTrips.Where(b => b.User.UserName == user).MapToSearchItem();
         }
 
 		public void Remove(int businessTripId)

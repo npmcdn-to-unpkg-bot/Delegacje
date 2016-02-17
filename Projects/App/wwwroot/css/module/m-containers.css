@@ -21,3 +21,8 @@
   border-width: 4px;
   margin: 0 2px;
 }
+.user-data {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
