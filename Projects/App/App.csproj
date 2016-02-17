@@ -211,6 +211,7 @@
   <ItemGroup>
     <Compile Include="ApiBackend\App_Start\DelegacjeUserManager.cs" />
     <Compile Include="ApiBackend\Filters\UnhandledExceptionFilter.cs" />
+    <Compile Include="ApiBackend\Models\TextResult.cs" />
     <Compile Include="Api\BaseProfileController.cs" />
     <Compile Include="Api\BusinessTripController.cs" />
     <Compile Include="Api\DictionariesController.cs" />

@@ -13,7 +13,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		[Required]
 		public int ExpenseTypeId { get; set; }
 		[Required]
-		public DateTime Date { get; set; }
+		public string Date { get; set; }
 		[Required, MaxLength(255)]
 		public string City { get; set; }
 		[Required]

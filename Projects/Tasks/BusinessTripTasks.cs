@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tools;
 
 namespace CrazyAppsStudio.Delegacje.Tasks
 {
@@ -25,7 +26,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
 			BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
 				Title = businessTrip.Title,
-				Date = Convert.ToDateTime(businessTrip.Date),
+				Date = businessTrip.Date.ParseAppString(),
 				BusinessReason = businessTrip.BusinessReason,
 				BusinessPurpose = businessTrip.BusinessPurpose,
 				Notes = businessTrip.Notes,
@@ -40,10 +41,9 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					Expense expense = new Expense();
 					expense.Trip = trip;
 					expense.Type = repo.Dictionaries.GetExpenseType(expDto.ExpenseTypeId);
-					expense.Date = expDto.Date;
+					expense.Date = expDto.Date.ParseAppString();
 					expense.City = expDto.City;
 					expense.Amount = expDto.Amount;
-					//expense.CountryId = expDto.CountryId;
 					expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
 					expense.CurrencyCode = expDto.CurrencyCode;
 					expense.ExchangeRate = expDto.ExchangeRate;
@@ -65,9 +65,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					sub.Trip = trip;
 					sub.StartDate = subDto.StartDate;
 					sub.DestinationCity = subDto.DestinationCity;
-					//sub.CountryId = subDto.CountryId;
 					sub.Country = repo.Dictionaries.GetCountry(subDto.CountryId);
-					sub.EndDate = subDto.EndDate;
+					sub.EndDate = subDto.EndDate.ParseAppString();
 					sub.AccomodationCount = subDto.AccomodationCount;
 
 
@@ -93,7 +92,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{
 					MileageAllowance ma = new MileageAllowance();
 					ma.Trip = trip;
-					ma.Date = maDto.Date;
+					ma.Date = maDto.Date.ParseAppString();
 					ma.Distance = maDto.Distance;
 					ma.Amount = maDto.Amount;
 					ma.Notes = maDto.Notes;
@@ -140,7 +139,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{//Update expenses that exist both in database and in dto					
 					ExpenseDTO edto = businessTripDto.Expenses.First(expenseDto => expenseDto.ExpenseId == expense.Id);
 					expense.Type = repo.Dictionaries.GetExpenseType(edto.ExpenseTypeId);
-					expense.Date = edto.Date;
+					expense.Date = edto.Date.ParseAppString();
 					expense.City = edto.City;
 					expense.Amount = edto.Amount;
 					//expense.CountryId = expDto.CountryId;
@@ -162,7 +161,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					Expense expense = new Expense();
 					expense.Trip = trip;
 					expense.Type = repo.Dictionaries.GetExpenseType(expDto.ExpenseTypeId);
-					expense.Date = expDto.Date;
+					expense.Date = expDto.Date.ParseAppString();
 					expense.City = expDto.City;
 					expense.Amount = expDto.Amount;
 					//expense.CountryId = expDto.CountryId;
@@ -191,7 +190,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					sub.DestinationCity = sdto.DestinationCity;
 					//sub.CountryId = subDto.CountryId;
 					sub.Country = repo.Dictionaries.GetCountry(sdto.CountryId);
-					sub.EndDate = sdto.EndDate;
+					sub.EndDate = sdto.EndDate.ParseAppString();
 					sub.AccomodationCount = sdto.AccomodationCount;
 
 					repo.Subsistences.RemoveMealsForSubsistence(sub.Id);
@@ -219,7 +218,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					sub.DestinationCity = subDto.DestinationCity;
 					//sub.CountryId = subDto.CountryId;
 					sub.Country = repo.Dictionaries.GetCountry(subDto.CountryId);
-					sub.EndDate = subDto.EndDate;
+					sub.EndDate = subDto.EndDate.ParseAppString();
 					sub.AccomodationCount = subDto.AccomodationCount;
 
 					List<SubsistenceMeal> meals = new List<SubsistenceMeal>();
@@ -246,7 +245,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{//Update mileage allowances that exist both in database and in dto					
 					MileageAllowanceDTO mdto = businessTripDto.MileageAllowances.First(m => m.id == allowance.Id);
 					allowance.Type = repo.Dictionaries.GetVehicleType(mdto.VehicleTypeId);
-					allowance.Date = mdto.Date;					
+					allowance.Date = mdto.Date.ParseAppString();					
 					allowance.Amount = mdto.Amount;					
 					allowance.Distance = mdto.Distance;					
 					allowance.Notes = mdto.Notes;
@@ -261,7 +260,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{//Add those that exist in dto but don't exist in db
 					MileageAllowance allowance = new MileageAllowance();
 					allowance.Trip = trip;					
-					allowance.Date = milDto.Date;					
+					allowance.Date = milDto.Date.ParseAppString();					
 					allowance.Amount = milDto.Amount;
 					allowance.Distance = milDto.Distance;
 					allowance.Type = repo.Dictionaries.GetVehicleType(milDto.VehicleTypeId);					

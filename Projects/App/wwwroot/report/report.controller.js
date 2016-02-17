@@ -102,7 +102,7 @@
                 console.log(err);
             })
             .finally(function () {
-                creatingDialog.close();
+                window.setTimeout(function () { creatingDialog.close(); }, 500);                
             });
         };
 

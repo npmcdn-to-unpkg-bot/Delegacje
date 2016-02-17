@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
+using CrazyAppsStudio.Delegacje.App.ApiBackend.Models;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
@@ -35,9 +36,9 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                     return BadRequest(this.ModelState);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return InternalServerError();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -66,11 +67,13 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 					return BadRequest(this.ModelState);
 				}
 			}
-			catch
+			catch (Exception ex)
 			{
-				return InternalServerError();
-			}
+                return BadRequest(ex.Message);
+            }
 		}
+
+
 
         [Route("")]
         [HttpGet]

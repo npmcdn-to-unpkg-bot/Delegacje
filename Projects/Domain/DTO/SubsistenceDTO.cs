@@ -20,7 +20,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		public int CountryId { get; set; }		
 
 		[Required]
-		public DateTime EndDate { get; set; }
+		public string EndDate { get; set; }
 
 		public List<SubsistenceMealDTO> Meals { get; set; }
 

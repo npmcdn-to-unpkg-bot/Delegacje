@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,16 @@ namespace Tools
             sb.Append("/");
             sb.Append(date.Year.ToString());
             return sb.ToString();
+        }
+
+        public static DateTime ParseAppString(this string date)
+        {
+            string[] parts = date.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            int day = int.Parse(parts[0]);
+            int month = int.Parse(parts[1]);
+            int year = int.Parse(parts[2]);
+
+            return new DateTime(year, month, day);
         }
     }
 }
