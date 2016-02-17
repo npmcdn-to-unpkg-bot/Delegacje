@@ -182,16 +182,24 @@ fieldset {
 input:disabled {
   opacity: 0.5;
 }
-/*form input.ng-invalid:not(.ng-pristine) {
-    box-shadow: 0px 0px 13px rgba(255, 133, 0, 0.9);
-}*/
-/*.form-line input.ng-invalid {
-    background-color: #FFEDED;
+.input-icon {
+  background-position: right;
+  background-repeat: no-repeat;
 }
-
-.form-line input.ng-valid-required {
-    background-color: #D8FFDD;
-}*/
+.input-calendar {
+  background-image: url('img/bg_calendar.png');
+}
+.input-pln {
+  background-image: url('img/bg_pln.png');
+}
+.input-km {
+  background-image: url('img/bg_km.png');
+}
+.wrap-dd-select {
+  background-position: right;
+  background-repeat: no-repeat;
+  background-image: url('img/bg_dropdown.png');
+}
 .login-form-container {
   padding: 10px;
 }
@@ -330,6 +338,9 @@ tr:last-child td {
 .wrap-dd-select .dropdown {
   border: 1px solid rgba(0, 0, 0, 0.17);
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+}
+.wrap-dd-select:after {
+  display: none;
 }
 .ngdialog-buttons {
   text-align: right;

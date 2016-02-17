@@ -235,6 +235,10 @@
     <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
+    <Content Include="wwwroot\css\img\bg_calendar.png" />
+    <Content Include="wwwroot\css\img\bg_dropdown.png" />
+    <Content Include="wwwroot\css\img\bg_km.png" />
+    <Content Include="wwwroot\css\img\bg_pln.png" />
     <Content Include="wwwroot\css\img\icons.png" />
     <Content Include="wwwroot\css\img\spinner-circular.gif" />
     <Content Include="wwwroot\css\index.css">

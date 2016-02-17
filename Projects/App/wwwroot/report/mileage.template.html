@@ -20,12 +20,12 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Dystans</span>
-                <input type="text" ng-model="vm.NewMileage.Distance" numeric min="0" maxlength="10" decimals="0" />
+                <input type="text" ng-model="vm.NewMileage.Distance" numeric min="0" maxlength="10" decimals="0" class="input-icon input-km" />
                 <required-icon content="vm.NewMileage.Distance"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <span class="form-readonly-value">{{vm.NewMileage.Amount()}}</span>
+                <span class="form-readonly-value input-icon input-pln"">{{vm.NewMileage.Amount()}}</span>
             </div>
         </div>
         <div class="five columns text-center">
