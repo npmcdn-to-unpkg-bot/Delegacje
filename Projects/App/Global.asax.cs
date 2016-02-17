@@ -14,7 +14,7 @@ namespace CrazyAppsStudio.Delegacje.App
         {
 			XmlConfigurator.Configure();
 
-			logger.Info("Ichor Client application starting");
+            System.Diagnostics.Trace.TraceInformation("Delegacje startują");            
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
