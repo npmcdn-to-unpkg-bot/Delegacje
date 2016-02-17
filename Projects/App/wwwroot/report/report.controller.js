@@ -20,6 +20,7 @@
         //expenses
         vm.NewExpense = userReportsFactoryService.getExpense();
         vm.AddExpenseToReport = function () {
+            vm.NewExpense.Date = dateToString(vm.NewExpense.Date);
             vm.Report.Expenses.push(vm.NewExpense);
             vm.NewExpense = userReportsFactoryService.getExpense();
         };
@@ -52,6 +53,7 @@
         //mileages
         vm.NewMileage = userReportsFactoryService.getMileage();
         vm.AddMileageToReport = function () {
+            vm.NewMileage.Date = dateToString(vm.NewMileage.Date);
             vm.Report.MileageAllowances.push(vm.NewMileage);
             vm.NewMileage = userReportsFactoryService.getMileage();
         };
@@ -131,5 +133,12 @@
                 }
             }
         });
+
+        function dateToString(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            return day + '/' + month + '/' + year;
+        }
     }
 })();

@@ -50,5 +50,9 @@
   {
     "outputFile": "wwwroot/css/module/m-icons.css",
     "inputFile": "wwwroot/css/module/m-icons.less"
+  },
+  {
+    "outputFile": "wwwroot/css/module/m-datepicker.css",
+    "inputFile": "wwwroot/css/module/m-datepicker.less"
   }
 ]

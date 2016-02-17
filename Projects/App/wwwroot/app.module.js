@@ -8,6 +8,7 @@ angular.module('app', [
     'ngDropdowns',
     'purplefox.numeric',
     'ngDialog',
+    'ngQuickDate',
 
     // Custom modules
 

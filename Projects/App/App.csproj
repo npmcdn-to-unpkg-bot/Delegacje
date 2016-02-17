@@ -400,6 +400,13 @@
     <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.css" />
     <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.js" />
     <Content Include="wwwroot\lib\ngDropdowns\gulpfile.js" />
+    <Content Include="wwwroot\lib\ngQuickDate\demo.html" />
+    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date-default-theme.css" />
+    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date-plus-default-theme.css" />
+    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.css" />
+    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.js" />
+    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.min.js" />
+    <Content Include="wwwroot\lib\ngQuickDate\LICENSE.txt" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.js" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.min.js" />
     <Content Include="wwwroot\lib\ngstorage\package.js" />
@@ -519,6 +526,10 @@
     <Content Include="wwwroot\css\module\m-dialog.less" />
     <Content Include="wwwroot\css\module\m-icons.less" />
     <Content Include="wwwroot\authentication\userData.template.html" />
+    <Content Include="wwwroot\lib\ngQuickDate\.bower.json" />
+    <Content Include="wwwroot\lib\ngQuickDate\.gitignore" />
+    <Content Include="wwwroot\lib\ngQuickDate\bower.json" />
+    <Content Include="wwwroot\lib\ngQuickDate\README.md" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
