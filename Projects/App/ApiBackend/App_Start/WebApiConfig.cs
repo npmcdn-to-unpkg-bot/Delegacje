@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin.Security.OAuth;
+﻿using CrazyAppsStudio.Delegacje.App.ApiBackend.Filters;
+using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -28,6 +29,7 @@ namespace CrazyAppsStudio.Delegacje.App
 
             // Enforce HTTPS
             config.Filters.Add(new CrazyAppsStudio.Delegacje.App.Filters.RequireHttpsAttribute());
+			config.Filters.Add(new UnhandledExceptionFilter());
         }
     }
 }

@@ -276,5 +276,10 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			this.repo.BusinessTrips.Remove(businessTripId);
 			this.repo.SaveChanges();
 		}
+
+		public BusinessTrip GetBusinessTrip(int businessTripId)
+		{
+			return this.repo.BusinessTrips.GetById(businessTripId);
+		}
 	}
 }

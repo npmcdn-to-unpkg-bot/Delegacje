@@ -1,8 +1,10 @@
 ﻿using CrazyAppsStudio.Delegacje.Domain.DTO;
+using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
@@ -45,6 +47,13 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		{
 			try
 			{
+				BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTrip.Id.Value);
+				if (trip.User.Id != this.User.Identity.GetUserId<int>())
+				{
+					return Unauthorized();
+				}
+
+
 				if (this.ModelState.IsValid)
 				{
 					if (!businessTrip.Id.HasValue)
@@ -66,7 +75,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         [Route("")]
         [HttpGet]
         public IEnumerable<BusinessTripSearchItemDTO> GetForUser()
-        {
+        {			
             return tasks.BusinessTripsTasks.GetForUser(this.UserName);
         }
 		
@@ -74,6 +83,11 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		[HttpDelete]
 		public IHttpActionResult Remove(int businessTripId)
 		{
+			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
+			if (trip.User.Id != this.User.Identity.GetUserId<int>())
+			{
+				return Unauthorized(); 
+			}
 			//TODO autoryzacja, user moze usuwac tylko wlasne delegacje
 			tasks.BusinessTripsTasks.DeleteBusinessTrip(businessTripId);
 			return Ok("Delegacja usunięta");
