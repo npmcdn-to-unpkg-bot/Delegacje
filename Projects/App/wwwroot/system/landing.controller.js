@@ -23,6 +23,8 @@
             });            
         }
 
+        userReportsService.reload();
+
         if (!authenticationService.isAuthenticated())
             $state.go('login');
     }

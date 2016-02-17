@@ -82,7 +82,6 @@
                     var user = response.data;
                     $localStorage['user'] = user.userName;
                     saveToken(user['access_token']);
-                    userReportsService.reload();
                     dictionariesService.reload();
                 });
         }

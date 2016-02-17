@@ -27,7 +27,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             {
                 if (this.ModelState.IsValid)
                 {
-                    this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip);
+                    this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(businessTrip, this.UserName);
                     return Ok("Delegacja została stworzona");
                 }
                 else

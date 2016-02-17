@@ -19,9 +19,9 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             repo = new Repositories();
         }
 
-        public void CreateNewBusinessTrip(BusinessTripDTO businessTrip)
+        public void CreateNewBusinessTrip(BusinessTripDTO businessTrip, string userName)
         {
-			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.Id == 1); //TODO Add log in, take user data from Identity - MS 07/02/2016
+			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
 
 			BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
 				Title = businessTrip.Title,
