@@ -48,7 +48,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 			try
 			{
 				BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTrip.Id.Value);
-				if (trip.User.Id != this.User.Identity.GetUserId<int>())
+				if (trip.UserId != this.User.Identity.GetUserId<int>())
 				{
 					return Unauthorized();
 				}
@@ -84,7 +84,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		public IHttpActionResult Remove(int businessTripId)
 		{
 			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
-			if (trip.User.Id != this.User.Identity.GetUserId<int>())
+			if (trip.UserId != this.User.Identity.GetUserId<int>())
 			{
 				return Unauthorized(); 
 			}
