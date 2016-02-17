@@ -144,6 +144,7 @@ fieldset {
 }
 .form-line input[type=text],
 .form-line input[type=password],
+.form-line input[type=email],
 .form-textarea-container,
 .form-readonly-value {
   -moz-border-radius: 12px;
@@ -153,6 +154,7 @@ fieldset {
 }
 .form-line input[type=text],
 .form-line input[type=password],
+.form-line input[type=email],
 .form-line-dropdown > div {
   display: block;
   float: left;

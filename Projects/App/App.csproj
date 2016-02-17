@@ -255,6 +255,12 @@
     <Content Include="wwwroot\css\module\m-containers.min.css">
       <DependentUpon>m-containers.css</DependentUpon>
     </Content>
+    <Content Include="wwwroot\css\module\m-datepicker.css">
+      <DependentUpon>m-datepicker.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-datepicker.min.css">
+      <DependentUpon>m-datepicker.css</DependentUpon>
+    </Content>
     <Content Include="wwwroot\css\module\m-dialog.css">
       <DependentUpon>m-dialog.less</DependentUpon>
     </Content>
@@ -530,6 +536,7 @@
     <Content Include="wwwroot\lib\ngQuickDate\.gitignore" />
     <Content Include="wwwroot\lib\ngQuickDate\bower.json" />
     <Content Include="wwwroot\lib\ngQuickDate\README.md" />
+    <Content Include="wwwroot\css\module\m-datepicker.less" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
