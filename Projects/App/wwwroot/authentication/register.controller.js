@@ -39,7 +39,7 @@
 				.error(function (data, status, headers, config) {
 				    //toastr.alertModelState(data, status);
 				})
-                .always(function () {
+                .finally(function () {
                     vm.isBusy = false;
                     vm.registerModel.email = '';
                     vm.registerModel.password = '';

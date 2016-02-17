@@ -39,7 +39,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		public Currency[] GetAndRefreshCurrencies()
 		{
 			Currency eur = this.repo.Dictionaries.GetCurrencies().First(c => c.Code == "EUR");
-			if (eur.DateRefreshed.Date <= DateTime.Now.AddDays(-1).Date) //currencies older than 1 day need refresh
+			if ((eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
+				eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 12)
 			{
 				RefreshCurrencies();
 			}
