@@ -160,6 +160,7 @@ fieldset {
   float: left;
   margin-left: 20px;
   width: 200px;
+  height: 40px;
 }
 .form-line input[type=checkbox] {
   margin-left: 20px;
@@ -205,23 +206,45 @@ input:disabled {
 }
 .details-switch-container {
   display: inline-block;
-  width: 200px;
-  background-color: #F8F8FB;
-  border: 1px solid #EDEEF2;
-  padding: 20px;
+  width: 206px;
+  height: 148px;
   text-align: center;
   text-transform: uppercase;
-  font-size: smaller;
   margin: 0 6px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 4px solid;
+  border-color: rgba(0, 0, 0, 0);
+}
+.details-switch-container > span {
+  display: block;
+  margin-top: 110px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.switch-1 {
+  background-image: url('img/section1.png');
+}
+.switch-2 {
+  background-image: url('img/section2.png');
+}
+.switch-3 {
+  background-image: url('img/section3.png');
 }
 .details-switch-container.active {
   border-color: #75A6E1;
   border-width: 4px;
-  margin: 0 2px;
+  position: relative;
+}
+.details-switch-container.active::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('img/tick.png');
+  top: -14px;
+  right: -13px;
 }
 .user-data {
   position: absolute;
@@ -377,8 +400,8 @@ tr:last-child td {
   float: left;
   margin-left: 20px;
   width: 180px;
-  height: 40px;
-  line-height: 40px;
+  height: 36px;
+  line-height: 36px;
   padding: 0 10px;
   color: #6E768F;
   font-family: 'Source Sans Pro', sans-serif;

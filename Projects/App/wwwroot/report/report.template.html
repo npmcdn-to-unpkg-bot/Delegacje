@@ -54,9 +54,15 @@
             </div>
 
             <div class="ten columns offset-by-one text-center">
-                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Expenses' }" ng-click="vm.toggleSection('Expenses')">Wydatki</span>
-                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Mileage' }" ng-click="vm.toggleSection('Mileage')">Kilometrówka</span>
-                <span class="details-switch-container" ng-class="{ active: vm.visibleSection == 'Diet' }" ng-click="vm.toggleSection('Diet')">Dieta</span>
+                <div class="details-switch-container switch-1" ng-class="{ active: vm.visibleSection == 'Expenses' }" ng-click="vm.toggleSection('Expenses')">
+                    <span>Wydatki</span>
+                </div>
+                <div class="details-switch-container switch-2" ng-class="{ active: vm.visibleSection == 'Mileage' }" ng-click="vm.toggleSection('Mileage')">
+                    <span>Kilometrówka</span>
+                </div>
+                <div class="details-switch-container switch-3" ng-class="{ active: vm.visibleSection == 'Diet' }" ng-click="vm.toggleSection('Diet')">
+                    <span>Dieta</span>
+                </div>
             </div>
         </div>
         <div class="v-spacer v-spacer40"></div>
