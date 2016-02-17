@@ -29,20 +29,21 @@
                 $location.path('/login');
             }
             else {
-                // Circular dependency if inject |toastr| directly
-                var msg;
-                var toastr = $injector.get('toastr');
-                var data = response.data;
+                //// Circular dependency if inject |toastr| directly
+                //var msg;
+               // var toastr = $injector.get('toastr');
+               // var data = response.data;
 
-                if (data) {
-                    msg = data['error_description'] || data.error ||
-                        data.ExceptionMessage || data.Message ||
-                        data.message;
-                } else {
-                    msg = response.statusText || response.statusCode;
-                }
+                //if (data) {
+                    console.log(response);
+                   // msg = data['error_description'] || data.error ||
+                   //     data.ExceptionMessage || data.Message ||
+                  //      data.message;
+               // } else {
+               //     msg = response.statusText || response.statusCode;
+               // }
 
-                toastr.error(msg);
+              //  toastr.error(msg);
             }
             return $q.reject(response);
         }

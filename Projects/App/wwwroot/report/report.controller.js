@@ -81,11 +81,11 @@
                 report.Expenses[i].ExchangeRateModifiedByUser = false;
 
                 report.Expenses[i].ExpenseTypeId = report.Expenses[i].Type.Id;
-                report.Expenses[i].Type = undefined;
+                //report.Expenses[i].Type = undefined;
 
                 report.Expenses[i].CountryId = report.Expenses[i].Country.Id;
-                report.Expenses[i].Country = undefined;
-                report.Expenses[i].FinalAmount = undefined;
+                //report.Expenses[i].Country = undefined;
+                //report.Expenses[i].FinalAmount = undefined;
             }
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
@@ -95,9 +95,14 @@
 
             var promise = userReportsService.create(report);
             promise.then(function () {
-                creatingDialog.close();
                 userReportsService.reload();
                 $state.go('landing');
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+            .finally(function () {
+                creatingDialog.close();
             });
         };
 
