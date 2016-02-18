@@ -77,7 +77,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				this.repo.Dictionaries.AddCurrencies(toBeAdded);				
 			}
 			this.repo.SaveChanges();
-		}
+		}		
 
 		public List<NBPCurrency> LoadCurrenciesFromNBP()
 		{

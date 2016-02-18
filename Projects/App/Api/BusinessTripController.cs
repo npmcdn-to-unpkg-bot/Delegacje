@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using CrazyAppsStudio.Delegacje.App.ApiBackend.Models;
+using CrazyAppsStudio.Delegacje.Domain.Extensions;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
 	[RoutePrefix("api/businessTrips")]
-	[Authorize]
+	//[Authorize]
 	public class BusinessTripController : BaseProfileController
     {
 		private readonly ITasksRepository tasks;
@@ -94,6 +95,18 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 			//TODO autoryzacja, user moze usuwac tylko wlasne delegacje
 			tasks.BusinessTripsTasks.DeleteBusinessTrip(businessTripId);
 			return Ok("Delegacja usunięta");
+		}
+
+		[Route("{businessTripId:int}")]
+		[HttpGet]
+		public IHttpActionResult GetById(int businessTripId)
+		{
+			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
+			if (trip != null)
+			{
+				return Ok(trip.MapToDTO());
+			}
+			else return NotFound();			
 		}
     }
 }

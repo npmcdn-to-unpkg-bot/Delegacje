@@ -29,5 +29,21 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
                 Purpose = bt.BusinessPurpose
             }).ToList();
         }
+
+		public static BusinessTripDTO MapToDTO(this BusinessTrip trip)
+		{
+			return new BusinessTripDTO()
+			{
+				Id = trip.Id,
+				Title = trip.Title,
+				Date = trip.Date.ToAppString(),
+				BusinessPurpose = trip.BusinessPurpose,
+				BusinessReason = trip.BusinessReason,
+				Notes = trip.Notes,
+				Expenses = trip.Expenses.Select(exp => exp.MapToDTO()).ToArray(),
+				Subsistences = trip.Subsistences.Select(sub => sub.MapToDTO()).ToArray(),
+				MileageAllowances = trip.MileageAllowances.Select(ma => ma.MapToDTO()).ToArray()
+			};
+		}
     }
 }

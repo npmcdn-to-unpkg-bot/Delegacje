@@ -11,12 +11,14 @@ namespace CrazyAppsStudio.Delegacje.Tasks
         public UsersTasks UsersTasks { get; private set; }
         public DictionariesTasks DictionariesTasks { get; private set; }
 		public BusinessTripsTasks BusinessTripsTasks { get; private set; }
+		public CurrenciesTasks CurrenciesTasks { get; private set; }
 
         public TasksRepository()
         {
             this.UsersTasks = new UsersTasks();
             this.DictionariesTasks = new DictionariesTasks();
             this.BusinessTripsTasks = new BusinessTripsTasks();
+			this.CurrenciesTasks = new CurrenciesTasks();
         }
     }
 }

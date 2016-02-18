@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripTasks.cs" />
+    <Compile Include="CurrenciesTasks.cs" />
     <Compile Include="TasksRepository.cs" />
     <Compile Include="DictionariesTasks.cs" />
     <Compile Include="UsersTasks.cs" />

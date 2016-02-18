@@ -214,6 +214,7 @@
     <Compile Include="ApiBackend\Models\TextResult.cs" />
     <Compile Include="Api\BaseProfileController.cs" />
     <Compile Include="Api\BusinessTripController.cs" />
+    <Compile Include="Api\CurrenciesController.cs" />
     <Compile Include="Api\DictionariesController.cs" />
     <Compile Include="ApiBackend\App_Start\FilterConfig.cs" />
     <Compile Include="ApiBackend\App_Start\IdentityConfig.cs" />

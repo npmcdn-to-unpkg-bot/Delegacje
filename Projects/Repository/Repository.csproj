@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripsRepository.cs" />
+    <Compile Include="CurrenciesRepository.cs" />
     <Compile Include="DictionariesRepository.cs" />
     <Compile Include="ExpensesRepository.cs" />
     <Compile Include="IRepositories.cs" />

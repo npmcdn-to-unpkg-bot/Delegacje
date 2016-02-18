@@ -13,6 +13,8 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		public SubsistencesRepository Subsistences { get; set; }
 		public MileageAllowancesRepository MileageAllowances { get; set; }
 
+		public CurrenciesRepository Currencies { get; set; } 
+
         public Repositories()
         {
             context = new BusinessTripsContext();
@@ -23,6 +25,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			this.Expenses = new ExpensesRepository(context);
 			this.Subsistences = new SubsistencesRepository(context);
 			this.MileageAllowances = new MileageAllowancesRepository(context);
+			this.Currencies = new CurrenciesRepository(context);
         }
 
         public void SaveChanges()
