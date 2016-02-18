@@ -22,6 +22,9 @@
                 }
             });            
         }
+        vm.copy = function (report) {
+            userReportsService.remove(report.Id);
+        }
 
         userReportsService.reload();
 

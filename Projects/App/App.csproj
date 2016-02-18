@@ -244,6 +244,7 @@
     <Content Include="wwwroot\css\img\section2.png" />
     <Content Include="wwwroot\css\img\section3.png" />
     <Content Include="wwwroot\css\img\spinner-circular.gif" />
+    <Content Include="wwwroot\css\img\tick.png" />
     <Content Include="wwwroot\css\index.css">
       <DependentUpon>index.less</DependentUpon>
     </Content>

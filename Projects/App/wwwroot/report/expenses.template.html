@@ -46,7 +46,7 @@
                 </div>
                 <required-icon content="vm.NewExpense.Document"></required-icon>
             </div>
-            <div class="form-line">
+            <div class="form-line" ng-show="vm.NewExpense.Document.Id == 1">
                 <span class="form-row-label">Stawka VAT</span>
                 <input type="text" ng-model="vm.NewExpense.VATRate" numeric min="0" maxlength="10" decimals="2" class="input-icon input-pln" />
             </div>
@@ -100,7 +100,9 @@
                         <td>{{r.City}}</td>
                         <td>{{r.Amount}}</td>
                         <td>{{r.Document.Name}}</td>
-                        <td>{{r.DoNotReturn ? 'TAK' : 'NIE'}} </td>
+                        <td>
+                            <input type="checkbox" ng-model="r.DoNotReturn" disabled />
+                        </td>
                         <td>{{r.Notes}}</td>
                         <td>
                             <a ng-click="vm.RemoveExpense(r)">Usuń</a>

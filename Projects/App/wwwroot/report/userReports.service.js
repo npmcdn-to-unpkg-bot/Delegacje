@@ -15,7 +15,8 @@
             reports: function () { return reports; },
             reload: reload,
             create: create,
-            remove: remove
+            remove: remove,
+            copy: copy
         };
         return service;
 
@@ -31,6 +32,16 @@
         }
 
         function create(report) {
+            var promise = $http
+                .put('../api/businessTrips/create', report)
+                .then(function (response) {
+                    console.log('Report creted');
+                });
+
+            return promise;
+        }
+
+        function copy(report) {
             var promise = $http
                 .put('../api/businessTrips/create', report)
                 .then(function (response) {
