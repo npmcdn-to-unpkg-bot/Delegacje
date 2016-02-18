@@ -35,12 +35,13 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 		{
 			base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<VehicleType>().Property(v => v.Rate).HasPrecision(12, 4);
+
 			modelBuilder.Entity<Role>().ToTable("Roles", "dbo");
 			modelBuilder.Entity<User>().ToTable("Users", "dbo");
 			modelBuilder.Entity<UserRole>().ToTable("UserRoles", "dbo");
 			modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
 			modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
-
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
         }
 

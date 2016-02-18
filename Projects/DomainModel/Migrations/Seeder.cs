@@ -310,20 +310,20 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			VehicleType motorcycle = new VehicleType()
 			{
 				Name = "Motocykl",
-				Rate = 1.50m
-			};
+				Rate = 0.2302m
+            };
 
 			VehicleType carCapacity1 = new VehicleType()
 			{
 				Name = "Samochód poj. 1",
-				Rate = 3.0m
+				Rate = 0.5214m
 			};
 
 			VehicleType carCapacity2 = new VehicleType()
 			{
 				Name = "Samochód poj. 2",
-				Rate = 5.0m
-			};
+				Rate = 0.8358m
+            };
 
 			context.VehicleTypes.AddOrUpdate(vt => vt.Name, motorcycle);
 			context.VehicleTypes.AddOrUpdate(vt => vt.Name, carCapacity1);

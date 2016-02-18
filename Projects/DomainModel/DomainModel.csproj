@@ -115,6 +115,14 @@
     <Compile Include="Migrations\201602162257533_vat rate optional.Designer.cs">
       <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602181636073_vehicleTypesUpdated.cs" />
+    <Compile Include="Migrations\201602181636073_vehicleTypesUpdated.Designer.cs">
+      <DependentUpon>201602181636073_vehicleTypesUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602181647168_VehicleTypeRateUpdated.cs" />
+    <Compile Include="Migrations\201602181647168_VehicleTypeRateUpdated.Designer.cs">
+      <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602162257533_vat rate optional.resx">
       <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602181636073_vehicleTypesUpdated.resx">
+      <DependentUpon>201602181636073_vehicleTypesUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602181647168_VehicleTypeRateUpdated.resx">
+      <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
