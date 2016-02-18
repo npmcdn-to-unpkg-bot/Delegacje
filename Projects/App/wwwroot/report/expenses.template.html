@@ -98,7 +98,12 @@
                         <td>{{r.Date}}</td>
                         <td>{{r.Type.Name}}</td>
                         <td>{{r.City}}</td>
-                        <td>{{r.Amount}}</td>
+                        <td>
+                            {{r.FinalAmount() + ' PLN'}}
+                            <div ng-show="r.Country.CurrencyCode != 'PLN'">
+                                <small>{{r.Amount.toFixed(2) + ' ' + r.Country.CurrencyCode}}</small>
+                            </div>
+                        </td>
                         <td>{{r.Document.Name}}</td>
                         <td>
                             <input type="checkbox" ng-model="r.DoNotReturn" disabled />

@@ -30,7 +30,7 @@
             bt.Total = function () {
                 var total = 0;
                 for (var e = 0; e < bt.Expenses.length; e++) {
-                    total += bt.Expenses[e].Amount;
+                    total += parseFloat(bt.Expenses[e].FinalAmount());
                 }
                 for (var m = 0; m < bt.MileageAllowances.length; m++) {
                     total += bt.MileageAllowances[m].Amount();
