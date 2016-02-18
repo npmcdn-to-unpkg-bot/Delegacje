@@ -11,7 +11,7 @@ using CrazyAppsStudio.Delegacje.Domain.Extensions;
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
 	[RoutePrefix("api/businessTrips")]
-	//[Authorize]
+	[Authorize]
 	public class BusinessTripController : BaseProfileController
     {
 		private readonly ITasksRepository tasks;
@@ -107,6 +107,15 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 				return Ok(trip.MapToDTO());
 			}
 			else return NotFound();			
+		}
+
+		[Route("clone/{businessTripId:int}")]
+		[HttpGet]
+		public BusinessTripDTO Clone(int businessTripId)
+		{			
+			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
+			int createdId = this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(trip.MapToDTO(), this.UserName);
+			return this.tasks.BusinessTripsTasks.GetBusinessTrip(createdId).MapToDTO();			
 		}
     }
 }

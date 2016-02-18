@@ -40,9 +40,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 				BusinessPurpose = trip.BusinessPurpose,
 				BusinessReason = trip.BusinessReason,
 				Notes = trip.Notes,
-				Expenses = trip.Expenses.Select(exp => exp.MapToDTO()).ToArray(),
-				Subsistences = trip.Subsistences.Select(sub => sub.MapToDTO()).ToArray(),
-				MileageAllowances = trip.MileageAllowances.Select(ma => ma.MapToDTO()).ToArray()
+				Expenses = trip.Expenses != null ? trip.Expenses.Select(exp => exp.MapToDTO()).ToArray() : null,
+				Subsistences = trip.Subsistences != null ? trip.Subsistences.Select(sub => sub.MapToDTO()).ToArray() : null,
+				MileageAllowances = trip.MileageAllowances != null ? trip.MileageAllowances.Select(ma => ma.MapToDTO()).ToArray() : null
 			};
 		}
     }

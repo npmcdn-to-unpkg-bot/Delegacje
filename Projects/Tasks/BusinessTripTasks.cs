@@ -20,7 +20,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             repo = new Repositories();
         }
 
-        public void CreateNewBusinessTrip(BusinessTripDTO businessTrip, string userName)
+        public int CreateNewBusinessTrip(BusinessTripDTO businessTrip, string userName)
         {
 			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
 
@@ -105,6 +105,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			}
 
 			this.repo.SaveChanges();
+			return trip.Id;
         }
 
         public IEnumerable<BusinessTripSearchItemDTO> GetForUser(string user)
