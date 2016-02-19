@@ -35,6 +35,12 @@
                 controller: 'ReportController',
                 controllerAs: 'vm',
                 templateUrl: 'wwwroot/report/report.template.html'
+            })
+            .state('report-edit', {
+                url: '/report/:reportId',
+                controller: 'ReportController',
+                controllerAs: 'vm',
+                templateUrl: 'wwwroot/report/report.template.html'
             });
 
         $urlRouterProvider.otherwise('/landing');

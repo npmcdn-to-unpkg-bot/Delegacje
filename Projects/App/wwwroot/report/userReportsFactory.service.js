@@ -59,6 +59,7 @@
 
         function getExpense() {
             var exp = {};
+            exp.ExpenseId = null;
             exp.Type = null;
             exp.Date = '';
             exp.Country = null;

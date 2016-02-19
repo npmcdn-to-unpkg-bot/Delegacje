@@ -24,7 +24,13 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		[Required]
 		public virtual ExpenseType Type { get; set; }
 
-		[Required]
+        [Required]
+        public int DocumentTypeId { get; set; }
+
+        [Required]
+        public virtual ExpenseDocumentType DocumentType { get; set; }
+
+        [Required]
 		public DateTime Date { get; set; }
 
 		[Required, MaxLength(255)]
@@ -45,10 +51,12 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public double ExchangeRate { get; set; }
 
 		[Required]
-
 		public bool ExchangeRateModifiedByUser { get; set; }
 
-		public double? VATRate { get; set; }
+        [Required]
+        public bool DoNotReturn { get; set; }
+
+        public double? VATRate { get; set; }
 
 		[MaxLength(255)]
 		public string Notes { get; set; }

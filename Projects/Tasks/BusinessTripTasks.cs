@@ -50,6 +50,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.ExchangeRateModifiedByUser = expDto.ExchangeRateModifiedByUser;
 					expense.VATRate = expDto.VATRate;
 					expense.Notes = expDto.Notes;
+                    expense.DoNotReturn = expDto.DoNotReturn;
+                    expense.DocumentType = repo.Dictionaries.GetExpenseDocumentType(expDto.ExpenseDocumentTypeId);
 					expenses.Add(expense);
 				}
 
@@ -113,15 +115,17 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             return repo.BusinessTrips.GetForUser(user);
         }
 
-		public void UpdateBusinessTrip(BusinessTripDTO businessTripDto)
+		public void UpdateBusinessTrip(BusinessTripDTO businessTripDto, string userName)
 		{
 			BusinessTrip trip = repo.BusinessTrips.GetById(businessTripDto.Id.Value);
+            User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
 
-			trip.Title = businessTripDto.Title;
+            trip.Title = businessTripDto.Title;
 			trip.Date = Convert.ToDateTime(businessTripDto.Date);
 			trip.BusinessReason = businessTripDto.BusinessReason;
 			trip.BusinessPurpose = businessTripDto.BusinessPurpose;
 			trip.Notes = businessTripDto.Notes;
+            trip.User = user;
 
 			UpdateBusinessTripExpenses(trip, businessTripDto);
 			UpdateBusinessTripSubsistences(trip, businessTripDto);
@@ -172,6 +176,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.ExchangeRateModifiedByUser = expDto.ExchangeRateModifiedByUser;
 					expense.VATRate = expDto.VATRate;
 					expense.Notes = expDto.Notes;
+                    expense.DoNotReturn = expDto.DoNotReturn;
+                    expense.DocumentType = repo.Dictionaries.GetExpenseDocumentType(expDto.ExpenseDocumentTypeId);
 					trip.Expenses.Add(expense);
 				}
 			}
@@ -179,7 +185,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
 		public void UpdateBusinessTripSubsistences(BusinessTrip trip, BusinessTripDTO businessTripDto)
 		{
-			if (businessTripDto.Expenses != null)
+			if (businessTripDto.Subsistences != null)
 			{
 				foreach (Subsistence sub in trip.Subsistences
 					.Where(s => businessTripDto.Subsistences

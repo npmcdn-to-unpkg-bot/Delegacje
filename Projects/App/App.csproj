@@ -236,6 +236,8 @@
     <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
+    <Content Include="wwwroot\css\font-awesome.css" />
+    <Content Include="wwwroot\css\fonts\fontawesome-webfont.svg" />
     <Content Include="wwwroot\css\img\bg_calendar.png" />
     <Content Include="wwwroot\css\img\bg_dropdown.png" />
     <Content Include="wwwroot\css\img\bg_km.png" />
@@ -546,6 +548,11 @@
     <Content Include="wwwroot\lib\ngQuickDate\bower.json" />
     <Content Include="wwwroot\lib\ngQuickDate\README.md" />
     <Content Include="wwwroot\css\module\m-datepicker.less" />
+    <Content Include="wwwroot\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\css\fonts\fontawesome-webfont.woff2" />
+    <Content Include="wwwroot\css\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

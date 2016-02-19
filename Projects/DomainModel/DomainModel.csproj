@@ -123,6 +123,10 @@
     <Compile Include="Migrations\201602181647168_VehicleTypeRateUpdated.Designer.cs">
       <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602191538353_ExpensesModelUpdated.cs" />
+    <Compile Include="Migrations\201602191538353_ExpensesModelUpdated.Designer.cs">
+      <DependentUpon>201602191538353_ExpensesModelUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602181647168_VehicleTypeRateUpdated.resx">
       <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602191538353_ExpensesModelUpdated.resx">
+      <DependentUpon>201602191538353_ExpensesModelUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

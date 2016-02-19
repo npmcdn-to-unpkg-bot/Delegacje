@@ -12,7 +12,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		public int? ExpenseId { get; set; }
 		[Required]
 		public int ExpenseTypeId { get; set; }
-		[Required]
+        [Required]
+        public int ExpenseDocumentTypeId { get; set; }
+        [Required]
 		public string Date { get; set; }
 		[Required, MaxLength(255)]
 		public string City { get; set; }
@@ -26,8 +28,11 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		public double ExchangeRate { get; set; }
 		[Required]
 		public bool ExchangeRateModifiedByUser { get; set; }
+		[Required]
+        public bool DoNotReturn { get; set; }
 
-		public double? VATRate { get; set; }
+        public double? VATRate { get; set; }
+
 
 		[MaxLength(255)]
 		public string Notes { get; set; }

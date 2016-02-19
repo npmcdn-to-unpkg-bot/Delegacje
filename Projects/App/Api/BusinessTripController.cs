@@ -60,7 +60,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 				{
 					if (!businessTrip.Id.HasValue)
 						return BadRequest("Brak Id Delegacji");
-					this.tasks.BusinessTripsTasks.UpdateBusinessTrip(businessTrip);
+					this.tasks.BusinessTripsTasks.UpdateBusinessTrip(businessTrip, this.UserName);
 					return Ok("Delegacja została zaktualizowana");
 				}
 				else
@@ -114,10 +114,11 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		public BusinessTripSearchItemDTO Clone(int businessTripId)
 		{			
 			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
-            trip.Title += " (kopia)";
-            trip.Date = DateTime.Now;
 
-			int createdId = this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(trip.MapToDTO(), this.UserName);
+            BusinessTripDTO dto = trip.MapToDTO();
+            dto.Title += " (kopia)";
+
+            int createdId = this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(dto, this.UserName);
 			return this.tasks.BusinessTripsTasks.GetBusinessTrip(createdId).MapToSearchItem();			
 		}
     }

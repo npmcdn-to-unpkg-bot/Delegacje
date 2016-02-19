@@ -17,6 +17,29 @@
             ExpenseDocumentTypes: $localStorage['ExpenseDocumentTypes'],
             MealTypes: $localStorage['MealTypes'],
             Currencies: $localStorage['Currencies'],
+
+            ExpenseTypeById: function(Id) {
+                var types = $localStorage['ExpenseTypes'];
+                for (var i = 0; i < types.length; i++) {
+                    if (types[i].Id === Id)
+                        return types[i];
+                }
+            },
+            CountryById: function (Id) {
+                var countries = $localStorage['Countries'];
+                for (var i = 0; i < countries.length; i++) {
+                    if (countries[i].Id === Id)
+                        return countries[i];
+                }
+            },
+            ExpenseDocumentById: function (Id) {
+                var types = $localStorage['ExpenseDocumentTypes'];
+                for (var i = 0; i < types.length; i++) {
+                    if (types[i].Id === Id)
+                        return types[i];
+                }
+            },
+
             reload: reload
         };
         return service;

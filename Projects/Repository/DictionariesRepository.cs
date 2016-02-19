@@ -61,6 +61,11 @@ namespace CrazyAppsStudio.Delegacje.Repository
             return this.context.ExpenseDocumentTypes.AsEnumerable();
         }
 
+        public ExpenseDocumentType GetExpenseDocumentType(int expenseDocumentTypeId)
+        {
+            return this.context.ExpenseDocumentTypes.FirstOrDefault(e => e.Id == expenseDocumentTypeId);
+        }
+
         public IEnumerable<MealType> GetMealTypes()
         {
             return this.context.MealTypes.AsEnumerable();

@@ -28,6 +28,10 @@
             });
         }
 
+        vm.edit = function (Id) {
+            $state.go('report-edit', { reportId: Id });
+        }
+
         userReportsService.reload();
 
         if (!authenticationService.isAuthenticated())

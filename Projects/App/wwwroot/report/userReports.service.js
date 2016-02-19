@@ -14,9 +14,11 @@
         var service = {
             reports: function () { return reports; },
             reload: reload,
+            get: get,
             create: create,
             remove: remove,
-            copy: copy
+            copy: copy,
+            update: update
         };
         return service;
 
@@ -31,11 +33,32 @@
                 });
         }
 
+        function get(Id) {
+            var promise = $http
+                .get('../api/businessTrips/' + Id)
+                .then(function (response) {
+                    console.log(response);
+                    return response;
+                });
+
+            return promise;
+        }
+
         function create(report) {
             var promise = $http
                 .put('../api/businessTrips/create', report)
                 .then(function (response) {
-                    console.log('Report creted');
+                    console.log('Report created');
+                });
+
+            return promise;
+        }
+
+        function update(report) {
+            var promise = $http
+                .post('../api/businessTrips/update', report)
+                .then(function (response) {
+                    console.log('Report updated');
                 });
 
             return promise;

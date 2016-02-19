@@ -5,13 +5,80 @@
          .module('app')
          .controller('ReportController', ReportController);
 
-    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService', 'ngDialog', '$state', '$scope'];
+    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService', 'ngDialog', '$state', '$scope', '$stateParams'];
 
-    function ReportController(userReportsFactoryService, dictionariesService, userReportsService, ngDialog, $state, $scope) {
+    function ReportController(userReportsFactoryService, dictionariesService, userReportsService, ngDialog, $state, $scope, $stateParams) {
         var vm = this;
         vm.visibleSection = 'Expenses';
         vm.Dictionaries = dictionariesService;
-        vm.Report = userReportsFactoryService.getReport();
+        vm.Report = undefined;
+
+        
+        switch ($state.current.name) {
+            case 'report-new':
+                var report = new userReportsFactoryService.getReport();
+                vm.Report = report;
+                break;
+            case 'report-edit':
+                userReportsService.get($stateParams.reportId).then(function (response) {
+                    var reportDto = response.data;
+                    
+                    //map report fields
+                    var report = new userReportsFactoryService.getReport();
+                    report.Id = reportDto.Id;
+                    report.Title = reportDto.Title;
+                    report.Date = reportDto.Date;
+                    report.BusinessReason = reportDto.BusinessReason;
+                    report.BusinessPurpose = reportDto.BusinessPurpose;
+                    report.Notes = reportDto.Notes;
+                    report.UserId = reportDto.UserId;
+                    
+
+                    //map expenses
+                    for (var e = 0; e < reportDto.Expenses.length; e++) {
+                        var expenseDto = reportDto.Expenses[e];
+
+                        var expense = new userReportsFactoryService.getExpense();
+                        expense.ExpenseId = expenseDto.ExpenseId;
+                        expense.Type = dictionariesService.ExpenseTypeById(expenseDto.ExpenseTypeId);
+                        expense.Date = expenseDto.Date;
+                        expense.Country = dictionariesService.CountryById(expenseDto.CountryId);
+                        expense.ExchangeRate = expenseDto.ExchangeRate;
+                        expense.City = expenseDto.City;
+                        expense.Amount = expenseDto.Amount;
+                        expense.Document = dictionariesService.ExpenseDocumentById(expenseDto.ExpenseDocumentTypeId);
+                        expense.VATRate = expenseDto.VATRate;
+                        expense.DoNotReturn = expenseDto.DoNotReturn;
+                        expense.Notes = expenseDto.Notes;
+
+                        report.Expenses.push(expense);
+                    }
+
+                    ///map mileages
+                    for (var m = 0; m < reportDto.MileageAllowances.length; m++) {
+                        var mileageDto = reportDto.MileageAllowances[m];
+
+                        var mileage = new userReportsFactoryService.getMileage();
+                       
+
+                        report.MileageAllowances.push(mileage);
+                    }
+
+                    //map subsistences
+                    //for (var s = 0; s < reportDto.Subsistences.length; s++) {
+                    //    var subsistanceDto = reportDto.Subsistences[s];
+
+                    //    //var subsistance = new userReportsFactoryService.getMileage();
+
+
+                    //    //report.Subsistences.push(mileage);
+                    //}
+
+
+                    vm.Report = report;
+                });
+                break;
+        }
 
         //dictionaries
         var countries = [];
@@ -46,8 +113,9 @@
             && vm.NewMileage.Distance !== '';
         };
         vm.ReportIsValid = function () {
-            return vm.Report.Title !== ''
-            && vm.Report.Expenses.length > 0;
+            return vm.Report != undefined
+                && vm.Report.Title !== ''
+                && vm.Report.Expenses.length > 0;
         };
 
         //mileages
@@ -83,19 +151,25 @@
                 report.Expenses[i].ExchangeRateModifiedByUser = false;
 
                 report.Expenses[i].ExpenseTypeId = report.Expenses[i].Type.Id;
-                //report.Expenses[i].Type = undefined;
-
                 report.Expenses[i].CountryId = report.Expenses[i].Country.Id;
-                //report.Expenses[i].Country = undefined;
-                //report.Expenses[i].FinalAmount = undefined;
+                report.Expenses[i].ExpenseDocumentTypeId = report.Expenses[i].Document.Id;
             }
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
                 report.MileageAllowances[j].VehicleTypeId = report.MileageAllowances[j].Type.Id;
-                report.MileageAllowances[j].Type = undefined;
             }
 
-            var promise = userReportsService.create(report);
+
+            var promise;
+            switch ($state.current.name) {
+                case 'report-new':
+                    promise = userReportsService.create(report);
+                    break;
+                case 'report-edit':
+                    promise = userReportsService.update(report);
+                    break;
+            }
+
             promise.then(function () {
                 userReportsService.reload();
                 $state.go('landing');

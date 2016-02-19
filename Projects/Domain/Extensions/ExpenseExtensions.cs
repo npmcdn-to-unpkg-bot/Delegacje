@@ -25,7 +25,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 				ExchangeRate = expense.ExchangeRate,
 				ExchangeRateModifiedByUser = expense.ExchangeRateModifiedByUser,
 				VATRate = expense.VATRate,
-				Notes = expense.Notes
+				Notes = expense.Notes,
+                DoNotReturn = expense.DoNotReturn,
+                ExpenseDocumentTypeId = expense.DocumentTypeId
 			};
 		}
 	}
