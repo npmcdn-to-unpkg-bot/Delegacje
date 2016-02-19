@@ -111,11 +111,14 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 
 		[Route("clone/{businessTripId:int}")]
 		[HttpGet]
-		public BusinessTripDTO Clone(int businessTripId)
+		public BusinessTripSearchItemDTO Clone(int businessTripId)
 		{			
 			BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
+            trip.Title += " (kopia)";
+            trip.Date = DateTime.Now;
+
 			int createdId = this.tasks.BusinessTripsTasks.CreateNewBusinessTrip(trip.MapToDTO(), this.UserName);
-			return this.tasks.BusinessTripsTasks.GetBusinessTrip(createdId).MapToDTO();			
+			return this.tasks.BusinessTripsTasks.GetBusinessTrip(createdId).MapToSearchItem();			
 		}
     }
 }

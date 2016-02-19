@@ -41,11 +41,11 @@
             return promise;
         }
 
-        function copy(report) {
+        function copy(Id) {
             var promise = $http
-                .put('../api/businessTrips/create', report)
+                .get('../api/businessTrips/clone/' + Id)
                 .then(function (response) {
-                    console.log('Report creted');
+                    return response;
                 });
 
             return promise;

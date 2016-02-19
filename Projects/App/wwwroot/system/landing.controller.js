@@ -22,8 +22,10 @@
                 }
             });            
         }
-        vm.copy = function (report) {
-            userReportsService.remove(report.Id);
+        vm.copy = function (Id) {
+            userReportsService.copy(Id).then(function (result) {
+                vm.reports().push(result.data);
+            });
         }
 
         userReportsService.reload();

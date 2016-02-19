@@ -15,7 +15,7 @@
             <table class="u-full-width" ng-show="vm.reports() && vm.reports().length > 0">
                 <thead>
                     <tr>
-                        <th class="col70">Data</th>
+                        <th class="col90">Data</th>
                         <th class="col140">Nazwa</th>
                         <th class="col140">Powód</th>
                         <th class="col140">Cel</th>
@@ -25,12 +25,13 @@
                 </thead>
                 <tbody>
                     <tr class="item" ng-repeat="r in vm.reports()">
-                        <td>{{r.Date}}</td>
-                        <td>{{r.Title}}</td>
-                        <td>{{r.Reason}}</td>
-                        <td>{{r.Purpose}}</td>
-                        <td>{{r.Note}}</td>
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{r.Date}}</td>
+                        <td><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;{{r.Title}}</td>
+                        <td><i class="fa fa-question-circle"></i>&nbsp;&nbsp;{{r.Reason}}</td>
+                        <td><i class="fa fa-shield"></i>&nbsp;&nbsp;{{r.Purpose}}</td>
+                        <td><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{r.Note}}</td>
                         <td class="text-center">
+                            <a href="" ng-click="vm.copy(r.Id)">Kopiuj</a>
                             <a href="" ng-click="vm.remove(r)" ng-show="!r.isRemoving">Usuń</a>
                             <span ng-show="r.isRemoving">...</span>
                         </td>

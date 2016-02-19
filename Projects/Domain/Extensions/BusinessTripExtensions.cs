@@ -30,7 +30,20 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             }).ToList();
         }
 
-		public static BusinessTripDTO MapToDTO(this BusinessTrip trip)
+        public static BusinessTripSearchItemDTO MapToSearchItem(this BusinessTrip trip)
+        {
+            return new BusinessTripSearchItemDTO()
+            {
+                Id = trip.Id,
+                Date = trip.Date.ToAppString(),
+                Note = trip.Notes,
+                Title = trip.Title,
+                Reason = trip.BusinessReason,
+                Purpose = trip.BusinessPurpose
+            };
+        }
+
+        public static BusinessTripDTO MapToDTO(this BusinessTrip trip)
 		{
 			return new BusinessTripDTO()
 			{
