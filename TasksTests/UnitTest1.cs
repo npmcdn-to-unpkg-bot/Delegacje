@@ -22,5 +22,13 @@ namespace TasksTests
 			//tasks.RefreshCurrencies(); //modifies database
 
 		}
+
+		[TestMethod]
+		public void NBPCurrencyLoadTest()
+		{
+			CurrenciesTasks tasks = new CurrenciesTasks();
+			tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
+
+		}
 	}
 }
