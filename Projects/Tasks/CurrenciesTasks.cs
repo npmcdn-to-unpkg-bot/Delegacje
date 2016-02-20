@@ -185,6 +185,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			Regex regex;
 			Match match;
 
+			DateTime currentlyMatchedDate;
+
 			do
 			{
 				string pattern = patternStart + currentDateString;
@@ -197,11 +199,11 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					break;
 				}
 
-				DateTime currentlyMatchedDate = GetDateFromNBPString(currentDateString);
+				currentlyMatchedDate = GetDateFromNBPString(currentDateString);
 				currentlyMatchedDate = currentlyMatchedDate.AddDays(-1);
 				currentDateString = currentlyMatchedDate.ToString("yyMMdd");
 			}
-			while (!string.Equals(currentDateString, firstDateString));
+			while (currentlyMatchedDate >= firstDate);
 
 			//List<string> fileNames = new List<string>();
 			//if (fileNameA != null)
@@ -224,7 +226,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		public DateTime GetDateFromNBPString(string dateString)
 		{
 			return new DateTime(
-					int.Parse(dateString.Substring(0, 2)),
+					2000 + int.Parse(dateString.Substring(0, 2)),
 					int.Parse(dateString.Substring(2, 2)),
 					int.Parse(dateString.Substring(4, 2))
 				);

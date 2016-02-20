@@ -27,8 +27,8 @@ namespace TasksTests
 		public void NBPCurrencyLoadTest()
 		{
 			CurrenciesTasks tasks = new CurrenciesTasks();
-			tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
-
+			//tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
+			tasks.LoadCurrenciesFromNBP(new DateTime(2016, 1, 2), true, true);
 		}
 	}
 }
