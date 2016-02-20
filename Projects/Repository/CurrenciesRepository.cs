@@ -1,4 +1,5 @@
-﻿using CrazyAppsStudio.Delegacje.DomainModel;
+﻿using CrazyAppsStudio.Delegacje.Domain.Entities;
+using CrazyAppsStudio.Delegacje.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,25 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		{
 			this.context = _context;
 		}
+
+		public CurrencyRate GetCurrencyRate(string code, DateTime date)
+		{
+			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code && cr.DateRefreshed.Date == date.Date).FirstOrDefault();
+		}
+
+		public CurrencyRate GetLastCurrencyRate(string code)
+		{
+			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code).OrderByDescending(cr => cr.DateRefreshed).FirstOrDefault();
+		}
+
+		public IEnumerable<CurrencyRate> GetAllRatesForDay(DateTime date)
+		{
+			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed.Date == date.Date);
+		}
+
+		public void AddCurrencyRates(IEnumerable<CurrencyRate> currencyRates)
+		{
+			this.context.CurrencyRates.AddRange(currencyRates);
+		}		
 	}
 }

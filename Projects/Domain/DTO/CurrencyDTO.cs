@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace CrazyAppsStudio.Delegacje.Domain.DTO
 {
-	public class CurrencyDTO
+	public class CurrencyRateDTO
 	{
+		public int CurrencyRateId { get; set; }
 		public string Code { get; set; }
 		public double ExchangeRate { get; set; }
 		public string Name { get; set; }
+		public string Date { get; set; }
 	}
 }

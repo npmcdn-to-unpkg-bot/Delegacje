@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrazyAppsStudio.Delegacje.Domain.DTO
 {
-	public class NBPCurrency
+	public class NBPCurrencyRate
 	{
 		/// <summary>
 		/// Nazwa waluty
@@ -29,6 +29,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		/// </summary>
 		public DateTime CurrencyDate { get; set; }
 
-		public NBPCurrency() { }
+		public NBPCurrencyRate() { }
 	}
 }

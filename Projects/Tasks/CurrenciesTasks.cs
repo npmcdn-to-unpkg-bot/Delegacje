@@ -22,53 +22,70 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             repo = new Repositories();
         }
 
-		//public Currency GetCurrencyForDate(string currencyCode, DateTime date)
-		//{
-		//	Currency curr = this.repo.Dictionaries
-		//}
+		public CurrenciesTasks(Repositories repo)
+		{
+			this.repo = repo;
+		}
 
-		//public Currency[] GetAndRefreshCurrencies()
-		//{
-		//	Currency eur = this.repo.Dictionaries.GetCurrencies().First(c => c.Code == "EUR");
-		//	if ((eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
-		//		eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 12)
-		//	{
-		//		RefreshCurrencies();
-		//	}
 
-		//	return this.repo.Dictionaries.GetCurrencies().ToArray();
-		//}
+		public CurrencyRate[] GetLatestAndRefreshCurrencyRates()
+		{
+			CurrencyRate eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
+			if ((eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
+				eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 13)
+			{
+				RefreshCurrencies();
+			}
 
-		//public void RefreshCurrencies()
-		//{
-		//	List<NBPCurrency> nbpCurrencies = LoadCurrenciesFromNBP();
-		//	IEnumerable<Currency> systemCurrencies = this.repo.Dictionaries.GetCurrencies();
-		//	//List<Currency> test = systemCurrencies.ToList();
-		//	foreach (Currency curr in systemCurrencies)
-		//	{
-		//		NBPCurrency nbp = nbpCurrencies.FirstOrDefault(c => string.Equals(c.CurrencyCode, curr.Code, StringComparison.InvariantCultureIgnoreCase));
-		//		if (nbp != null)
-		//		{
-		//			curr.ExchangeRate = nbp.CurrencyRate;
-		//			curr.DateRefreshed = nbp.CurrencyDate;
-		//		}
-		//	}
+			eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
+			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToArray();
+		}
 
-		//	List<NBPCurrency> missing = nbpCurrencies.Where(nbpc => !systemCurrencies.Any(sc =>
-		//		string.Equals(nbpc.CurrencyCode, sc.Code, StringComparison.InvariantCultureIgnoreCase))).ToList();
-		//	if (missing.Count > 0)
-		//	{
-		//		List<Currency> toBeAdded = missing.Select(nbpc => new Currency()
-		//		{
-		//			Name = nbpc.CurrencyName,
-		//			Code = nbpc.CurrencyCode,
-		//			ExchangeRate = nbpc.CurrencyRate,
-		//			DateRefreshed = nbpc.CurrencyDate
-		//		}).ToList();
-		//		this.repo.Dictionaries.AddCurrencies(toBeAdded);
-		//	}
-		//	this.repo.SaveChanges();
-		//}
+		public void RefreshCurrencies()
+		{
+			DateTime today = DateTime.Now.Date;
+			List<NBPCurrencyRate> nbpCurrencies = LoadCurrenciesFromNBP(today, true, true);
+			CurrencyRate[] existingRates = this.repo.Currencies.GetAllRatesForDay(today).ToArray();
+			IEnumerable<Currency> systemCurrencies = this.repo.Dictionaries.GetCurrencies();
+			//List<Currency> test = systemCurrencies.ToList();
+			List<CurrencyRate> ratesToBeAdded = new List<CurrencyRate>();
+			foreach (Currency curr in systemCurrencies)
+			{
+				NBPCurrencyRate nbp = nbpCurrencies.FirstOrDefault(c => string.Equals(c.CurrencyCode, curr.Code, StringComparison.InvariantCultureIgnoreCase));
+				if (nbp != null)
+				{
+					if (!existingRates.Any(cr => cr.Currency.Code == nbp.CurrencyCode))
+					{
+						CurrencyRate rate = new CurrencyRate()
+						{
+							Currency = curr,
+							DateRefreshed = today,
+							ExchangeRate = nbp.CurrencyRate
+						};
+						ratesToBeAdded.Add(rate);
+					}
+
+					//curr.ExchangeRate = nbp.CurrencyRate;
+					//curr.DateRefreshed = nbp.CurrencyDate;
+				}
+			}
+
+			//List<NBPCurrencyRate> missing = nbpCurrencies.Where(nbpc => !systemCurrencies.Any(sc =>
+			//	string.Equals(nbpc.CurrencyCode, sc.Code, StringComparison.InvariantCultureIgnoreCase))).ToList();
+			//if (missing.Count > 0)
+			//{
+			//	List<Currency> toBeAdded = missing.Select(nbpc => new Currency()
+			//	{
+			//		Name = nbpc.CurrencyName,
+			//		Code = nbpc.CurrencyCode,
+			//		ExchangeRate = nbpc.CurrencyRate,
+			//		DateRefreshed = nbpc.CurrencyDate
+			//	}).ToList();
+			//	this.repo.Dictionaries.AddCurrencies(toBeAdded);
+			//}
+			this.repo.Currencies.AddCurrencyRates(ratesToBeAdded);
+			this.repo.SaveChanges();
+		}
 
 		//public List<NBPCurrency> LoadCurrenciesFromNBP()
 		//{
@@ -115,14 +132,14 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		/// <param name="loadA"></param>
 		/// <param name="loadB"></param>
 		/// <returns></returns>
-		public List<NBPCurrency> LoadCurrenciesFromNBP(DateTime date, bool loadA, bool loadB)
+		public List<NBPCurrencyRate> LoadCurrenciesFromNBP(DateTime date, bool loadA, bool loadB)
 		{
 			string fileNameA = null, fileNameB = null;
 			if (loadA)
 				fileNameA = GetNBPFilenameForDate(date, false);
 			if (loadB)
 				fileNameB = GetNBPFilenameForDate(date, true);
-			List<NBPCurrency> currencies = new List<NBPCurrency>();
+			List<NBPCurrencyRate> currencies = new List<NBPCurrencyRate>();
 
 			if (fileNameA == null)
 			{
@@ -238,12 +255,12 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		/// <param name="loadA"></param>
 		/// <param name="loadB"></param>
 		/// <returns></returns>
-		public List<NBPCurrency> LoadLatestCurrenciesFromNBP(bool loadA, bool loadB)
+		public List<NBPCurrencyRate> LoadLatestCurrenciesFromNBP(bool loadA, bool loadB)
 		{
 			string urlA = "http://www.nbp.pl/kursy/xml/LastA.xml";
 			string urlB = "http://www.nbp.pl/kursy/xml/LastB.xml";
 
-			List<NBPCurrency> currencies = new List<NBPCurrency>();
+			List<NBPCurrencyRate> currencies = new List<NBPCurrencyRate>();
 
 			if (loadA)
 			{
@@ -258,13 +275,13 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			return currencies;
 		}
 
-		public List<NBPCurrency> LoadNBPCurrenciesFromUrl(string url)
+		public List<NBPCurrencyRate> LoadNBPCurrenciesFromUrl(string url)
 		{
 			string dataRead = LoadTextForUrl(url);
 			return ParseCurrencies(dataRead);
 		}		
 
-		private List<NBPCurrency> ParseCurrencies(string rawCurrencies)
+		private List<NBPCurrencyRate> ParseCurrencies(string rawCurrencies)
 		{
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.LoadXml(rawCurrencies);
@@ -272,11 +289,11 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			var date = xmlDoc.GetElementsByTagName(Constraints.PUBLICATION_DATE);
 			DateTime currencyDate = Convert.ToDateTime(date[0].FirstChild.Value);
 
-			List<NBPCurrency> currencyList = new List<NBPCurrency>();
+			List<NBPCurrencyRate> currencyList = new List<NBPCurrencyRate>();
 			foreach (XmlNode currencyXml in currencyListXml)
 			{
 				//XmlNodeList nodes = currencyXml.ChildNodes;
-				NBPCurrency currency = new NBPCurrency();
+				NBPCurrencyRate currency = new NBPCurrencyRate();
 				currency.CurrencyName = currencyXml.ChildNodes[0].FirstChild.Value;
 				currency.Converter = currencyXml.ChildNodes[1].FirstChild.Value;
 				currency.CurrencyCode = currencyXml.ChildNodes[2].FirstChild.Value;

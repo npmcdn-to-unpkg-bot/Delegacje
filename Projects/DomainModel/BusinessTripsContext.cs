@@ -26,6 +26,8 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 
 		public DbSet<Currency> Currencies { get; set; }
 
+		public DbSet<CurrencyRate> CurrencyRates { get; set; }
+
         public BusinessTripsContext()
             : base("BusinessTripsEntities")
         {

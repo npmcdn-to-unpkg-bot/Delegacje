@@ -7,23 +7,17 @@ using System.Threading.Tasks;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Entities
 {
-	public class Country
+	public class CurrencyRate
 	{
 		[Key]
 		public int Id { get; set; }
-
-		[Required, MaxLength(100)]
-		public string Name { get; set; }
-
-		[Required, MaxLength(10)]
-		public string CurrencyCode { get; set; }
-
 		[Required]
-		public decimal SubsistenceAllowance { get; set; }
-
+		/// <summary>
+		/// Exchange rate for 1 PLN
+		/// </summary>
+		public double ExchangeRate { get; set; }
 		[Required]
-		public decimal AccomodationLimit { get; set; }
-
+		public DateTime DateRefreshed { get; set; }
 		public int CurrencyId { get; set; }
 
 		public virtual Currency Currency { get; set; }

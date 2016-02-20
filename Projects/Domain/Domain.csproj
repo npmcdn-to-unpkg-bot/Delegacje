@@ -88,6 +88,7 @@
     <Compile Include="DTO\UserDetailsDTO.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\CurrencyRate.cs" />
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\ExpenseDocumentType.cs" />
     <Compile Include="Entities\MealType.cs" />

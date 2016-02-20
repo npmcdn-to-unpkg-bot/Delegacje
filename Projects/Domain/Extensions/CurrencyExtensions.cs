@@ -5,18 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tools;
 
 namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
 	public static class CurrencyExtensions
 	{
-		public static CurrencyDTO MapToDetails(this Currency currency)
+		public static CurrencyRateDTO MapToDetails(this CurrencyRate currencyRate)
 		{
-			CurrencyDTO currencyDTO = new CurrencyDTO()
+			CurrencyRateDTO currencyDTO = new CurrencyRateDTO()
 			{
-				Code = currency.Code,
-				ExchangeRate = currency.ExchangeRate,
-				Name = currency.Name
+				Code = currencyRate.Currency.Code,
+				CurrencyRateId = currencyRate.Id,
+				Date = currencyRate.DateRefreshed.ToAppString(),
+				ExchangeRate = currencyRate.ExchangeRate,
+				Name = currencyRate.Currency.Name				
 			};
 
 			return currencyDTO;

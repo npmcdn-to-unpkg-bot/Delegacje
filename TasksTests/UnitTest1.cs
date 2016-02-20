@@ -6,19 +6,12 @@ namespace TasksTests
 {
 	[TestClass]
 	public class UnitTest1
-	{
+	{		
 		[TestMethod]
-		public void NBPCurrencyRetrievalTest()
+		public void CurrencyRateRefreshTest()
 		{
-			DictionariesTasks tasks = new DictionariesTasks();
-			tasks.LoadCurrenciesFromNBP();
-
-		}
-
-		[TestMethod]
-		public void NBPCurrencyRefreshTest()
-		{
-			DictionariesTasks tasks = new DictionariesTasks();
+			CurrenciesTasks tasks = new CurrenciesTasks();
+			tasks.GetLatestAndRefreshCurrencyRates();
 			//tasks.RefreshCurrencies(); //modifies database
 
 		}
