@@ -61,8 +61,8 @@
                     <tr ng-repeat="m in vm.Report.MileageAllowances">
                         <td>{{m.Date}}</td>
                         <td>{{m.Type.Name}}</td>
-                        <td>{{m.Distance}}</td>
-                        <td>{{m.Amount()}}</td>
+                        <td>{{m.Distance}} km</td>
+                        <td>{{m.Amount()}} PLN</td>
                         <td>{{m.Notes}}</td>
                         <td>
                             <a ng-click="vm.RemoveMileage(m)">Usuń</a>

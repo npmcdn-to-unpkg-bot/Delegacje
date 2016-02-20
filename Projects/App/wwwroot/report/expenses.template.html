@@ -97,7 +97,7 @@
                     <tr ng-repeat="r in vm.Report.Expenses">
                         <td>{{r.Date}}</td>
                         <td>{{r.Type.Name}}</td>
-                        <td>{{r.City}}</td>
+                        <td>{{r.Country.Name}}</td>
                         <td>
                             {{r.FinalAmount() + ' PLN'}}
                             <div ng-show="r.Country.CurrencyCode != 'PLN'">
