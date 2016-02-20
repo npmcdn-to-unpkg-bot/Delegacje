@@ -243,6 +243,7 @@
     <Content Include="wwwroot\css\img\bg_km.png" />
     <Content Include="wwwroot\css\img\bg_pln.png" />
     <Content Include="wwwroot\css\img\icons.png" />
+    <Content Include="wwwroot\css\img\main_bg.png" />
     <Content Include="wwwroot\css\img\section1.png" />
     <Content Include="wwwroot\css\img\section2.png" />
     <Content Include="wwwroot\css\img\section3.png" />
@@ -313,6 +314,12 @@
     </Content>
     <Content Include="wwwroot\css\module\m-spinners.min.css">
       <DependentUpon>m-spinners.css</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-tableMenu.css">
+      <DependentUpon>m-tableMenu.less</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\css\module\m-tableMenu.min.css">
+      <DependentUpon>m-tableMenu.css</DependentUpon>
     </Content>
     <Content Include="wwwroot\css\module\m-tables.css">
       <DependentUpon>m-tables.less</DependentUpon>
@@ -439,6 +446,7 @@
     <Content Include="wwwroot\report\mileage.template.html" />
     <Content Include="wwwroot\report\report.controller.js" />
     <Content Include="wwwroot\report\report.template.html" />
+    <Content Include="wwwroot\system\contextMenu.js" />
     <Content Include="wwwroot\system\exception.decorator.js" />
     <Content Include="wwwroot\system\http.interceptor.js" />
     <Content Include="wwwroot\system\landing.controller.js" />
@@ -553,6 +561,7 @@
     <Content Include="wwwroot\css\fonts\fontawesome-webfont.woff" />
     <Content Include="wwwroot\css\fonts\fontawesome-webfont.woff2" />
     <Content Include="wwwroot\css\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\css\module\m-tableMenu.less" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

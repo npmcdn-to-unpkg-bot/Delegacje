@@ -1,3 +1,75 @@
-﻿.login-form .mdi {
-  margin-top: 7px;
+﻿#login-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: url('../img/main_bg.png');
+}
+#login-form {
+  width: 600px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 150px;
+  padding-top: 100px;
+  padding-bottom: 10px;
+}
+#login-form .input {
+  display: block;
+  width: 300px;
+  margin: 0 auto 10px auto;
+  background-color: #fff;
+  border: 0;
+  border-radius: 10px;
+}
+#login-form .button {
+  display: block;
+  width: 130px;
+  margin: auto;
+  border: 0;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 0;
+  text-transform: none;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.75);
+}
+#login-form .button-login {
+  background-color: #A3BD3F;
+  color: #fff;
+  margin-bottom: 20px;
+}
+#login-form .button-register {
+  background-color: #949D8B;
+  color: #fff;
+  text-decoration: none;
+}
+#login-form .button-register2 {
+  background-color: #A3BD3F;
+  color: #fff;
+}
+#login-form .button-cancel {
+  background-color: #B71332;
+  color: #fff;
+}
+#login-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  opacity: 0.4;
+}
+#login-form #register-actions {
+  width: 300px;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  overflow: auto;
 }

@@ -17,6 +17,9 @@ td {
   vertical-align: top;
   line-height: 17px;
 }
+.action {
+  cursor: pointer;
+}
 th {
   padding: 18px 4px;
 }
@@ -35,7 +38,7 @@ tr:last-child td {
 .col90 {
   width: 90px;
 }
-.col00 {
+.col100 {
   width: 100px;
 }
 .col110 {
@@ -49,4 +52,24 @@ tr:last-child td {
 }
 .col140 {
   width: 140px;
+}
+.col300 {
+  width: 300px;
+}
+.max60,
+.max100,
+.max300 {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  vertical-align: top;
+  line-height: 17px;
+}
+.max60 {
+  max-width: 60px;
+}
+.max100 {
+  max-width: 100px;
+}
+.max300 {
+  max-width: 300px;
 }

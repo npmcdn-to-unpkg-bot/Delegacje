@@ -15,26 +15,25 @@
             <table class="u-full-width" ng-show="vm.reports() && vm.reports().length > 0">
                 <thead>
                     <tr>
-                        <th class="col90">Data</th>
-                        <th class="col140">Nazwa</th>
-                        <th class="col140">Powód</th>
-                        <th class="col140">Cel</th>
-                        <th>Komentarz</th>
-                        <th class="col50"></th>
+                        <th class="col100">Data</th>
+                        <th class="col100">Nazwa</th>
+                        <th class="col100">Powód</th>
+                        <th class="col100">Cel</th>
+                        <th class="col100">Kwota</th>
+                        <th class="col300">Komentarz</th>
+                        <th class="text-center">Edytuj</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="item" ng-repeat="r in vm.reports()">
-                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{r.Date}}</td>
-                        <td><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;{{r.Title}}</td>
-                        <td><i class="fa fa-question-circle"></i>&nbsp;&nbsp;{{r.Reason}}</td>
-                        <td><i class="fa fa-shield"></i>&nbsp;&nbsp;{{r.Purpose}}</td>
-                        <td><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{r.Note}}</td>
-                        <td class="text-center">
-                            <a href="" ng-click="vm.edit(r.Id)">Edytuj</a>
-                            <a href="" ng-click="vm.copy(r.Id)">Kopiuj</a>
-                            <a href="" ng-click="vm.remove(r)" ng-show="!r.isRemoving">Usuń</a>
-                            <span ng-show="r.isRemoving">...</span>
+                        <td class="max100"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{r.Date}}</td>
+                        <td class="max100"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;{{r.Title}}</td>
+                        <td class="max100"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;{{r.Reason}}</td>
+                        <td class="max100"><i class="fa fa-shield"></i>&nbsp;&nbsp;{{r.Purpose}}</td>
+                        <td class="max100"><i class="fa fa-money"></i></td>
+                        <td class="max300"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{r.Note}}</td>
+                        <td class="text-center max60">
+                            <i class="fa fa-bars action" ng-click="vm.showPopup($event, r); $event.stopPropagation()"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -42,6 +41,17 @@
 
             <div class="v-spacer v-spacer30"></div>
             <a class="button button-primary" ui-sref="report-new">Dodaj Nowy</a>
-        </div> 
+        </div>
+    </div>
+
+    <!--menu-->
+    <div id="table-menu" ng-show="vm.popupVisible" context-menu="vm.hidePopup()">
+        <a class="table-menu-header" ng-click="vm.hidePopup()">
+            <i class="fa fa-arrow-circle-o-down"></i>
+            <span>&nbsp;&nbsp;Menu</span>
+        </a>
+        <a class="table-menu-item" ng-click="vm.edit()"><span>Edytuj</span></a>
+        <a class="table-menu-item" ng-click="vm.copy()"><span>Kopiuj</span></a>
+        <a class="table-menu-item" ng-click="vm.remove()"><span>Usuń</span></a>
     </div>
 </div>

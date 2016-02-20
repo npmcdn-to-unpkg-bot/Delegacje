@@ -1,24 +1,13 @@
-<div class="login-form" style="width: 400px; margin: auto;">
-    <form name="form" ng-submit="vm.login()" novalidate>
-        <div class="row">
-            <div class="form-line">
-                <span class="form-row-label">Login</span>
-                <input type="text" maxlength="100" ng-model="vm.userName" autofocus required />
-                <required-icon content="vm.userName"></required-icon>
-            </div>
-            <div class="form-line">
-                <span class="form-row-label">Hasło</span>
-                <input type="password" maxlength="100" ng-model="vm.password" required />
-                <required-icon content="vm.password"></required-icon>
-            </div>
-        </div>
+<div id="login-container">
+    <div id="login-form">
+        <form name="form" ng-submit="vm.login()" novalidate>
+            <input type="text" class="input" placeholder="Login..." maxlength="100" ng-model="vm.userName" autofocus required />
+            <input type="password" class="input" placeholder="Hasło..." maxlength="100" ng-model="vm.password" required />
 
-        <div class="text-center">
-            <input type="submit" value="Zaloguj" class="button button-primary" ng-disabled="form.$invalid || vm.isBusy" />
-            <br />
-            <a ui-sref="register">Zarejestruj</a>
-        </div>
-    </form>
+            <input type="submit" class="button button-login" value="Zaloguj" class="button button-primary" ng-disabled="form.$invalid || vm.isBusy" />
+            <a ui-sref="register" class="button button-register">Zarejestruj</a>
+        </form>
+    </div>
+
+    <div id="login-footer">&nbsp;</div>
 </div>
-
-
