@@ -75,61 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripsContext.cs" />
-    <Compile Include="Migrations\201512111926496_InitialCreate.cs" />
-    <Compile Include="Migrations\201512111926496_InitialCreate.Designer.cs">
-      <DependentUpon>201512111926496_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512142214350_expense-types-moved-to-db.cs" />
-    <Compile Include="Migrations\201512142214350_expense-types-moved-to-db.Designer.cs">
-      <DependentUpon>201512142214350_expense-types-moved-to-db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512142220050_expense-document-types-moved-to-db.cs" />
-    <Compile Include="Migrations\201512142220050_expense-document-types-moved-to-db.Designer.cs">
-      <DependentUpon>201512142220050_expense-document-types-moved-to-db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512142223106_meal-types-moved-to-db.cs" />
-    <Compile Include="Migrations\201512142223106_meal-types-moved-to-db.Designer.cs">
-      <DependentUpon>201512142223106_meal-types-moved-to-db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512142313208_countries-updated.cs" />
-    <Compile Include="Migrations\201512142313208_countries-updated.Designer.cs">
-      <DependentUpon>201512142313208_countries-updated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602072023181_fix-expense-type-and-meal-type.cs" />
-    <Compile Include="Migrations\201602072023181_fix-expense-type-and-meal-type.Designer.cs">
-      <DependentUpon>201602072023181_fix-expense-type-and-meal-type.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602131947087_AddCascadeDelete.cs" />
-    <Compile Include="Migrations\201602131947087_AddCascadeDelete.Designer.cs">
-      <DependentUpon>201602131947087_AddCascadeDelete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602161350267_updateS.cs" />
-    <Compile Include="Migrations\201602161350267_updateS.Designer.cs">
-      <DependentUpon>201602161350267_updateS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602162045518_AddCurrencies.cs" />
-    <Compile Include="Migrations\201602162045518_AddCurrencies.Designer.cs">
-      <DependentUpon>201602162045518_AddCurrencies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602162257533_vat rate optional.cs" />
-    <Compile Include="Migrations\201602162257533_vat rate optional.Designer.cs">
-      <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602181636073_vehicleTypesUpdated.cs" />
-    <Compile Include="Migrations\201602181636073_vehicleTypesUpdated.Designer.cs">
-      <DependentUpon>201602181636073_vehicleTypesUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602181647168_VehicleTypeRateUpdated.cs" />
-    <Compile Include="Migrations\201602181647168_VehicleTypeRateUpdated.Designer.cs">
-      <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602191538353_ExpensesModelUpdated.cs" />
-    <Compile Include="Migrations\201602191538353_ExpensesModelUpdated.Designer.cs">
-      <DependentUpon>201602191538353_ExpensesModelUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602202244164_AddCurrencyRates.cs" />
-    <Compile Include="Migrations\201602202244164_AddCurrencyRates.Designer.cs">
-      <DependentUpon>201602202244164_AddCurrencyRates.cs</DependentUpon>
+    <Compile Include="Migrations\201602202327248_InitialCreate.cs" />
+    <Compile Include="Migrations\201602202327248_InitialCreate.Designer.cs">
+      <DependentUpon>201602202327248_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
@@ -146,47 +94,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512111926496_InitialCreate.resx">
-      <DependentUpon>201512111926496_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512142214350_expense-types-moved-to-db.resx">
-      <DependentUpon>201512142214350_expense-types-moved-to-db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512142220050_expense-document-types-moved-to-db.resx">
-      <DependentUpon>201512142220050_expense-document-types-moved-to-db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512142223106_meal-types-moved-to-db.resx">
-      <DependentUpon>201512142223106_meal-types-moved-to-db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512142313208_countries-updated.resx">
-      <DependentUpon>201512142313208_countries-updated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602072023181_fix-expense-type-and-meal-type.resx">
-      <DependentUpon>201602072023181_fix-expense-type-and-meal-type.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602131947087_AddCascadeDelete.resx">
-      <DependentUpon>201602131947087_AddCascadeDelete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602161350267_updateS.resx">
-      <DependentUpon>201602161350267_updateS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602162045518_AddCurrencies.resx">
-      <DependentUpon>201602162045518_AddCurrencies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602162257533_vat rate optional.resx">
-      <DependentUpon>201602162257533_vat rate optional.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602181636073_vehicleTypesUpdated.resx">
-      <DependentUpon>201602181636073_vehicleTypesUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602181647168_VehicleTypeRateUpdated.resx">
-      <DependentUpon>201602181647168_VehicleTypeRateUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602191538353_ExpensesModelUpdated.resx">
-      <DependentUpon>201602191538353_ExpensesModelUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602202244164_AddCurrencyRates.resx">
-      <DependentUpon>201602202244164_AddCurrencyRates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602202327248_InitialCreate.resx">
+      <DependentUpon>201602202327248_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
