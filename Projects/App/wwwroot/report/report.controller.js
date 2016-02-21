@@ -147,7 +147,7 @@
             var report = vm.Report;
 
             for (var i = 0; i < report.Expenses.length; i++) {
-                report.Expenses[i].CurrencyCode = report.Expenses[i].Country.CurrencyCode;
+                report.Expenses[i].CurrencyCode = report.Expenses[i].Country.Currency.Code;
                 report.Expenses[i].ExchangeRateModifiedByUser = false;
 
                 report.Expenses[i].ExpenseTypeId = report.Expenses[i].Type.Id;
@@ -192,7 +192,7 @@
             if (!country)
                 return;
 
-            var currencyCode = country.CurrencyCode;
+            var currencyCode = country.Currency.Code;
 
             if (currencyCode === 'PLN') {
                 vm.NewExpense.ExchangeRate = 1;

@@ -17,13 +17,13 @@ namespace TasksTests
 
 		//}
 
-		[TestMethod]
-		public void NBPCurrencyLoadTest()
-		{
-			CurrenciesTasks tasks = new CurrenciesTasks();
-			//tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
-			tasks.LoadCurrenciesFromNBP(new DateTime(2016, 1, 2), true, true);
-		}
+		//[TestMethod]
+		//public void NBPCurrencyLoadTest()
+		//{
+		//	CurrenciesTasks tasks = new CurrenciesTasks();
+		//	//tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
+		//	tasks.LoadCurrenciesFromNBP(new DateTime(2016, 1, 2), true, true);
+		//}
 
 		//[TestMethod]
 		//public void LoadCurrencyForDayTest()
@@ -57,20 +57,20 @@ namespace TasksTests
 		//	return;
 		//}
 
-		[TestMethod]
-		public void LoadFor2016()
-		{
-			//modifies database
-			CurrenciesTasks tasks = new CurrenciesTasks();
-			CurrencyRate[] rates;
-			DateTime currentDate = DateTime.Now;
+		//[TestMethod]
+		//public void LoadFor2016()
+		//{
+		//	//modifies database
+		//	CurrenciesTasks tasks = new CurrenciesTasks();
+		//	CurrencyRate[] rates;
+		//	DateTime currentDate = DateTime.Now;
 
-			while (currentDate.Year == 2016)
-			{
-				rates = tasks.GetAllCurrencyRatesForDay(currentDate);
-				currentDate = currentDate.AddDays(-1);
-			}
-			return;
-		}
+		//	while (currentDate.Year == 2016)
+		//	{
+		//		rates = tasks.GetAllCurrencyRatesForDay(currentDate);
+		//		currentDate = currentDate.AddDays(-1);
+		//	}
+		//	return;
+		//}
 	}
 }
