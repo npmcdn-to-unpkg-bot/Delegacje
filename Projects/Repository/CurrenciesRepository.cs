@@ -19,7 +19,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
 		public CurrencyRate GetCurrencyRate(string code, DateTime date)
 		{
-			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code && cr.DateRefreshed.Date == date.Date).FirstOrDefault();
+			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code && cr.DateRefreshed == date).FirstOrDefault();
 		}
 
 		public CurrencyRate GetLastCurrencyRate(string code)
@@ -29,7 +29,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
 		public IEnumerable<CurrencyRate> GetAllRatesForDay(DateTime date)
 		{
-			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed.Date == date);
+			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed == date);
 		}
 
 		public void AddCurrencyRates(IEnumerable<CurrencyRate> currencyRates)
