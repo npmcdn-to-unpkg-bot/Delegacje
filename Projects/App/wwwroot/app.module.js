@@ -9,7 +9,7 @@ angular.module('app', [
     'purplefox.numeric',
     'ngDialog',
     'ngQuickDate',
-
+    'angular-loading-bar',
     // Custom modules
 
     // 3rd Party Modules

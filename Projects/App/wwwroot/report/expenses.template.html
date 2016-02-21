@@ -117,7 +117,7 @@
                             <i class="fa fa-money"></i>&nbsp;&nbsp;
                             {{r.FinalAmount().toFixed(2) + ' PLN'}}
                             <div ng-show="r.Country.Currency.Code != 'PLN'">
-                                <small>{{r.Amount.toFixed(2) + ' ' + r.Country.Currency.Code}}</small>
+                                <small>{{r.Amount.toFixed(2) + ' ' + r.CurrencyCode}}</small>
                             </div>
                         </td>
                         <td><i class="fa fa-file-o"></i>&nbsp;&nbsp;{{r.Document.Name}}</td>
