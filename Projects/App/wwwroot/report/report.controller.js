@@ -113,7 +113,7 @@
             && vm.NewMileage.Distance !== '';
         };
         vm.ReportIsValid = function () {
-            return vm.Report != undefined
+            return vm.Report !== undefined
                 && vm.Report.Title !== ''
                 && vm.Report.Expenses.length > 0;
         };

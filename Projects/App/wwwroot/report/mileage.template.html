@@ -25,7 +25,7 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <span class="form-readonly-value input-icon input-pln"">{{vm.NewMileage.Amount()}}</span>
+                <span class="form-readonly-value input-icon input-pln"">{{vm.NewMileage.Amount().toFixed(2)}}</span>
             </div>
         </div>
         <div class="five columns text-center">
@@ -59,11 +59,11 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="m in vm.Report.MileageAllowances">
-                        <td>{{m.Date}}</td>
-                        <td>{{m.Type.Name}}</td>
-                        <td>{{m.Distance}} km</td>
-                        <td>{{m.Amount()}} PLN</td>
-                        <td>{{m.Notes}}</td>
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.Date}}</td>
+                        <td><i class="fa fa-car"></i>&nbsp;&nbsp;{{m.Type.Name}}</td>
+                        <td><i class="fa fa-map-o"></i>&nbsp;&nbsp;{{m.Distance}} km</td>
+                        <td><i class="fa fa-money"></i>&nbsp;&nbsp;{{m.Amount().toFixed(2)}} PLN</td>
+                        <td><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{m.Notes}}</td>
                         <td>
                             <a ng-click="vm.RemoveMileage(m)">Usuń</a>
                         </td>

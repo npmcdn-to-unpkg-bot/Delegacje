@@ -6,6 +6,15 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   font-weight: normal;
+  background-color: #EEF0F5;
+}
+.container {
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #B7BBC7;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
 }
 input {
   color: #6E768F;
@@ -244,8 +253,8 @@ input:disabled {
 }
 .user-data {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 6px;
+  right: 14px;
 }
 .v-spacer {
   width: 100%;
@@ -553,7 +562,7 @@ tr:last-child td {
   width: 600px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.4);
-  margin-top: 150px;
+  margin-top: 300px;
   padding-top: 100px;
   padding-bottom: 10px;
 }

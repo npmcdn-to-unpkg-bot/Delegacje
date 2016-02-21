@@ -21,9 +21,9 @@
             targetTag.css({
                 position: "fixed",
                 display: "block",
-                left: (event.clientX - 290) + 'px',
-                top: (event.clientY + 10) + 'px'
-            })
+                left: event.clientX - 290 + 'px',
+                top: event.clientY + 10 + 'px'
+            });
 
             vm.popupVisible = true;
         };
@@ -40,17 +40,19 @@
                 if (data.value === true) {
                     userReportsService.remove(clickedReport.Id);
                 }
-            });            
-        }
+            });
+        };
         vm.copy = function () {
             userReportsService.copy(clickedReport.Id).then(function (result) {
                 vm.reports().push(result.data);
             });
-        }
-
+        };
         vm.edit = function () {
             $state.go('report-edit', { reportId: clickedReport.Id });
-        }
+        };
+        vm.print = function () {
+            userReportsService.print(clickedReport.Id);
+        };
 
         userReportsService.reload();
 

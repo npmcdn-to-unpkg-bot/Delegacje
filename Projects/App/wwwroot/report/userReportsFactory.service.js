@@ -75,7 +75,7 @@
                 if (exp.Amount === '' || exp.Country === null)
                     return '';
 
-                return (exp.Amount * exp.ExchangeRate).toFixed(2);
+                return exp.Amount * exp.ExchangeRate;
             };
             return exp;
         }

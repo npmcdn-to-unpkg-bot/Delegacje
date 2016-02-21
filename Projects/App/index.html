@@ -22,7 +22,9 @@
 <body class="theme-1">
     <div>
         <div ng-class="{ 'toast': flash, 'green': flash.type === 'success', 'red': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-        <div ui-view></div>
+        <div id="view-container">
+            <div ui-view></div>
+        </div>
     </div>
 
     <script src="wwwroot/lib/angular/angular.js"></script>

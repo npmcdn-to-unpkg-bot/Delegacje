@@ -58,5 +58,15 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 				MileageAllowances = trip.MileageAllowances != null ? trip.MileageAllowances.Select(ma => ma.MapToDTO()).ToArray() : null
 			};
 		}
+
+        public static decimal CountTotal(this BusinessTrip trip)
+        {
+            decimal total = 0;
+
+            total += trip.Expenses.Sum(e => e.Amount);
+            total += trip.MileageAllowances.Sum(e => e.Amount);
+
+            return total;
+        }
     }
 }

@@ -14,4 +14,7 @@
 /Projects/Repository/obj
 /Projects/Tasks/bin
 /Projects/Tasks/obj
-Projects/Tools/obj/
+/Projects/Tools/bin/
+/Projects/Tools/obj/
+/TaskTests/bin/
+/TaskTests/obj/
