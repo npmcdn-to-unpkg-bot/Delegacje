@@ -43,6 +43,7 @@
                         expense.Type = dictionariesService.ExpenseTypeById(expenseDto.ExpenseTypeId);
                         expense.Date = expenseDto.Date;
                         expense.Country = dictionariesService.CountryById(expenseDto.CountryId);
+                        expense.CurrencyCode = expenseDto.CurrencyCode;
                         expense.ExchangeRate = expenseDto.ExchangeRate;
                         expense.City = expenseDto.City;
                         expense.Amount = expenseDto.Amount;
