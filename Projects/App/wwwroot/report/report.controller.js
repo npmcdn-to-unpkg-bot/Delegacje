@@ -134,6 +134,40 @@
             }
         };
 
+        //subsistences
+        vm.SubsistenceStartDate = null;
+        vm.SubsistenceEndDate = null;
+        vm.SubsistenceCountry = null;
+        vm.SubsistenceCity = null;
+        vm.SubsistenceIsValid = function () {
+            return vm.SubsistenceStartDate != null && vm.SubsistenceEndDate != null && vm.SubsistenceCountry != null;
+        }
+        vm.InitializeSubsistences = function () {
+            if (vm.SubsistenceStartDate == null || vm.SubsistenceEndDate == null)
+                return;
+
+            var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+            var daysCount = Math.round(Math.abs((vm.SubsistenceStartDate.getTime() - vm.SubsistenceEndDate.getTime()) / (oneDay))) + 1;
+
+            vm.Report.Subsistences = [];
+            for (var i = 0; i < daysCount; i++) {
+                var date = addDays(vm.SubsistenceStartDate, i);
+                var diet = vm.SubsistenceCountry.SubsistenceAllowance;
+                if (i === 0) {
+                    //first day, calculate hours and modify diet
+                }
+                if (i === daysCount - 1) {
+                    //last day, calculate hours and modify diet
+                }
+
+                var s = new userReportsFactoryService.getSubsistence(dateToString(date), diet);
+                vm.Report.Subsistences.push(s);
+            }
+        };
+        vm.SubsistenceToggleMeal = function (m) {
+            m = !m;
+        };
+
         vm.Save = function () {
             var creatingDialog = ngDialog.open({
                 template: 'wwwroot/report/popups/creating.template.html',
@@ -226,6 +260,13 @@
         		}
         	}
         });
+
+        
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
 
         function dateToString(date) {
             var day = date.getDate();

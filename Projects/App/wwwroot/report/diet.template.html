@@ -1,1 +1,86 @@
-﻿<h1>TODO...</h1>
+﻿<div>
+    <div class="row">
+        <div class="five columns offset-by-one">
+            <div class="form-line-dropdown">
+                <span class="form-row-label">Państwo</span>
+                <div dropdown-select="vm.Dictionaries.Countries"
+                     dropdown-model="vm.SubsistenceCountry"
+                     dropdown-item-label="Name">
+                </div>
+                <required-icon content="vm.SubsistenceCountry"></required-icon>
+            </div>
+            <div class="form-line">
+                <span class="form-row-label">Miasto</span>
+                <input type="text" ng-model="vm.SubsistenceCity" maxlength="255" />
+            </div>
+        </div>
+        <div class="five columns">
+            <div class="form-line">
+                <span class="form-row-label-two-line">Data i Czas Wylotu</span>
+                <quick-datepicker ng-model='vm.SubsistenceStartDate'
+                                  date-format="d/M/yyyy"
+                                  required="true"
+                                  disable-clear-button="true"></quick-datepicker>
+                <required-icon content="vm.SubsistenceStartDate"></required-icon>
+            </div>
+            <div class="form-line">
+                <span class="form-row-label-two-line">Data i Czas Przylotu</span>
+                <quick-datepicker ng-model='vm.SubsistenceEndDate'
+                                  date-format="d/M/yyyy"
+                                  required="true"
+                                  disable-clear-button="true"></quick-datepicker>
+                <required-icon content="vm.SubsistenceEndDate"></required-icon>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="ten columns offset-by-one text-right">
+            <input type="button" class="button button-primary" ng-click="vm.InitializeSubsistences()" ng-disabled="!vm.SubsistenceIsValid()" value="Dodaj" />
+        </div>
+    </div>
+    <div class="v-spacer v-spacer40"></div>
+
+
+    <div class="row">
+        <div class="twelve columns">
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th class="col120">Data</th>
+                        <th class="col120">Śniadanie</th>
+                        <th class="col120">Obiad</th>
+                        <th class="col120">Kolacja</th>
+                        <th class="col120">Nocleg</th>
+                        <th>Kwota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="s in vm.Report.Subsistences">
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{s.Date}}</td>
+                        <td class="text-center">
+                            <i class="fa fa-square-o" ng-show="!s.Breakfast" ng-click="s.Breakfast = true"></i>
+                            <i class="fa fa-check-square-o" ng-show="s.Breakfast" ng-click="s.Breakfast = false"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fa fa-square-o" ng-show="!s.Dinner" ng-click="s.Dinner = true"></i>
+                            <i class="fa fa-check-square-o" ng-show="s.Dinner" ng-click="s.Dinner = false"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fa fa-square-o" ng-show="!s.Supper" ng-click="s.Supper = true"></i>
+                            <i class="fa fa-check-square-o" ng-show="s.Supper" ng-click="s.Supper = false"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fa fa-square-o" ng-show="!s.Night" ng-click="s.Night = true"></i>
+                            <i class="fa fa-check-square-o" ng-show="s.Night" ng-click="s.Night = false"></i>
+                        </td>
+                        <td>
+                            <i class="fa fa-money"></i>&nbsp;&nbsp;
+                            {{s.Total().toFixed(2) + ' PLN'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

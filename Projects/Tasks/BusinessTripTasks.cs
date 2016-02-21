@@ -70,7 +70,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{
 					Subsistence sub = new Subsistence();
 					sub.Trip = trip;
-					sub.StartDate = subDto.StartDate;
+					sub.StartDate = DateExtensions.ParseAppString(subDto.StartDate);
 					sub.DestinationCity = subDto.DestinationCity;
 					sub.Country = repo.Dictionaries.GetCountry(subDto.CountryId);
 					sub.EndDate = subDto.EndDate.ParseAppString();
@@ -198,7 +198,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{//Update subsistences that exist both in database and in dto					
 					SubsistenceDTO sdto = businessTripDto.Subsistences.First(subsistenceDto => subsistenceDto.Id == sub.Id);
 					sub.Trip = trip;
-					sub.StartDate = sdto.StartDate;
+					sub.StartDate = DateExtensions.ParseAppString(sdto.StartDate);
 					sub.DestinationCity = sdto.DestinationCity;
 					//sub.CountryId = subDto.CountryId;
 					sub.Country = repo.Dictionaries.GetCountry(sdto.CountryId);
@@ -226,7 +226,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				{//Add those that exist in dto but don't exist in db					
 					Subsistence sub = new Subsistence();
 					sub.Trip = trip;
-					sub.StartDate = subDto.StartDate;
+					sub.StartDate = DateExtensions.ParseAppString(subDto.StartDate);
 					sub.DestinationCity = subDto.DestinationCity;
 					//sub.CountryId = subDto.CountryId;
 					sub.Country = repo.Dictionaries.GetCountry(subDto.CountryId);

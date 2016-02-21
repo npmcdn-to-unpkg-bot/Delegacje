@@ -25,7 +25,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 			return new SubsistenceDTO()
 			{
 				Id = subsistence.Id,
-				StartDate = subsistence.StartDate,
+				StartDate = subsistence.StartDate.ToAppString(),
 				DestinationCity = subsistence.DestinationCity,
 				CountryId = subsistence.CountryId,
 				EndDate = subsistence.EndDate.ToAppString(),
