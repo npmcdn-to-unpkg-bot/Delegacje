@@ -104,20 +104,25 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="r in vm.Report.Expenses">
-                        <td>{{r.Date}}</td>
-                        <td>{{r.Type.Name}}</td>
-                        <td>{{r.Country.Name}}, {{r.City}}</td>
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{r.Date}}</td>
+                        <td><i class="fa fa-share-square-o"></i>&nbsp;&nbsp;{{r.Type.Name}}</td>
+                        <td><i class="fa fa-plane"></i>&nbsp;&nbsp;{{r.Country.Name}}, {{r.City}}</td>
                         <td>
-                            {{r.FinalAmount() + ' PLN'}}
+                            <i class="fa fa-money"></i>&nbsp;&nbsp;
+                            {{r.FinalAmount().toFixed(2) + ' PLN'}}
                             <div ng-show="r.Country.Currency.Code != 'PLN'">
                                 <small>{{r.Amount.toFixed(2) + ' ' + r.Country.Currency.Code}}</small>
                             </div>
                         </td>
-                        <td>{{r.Document.Name}}</td>
-                        <td>
-                            <input type="checkbox" ng-model="r.DoNotReturn" disabled />
+                        <td><i class="fa fa-file-o"></i>&nbsp;&nbsp;{{r.Document.Name}}</td>
+                        <td class="text-center">
+                            <i class="fa fa-square-o" ng-show="r.DoNotReturn"></i>
+                            <i class="fa fa-check-square-o" ng-show="!r.DoNotReturn"></i>
                         </td>
-                        <td>{{r.Notes}}</td>
+                        <td>
+                            <i class="fa fa-pencil-square-o"></i>
+                            {{'  ' + r.Notes}}
+                        </td>
                         <td>
                             <a ng-click="vm.RemoveExpense(r)">Usuń</a>
                         </td>
