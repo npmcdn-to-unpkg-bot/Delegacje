@@ -29,7 +29,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 
 		public IEnumerable<CurrencyRate> GetAllRatesForDay(DateTime date)
 		{
-			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed.Date == date.Date);
+			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed.Date == date);
 		}
 
 		public void AddCurrencyRates(IEnumerable<CurrencyRate> currencyRates)
