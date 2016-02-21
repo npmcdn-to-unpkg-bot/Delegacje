@@ -15,7 +15,8 @@
                                   date-format="d/M/yyyy"
                                   required="true"
                                   disable-timepicker="true"
-                                  disable-clear-button="true"></quick-datepicker>
+                                  disable-clear-button="true"
+                                  on-change="vm.ExpenseDateChanged()"></quick-datepicker>
                 <required-icon content="vm.NewExpense.Date"></required-icon>
             </div>
             <div class="form-line-dropdown">
@@ -47,6 +48,11 @@
                 <select id="currencyCode" class="form-control" data-ng-options="c.Code as c.Name + ' ' + c.Code for c in vm.Dictionaries.Currencies" data-ng-model="vm.NewExpense.CurrencyCode"></select> <!--ng-change="attributeChange()"></select>-->
                 <required-icon content="vm.NewExpense.CurrencyCode"></required-icon>
             </div>
+            <div class="form-line">
+                <span class="form-row-label">Kurs wymiany</span>
+                <input type="text" ng-model="vm.NewExpense.ExchangeRate" numeric min="0" maxlength="20" decimals="6" />
+                <required-icon content="vm.NewExpense.ExchangeRate"></required-icon>
+            </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label">Dokument</span>
                 <div dropdown-select="vm.Dictionaries.ExpenseDocumentTypes"
@@ -64,7 +70,7 @@
                 <span class="form-readonly-value input-icon input-pln">{{vm.NewExpense.FinalAmount()}}</span>
             </div>
             <div class="form-line">
-                <span class="form-row-label"">Nie Zwracaj</span>
+                <span class="form-row-label">Nie Zwracaj</span>
                 <input type="checkbox" ng-model="vm.NewExpense.DoNotReturn" />
             </div>
         </div>

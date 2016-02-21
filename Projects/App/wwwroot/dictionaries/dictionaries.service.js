@@ -40,6 +40,8 @@
                 }
             },
 
+			loadCurrenciesForDate : loadCurrenciesForDate,
+
             reload: reload
         };
         return service;
@@ -58,6 +60,17 @@
                     $localStorage['MealTypes'] = response.data.MealTypes;
                     $localStorage['Currencies'] = response.data.Currencies;
                 });
+        }
+
+        function loadCurrenciesForDate(date) {
+        	return $http.post('api/currencies/forDate', '"' + date + '"').then(
+                   function (response) {
+                   		return response.data;                   	
+                   },
+                 function (response) {
+                 	console.log(response);
+                 	return null;
+                 });        	
         }
     }
 })();

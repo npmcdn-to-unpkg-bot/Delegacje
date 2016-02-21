@@ -47,7 +47,12 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
 					expense.CurrencyCode = expDto.CurrencyCode;
 					expense.ExchangeRate = expDto.ExchangeRate;
-					expense.ExchangeRateModifiedByUser = expDto.ExchangeRateModifiedByUser;
+					CurrencyRate systemRate = repo.Currencies.GetCurrencyRate(expense.CurrencyCode, expense.Date.Date);
+					if (Math.Abs(systemRate.ExchangeRate - expense.ExchangeRate) > 0.0001)
+						expense.ExchangeRateModifiedByUser = true;
+					else
+						expense.ExchangeRateModifiedByUser = false;
+					
 					expense.VATRate = expDto.VATRate;
 					expense.Notes = expDto.Notes;
                     expense.DoNotReturn = expDto.DoNotReturn;

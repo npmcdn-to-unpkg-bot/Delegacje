@@ -12,7 +12,7 @@
         vm.visibleSection = 'Expenses';
         vm.Dictionaries = dictionariesService;
         vm.Report = undefined;
-
+        vm.Currencies = dictionariesService.Currencies;
         
         switch ($state.current.name) {
             case 'report-new':
@@ -218,7 +218,7 @@
         		return;
         	}
 
-        	var currencies = dictionariesService.Currencies;
+        	var currencies = vm.Currencies;
         	for (var i = 0; i < currencies.length; i++) {
         		if (currencies[i].Code === currencyCode) {
         			vm.NewExpense.ExchangeRate = currencies[i].ExchangeRate;
@@ -233,5 +233,38 @@
             var year = date.getFullYear();
             return day + '/' + month + '/' + year;
         }
+
+        
+        vm.ExpenseDateChanged = function () {
+
+        	var dateFormatted = dateToString(vm.NewExpense.Date);
+
+        	dictionariesService.loadCurrenciesForDate(dateFormatted).
+        	then(
+			   function (response) {
+			   	vm.Currencies = response;
+
+			   	var currencyCode = vm.NewExpense.CurrencyCode;
+			   	if (currencyCode === 'PLN') {
+			   		vm.NewExpense.ExchangeRate = 1;
+			   		return;
+			   	}
+
+			   	var currencies = vm.Currencies;
+			   	for (var i = 0; i < currencies.length; i++) {
+			   		if (currencies[i].Code === currencyCode) {
+			   			vm.NewExpense.ExchangeRate = currencies[i].ExchangeRate;
+			   			return;
+			   		}
+			   	}
+			   },
+			 function (response) {
+			 	console.log(response);
+
+			 });
+
+				
+        		      	
+        };
     }
 })();

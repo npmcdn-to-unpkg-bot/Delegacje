@@ -207,6 +207,10 @@
       <Project>{6c1b585b-226b-4b93-8be4-c2a367ed0014}</Project>
       <Name>Tasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{b8deb31a-fafa-4f67-b56a-bda15e5f6751}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiBackend\App_Start\DelegacjeUserManager.cs" />
