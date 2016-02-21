@@ -63,6 +63,7 @@
             exp.Type = null;
             exp.Date = '';
             exp.Country = null;
+            exp.CurrencyCode = null;
             exp.ExchangeRate = 1;
             exp.City = '';
             exp.Amount = '';
