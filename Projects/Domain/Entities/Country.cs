@@ -14,18 +14,21 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 
 		[Required, MaxLength(100)]
 		public string Name { get; set; }
-
-		[Required, MaxLength(10)]
-		public string CurrencyCode { get; set; }
-
+			
 		[Required]
 		public decimal SubsistenceAllowance { get; set; }
 
 		[Required]
 		public decimal AccomodationLimit { get; set; }
 
+		[Required]
 		public int CurrencyId { get; set; }
 
 		public virtual Currency Currency { get; set; }
+		
+		public int LimitCurrencyId { get; set; }
+
+		public virtual Currency LimitCurrency { get; set; }
+
 	}
 }

@@ -58,14 +58,16 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 100),
-                        CurrencyCode = c.String(nullable: false, maxLength: 10),
                         SubsistenceAllowance = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AccomodationLimit = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CurrencyId = c.Int(nullable: false),
+                        LimitCurrencyId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Currencies", t => t.CurrencyId, cascadeDelete: true)
-                .Index(t => t.CurrencyId);
+                .ForeignKey("dbo.Currencies", t => t.CurrencyId, cascadeDelete: false)//Required to disable cascade loops
+				.ForeignKey("dbo.Currencies", t => t.LimitCurrencyId, cascadeDelete: false)//http://stackoverflow.com/questions/17127351/introducing-foreign-key-constraint-may-cause-cycles-or-multiple-cascade-paths
+                .Index(t => t.CurrencyId)
+                .Index(t => t.LimitCurrencyId);
             
             CreateTable(
                 "dbo.Currencies",
@@ -265,6 +267,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
             DropForeignKey("dbo.Expenses", "BusinessTripId", "dbo.BusinessTrips");
             DropForeignKey("dbo.Expenses", "DocumentTypeId", "dbo.ExpenseDocumentTypes");
             DropForeignKey("dbo.Expenses", "CountryId", "dbo.Countries");
+            DropForeignKey("dbo.Countries", "LimitCurrencyId", "dbo.Currencies");
             DropForeignKey("dbo.Countries", "CurrencyId", "dbo.Currencies");
             DropIndex("dbo.CurrencyRates", new[] { "CurrencyId" });
             DropIndex("dbo.Roles", "RoleNameIndex");
@@ -279,6 +282,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
             DropIndex("dbo.Subsistences", new[] { "CountryId" });
             DropIndex("dbo.MileageAllowances", new[] { "BusinessTripId" });
             DropIndex("dbo.MileageAllowances", new[] { "VehicleTypeId" });
+            DropIndex("dbo.Countries", new[] { "LimitCurrencyId" });
             DropIndex("dbo.Countries", new[] { "CurrencyId" });
             DropIndex("dbo.Expenses", new[] { "CountryId" });
             DropIndex("dbo.Expenses", new[] { "DocumentTypeId" });
