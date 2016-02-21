@@ -18,7 +18,8 @@
             create: create,
             remove: remove,
             copy: copy,
-            update: update
+            update: update,
+            print: print
         };
         return service;
 
@@ -88,6 +89,10 @@
                 });
 
             return promise;
+        }
+
+        function print(Id) {
+            window.location = '../api/pdf/' + Id;
         }
     }
 })();

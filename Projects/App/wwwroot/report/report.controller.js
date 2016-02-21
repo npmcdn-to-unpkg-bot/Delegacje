@@ -113,7 +113,7 @@
             && vm.NewMileage.Distance !== '';
         };
         vm.ReportIsValid = function () {
-            return vm.Report != undefined
+            return vm.Report !== undefined
                 && vm.Report.Title !== ''
                 && vm.Report.Expenses.length > 0;
         };
@@ -192,7 +192,7 @@
             if (!country)
                 return;
 
-            var currencyCode = country.Currency.Code;
+            var currencyCode = country.CurrencyCode;
 
             if (currencyCode === 'PLN') {
                 vm.NewExpense.ExchangeRate = 1;

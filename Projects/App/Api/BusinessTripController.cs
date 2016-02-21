@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
-using CrazyAppsStudio.Delegacje.App.ApiBackend.Models;
 using CrazyAppsStudio.Delegacje.Domain.Extensions;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
