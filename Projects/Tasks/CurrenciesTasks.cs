@@ -34,18 +34,43 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			if (eur == null || (eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
 				(eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 13))
 			{
-				RefreshCurrencies();
+				RefreshCurrencies(DateTime.Now.Date);
 			}
 
 			eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
 			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToArray();
 		}
 
-		public void RefreshCurrencies()
+		public CurrencyRate GetCurrencyRateForDay(string code, DateTime date)
 		{
-			DateTime today = DateTime.Now.Date;
-			List<NBPCurrencyRate> nbpCurrencies = LoadCurrenciesFromNBP(today, true, true);
-			CurrencyRate[] existingRates = this.repo.Currencies.GetAllRatesForDay(today).ToArray();
+			CurrencyRate rate = this.repo.Currencies.GetCurrencyRate(code, date);
+			if (rate == null)
+			{
+				if (this.repo.Currencies.CurrenciesQueryable.Any(c => c.Code == code))
+				{
+					RefreshCurrencies(date);
+					rate = this.repo.Currencies.GetCurrencyRate(code, date);
+				}
+			}
+			return rate;				
+		}
+
+		public CurrencyRate[] GetAllCurrencyRatesForDay(DateTime date)
+		{
+			CurrencyRate[] rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
+			if (rates == null || rates.Length == 0)
+			{
+				RefreshCurrencies(date);
+				rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
+			}
+			return rates;
+		}
+
+		private void RefreshCurrencies(DateTime refreshDate)
+		{
+			refreshDate = refreshDate.Date;
+			List<NBPCurrencyRate> nbpCurrencies = LoadCurrenciesFromNBP(refreshDate, true, true);
+			CurrencyRate[] existingRates = this.repo.Currencies.GetAllRatesForDay(refreshDate).ToArray();
 			IEnumerable<Currency> systemCurrencies = this.repo.Dictionaries.GetCurrencies();
 			//List<Currency> test = systemCurrencies.ToList();
 			List<CurrencyRate> ratesToBeAdded = new List<CurrencyRate>();
@@ -59,8 +84,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 						CurrencyRate rate = new CurrencyRate()
 						{
 							Currency = curr,
-							DateRefreshed = today,
-							ExchangeRate = nbp.CurrencyRate
+							DateRefreshed = refreshDate,
+							ExchangeRate = nbp.CurrencyRate / nbp.Converter
 						};
 						ratesToBeAdded.Add(rate);
 					}
@@ -86,44 +111,6 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			this.repo.Currencies.AddCurrencyRates(ratesToBeAdded);
 			this.repo.SaveChanges();
 		}
-
-		//public List<NBPCurrency> LoadCurrenciesFromNBP()
-		//{
-		//	string url = "http://www.nbp.pl/kursy/xml/LastA.xml";
-
-		//	// Creates an HttpWebRequest with the specified URL. 
-		//	HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-		//	// Sends the HttpWebRequest and waits for the response.            
-		//	HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-		//	// Gets the stream associated with the response.
-		//	Stream receiveStream = myHttpWebResponse.GetResponseStream();
-		//	Encoding encode = System.Text.Encoding.GetEncoding("iso-8859-2");
-		//	// Pipes the stream to a higher level stream reader with the required encoding format. 
-		//	StreamReader readStream = new StreamReader(receiveStream, encode);
-		//	string readedData = readStream.ReadToEnd();
-		//	myHttpWebResponse.Close();
-		//	// Releases the resources of the Stream.
-		//	readStream.Close();
-		//	XmlDocument xmlDoc = new XmlDocument();
-		//	xmlDoc.LoadXml(readedData);
-		//	XmlNodeList currencyListXml = xmlDoc.GetElementsByTagName(Constraints.POSITION);
-		//	var date = xmlDoc.GetElementsByTagName(Constraints.PUBLICATION_DATE);
-		//	DateTime currencyDate = Convert.ToDateTime(date[0].FirstChild.Value);
-
-		//	List<NBPCurrency> currencyList = new List<NBPCurrency>();
-		//	foreach (XmlNode currencyXml in currencyListXml)
-		//	{
-		//		//XmlNodeList nodes = currencyXml.ChildNodes;
-		//		NBPCurrency currency = new NBPCurrency();
-		//		currency.CurrencyName = currencyXml.ChildNodes[0].FirstChild.Value;
-		//		currency.Converter = currencyXml.ChildNodes[1].FirstChild.Value;
-		//		currency.CurrencyCode = currencyXml.ChildNodes[2].FirstChild.Value;
-		//		currency.CurrencyRate = Convert.ToDouble(currencyXml.ChildNodes[3].FirstChild.Value);
-		//		currency.CurrencyDate = currencyDate;
-		//		currencyList.Add(currency);
-		//	}
-		//	return currencyList;
-		//}
 
 		/// <summary>
 		/// LoadA - załaduj waluty kategorii A, wymienialne, bardziej popularne. LoadB - załaduj waluty niewyminialnie, mało popularne
@@ -162,7 +149,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			return currencies;
 		}
 
-		public string GetNBPFilenameForDate(DateTime date, bool isExtended)
+		private string GetNBPFilenameForDate(DateTime date, bool isExtended)
 		{
 			DateTime currentDate = DateTime.Now;
 			if (date.Date > currentDate.Date)
@@ -240,7 +227,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			return fileName;
 		}
 
-		public DateTime GetDateFromNBPString(string dateString)
+		private DateTime GetDateFromNBPString(string dateString)
 		{
 			return new DateTime(
 					2000 + int.Parse(dateString.Substring(0, 2)),
@@ -255,7 +242,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		/// <param name="loadA"></param>
 		/// <param name="loadB"></param>
 		/// <returns></returns>
-		public List<NBPCurrencyRate> LoadLatestCurrenciesFromNBP(bool loadA, bool loadB)
+		private List<NBPCurrencyRate> LoadLatestCurrenciesFromNBP(bool loadA, bool loadB)
 		{
 			string urlA = "http://www.nbp.pl/kursy/xml/LastA.xml";
 			string urlB = "http://www.nbp.pl/kursy/xml/LastB.xml";
@@ -275,7 +262,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			return currencies;
 		}
 
-		public List<NBPCurrencyRate> LoadNBPCurrenciesFromUrl(string url)
+		private List<NBPCurrencyRate> LoadNBPCurrenciesFromUrl(string url)
 		{
 			string dataRead = LoadTextForUrl(url);
 			return ParseCurrencies(dataRead);
@@ -295,7 +282,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				//XmlNodeList nodes = currencyXml.ChildNodes;
 				NBPCurrencyRate currency = new NBPCurrencyRate();
 				currency.CurrencyName = currencyXml.ChildNodes[0].FirstChild.Value;
-				currency.Converter = currencyXml.ChildNodes[1].FirstChild.Value;
+				currency.Converter = Convert.ToDouble(currencyXml.ChildNodes[1].FirstChild.Value);
 				currency.CurrencyCode = currencyXml.ChildNodes[2].FirstChild.Value;
 				currency.CurrencyRate = Convert.ToDouble(currencyXml.ChildNodes[3].FirstChild.Value);
 				currency.CurrencyDate = currencyDate;

@@ -17,6 +17,14 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			this.context = _context;
 		}
 
+		public IQueryable<Currency> CurrenciesQueryable
+		{
+			get
+			{
+				return this.context.Currencies.AsQueryable<Currency>();
+			}
+		}
+
 		public CurrencyRate GetCurrencyRate(string code, DateTime date)
 		{
 			DateTime normalizedDate = date.Date;

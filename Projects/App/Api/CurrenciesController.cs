@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using CrazyAppsStudio.Delegacje.Domain.Extensions;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
@@ -20,11 +21,18 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             this.tasks = tasks;
         }
 
-		//[Route("{currencyCode}/{date}")]
-		//[HttpGet]
-		//public CurrencyDTO GetCurrencyForDate(string currencyCode, DateTime date)
-		//{
-		//	return tasks.DictionariesTasks.GetDictionaries();
-		//}
+		[Route("{currencyCode}/{date}")]
+		[HttpGet]
+		public CurrencyRateDTO GetCurrencyRateForDate(string currencyCode, DateTime date)
+		{
+			return tasks.CurrenciesTasks.GetCurrencyRateForDay(currencyCode, date).MapToDTO();
+		}
+
+		[Route("{date}")]
+		[HttpGet]
+		public CurrencyRateDTO[] GetAllCurrencyRatesForDate(DateTime date)
+		{
+			return tasks.CurrenciesTasks.GetAllCurrencyRatesForDay(date).Select(cr => cr.MapToDTO()).ToArray();
+		}
     }
 }

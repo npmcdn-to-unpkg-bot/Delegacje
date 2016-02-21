@@ -11,7 +11,7 @@ namespace TasksTests
 		public void CurrencyRateRefreshTest()
 		{
 			CurrenciesTasks tasks = new CurrenciesTasks();
-			//tasks.GetLatestAndRefreshCurrencyRates();
+			tasks.GetLatestAndRefreshCurrencyRates();
 			//tasks.RefreshCurrencies(); //modifies database
 
 		}
@@ -22,6 +22,20 @@ namespace TasksTests
 			CurrenciesTasks tasks = new CurrenciesTasks();
 			//tasks.LoadCurrenciesFromNBP(new DateTime(2016, 2, 14), true, true);
 			tasks.LoadCurrenciesFromNBP(new DateTime(2016, 1, 2), true, true);
+		}
+
+		[TestMethod]
+		public void LoadCurrencyForDayTest()
+		{
+			CurrenciesTasks tasks = new CurrenciesTasks();
+			tasks.GetCurrencyRateForDay("AFN", new DateTime(2015, 12, 16));
+		}
+
+		[TestMethod]
+		public void LoadCurrenciesForDayTest()
+		{
+			CurrenciesTasks tasks = new CurrenciesTasks();
+			tasks.GetAllCurrencyRatesForDay(new DateTime(2015, 3, 25));
 		}
 	}
 }

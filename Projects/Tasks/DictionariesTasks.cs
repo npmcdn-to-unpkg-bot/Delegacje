@@ -34,7 +34,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                 ExpenseTypes = repo.Dictionaries.GetExpenseTypes(),
                 MealTypes = repo.Dictionaries.GetMealTypes(),
                 VehicleTypes = repo.Dictionaries.GetVehicleTypes(),
-				Currencies = currenciesTasks.GetLatestAndRefreshCurrencyRates().Select(cr => cr.MapToDetails())
+				Currencies = currenciesTasks.GetLatestAndRefreshCurrencyRates().Select(cr => cr.MapToDTO())
             };
 
             return result;

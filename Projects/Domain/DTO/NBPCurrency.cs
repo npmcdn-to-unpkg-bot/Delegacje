@@ -15,7 +15,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		/// <summary>
 		/// przelicznik
 		/// </summary>
-		public string Converter { get; set; }
+		public double Converter { get; set; }
 		/// <summary>
 		/// kod waluty
 		/// </summary>

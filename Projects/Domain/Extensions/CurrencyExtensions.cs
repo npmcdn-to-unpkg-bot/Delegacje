@@ -11,7 +11,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 {
 	public static class CurrencyExtensions
 	{
-		public static CurrencyRateDTO MapToDetails(this CurrencyRate currencyRate)
+		public static CurrencyRateDTO MapToDTO(this CurrencyRate currencyRate)
 		{
 			CurrencyRateDTO currencyDTO = new CurrencyRateDTO()
 			{
