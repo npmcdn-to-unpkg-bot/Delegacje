@@ -11,7 +11,7 @@ namespace TasksTests
 		public void CurrencyRateRefreshTest()
 		{
 			CurrenciesTasks tasks = new CurrenciesTasks();
-			//tasks.GetLatestAndRefreshCurrencyRates();
+			tasks.GetLatestAndRefreshCurrencyRates();
 			//tasks.RefreshCurrencies(); //modifies database
 
 		}

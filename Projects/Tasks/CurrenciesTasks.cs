@@ -31,8 +31,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 		public CurrencyRate[] GetLatestAndRefreshCurrencyRates()
 		{
 			CurrencyRate eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
-			if ((eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
-				eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 13)
+			if (eur == null || (eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
+				(eur.DateRefreshed.Date == DateTime.Now.AddDays(-1).Date && DateTime.Now.Hour > 13))
 			{
 				RefreshCurrencies();
 			}
