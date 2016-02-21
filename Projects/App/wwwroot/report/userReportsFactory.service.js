@@ -35,7 +35,7 @@
                 for (var m = 0; m < bt.MileageAllowances.length; m++) {
                     total += bt.MileageAllowances[m].Amount();
                 }
-                return total;
+                return total.toFixed(2);
             };
             return bt;
         }
@@ -51,7 +51,7 @@
                 if (ma.Type === null || ma.Distance === '')
                     return '';
 
-                return ma.Type.Rate * ma.Distance;
+                return (ma.Type.Rate * ma.Distance).toFixed(2);
             };
 
             return ma;
