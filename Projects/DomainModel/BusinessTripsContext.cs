@@ -1,9 +1,8 @@
-﻿using CrazyAppsStudio.Delegacje.Domain;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CrazyAppsStudio.Delegacje.DomainModel
 {
@@ -15,13 +14,11 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 		public DbSet<MileageAllowance> MileageAllowances { get; set; }
 
 		public DbSet<Subsistence> Subsistences { get; set; }
+        public DbSet<SubsistenceDay> SubsistenceDays { get; set; }
 
-		public DbSet<SubsistenceMeal> SubsistenceMeals { get; set; }
-
-		public DbSet<VehicleType> VehicleTypes { get; set; }
+        public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<ExpenseType> ExpenseTypes { get; set; }
         public DbSet<ExpenseDocumentType> ExpenseDocumentTypes { get; set; }
-        public DbSet<MealType> MealTypes { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
 
 		public DbSet<Currency> Currencies { get; set; }
@@ -44,7 +41,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 			modelBuilder.Entity<UserRole>().ToTable("UserRoles", "dbo");
 			modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
 			modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
-            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
         }
 
         public static BusinessTripsContext Create()

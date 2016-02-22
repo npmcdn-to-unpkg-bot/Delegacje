@@ -11,7 +11,8 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		public BusinessTripsRepository BusinessTrips { get; set; }
 		public ExpensesRepository Expenses { get; set; }
 		public SubsistencesRepository Subsistences { get; set; }
-		public MileageAllowancesRepository MileageAllowances { get; set; }
+        public SubsistenceDaysRespository SubsistenceDays { get; set; }
+        public MileageAllowancesRepository MileageAllowances { get; set; }
 
 		public CurrenciesRepository Currencies { get; set; } 
 
@@ -24,7 +25,8 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			this.BusinessTrips = new BusinessTripsRepository(context);
 			this.Expenses = new ExpensesRepository(context);
 			this.Subsistences = new SubsistencesRepository(context);
-			this.MileageAllowances = new MileageAllowancesRepository(context);
+            this.SubsistenceDays = new SubsistenceDaysRespository(context);
+            this.MileageAllowances = new MileageAllowancesRepository(context);
 			this.Currencies = new CurrenciesRepository(context);
         }
 

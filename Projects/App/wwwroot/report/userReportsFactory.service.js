@@ -12,7 +12,8 @@
             getReport: getReport,
             getExpense: getExpense,
             getMileage: getMileage,
-            getSubsistence: getSubsistence
+            getSubsistence: getSubsistence,
+            getSubsistenceDay: getSubsistenceDay
         };
         return service;
 
@@ -27,7 +28,7 @@
             bt.UserId = null;
             bt.Expenses = [];
             bt.MileageAllowances = [];
-            bt.Subsistences = [];
+            bt.Subsistence = null;
             bt.Total = function () {
                 var total = 0;
                 for (var e = 0; e < bt.Expenses.length; e++) {
@@ -36,8 +37,10 @@
                 for (var m = 0; m < bt.MileageAllowances.length; m++) {
                     total += bt.MileageAllowances[m].Amount();
                 }
-                for (var s = 0; s < bt.Subsistences.length; s++) {
-                    total += bt.Subsistences[s].Total();
+                if (bt.Subsistence != null) {
+                    for (var s = 0; s < bt.Subsistence.Days.length; s++) {
+                        total += bt.Subsistence.Days[s].Total();
+                    }
                 }
                 return total;
             };
@@ -84,10 +87,19 @@
             return exp;
         }
 
-        function getSubsistence(date, diet) {
+        function getSubsistence() {
+            return {
+                StartDate: null,
+                EndDate: null,
+                Country: null,
+                City: '',
+                Days: []
+            };
+        }
+
+        function getSubsistenceDay(date, diet) {
             var s = {};
             s.Date = date;
-            s.DestinationCity = '';
             s.Breakfast = false;
             s.Dinner = false;
             s.Supper = false;

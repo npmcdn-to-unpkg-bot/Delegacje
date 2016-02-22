@@ -39,6 +39,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 
 		public virtual ICollection<MileageAllowance> MileageAllowances { get; set; }
 
-		public virtual ICollection<Subsistence> Subsistences { get; set; }
+		public Subsistence Subsistence { get; set; }
     }
 }

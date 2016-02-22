@@ -58,6 +58,7 @@
     <Compile Include="ExpensesRepository.cs" />
     <Compile Include="IRepositories.cs" />
     <Compile Include="MileageAllowancesRepository.cs" />
+    <Compile Include="SubsistenceDaysRespository.cs" />
     <Compile Include="SubsistencesRespository.cs" />
     <Compile Include="UsersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

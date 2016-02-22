@@ -22,6 +22,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 
 		public ExpenseDTO[] Expenses { get; set; }
 		public MileageAllowanceDTO[] MileageAllowances { get; set; }
-		public SubsistenceDTO[] Subsistences { get; set; }
+		public SubsistenceDTO Subsistence { get; set; }
 	}
 }

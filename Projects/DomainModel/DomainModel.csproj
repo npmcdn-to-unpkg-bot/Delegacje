@@ -75,9 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripsContext.cs" />
-    <Compile Include="Migrations\201602210009423_InitialCreate.cs" />
-    <Compile Include="Migrations\201602210009423_InitialCreate.Designer.cs">
-      <DependentUpon>201602210009423_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201602220047234_InitialCreate.cs" />
+    <Compile Include="Migrations\201602220047234_InitialCreate.Designer.cs">
+      <DependentUpon>201602220047234_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
@@ -94,8 +94,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602210009423_InitialCreate.resx">
-      <DependentUpon>201602210009423_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602220047234_InitialCreate.resx">
+      <DependentUpon>201602220047234_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

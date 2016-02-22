@@ -18,7 +18,6 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			CreateVehicleTypes(context);
             CreateExpenseTypes(context);
             CreateExpenseDocumentTypes(context);
-            CreateMealTypes(context);
         }
 
 		public void CreateUsers(BusinessTripsContext context)
@@ -274,31 +273,6 @@ Currency AED = new Currency() { Code = "AED", Name = "dirham" };	Country Zjednoc
             context.ExpenseDocumentTypes.AddOrUpdate(et => et.Name, type1);
             context.ExpenseDocumentTypes.AddOrUpdate(et => et.Name, type2);
             context.ExpenseDocumentTypes.AddOrUpdate(et => et.Name, type3);
-        }
-
-        public void CreateMealTypes(BusinessTripsContext context)
-        {
-            MealType type1 = new MealType()
-            {
-                Id = 1,
-                Name = "Breakfast"
-            };
-
-            MealType type2 = new MealType()
-            {
-                Id = 2,
-                Name = "Lunch"
-            };
-
-            MealType type3 = new MealType()
-            {
-                Id = 3,
-                Name = "Supper"
-            };
-
-            context.MealTypes.AddOrUpdate(et => et.Name, type1);
-            context.MealTypes.AddOrUpdate(et => et.Name, type2);
-            context.MealTypes.AddOrUpdate(et => et.Name, type3);
         }
     }
 }

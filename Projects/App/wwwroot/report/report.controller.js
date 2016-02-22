@@ -136,24 +136,26 @@
         };
 
         //subsistences
-        vm.SubsistenceStartDate = null;
-        vm.SubsistenceEndDate = null;
-        vm.SubsistenceCountry = null;
-        vm.SubsistenceCity = null;
+        vm.NewSubsistence = userReportsFactoryService.getSubsistence();
         vm.SubsistenceIsValid = function () {
-            return vm.SubsistenceStartDate != null && vm.SubsistenceEndDate != null && vm.SubsistenceCountry != null;
-        }
+            return vm.NewSubsistence.StartDate != null
+                && vm.NewSubsistence.EndDate != null
+                && vm.NewSubsistence.Country != null
+                && vm.NewSubsistence.City != '';
+        };
         vm.InitializeSubsistences = function () {
-            if (vm.SubsistenceStartDate == null || vm.SubsistenceEndDate == null)
-                return;
+            vm.Report.Subsistence = new userReportsFactoryService.getSubsistence();
+            vm.Report.Subsistence.StartDate = dateToString(vm.NewSubsistence.StartDate);
+            vm.Report.Subsistence.EndDate = dateToString(vm.NewSubsistence.EndDate);
+            vm.Report.Subsistence.Country = vm.NewSubsistence.Country;
+            vm.Report.Subsistence.City = vm.NewSubsistence.City;
 
             var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-            var daysCount = Math.round(Math.abs((vm.SubsistenceStartDate.getTime() - vm.SubsistenceEndDate.getTime()) / (oneDay))) + 1;
+            var daysCount = Math.round(Math.abs((vm.NewSubsistence.StartDate.getTime() - vm.NewSubsistence.EndDate.getTime()) / (oneDay))) + 1;
 
-            vm.Report.Subsistences = [];
             for (var i = 0; i < daysCount; i++) {
-                var date = addDays(vm.SubsistenceStartDate, i);
-                var diet = vm.SubsistenceCountry.SubsistenceAllowance;
+                var date = addDays(vm.NewSubsistence.StartDate, i);
+                var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
                 if (i === 0) {
                     //first day, calculate hours and modify diet
                 }
@@ -161,8 +163,8 @@
                     //last day, calculate hours and modify diet
                 }
 
-                var s = new userReportsFactoryService.getSubsistence(dateToString(date), diet);
-                vm.Report.Subsistences.push(s);
+                var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet);
+                vm.Report.Subsistence.Days.push(s);
             }
         };
         vm.SubsistenceToggleMeal = function (m) {
@@ -192,6 +194,13 @@
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
                 report.MileageAllowances[j].VehicleTypeId = report.MileageAllowances[j].Type.Id;
+            }
+
+            if (report.Subsistence != null) {
+                report.Subsistence.CountryId = report.Subsistence.Country.Id;
+                for (var d = 0; d < report.Subsistence.Days.length; d++) {
+                    report.Subsistence.Days[d].Amount = report.Subsistence.Days[d].Total();
+                }
             }
 
 
