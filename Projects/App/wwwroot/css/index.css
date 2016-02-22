@@ -514,7 +514,10 @@ tr:last-child td {
   text-decoration: none;
   color: #6E768F;
 }
-.quickdate-text-inputs,
+.quickdate-text-inputs
+{
+    width : 15px;
+}
 .quickdate-close {
   display: none;
 }
