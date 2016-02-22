@@ -5,7 +5,8 @@
             <div class="twelve columns text-center">
                 <div ng-include="'wwwroot/authentication/userData.template.html'"></div>
 
-                <h1>Dodaj Nowy Raport</h1>
+                <h1 ng-if="vm.Mode() == 'report-new'">Dodaj Nowy Raport</h1>
+                <h1 ng-if="vm.Mode() == 'report-edit'">Edytuj Raport</h1>
 
                 <p>{{vm.Report.Date}}</p>
             </div>

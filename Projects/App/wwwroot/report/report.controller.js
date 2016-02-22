@@ -119,6 +119,10 @@
                 && vm.Report.Expenses.length > 0;
         };
 
+        vm.Mode = function () {
+            return $state.current.name;
+        }
+
         //mileages
         vm.NewMileage = userReportsFactoryService.getMileage();
         vm.AddMileageToReport = function () {
