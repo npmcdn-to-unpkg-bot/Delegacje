@@ -66,6 +66,10 @@
       <Project>{781ef112-026b-4fdf-b78c-dc8a68284444}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projects\Repository\Repository.csproj">
+      <Project>{eea77de6-3804-4b53-ac62-ad296b645ae5}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projects\Tasks\Tasks.csproj">
       <Project>{6c1b585b-226b-4b93-8be4-c2a367ed0014}</Project>
       <Name>Tasks</Name>

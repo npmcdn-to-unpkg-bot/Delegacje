@@ -24,12 +24,12 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
         [Required]
         public virtual Country Country { get; set; }
 
-        [Required]
-		public int BusinessTripId { get; set; }
+  //      [Required]
+		//public int BusinessTripId { get; set; }
 
-		[Required]
-		public virtual BusinessTrip Trip { get; set; }
+		//[Required]
+		//public virtual BusinessTrip BusinessTrip { get; set; }
 
-        public virtual ICollection<SubsistenceDay> Days { get; set; }
+        public virtual ICollection<SubsistenceDay> Days { get; set; }        
     }
 }

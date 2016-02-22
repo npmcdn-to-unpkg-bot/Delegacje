@@ -22,13 +22,44 @@ namespace CrazyAppsStudio.Delegacje.Tasks
         {
 			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
 
-			BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
+            Subsistence sub = null;
+            if (businessTrip.Subsistence != null)
+            {
+                sub = repo.Subsistences.Create(new Subsistence()
+                {
+                    StartDate = DateExtensions.ParseAppString(businessTrip.Subsistence.StartDate),
+                    EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate),
+                    City = businessTrip.Subsistence.City,
+                    Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId)
+                });
+                
+                //trip.Subsistence = sub;                
+
+                List<SubsistenceDay> days = new List<SubsistenceDay>();
+                foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
+                {
+                    days.Add(new SubsistenceDay()
+                    {
+                        Amount = dayDto.Amount,
+                        Breakfast = dayDto.Breakfast,
+                        Date = DateExtensions.ParseAppString(dayDto.Date),
+                        Dinner = dayDto.Dinner,
+                        Supper = dayDto.Supper,
+                        Subsistence = sub
+                    });
+                }
+
+                repo.SubsistenceDays.CreateSet(days);                
+            }            
+
+            BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
 				Title = businessTrip.Title,
 				Date = businessTrip.Date.ParseAppString(),
 				BusinessReason = businessTrip.BusinessReason,
 				BusinessPurpose = businessTrip.BusinessPurpose,
 				Notes = businessTrip.Notes,
-				User = user				
+				User = user,
+                Subsistence = sub				
 			});
 
 			List<Expense> expenses = new List<Expense>();
@@ -61,32 +92,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				repo.Expenses.CreateSet(expenses);
 			}
 
-            if (businessTrip.Subsistence != null)
-            {
-                Subsistence sub = new Subsistence();
-                sub.Trip = trip;
-                sub.StartDate = DateExtensions.ParseAppString(businessTrip.Subsistence.StartDate);
-                sub.EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate);
-                sub.City = businessTrip.Subsistence.City;
-                sub.Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId);
-                trip.Subsistence = sub;
-                
-                List<SubsistenceDay> days = new List<SubsistenceDay>();
-                foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
-                {
-                    days.Add(new SubsistenceDay()
-                    {
-                        Amount = dayDto.Amount,
-                        Breakfast = dayDto.Breakfast,
-                        Date = DateExtensions.ParseAppString(dayDto.Date),
-                        Dinner = dayDto.Dinner,
-                        Supper = dayDto.Supper,
-                        Subsistence = sub
-                    });
-                }
-                repo.SubsistenceDays.CreateSet(days);
-                repo.Subsistences.Create(sub);
-            }
+           
 
             if (businessTrip.MileageAllowances != null)
 			{
