@@ -74,7 +74,7 @@
               ngModelCtrl.$setViewValue(attrs.initValue);
             }
             if (!scope.defaultTime) {
-              templateDate = new Date(2013, 0, 1, 12, 0);
+                templateDate = new Date();//new Date(2013, 0, 1, 12, 0);
               scope.datePlaceholder = $filter('date')(templateDate, scope.dateFormat);
               scope.timePlaceholder = $filter('date')(templateDate, scope.timeFormat);
             }
