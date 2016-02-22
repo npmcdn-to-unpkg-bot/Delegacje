@@ -199,9 +199,8 @@
             var report = vm.Report;
 
             for (var i = 0; i < report.Expenses.length; i++) {
-                //report.Expenses[i].CurrencyCode = report.Expenses[i].Country.Currency.Code;
                 report.Expenses[i].ExchangeRateModifiedByUser = false;
-
+                report.Expenses[i].AmountPLN = report.Expenses[i].FinalAmount();
                 report.Expenses[i].ExpenseTypeId = report.Expenses[i].Type.Id;
                 report.Expenses[i].CountryId = report.Expenses[i].Country.Id;
                 report.Expenses[i].ExpenseDocumentTypeId = report.Expenses[i].Document.Id;

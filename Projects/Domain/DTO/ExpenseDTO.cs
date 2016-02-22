@@ -19,8 +19,10 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
 		[Required, MaxLength(255)]
 		public string City { get; set; }
 		[Required]
-		public decimal Amount { get; set; }
-		[Required]
+        public decimal AmountPLN { get; set; }
+        [Required]
+        public decimal Amount { get; set; }
+        [Required]
 		public int CountryId { get; set; }
 		[Required, MaxLength(10)]
 		public string CurrencyCode { get; set; } //TODO: store currency codes and exchange rates in database, including historical values - MS 07/02/2016

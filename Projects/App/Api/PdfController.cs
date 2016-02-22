@@ -197,7 +197,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                 row.Cells[1].AddParagraph(e.Date.ToAppString());
                 row.Cells[2].AddParagraph(e.Type.Name);
                 row.Cells[3].AddParagraph(e.Country.Name);
-                row.Cells[4].AddParagraph(e.Amount + " PLN");
+                row.Cells[4].AddParagraph(e.AmountPLN + " PLN");
                 row.Cells[5].AddParagraph(e.DocumentType.Name);
                 row.Cells[6].AddParagraph(e.DoNotReturn ? "TAK" : "NIE");
                 row.Cells[7].AddParagraph(e.Notes);
@@ -314,7 +314,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                 row.Cells[2].AddParagraph(e.Breakfast ? "TAK" : "NIE");
                 row.Cells[3].AddParagraph(e.Dinner ? "TAK" : "NIE");
                 row.Cells[4].AddParagraph(e.Supper ? "TAK" : "NIE");
-                row.Cells[5].AddParagraph(e.Amount.ToString() + " PLN");
+                row.Cells[5].AddParagraph(e.AmountPLN.ToString() + " PLN");
                 row.Cells[6].AddParagraph("");
 
                 AddRowBorders(row);

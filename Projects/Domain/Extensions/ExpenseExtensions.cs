@@ -20,6 +20,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 				Date = expense.Date.ToAppString(),
 				City = expense.City,
 				Amount = expense.Amount,
+                AmountPLN = expense.AmountPLN,
 				CountryId = expense.CountryId,
 				CurrencyCode = expense.CurrencyCode,
 				ExchangeRate = expense.ExchangeRate,

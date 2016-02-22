@@ -33,8 +33,6 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                     Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId)
                 });
                 
-                //trip.Subsistence = sub;                
-
                 List<SubsistenceDay> days = new List<SubsistenceDay>();
                 foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
                 {
@@ -75,6 +73,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.Date = expDto.Date.ParseAppString();
 					expense.City = expDto.City;
 					expense.Amount = expDto.Amount;
+                    expense.AmountPLN = expDto.AmountPLN;
 					expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
 					expense.CurrencyCode = expDto.CurrencyCode;
 					expense.ExchangeRate = expDto.ExchangeRate;
@@ -156,6 +155,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.Date = edto.Date.ParseAppString();
 					expense.City = edto.City;
 					expense.Amount = edto.Amount;
+                    expense.AmountPLN = edto.AmountPLN;
 					//expense.CountryId = expDto.CountryId;
 					expense.Country = repo.Dictionaries.GetCountry(edto.CountryId);
 					expense.CurrencyCode = edto.CurrencyCode;
@@ -178,8 +178,9 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.Date = expDto.Date.ParseAppString();
 					expense.City = expDto.City;
 					expense.Amount = expDto.Amount;
-					//expense.CountryId = expDto.CountryId;
-					expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
+                    expense.AmountPLN = expDto.AmountPLN;
+                    //expense.CountryId = expDto.CountryId;
+                    expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
 					expense.CurrencyCode = expDto.CurrencyCode;
 					expense.ExchangeRate = expDto.ExchangeRate;
 					expense.ExchangeRateModifiedByUser = expDto.ExchangeRateModifiedByUser;
@@ -194,45 +195,34 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
 		public void UpdateBusinessTripSubsistences(BusinessTrip trip, BusinessTripDTO businessTripDto)
 		{
-			//if (businessTripDto.Subsistences != null)
-			//{
-			//	foreach (Subsistence sub in trip.Subsistences
-			//		.Where(s => businessTripDto.Subsistences
-			//			.Any(sdto => sdto.Id == s.Id)))
-			//	{//Update subsistences that exist both in database and in dto					
-			//		SubsistenceDTO sdto = businessTripDto.Subsistences.First(subsistenceDto => subsistenceDto.Id == sub.Id);
-			//		sub.Trip = trip;
-			//		sub.Date = DateExtensions.ParseAppString(sdto.Date);
-			//		sub.City = sdto.City;
-			//		sub.Country = repo.Dictionaries.GetCountry(sdto.CountryId);
-			//		sub.AccomodationCount = sdto.AccomodationCount;
-   //                 sub.Breakfast = sdto.Breakfast;
-   //                 sub.Dinner = sdto.Dinner;
-   //                 sub.Supper = sdto.Supper;
-   //                 sub.Amount = sdto.Amount;
-   //             }
+            if (businessTripDto.Subsistence != null)
+            {
+                //sub = repo.Subsistences.Create(new Subsistence()
+                //{
+                //    StartDate = DateExtensions.ParseAppString(businessTrip.Subsistence.StartDate),
+                //    EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate),
+                //    City = businessTrip.Subsistence.City,
+                //    Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId)
+                //});
 
-   //             //Remove those that exist in db but don't exist in dto
-   //             repo.Subsistences.RemoveSet(trip.Subsistences
-			//		.Where(s => !businessTripDto.Subsistences
-			//			.Any(sdto => sdto.Id == s.Id)));
+                //List<SubsistenceDay> days = new List<SubsistenceDay>();
+                //foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
+                //{
+                //    days.Add(new SubsistenceDay()
+                //    {
+                //        Amount = dayDto.Amount,
+                //        AmountPLN = dayDto.AmountPLN,
+                //        Breakfast = dayDto.Breakfast,
+                //        Date = DateExtensions.ParseAppString(dayDto.Date),
+                //        Dinner = dayDto.Dinner,
+                //        Supper = dayDto.Supper,
+                //        Night = dayDto.Night,
+                //        Subsistence = sub
+                //    });
+                //}
 
-			//	foreach (SubsistenceDTO subDto in businessTripDto.Subsistences.Where(sdto => !trip.Subsistences.Any(s => s.Id == sdto.Id)))
-			//	{//Add those that exist in dto but don't exist in db					
-			//		Subsistence sub = new Subsistence();
-			//		sub.Trip = trip;
-			//		sub.Date = DateExtensions.ParseAppString(subDto.Date);
-			//		sub.City = subDto.City;
-			//		sub.Country = repo.Dictionaries.GetCountry(subDto.CountryId);
-			//		sub.AccomodationCount = subDto.AccomodationCount;
-   //                 sub.Breakfast = subDto.Breakfast;
-   //                 sub.Dinner = subDto.Dinner;
-   //                 sub.Supper = subDto.Supper;
-   //                 sub.Amount = subDto.Amount;
-
-   //                 trip.Subsistences.Add(sub);
-			//	}
-			//}
+                //repo.SubsistenceDays.CreateSet(days);
+            }
 		}
 
 		public void UpdateBusinessTripMileageAllowances(BusinessTrip trip, BusinessTripDTO businessTripDto)

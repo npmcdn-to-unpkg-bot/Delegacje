@@ -63,8 +63,12 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
         {
             decimal total = 0;
 
-            total += trip.Expenses.Sum(e => e.Amount);
+            total += trip.Expenses.Sum(e => e.AmountPLN);
             total += trip.MileageAllowances.Sum(e => e.Amount);
+            if (trip.Subsistence != null)
+            {
+                total += trip.Subsistence.Days.Sum(e => e.AmountPLN);
+            }
 
             return total;
         }

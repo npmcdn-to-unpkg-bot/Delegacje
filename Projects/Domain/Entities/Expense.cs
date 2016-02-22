@@ -37,6 +37,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
 		public string City { get; set; }
 
 		public decimal Amount { get; set; }
+        public decimal AmountPLN { get; set; }
 
 		[Required]
 		public int CountryId { get; set; }
