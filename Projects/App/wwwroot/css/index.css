@@ -518,6 +518,15 @@ tr:last-child td {
 {
     width : 15px;
 }
+
+.quickdate-text-inputs label
+{
+    
+     color: #6E768F;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
 .quickdate-close {
   display: none;
 }
