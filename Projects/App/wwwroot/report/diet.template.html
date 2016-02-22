@@ -22,7 +22,7 @@
                                   date-format="d/M/yyyy"
                                   required="true"
                                   time-format="hh:mm"
-                                  disable-timepicker="false"
+                                  disable-timepicker="true"
                                   disable-clear-button="true"></quick-datepicker>
                 <required-icon content="vm.NewSubsistence.StartDate"></required-icon>
             </div>
@@ -32,7 +32,7 @@
                                   date-format="d/M/yyyy"
                                   required="true"
                                   time-format="hh:mm"
-                                  disable-timepicker="false"
+                                  disable-timepicker="true"
                                   disable-clear-button="true"></quick-datepicker>
                 <required-icon content="vm.NewSubsistence.EndDate"></required-icon>
             </div>
@@ -48,7 +48,9 @@
 
     <div class="row">
         <div class="twelve columns">
-            <table class="u-full-width">
+            <div class="spinner-circular" ng-show="vm.GettingSubsistenceExchageRate"></div>
+
+            <table class="u-full-width" ng-show="!vm.GettingSubsistenceExchageRate">
                 <thead>
                     <tr>
                         <th class="col120">Data</th>
@@ -80,7 +82,7 @@
                         </td>
                         <td>
                             <i class="fa fa-money"></i>&nbsp;&nbsp;
-                            {{s.Total().toFixed(2) + ' PLN'}}
+                            {{s.TotalPLN().toFixed(2) + ' PLN'}}
                         </td>
                     </tr>
                 </tbody>

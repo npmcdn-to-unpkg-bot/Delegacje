@@ -26,7 +26,13 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
         /// </summary>
         public bool Supper { get; set; }
 
+        /// <summary>
+        /// Spanko we własnym zakresie
+        /// </summary>
+        public bool Night { get; set; }
+
         public decimal Amount { get; set; }
+        public decimal AmountPLN { get; set; }
 
         [Required]
 		public int SubsistenceId { get; set; }

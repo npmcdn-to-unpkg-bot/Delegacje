@@ -41,10 +41,12 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                     days.Add(new SubsistenceDay()
                     {
                         Amount = dayDto.Amount,
+                        AmountPLN = dayDto.AmountPLN,
                         Breakfast = dayDto.Breakfast,
                         Date = DateExtensions.ParseAppString(dayDto.Date),
                         Dinner = dayDto.Dinner,
                         Supper = dayDto.Supper,
+                        Night = dayDto.Night,
                         Subsistence = sub
                     });
                 }

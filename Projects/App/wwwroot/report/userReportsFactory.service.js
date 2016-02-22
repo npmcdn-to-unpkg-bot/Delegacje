@@ -39,7 +39,7 @@
                 }
                 if (bt.Subsistence != null) {
                     for (var s = 0; s < bt.Subsistence.Days.length; s++) {
-                        total += bt.Subsistence.Days[s].Total();
+                        total += bt.Subsistence.Days[s].TotalPLN();
                     }
                 }
                 return total;
@@ -97,7 +97,7 @@
             };
         }
 
-        function getSubsistenceDay(date, diet) {
+        function getSubsistenceDay(date, diet, accomodation, exchangeRate) {
             var s = {};
             s.Date = date;
             s.Breakfast = false;
@@ -115,8 +115,14 @@
                 if (s.Supper) {
                     total -= 0.3 * diet;
                 }
+                if (s.Night) {
+                    total += 0.25 * accomodation;
+                }
                 return total;
             };
+            s.TotalPLN = function () {
+                return s.Total() * exchangeRate;
+            }
             return s;
         }
 

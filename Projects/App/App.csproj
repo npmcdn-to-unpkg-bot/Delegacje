@@ -400,6 +400,7 @@
     <Content Include="wwwroot\authentication\authentication.service.js" />
     <Content Include="wwwroot\authentication\login.controller.js" />
     <Content Include="wwwroot\authentication\login.template.html" />
+    <Content Include="wwwroot\currencies\currencies.service.js" />
     <Content Include="wwwroot\dictionaries\dictionaries.service.js" />
     <Content Include="favicon.ico" />
     <Content Include="index.html" />

@@ -5,9 +5,9 @@
          .module('app')
          .controller('ReportController', ReportController);
 
-    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService', 'ngDialog', '$state', '$scope', '$stateParams'];
+    ReportController.$inject = ['userReportsFactoryService', 'dictionariesService', 'userReportsService', 'ngDialog', '$state', '$scope', '$stateParams', 'currenciesService'];
 
-    function ReportController(userReportsFactoryService, dictionariesService, userReportsService, ngDialog, $state, $scope, $stateParams) {
+    function ReportController(userReportsFactoryService, dictionariesService, userReportsService, ngDialog, $state, $scope, $stateParams, currenciesService) {
         var vm = this;
         vm.visibleSection = 'Expenses';
         vm.Dictionaries = dictionariesService;
@@ -113,6 +113,12 @@
             && vm.NewMileage.Date !== ''
             && vm.NewMileage.Distance !== '';
         };
+        vm.SubsistenceIsValid = function () {
+            return vm.NewSubsistence.StartDate != null
+                && vm.NewSubsistence.EndDate != null
+                && vm.NewSubsistence.Country != null
+                && vm.NewSubsistence.City != '';
+        };
         vm.ReportIsValid = function () {
             return vm.Report !== undefined
                 && vm.Report.Title !== ''
@@ -141,35 +147,40 @@
 
         //subsistences
         vm.NewSubsistence = userReportsFactoryService.getSubsistence();
-        vm.SubsistenceIsValid = function () {
-            return vm.NewSubsistence.StartDate != null
-                && vm.NewSubsistence.EndDate != null
-                && vm.NewSubsistence.Country != null
-                && vm.NewSubsistence.City != '';
-        };
+        vm.GettingSubsistenceExchageRate = false;
+        vm.SubsistenceCurrencyData = null;
         vm.InitializeSubsistences = function () {
-            vm.Report.Subsistence = new userReportsFactoryService.getSubsistence();
-            vm.Report.Subsistence.StartDate = dateToString(vm.NewSubsistence.StartDate);
-            vm.Report.Subsistence.EndDate = dateToString(vm.NewSubsistence.EndDate);
-            vm.Report.Subsistence.Country = vm.NewSubsistence.Country;
-            vm.Report.Subsistence.City = vm.NewSubsistence.City;
+            vm.GettingSubsistenceExchageRate = true;
+            currenciesService.getExchangeRate(vm.NewSubsistence.Country.Currency.Code, dateToUrlString(vm.NewSubsistence.StartDate))
+            .then(function (data) {
+                vm.SubsistenceCurrencyData = data;
 
-            var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-            var daysCount = Math.round(Math.abs((vm.NewSubsistence.StartDate.getTime() - vm.NewSubsistence.EndDate.getTime()) / (oneDay))) + 1;
+                vm.Report.Subsistence = new userReportsFactoryService.getSubsistence();
+                vm.Report.Subsistence.StartDate = dateToString(vm.NewSubsistence.StartDate);
+                vm.Report.Subsistence.EndDate = dateToString(vm.NewSubsistence.EndDate);
+                vm.Report.Subsistence.Country = vm.NewSubsistence.Country;
+                vm.Report.Subsistence.City = vm.NewSubsistence.City;
 
-            for (var i = 0; i < daysCount; i++) {
-                var date = addDays(vm.NewSubsistence.StartDate, i);
-                var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
-                if (i === 0) {
-                    //first day, calculate hours and modify diet
+                var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+                var daysCount = Math.round(Math.abs((vm.NewSubsistence.StartDate.getTime() - vm.NewSubsistence.EndDate.getTime()) / (oneDay))) + 1;
+
+                for (var i = 0; i < daysCount; i++) {
+                    var date = addDays(vm.NewSubsistence.StartDate, i);
+                    var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
+                    var accLimit = vm.Report.Subsistence.Country.AccomodationLimit;
+                    if (i === 0) {
+                        //first day, calculate hours and modify diet
+                    }
+                    if (i === daysCount - 1) {
+                        //last day, calculate hours and modify diet
+                    }
+
+                    var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
+                    vm.Report.Subsistence.Days.push(s);
                 }
-                if (i === daysCount - 1) {
-                    //last day, calculate hours and modify diet
-                }
 
-                var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet);
-                vm.Report.Subsistence.Days.push(s);
-            }
+                vm.GettingSubsistenceExchageRate = false;
+            });            
         };
         vm.SubsistenceToggleMeal = function (m) {
             m = !m;
@@ -204,6 +215,7 @@
                 report.Subsistence.CountryId = report.Subsistence.Country.Id;
                 for (var d = 0; d < report.Subsistence.Days.length; d++) {
                     report.Subsistence.Days[d].Amount = report.Subsistence.Days[d].Total();
+                    report.Subsistence.Days[d].AmountPLN = report.Subsistence.Days[d].TotalPLN();
                 }
             }
 
@@ -287,6 +299,13 @@
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
             return day + '/' + month + '/' + year;
+        }
+
+        function dateToUrlString(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            return day + '-' + month + '-' + year;
         }
 
         
