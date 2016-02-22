@@ -54,7 +54,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 				BusinessReason = trip.BusinessReason,
 				Notes = trip.Notes,
 				Expenses = trip.Expenses != null ? trip.Expenses.Select(exp => exp.MapToDTO()).ToArray() : null,
-				Subsistence = trip.Subsistence.MapToDTO(),
+				Subsistence = trip.Subsistence != null ? trip.Subsistence.MapToDTO() : null,
 				MileageAllowances = trip.MileageAllowances != null ? trip.MileageAllowances.Select(ma => ma.MapToDTO()).ToArray() : null
 			};
 		}
