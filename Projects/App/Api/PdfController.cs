@@ -145,9 +145,8 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             section.AddParagraph("2. Szczegóły Raportu", "SectionHeader");
 
             AddExpenses(document, section, trip);
-
-            //section.AddParagraph("WYDATKI", "SectionHeader");
-            //section.AddParagraph("DIETA", "SectionHeader");
+            AddMileages(document, section, trip);
+            AddDietDays(document, section, trip);
         }
 
         void AddExpenses(Document document, Section section, BusinessTrip trip)
@@ -155,7 +154,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             if (trip.Expenses.Count == 0)
                 return;
 
-            section.AddParagraph("KILOMETRÓWKA", "SectionHeader");
+            section.AddParagraph("WYDATKI", "SectionHeader");
 
             // Create the item table
             Table table = section.AddTable();
@@ -174,7 +173,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             Column columnComment = table.AddColumn(Unit.FromCentimeter(3.5));
             Column columnSpaceRight = table.AddColumn(Unit.FromCentimeter(0.25));
 
-            AddTopRow(table);
+            AddTopRow(table, 8);
 
             Row rowHeader = table.AddRow();
             rowHeader.Cells[0].AddParagraph("");
@@ -189,7 +188,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             rowHeader.Cells[8].AddParagraph("");
             rowHeader.Cells[8].Borders.Right.Width = 0.5;
 
-            AddEmptyRow(table);
+            AddEmptyRow(table, 8);
 
             foreach (Expense e in trip.Expenses)
             {
@@ -207,8 +206,122 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                 AddRowBorders(row);
             }
 
-            AddEmptyRow(table);
-            AddBottomRow(table);
+            AddEmptyRow(table, 8);
+            AddBottomRow(table, 8);
+
+            AddSectionEndingSpace(section);
+        }
+
+        void AddMileages(Document document, Section section, BusinessTrip trip)
+        {
+            if (trip.MileageAllowances.Count == 0)
+                return;
+
+            section.AddParagraph("KILOMETRÓWKA", "SectionHeader");
+
+            // Create the item table
+            Table table = section.AddTable();
+            table.Style = "Table";
+            table.Borders.Width = 0;
+            table.Borders.Color = color;
+            //table.Rows.Height = Unit.FromPoint(document.Styles["Normal"].Font.Size * 2);
+
+            Column columnSpaceLeft = table.AddColumn(Unit.FromCentimeter(0.25));
+            Column columnDate = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnType = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnDistance = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnAmount = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnComment = table.AddColumn(Unit.FromCentimeter(7.5));
+            Column columnSpaceRight = table.AddColumn(Unit.FromCentimeter(0.25));
+
+            AddTopRow(table, 6);
+
+            Row rowHeader = table.AddRow();
+            rowHeader.Cells[0].AddParagraph("");
+            rowHeader.Cells[0].Borders.Left.Width = 0.5;
+            rowHeader.Cells[1].AddParagraph("DATA");
+            rowHeader.Cells[2].AddParagraph("TYP POJAZDU");
+            rowHeader.Cells[3].AddParagraph("DYSTANS");
+            rowHeader.Cells[4].AddParagraph("KWOTA");
+            rowHeader.Cells[5].AddParagraph("KOMENTARZ");
+            rowHeader.Cells[6].AddParagraph("");
+            rowHeader.Cells[6].Borders.Right.Width = 0.5;
+
+            AddEmptyRow(table, 6);
+
+            foreach (MileageAllowance e in trip.MileageAllowances)
+            {
+                Row row = table.AddRow();
+                row.Cells[0].AddParagraph("");
+                row.Cells[1].AddParagraph(e.Date.ToAppString());
+                row.Cells[2].AddParagraph(e.Type.Name);
+                row.Cells[3].AddParagraph(e.Distance.ToString());
+                row.Cells[4].AddParagraph(e.Amount + " PLN");
+                row.Cells[5].AddParagraph(e.Notes);
+                row.Cells[6].AddParagraph("");
+
+                AddRowBorders(row);
+            }
+
+            AddEmptyRow(table, 6);
+            AddBottomRow(table, 6);
+
+            AddSectionEndingSpace(section);
+        }
+
+        void AddDietDays(Document document, Section section, BusinessTrip trip)
+        {
+            if (trip.Subsistence == null || trip.Subsistence.Days.Count == 0)
+                return;
+
+            section.AddParagraph("DIETA", "SectionHeader");
+
+            // Create the item table
+            Table table = section.AddTable();
+            table.Style = "Table";
+            table.Borders.Width = 0;
+            table.Borders.Color = color;
+            //table.Rows.Height = Unit.FromPoint(document.Styles["Normal"].Font.Size * 2);
+
+            Column columnSpaceLeft = table.AddColumn(Unit.FromCentimeter(0.25));
+            Column columnDate = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnType = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnDistance = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnAmount = table.AddColumn(Unit.FromCentimeter(2));
+            Column columnComment = table.AddColumn(Unit.FromCentimeter(7.5));
+            Column columnSpaceRight = table.AddColumn(Unit.FromCentimeter(0.25));
+
+            AddTopRow(table, 6);
+
+            Row rowHeader = table.AddRow();
+            rowHeader.Cells[0].AddParagraph("");
+            rowHeader.Cells[0].Borders.Left.Width = 0.5;
+            rowHeader.Cells[1].AddParagraph("DATA");
+            rowHeader.Cells[2].AddParagraph("ŚNIADANIE");
+            rowHeader.Cells[3].AddParagraph("OBIAD");
+            rowHeader.Cells[4].AddParagraph("KOLACJA");
+            rowHeader.Cells[5].AddParagraph("KWOTA");
+            rowHeader.Cells[6].AddParagraph("");
+            rowHeader.Cells[6].Borders.Right.Width = 0.5;
+
+            AddEmptyRow(table, 6);
+
+            foreach (SubsistenceDay e in trip.Subsistence.Days)
+            {
+                Row row = table.AddRow();
+                row.Cells[0].AddParagraph("");
+                row.Cells[1].AddParagraph(e.Date.ToAppString());
+                row.Cells[2].AddParagraph(e.Breakfast ? "TAK" : "NIE");
+                row.Cells[3].AddParagraph(e.Dinner ? "TAK" : "NIE");
+                row.Cells[4].AddParagraph(e.Supper ? "TAK" : "NIE");
+                row.Cells[5].AddParagraph(e.Amount.ToString() + " PLN");
+                row.Cells[6].AddParagraph("");
+
+                AddRowBorders(row);
+            }
+
+            AddEmptyRow(table, 6);
+            AddBottomRow(table, 6);
 
             AddSectionEndingSpace(section);
         }
@@ -220,47 +333,47 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         }
 
 
-        private static void AddEmptyRow(Table table)
+        private static void AddEmptyRow(Table table, int columnsCount)
         {
             Row row = table.AddRow();
             row.Cells[0].AddParagraph("");
             row.Cells[0].Borders.Left.Width = 0.5;
-            for (int i = 1; i <= 7; i++)
+            for (int i = 1; i <= columnsCount - 1; i++)
             {
                 row.Cells[i].AddParagraph("");
             }
-            row.Cells[8].AddParagraph("");
-            row.Cells[8].Borders.Right.Width = 0.5;
+            row.Cells[columnsCount].AddParagraph("");
+            row.Cells[columnsCount].Borders.Right.Width = 0.5;
         }
-        private static void AddTopRow(Table table)
+        private static void AddTopRow(Table table, int columnsCount)
         {
             Row row = table.AddRow();
             row.Cells[0].AddParagraph("");
             row.Cells[0].Borders.Left.Width = 0.5;
             row.Cells[0].Borders.Top.Width = 0.5;
-            for (int i = 1; i <= 7; i++)
+            for (int i = 1; i <= columnsCount - 1; i++)
             {
                 row.Cells[i].AddParagraph("");
                 row.Cells[i].Borders.Top.Width = 0.5;
             }
-            row.Cells[8].AddParagraph("");
-            row.Cells[8].Borders.Right.Width = 0.5;
-            row.Cells[8].Borders.Top.Width = 0.5;
+            row.Cells[columnsCount].AddParagraph("");
+            row.Cells[columnsCount].Borders.Right.Width = 0.5;
+            row.Cells[columnsCount].Borders.Top.Width = 0.5;
         }
-        private static void AddBottomRow(Table table)
+        private static void AddBottomRow(Table table, int columnsCount)
         {
             Row row = table.AddRow();
             row.Cells[0].AddParagraph("");
             row.Cells[0].Borders.Left.Width = 0.5;
             row.Cells[0].Borders.Bottom.Width = 0.5;
-            for (int i = 1; i <= 7; i++)
+            for (int i = 1; i <= columnsCount - 1; i++)
             {
                 row.Cells[i].AddParagraph("");
                 row.Cells[i].Borders.Bottom.Width = 0.5;
             }
-            row.Cells[8].AddParagraph("");
-            row.Cells[8].Borders.Right.Width = 0.5;
-            row.Cells[8].Borders.Bottom.Width = 0.5;
+            row.Cells[columnsCount].AddParagraph("");
+            row.Cells[columnsCount].Borders.Right.Width = 0.5;
+            row.Cells[columnsCount].Borders.Bottom.Width = 0.5;
         }
         private static void AddSectionEndingSpace(Section section)
         {

@@ -69,6 +69,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                 sub.EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate);
                 sub.City = businessTrip.Subsistence.City;
                 sub.Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId);
+                trip.Subsistence = sub;
                 
                 List<SubsistenceDay> days = new List<SubsistenceDay>();
                 foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
