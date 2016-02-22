@@ -3,6 +3,7 @@ using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Repository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -284,7 +285,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				currency.CurrencyName = currencyXml.ChildNodes[0].FirstChild.Value;
 				currency.Converter = Convert.ToDouble(currencyXml.ChildNodes[1].FirstChild.Value);
 				currency.CurrencyCode = currencyXml.ChildNodes[2].FirstChild.Value;
-				currency.CurrencyRate = Convert.ToDouble(currencyXml.ChildNodes[3].FirstChild.Value);
+				currency.CurrencyRate = Convert.ToDouble(currencyXml.ChildNodes[3].FirstChild.Value, CultureInfo.GetCultureInfo("pl-PL"));
 				currency.CurrencyDate = currencyDate;
 				currencyList.Add(currency);
 			}
