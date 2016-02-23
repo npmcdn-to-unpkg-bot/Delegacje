@@ -39,7 +39,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			}
 
 			eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
-			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToArray();
+			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).OrderBy(c => c.Currency.Code).ToArray();
 		}
 
 		public CurrencyRate GetCurrencyRateForDay(string code, DateTime date)
