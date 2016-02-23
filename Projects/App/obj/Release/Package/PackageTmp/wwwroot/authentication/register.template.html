@@ -1,0 +1,16 @@
+﻿<div id="login-container">
+    <div id="login-form">
+        <form name="form" ng-submit="vm.register()" novalidate>
+            <input type="email" class="input" placeholder="E--Mail..." maxlength="100" ng-model="vm.registerModel.email" autofocus required />
+            <input type="password" class="input" placeholder="Hasło..." maxlength="100" ng-model="vm.registerModel.password" required ng-minlength="6" />
+            <input type="password" class="input" placeholder="Potwierdź hasło..." maxlength="100" ng-model="vm.registerModel.confirmPassword" required ng-minlength="6" />
+
+            <div id="register-actions">
+                <input type="submit" class="button button-register2 pull-left" value="Zarejestruj się" class="button button-primary" ng-disabled="form.$invalid || vm.isBusy || !vm.passwordsMatch()" />
+                <a ui-sref="login" class="button button-cancel pull-right">Anuluj</a>
+            </div>
+        </form>
+    </div>
+
+    <div id="login-footer">&nbsp;</div>
+</div>

@@ -64,7 +64,7 @@
                         var mileage = new userReportsFactoryService.getMileage();
                         mileage.id = mileageDto.id;
                         mileage.Type = dictionariesService.VehicleTypeById(mileageDto.VehicleTypeId);;
-                        mileage.DateObject = stringToDate(mileageDto.Date);
+                        mileage.Date= mileageDto.Date;
                         mileage.Distance = mileageDto.Distance;
                         mileage.Notes = mileageDto.Notes;
 
@@ -115,6 +115,9 @@
 
         //expenses
         var clickedExpense = null;
+        vm.maxDate = function () {
+            return dateToString(new Date());
+        };
         vm.isEditingExpense = false;
         vm.expensePopupVisible = false;
         vm.expenseShowPopup = function (event, epxense) {
@@ -135,7 +138,7 @@
 
         vm.NewExpense = userReportsFactoryService.getExpense();
         vm.AddExpenseToReport = function () {
-            vm.NewExpense.Date = dateToString(vm.NewExpense.Date);
+            vm.NewExpense.Date = vm.NewExpense.Date.substr(0, 10);
             vm.Report.Expenses.push(vm.NewExpense);
             vm.NewExpense = userReportsFactoryService.getExpense();
         };
@@ -241,16 +244,18 @@
                 vm.SubsistenceCurrencyData = data;
 
                 vm.Report.Subsistence = new userReportsFactoryService.getSubsistence();
-                vm.Report.Subsistence.StartDate = dateToString(vm.NewSubsistence.StartDate);
-                vm.Report.Subsistence.EndDate = dateToString(vm.NewSubsistence.EndDate);
+                vm.Report.Subsistence.StartDate = vm.NewSubsistence.StartDate;
+                vm.Report.Subsistence.EndDate = vm.NewSubsistence.EndDate;
                 vm.Report.Subsistence.Country = vm.NewSubsistence.Country;
                 vm.Report.Subsistence.City = vm.NewSubsistence.City;
 
                 var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-                var daysCount = Math.round(Math.abs((vm.NewSubsistence.StartDate.getTime() - vm.NewSubsistence.EndDate.getTime()) / (oneDay))) + 1;
+                var startDateObj = stringToDate(vm.NewSubsistence.StartDate);
+                var endDateObj = stringToDate(vm.NewSubsistence.EndDate);
+                var daysCount = Math.round(Math.abs((startDateObj.getTime() - endDateObj.getTime()) / (oneDay))) + 1;
 
                 for (var i = 0; i < daysCount; i++) {
-                    var date = addDays(vm.NewSubsistence.StartDate, i);
+                    var date = addDays(startDateObj, i);
                     var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
                     var accLimit = vm.Report.Subsistence.Country.AccomodationLimit;
                     if (i === 0) {
@@ -292,7 +297,6 @@
             }
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
-                report.MileageAllowances[j].Date = report.MileageAllowances[j].DateFormatted();
                 report.MileageAllowances[j].VehicleTypeId = report.MileageAllowances[j].Type.Id;
             }
 
@@ -353,6 +357,10 @@
         		}
         	}
         });
+
+        $scope.$watch('vm.NewExpense.Date', function () {
+            ExpenseDateChanged();
+        });
         
         function addDays(date, days) {
             var result = new Date(date);
@@ -371,23 +379,29 @@
         }
 
         function stringToDate(date) {
-            var parts = date.split('/');
-            return new Date(parts[2], parts[1] - 1, parts[0]);
+            var parts = date.split(' ');
+
+            if (parts.length == 2) {
+                var dParts = parts[0].split('/');
+                var tParts = parts[1].split(':');
+                return new Date(dParts[2], dParts[1] - 1, dParts[0], tParts[0], tParts[1]);
+            }
+            else {
+                var dParts = parts[0].split('/');
+                return new Date(dParts[2], dParts[1] - 1, dParts[0]);
+            }
         };
 
         function dateToUrlString(date) {
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
-            return month + '-' + day + '-' + year;
+            return date.split('/').join('-').substr(0, 10);
         }
 
         
-        vm.ExpenseDateChanged = function () {
+        function ExpenseDateChanged() {
+            if (vm.NewExpense.Date == '')
+                return;
 
-        	var dateFormatted = dateToString(vm.NewExpense.Date);
-
-        	dictionariesService.loadCurrenciesForDate(dateFormatted).
+            dictionariesService.loadCurrenciesForDate(vm.NewExpense.Date).
         	then(
 			   function (response) {
 			   	vm.Currencies = response;

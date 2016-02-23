@@ -11,12 +11,11 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <quick-datepicker ng-model='vm.NewExpense.Date'
-                                  date-format="d/M/yyyy"
-                                  required="true"                                  
-                                  disable-timepicker="true"
-                                  disable-clear-button="true"
-                                  on-change="vm.ExpenseDateChanged()"></quick-datepicker>
+                <input id="inputEnd" type="text" 
+                       datepicker-directive 
+                       rome-max="{{vm.maxDate()}}"
+                       ng-model="vm.NewExpense.Date" 
+                       class="input-icon input-calendar" />
                 <required-icon content="vm.NewExpense.Date"></required-icon>
             </div>
             <div class="form-line-dropdown">

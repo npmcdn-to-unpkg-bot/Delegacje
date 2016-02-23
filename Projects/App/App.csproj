@@ -458,16 +458,15 @@
     <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.css" />
     <Content Include="wwwroot\lib\ngDropdowns\dist\angular-dropdowns.min.js" />
     <Content Include="wwwroot\lib\ngDropdowns\gulpfile.js" />
-    <Content Include="wwwroot\lib\ngQuickDate\demo.html" />
-    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date-default-theme.css" />
-    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date-plus-default-theme.css" />
-    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.css" />
-    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.js" />
-    <Content Include="wwwroot\lib\ngQuickDate\dist\ng-quick-date.min.js" />
-    <Content Include="wwwroot\lib\ngQuickDate\LICENSE.txt" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.js" />
     <Content Include="wwwroot\lib\ngstorage\ngStorage.min.js" />
     <Content Include="wwwroot\lib\ngstorage\package.js" />
+    <Content Include="wwwroot\lib\rome\dist\rome.css" />
+    <Content Include="wwwroot\lib\rome\dist\rome.js" />
+    <Content Include="wwwroot\lib\rome\dist\rome.min.css" />
+    <Content Include="wwwroot\lib\rome\dist\rome.min.js" />
+    <Content Include="wwwroot\lib\rome\dist\rome.standalone.js" />
+    <Content Include="wwwroot\lib\rome\dist\rome.standalone.min.js" />
     <Content Include="wwwroot\lib\skeleton\css\normalize.css" />
     <Content Include="wwwroot\lib\skeleton\css\skeleton.css" />
     <Content Include="wwwroot\lib\skeleton\images\favicon.png" />
@@ -480,7 +479,7 @@
     <Content Include="wwwroot\report\mileage.template.html" />
     <Content Include="wwwroot\report\report.controller.js" />
     <Content Include="wwwroot\report\report.template.html" />
-    <Content Include="wwwroot\system\contextMenu.js" />
+    <Content Include="wwwroot\system\datepicker.directive.js" />
     <Content Include="wwwroot\system\exception.decorator.js" />
     <Content Include="wwwroot\system\http.interceptor.js" />
     <Content Include="wwwroot\system\landing.controller.js" />
@@ -597,10 +596,6 @@
     <Content Include="wwwroot\css\module\m-dialog.less" />
     <Content Include="wwwroot\css\module\m-icons.less" />
     <Content Include="wwwroot\authentication\userData.template.html" />
-    <Content Include="wwwroot\lib\ngQuickDate\.bower.json" />
-    <Content Include="wwwroot\lib\ngQuickDate\.gitignore" />
-    <Content Include="wwwroot\lib\ngQuickDate\bower.json" />
-    <Content Include="wwwroot\lib\ngQuickDate\README.md" />
     <Content Include="wwwroot\css\module\m-datepicker.less" />
     <Content Include="wwwroot\css\fonts\fontawesome-webfont.eot" />
     <Content Include="wwwroot\css\fonts\fontawesome-webfont.ttf" />
@@ -614,6 +609,11 @@
     <Content Include="wwwroot\lib\angular-loading-bar\LICENSE" />
     <Content Include="wwwroot\lib\angular-loading-bar\package.json" />
     <Content Include="wwwroot\lib\angular-loading-bar\README.md" />
+    <Content Include="wwwroot\lib\rome\.bower.json" />
+    <Content Include="wwwroot\lib\rome\bower.json" />
+    <Content Include="wwwroot\lib\rome\CHANGELOG.md" />
+    <Content Include="wwwroot\lib\rome\LICENSE" />
+    <Content Include="wwwroot\lib\rome\README.md" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

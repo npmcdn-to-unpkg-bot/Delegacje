@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="BusinessTripsEntities-Web.config Connection String" description="BusinessTripsEntities Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:winkbkq1vv.database.windows.net,1433;Database=Delegacje;User ID=swipe@winkbkq1vv;Password=MKB1983!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\VSProjects\\Delegacje\\Projects\\App\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BusinessTripsEntities']/@connectionString" />
+  </parameter>
+</parameters>

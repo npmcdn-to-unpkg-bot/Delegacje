@@ -3,11 +3,11 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <quick-datepicker ng-model='vm.NewMileage.DateObject'
-                                  date-format="d/M/yyyy"
-                                  required="true"
-                                  disable-timepicker="true"
-                                  disable-clear-button="true"></quick-datepicker>
+                <input id="inputEnd" type="text"
+                       datepicker-directive
+                       rome-max="{{vm.maxDate()}}"
+                       ng-model="vm.NewMileage.Date"
+                       class="input-icon input-calendar" />
                 <required-icon content="vm.NewMileage.DateObject"></required-icon>
             </div>
             <div class="form-line-dropdown">
@@ -60,7 +60,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="m in vm.Report.MileageAllowances">
-                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.DateFormatted()}}</td>
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.Date}}</td>
                         <td><i class="fa fa-car"></i>&nbsp;&nbsp;{{m.Type.Name}}</td>
                         <td><i class="fa fa-map-o"></i>&nbsp;&nbsp;{{m.Distance}} km</td>
                         <td><i class="fa fa-money"></i>&nbsp;&nbsp;{{m.Amount().toFixed(2)}} PLN</td>

@@ -8,11 +8,9 @@ angular.module('app', [
     'ngDropdowns',
     'purplefox.numeric',
     'ngDialog',
-    'ngQuickDate',
     'angular-loading-bar',
     // Custom modules
 
     // 3rd Party Modules
-    'smart-table',
     'toastr'
 ]);

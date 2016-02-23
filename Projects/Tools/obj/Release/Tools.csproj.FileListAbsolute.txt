@@ -1,0 +1,5 @@
+E:\VSProjects\Delegacje\Projects\Tools\bin\Release\Tools.dll
+E:\VSProjects\Delegacje\Projects\Tools\bin\Release\Tools.pdb
+E:\VSProjects\Delegacje\Projects\Tools\obj\Release\Tools.dll
+E:\VSProjects\Delegacje\Projects\Tools\obj\Release\Tools.pdb
+E:\VSProjects\Delegacje\Projects\Tools\obj\Release\Tools.csprojResolveAssemblyReference.cache

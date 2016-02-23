@@ -1,0 +1,41 @@
+﻿.v-spacer {
+  width: 100%;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+}
+.v-spacer5 {
+  height: 5px;
+}
+.v-spacer10 {
+  height: 10px;
+}
+.v-spacer15 {
+  height: 15px;
+}
+.v-spacer20 {
+  height: 20px;
+}
+.v-spacer25 {
+  height: 25px;
+}
+.v-spacer30 {
+  height: 30px;
+}
+.v-spacer35 {
+  height: 35px;
+}
+.v-spacer40 {
+  height: 40px;
+}
+.v-spacer45 {
+  height: 45px;
+}
+.v-spacer50 {
+  height: 50px;
+}
+.v-spacer60 {
+  height: 60px;
+}

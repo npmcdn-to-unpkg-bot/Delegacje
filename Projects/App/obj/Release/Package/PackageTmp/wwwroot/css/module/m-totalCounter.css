@@ -1,0 +1,20 @@
+﻿.total {
+  font-size: 14px;
+  margin-left: 80px;
+}
+.total-counter,
+.total-to-refund-counter {
+  color: #73DBB0;
+  margin: 0;
+  padding: 0;
+}
+.total-counter {
+  font-size: 48px;
+}
+.total-to-refund-counter {
+  font-size: 38px;
+}
+.total-label {
+  display: inline-block;
+  width: 100px;
+}

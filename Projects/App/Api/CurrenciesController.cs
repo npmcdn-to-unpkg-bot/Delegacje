@@ -44,7 +44,5 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             currencies.OrderBy(cr => cr.Code);
             return currencies.ToArray();
 		}
-
-        
     }
 }

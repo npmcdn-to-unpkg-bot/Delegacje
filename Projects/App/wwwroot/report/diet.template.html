@@ -18,22 +18,24 @@
         <div class="five columns">
             <div class="form-line">
                 <span class="form-row-label-two-line">Data i Czas Wylotu</span>
-                <quick-datepicker ng-model='vm.NewSubsistence.StartDate'
-                                  date-format="d/M/yyyy"
-                                  required="true"
-                                  time-format="hh:mm"
-                                  disable-timepicker="true"
-                                  disable-clear-button="true"></quick-datepicker>
+                <input id="inputStart" type="text" 
+                       datepicker-directive 
+                       rome-time="true" 
+                       rome-max="{{vm.maxDate()}}"
+                       rome-before-eq="inputEnd" 
+                       ng-model="vm.NewSubsistence.StartDate"
+                       class="input-icon input-calendar" />
                 <required-icon content="vm.NewSubsistence.StartDate"></required-icon>
             </div>
             <div class="form-line">
                 <span class="form-row-label-two-line">Data i Czas Przylotu</span>
-                <quick-datepicker ng-model='vm.NewSubsistence.EndDate'
-                                  date-format="d/M/yyyy"
-                                  required="true"
-                                  time-format="hh:mm"
-                                  disable-timepicker="true"
-                                  disable-clear-button="true"></quick-datepicker>
+                <input id="inputEnd" type="text" 
+                       datepicker-directive 
+                       rome-time="true" 
+                       rome-max="{{vm.maxDate()}}"
+                       rome-after-eq="inputStart" 
+                       ng-model="vm.NewSubsistence.EndDate"
+                       class="input-icon input-calendar" />
                 <required-icon content="vm.NewSubsistence.EndDate"></required-icon>
             </div>
         </div>

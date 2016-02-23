@@ -87,6 +87,7 @@ input:disabled {
 }
 .input-calendar {
   background-image: url('../img/bg_calendar.png');
+  cursor: pointer;
 }
 .input-pln {
   background-image: url('../img/bg_pln.png');

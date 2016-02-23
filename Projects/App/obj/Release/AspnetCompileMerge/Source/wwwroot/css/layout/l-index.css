@@ -1,0 +1,105 @@
+﻿body {
+  margin: 40px 0;
+  overflow-y: scroll;
+  color: #6E768F;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #EEF0F5;
+}
+.container {
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #B7BBC7;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+input {
+  color: #6E768F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1 {
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0;
+  text-transform: uppercase;
+  width: auto;
+  padding: 12px 100px;
+  border-bottom: 1px solid #6E768F;
+  display: inline-block;
+}
+h2 {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  margin-left: -40px;
+  margin-top: 5px;
+}
+h2.section:before {
+  display: block;
+  width: 20px;
+  height: 20px;
+  float: left;
+  text-align: center;
+  margin-right: 20px;
+  margin-top: -5px;
+  margin-bottom: 30px;
+  border: 1px solid #6E768F;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  padding: 4px;
+}
+h2.section-1:before {
+  content: "1";
+}
+h2.section-2:before {
+  content: "2";
+}
+h2.section-3:before {
+  content: "3";
+}
+.button,
+input[type="submit"],
+input[type="button"] {
+  background-color: #EFF1F6;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  color: #6E768F;
+  border: 1px solid #C7CAD6;
+  padding: 0 60px;
+  font-size: 14px;
+}
+.button.button-primary,
+input[type="submit"].button-primary,
+input[type="button"].button-primary {
+  color: #6E768F;
+  background-color: #70DAAE;
+  border: 0;
+}
+.button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="button"].button-primary:hover {
+  color: #6E768F;
+  background-color: #7DF2C1;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.dimmed {
+  color: #C7CAD6;
+}
+/*div[ui-view].ng-enter {
+    animation: fadeIn 0.500s;
+}*/
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem;
+}

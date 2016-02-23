@@ -18,12 +18,29 @@ namespace Tools
 
         public static DateTime ParseAppString(this string date)
         {
-            string[] parts = date.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            int day = int.Parse(parts[0]);
-            int month = int.Parse(parts[1]);
-            int year = int.Parse(parts[2]);
+            string[] parts = date.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            return new DateTime(year, month, day);
+            if (parts.Length == 2)
+            {
+                string[] dParts = parts[0].Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] tParts = parts[1].Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                int day = int.Parse(dParts[0]);
+                int month = int.Parse(dParts[1]);
+                int year = int.Parse(dParts[2]);
+                int hour = int.Parse(tParts[0]);
+                int minute = int.Parse(tParts[1]);
+
+                return new DateTime(year, month, day, hour, minute, 0);
+            }
+            else
+            {
+                string[] dParts = parts[0].Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+                int day = int.Parse(dParts[0]);
+                int month = int.Parse(dParts[1]);
+                int year = int.Parse(dParts[2]);
+
+                return new DateTime(year, month, day);
+            }
         }
     }
 }

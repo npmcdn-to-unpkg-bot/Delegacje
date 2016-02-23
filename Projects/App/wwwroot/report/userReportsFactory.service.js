@@ -68,10 +68,7 @@
             var ma = {};
 
             ma.Type = null;
-            ma.DateObject = '';
-            ma.DateFormatted = function () {
-                return formatDate(ma.DateObject);
-            };
+            ma.Date= '';
             ma.Distance = '';
             ma.Notes = '';
             ma.Amount = function () {
