@@ -434,6 +434,7 @@ tr:last-child td {
 }
 .total {
   font-size: 14px;
+  margin-left: 80px;
 }
 .total-counter,
 .total-to-refund-counter {
