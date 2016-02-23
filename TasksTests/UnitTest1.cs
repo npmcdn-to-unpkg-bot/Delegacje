@@ -74,21 +74,21 @@ namespace TasksTests
         //	return;
         //}
 
-        [TestMethod]
-        public void SubsTest()
-        {
-            Repositories repo = new Repositories();
+		//[TestMethod]
+		//public void SubsTest()
+		//{
+		//	Repositories repo = new Repositories();
 
-            Subsistence sub = null;
-            sub = repo.Subsistences.Create(new Subsistence()
-            {
-                StartDate = new DateTime(2016, 2, 5),
-                EndDate = new DateTime(2016, 2, 15),
-                City = "TEST CITY",
-                Country = repo.Dictionaries.GetCountry(35)
-            });
-            repo.SaveChanges();
-        }
+		//	Subsistence sub = null;
+		//	sub = repo.Subsistences.Create(new Subsistence()
+		//	{
+		//		StartDate = new DateTime(2016, 2, 5),
+		//		EndDate = new DateTime(2016, 2, 15),
+		//		City = "TEST CITY",
+		//		Country = repo.Dictionaries.GetCountry(35)
+		//	});
+		//	repo.SaveChanges();
+		//}
 
         
     }
