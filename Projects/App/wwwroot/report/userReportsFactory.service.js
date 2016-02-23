@@ -91,7 +91,7 @@
             exp.Date = '';
             exp.Country = null;
             exp.CurrencyCode = null;
-            exp.ExchangeRate = 1;
+            exp.ExchangeRate = null;
             exp.City = '';
             exp.Amount = '';
             exp.Document = null;
