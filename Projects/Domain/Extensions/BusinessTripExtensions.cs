@@ -1,6 +1,5 @@
 ﻿using CrazyAppsStudio.Delegacje.Domain.DTO;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
 using Tools;
@@ -26,7 +25,8 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
                 Note = bt.Notes,
                 Title = bt.Title,
                 Reason = bt.BusinessReason,
-                Purpose = bt.BusinessPurpose
+                Purpose = bt.BusinessPurpose,
+                Total = bt.CountTotal()
             }).ToList();
         }
 
@@ -39,7 +39,8 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
                 Note = trip.Notes,
                 Title = trip.Title,
                 Reason = trip.BusinessReason,
-                Purpose = trip.BusinessPurpose
+                Purpose = trip.BusinessPurpose,
+                Total = trip.CountTotal()
             };
         }
 

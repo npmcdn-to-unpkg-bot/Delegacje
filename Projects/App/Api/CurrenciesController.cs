@@ -26,6 +26,18 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		[HttpGet]
 		public CurrencyRateDTO GetCurrencyRateForDate(string currencyCode, DateTime date)
 		{
+            if (currencyCode == "PLN")
+            {
+                return new CurrencyRateDTO()
+                {
+                    Code = "PLN",
+                    CurrencyRateId = 0,
+                    Date = date.ToAppString(),
+                    ExchangeRate = 1,
+                    Name = "złoty"
+                };
+            }
+
 			return tasks.CurrenciesTasks.GetCurrencyRateForDay(currencyCode, date).MapToDTO();
 		}
 

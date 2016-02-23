@@ -14,5 +14,6 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
         public string Purpose { get; set; }
         public string Date { get; set; }
         public string Note { get; set; }
+        public decimal Total { get; set; }
     }
 }

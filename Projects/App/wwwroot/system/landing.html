@@ -19,7 +19,7 @@
                         <th class="col100">Nazwa</th>
                         <th class="col100">Powód</th>
                         <th class="col100">Cel</th>
-                        <th class="col100">Kwota</th>
+                        <th class="col120">Kwota</th>
                         <th class="col300">Komentarz</th>
                         <th class="text-center">Edytuj</th>
                     </tr>
@@ -30,7 +30,7 @@
                         <td class="max100"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;{{r.Title}}</td>
                         <td class="max100"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;{{r.Reason}}</td>
                         <td class="max100"><i class="fa fa-shield"></i>&nbsp;&nbsp;{{r.Purpose}}</td>
-                        <td class="max100"><i class="fa fa-money"></i></td>
+                        <td class="max100"><i class="fa fa-money"></i>&nbsp;&nbsp;{{r.Total + ' PLN'}} </td>
                         <td class="max300"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{r.Note}}</td>
                         <td class="text-center max60">
                             <i class="fa fa-bars action" ng-click="vm.showPopup($event, r); $event.stopPropagation()"></i>

@@ -120,7 +120,8 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
         public IEnumerable<BusinessTripSearchItemDTO> GetForUser(string user)
         {
-            return repo.BusinessTrips.GetForUser(user);
+            var trips = repo.BusinessTrips.GetForUser(user);
+            return trips;
         }
 
 		public void UpdateBusinessTrip(BusinessTripDTO businessTripDto, string userName)

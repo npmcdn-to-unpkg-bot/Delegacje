@@ -56,7 +56,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                 HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
                 response.Content = new ByteArrayContent(res);
                 response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                response.Content.Headers.ContentDisposition.FileName = "sample.pdf";
+                response.Content.Headers.ContentDisposition.FileName = "Raport.pdf";
                 return response;
             }
         }
