@@ -257,22 +257,7 @@
     <Compile Include="ApiBackend\Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="libs\MigraDoc.DocumentObjectModel.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libs\MigraDoc.Rendering.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libs\MigraDoc.RtfRendering.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libs\pdfsharp.charting.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libs\pdfsharp.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+  <ItemGroup>    
     <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
