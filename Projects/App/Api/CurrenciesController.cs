@@ -41,6 +41,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 			DateTime dateParsed = date.ParseAppString();
             List<CurrencyRateDTO> currencies = tasks.CurrenciesTasks.GetAllCurrencyRatesForDay(dateParsed.Date).Select(cr => cr.MapToDTO()).ToList();
             currencies.Add(tasks.CurrenciesTasks.GetPLN(dateParsed));
+            currencies.OrderBy(cr => cr.Code);
             return currencies.ToArray();
 		}
 

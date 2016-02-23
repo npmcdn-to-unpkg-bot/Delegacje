@@ -51,7 +51,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			}
 
 			eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
-			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).OrderBy(c => c.Currency.Code).ToArray();
+			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToArray();
 		}
 
 		public CurrencyRate GetCurrencyRateForDay(string code, DateTime date)
@@ -75,8 +75,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			{
 				RefreshCurrencies(date);
 				rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
-			}
-            rates.OrderBy(r => r.Currency.Code);
+			}            
 			return rates;
 		}
 
