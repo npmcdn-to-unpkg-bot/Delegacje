@@ -28,14 +28,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		{
             if (currencyCode == "PLN")
             {
-                return new CurrencyRateDTO()
-                {
-                    Code = "PLN",
-                    CurrencyRateId = 0,
-                    Date = date.ToAppString(),
-                    ExchangeRate = 1,
-                    Name = "złoty"
-                };
+                return tasks.CurrenciesTasks.GetPLN(date);                
             }
 
 			return tasks.CurrenciesTasks.GetCurrencyRateForDay(currencyCode, date).MapToDTO();
@@ -46,7 +39,11 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 		public CurrencyRateDTO[] GetAllCurrencyRatesForDate([FromBody]string date)
 		{
 			DateTime dateParsed = date.ParseAppString();
-			return tasks.CurrenciesTasks.GetAllCurrencyRatesForDay(dateParsed.Date).Select(cr => cr.MapToDTO()).ToArray();			
+            List<CurrencyRateDTO> currencies = tasks.CurrenciesTasks.GetAllCurrencyRatesForDay(dateParsed.Date).Select(cr => cr.MapToDTO()).ToList();
+            currencies.Add(tasks.CurrenciesTasks.GetPLN(dateParsed));
+            return currencies.ToArray();
 		}
+
+        
     }
 }

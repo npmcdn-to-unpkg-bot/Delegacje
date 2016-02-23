@@ -339,29 +339,11 @@
 
             var currencyCode = country.Currency.Code;
             vm.NewExpense.CurrencyCode = country.Currency.Code;
-
-            //if (currencyCode === 'PLN') {
-            //    vm.NewExpense.ExchangeRate = 1;
-            //    return;
-            //}
-
-            //var currencies = dictionariesService.Currencies;
-            //for (var i = 0; i < currencies.length; i++) {
-            //    if (currencies[i].Code === currencyCode) {
-            //        vm.NewExpense.ExchangeRate = currencies[i].ExchangeRate;
-            //        return;
-            //    }
-            //}
         });
 
         $scope.$watch('vm.NewExpense.CurrencyCode', function (currencyCode) {
         	if (!currencyCode)
-        		return;                	
-
-        	if (currencyCode === 'PLN') {
-        		vm.NewExpense.ExchangeRate = 1;
-        		return;
-        	}
+        		return;                	        	
 
         	var currencies = vm.Currencies;
         	for (var i = 0; i < currencies.length; i++) {

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
+using Tools;
 
 namespace CrazyAppsStudio.Delegacje.Tasks
 {
@@ -28,6 +29,17 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			this.repo = repo;
 		}
 
+        public CurrencyRateDTO GetPLN(DateTime? date = null)
+        {
+            return new CurrencyRateDTO()
+            {
+                Code = "PLN",
+                CurrencyRateId = 0,
+                Date = date == null ? DateTime.Now.ToAppString() : date.Value.ToAppString(),
+                ExchangeRate = 1,
+                Name = "złoty"
+            };
+        }
 
 		public CurrencyRate[] GetLatestAndRefreshCurrencyRates()
 		{
