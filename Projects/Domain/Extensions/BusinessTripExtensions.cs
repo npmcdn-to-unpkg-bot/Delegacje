@@ -73,5 +73,19 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 
             return total;
         }
+
+        public static decimal CountTotalToReturn(this BusinessTrip trip)
+        {
+            decimal total = 0;
+
+            total += trip.Expenses.Where(e => !e.DoNotReturn).Sum(e => e.AmountPLN);
+            total += trip.MileageAllowances.Sum(e => e.Amount);
+            if (trip.Subsistence != null)
+            {
+                total += trip.Subsistence.Days.Sum(e => e.AmountPLN);
+            }
+
+            return total;
+        }
     }
 }
