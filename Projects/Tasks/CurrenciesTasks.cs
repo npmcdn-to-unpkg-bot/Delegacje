@@ -76,6 +76,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				RefreshCurrencies(date);
 				rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
 			}
+            rates.OrderBy(r => r.Currency.Code);
 			return rates;
 		}
 
