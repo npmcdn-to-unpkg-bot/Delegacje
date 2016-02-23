@@ -100,6 +100,14 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             style.Font.Size = baseFontSize * 3;
             style.Font.Color = colorSummary;
             style.ParagraphFormat.LeftIndent = "1cm";
+
+            style = document.Styles.AddStyle("SummaryToReturn", "Normal");
+            style.Font.Size = baseFontSize * 2;
+            style.Font.Color = colorSummary;
+            style.ParagraphFormat.LeftIndent = "1cm";
+
+            style = document.Styles.AddStyle("SummaryLabel", "Normal");
+            style.ParagraphFormat.AddTabStop("3cm", TabAlignment.Right);
         }
 
         void AddHeader(Document document, Section section, BusinessTrip trip)
@@ -120,10 +128,6 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 
             Column columnHeader = table.AddColumn(Unit.FromCentimeter(5));
             Column columnValue = table.AddColumn(Unit.FromCentimeter(11));
-
-            //Row row1 = table.AddRow();
-            //row1.Cells[0].AddParagraph("NAZWA RAPORTU");
-            //row1.Cells[1].AddParagraph(trip.);
 
             Row row2 = table.AddRow();
             row2.Cells[0].AddParagraph("POWÓD PODRÓŻY");
@@ -329,7 +333,19 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         void AddSummary(Document document, Section section, BusinessTrip trip)
         {
             section.AddParagraph("3. Podsumowanie", "SectionHeader");
-            section.AddParagraph(trip.CountTotal() + " PLN", "Summary");
+
+            Paragraph p1 = new Paragraph();
+            p1.AddFormattedText("Całkowita", "SummaryLabel");
+            p1.AddTab();
+            p1.AddFormattedText(trip.CountTotal() + " PLN", "Summary");
+            section.Add(p1);
+
+
+            Paragraph p2 = new Paragraph();
+            p2.AddFormattedText("Do Zwrotu", "SummaryLabel");
+            p2.AddTab();
+            p2.AddFormattedText(trip.CountTotalToReturn() + " PLN", "SummaryToReturn");
+            section.Add(p2);
         }
 
 
