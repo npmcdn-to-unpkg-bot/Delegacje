@@ -41,6 +41,7 @@
     <div class="row">
         <div class="ten columns offset-by-one text-right">
             <input type="button" class="button button-primary" ng-click="vm.AddMileageToReport()" ng-disabled="!vm.MileageIsValid()" ng-show="!vm.isEditingMileage" value="Dodaj" />
+            <input type="button" class="button button-primary" ng-click="vm.stopEditMileage()" ng-show="vm.isEditingMileage" value="Zakończ" />
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>

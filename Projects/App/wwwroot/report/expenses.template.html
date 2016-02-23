@@ -88,7 +88,8 @@
     </div>
     <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <input type="button" class="button button-primary" ng-click="vm.AddExpenseToReport()" ng-disabled="!vm.ExpenseIsValid()" value="Dodaj" />
+            <input type="button" class="button button-primary" ng-click="vm.AddExpenseToReport()" ng-disabled="!vm.ExpenseIsValid()" ng-show="!vm.isEditingExpense" value="Dodaj" />
+            <input type="button" class="button button-primary" ng-click="vm.stopEditExpense()" ng-show="vm.isEditingExpense" value="Zakończ" />
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>
@@ -122,19 +123,29 @@
                         </td>
                         <td><i class="fa fa-file-o"></i>&nbsp;&nbsp;{{r.Document.Name}}</td>
                         <td class="text-center">
-                            <i class="fa fa-square-o" ng-show="r.DoNotReturn"></i>
-                            <i class="fa fa-check-square-o" ng-show="!r.DoNotReturn"></i>
+                            <i class="fa fa-square-o" ng-show="!r.DoNotReturn"></i>
+                            <i class="fa fa-check-square-o" ng-show="r.DoNotReturn"></i>
                         </td>
                         <td>
                             <i class="fa fa-pencil-square-o"></i>
                             {{'  ' + r.Notes}}
                         </td>
                         <td>
-                            <a ng-click="vm.RemoveExpense(r)">Usuń</a>
+                            <i class="fa fa-bars action" ng-click="vm.expenseShowPopup($event, r); $event.stopPropagation()"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
 		</div>
 	</div>
+
+    <!--menu-->
+    <div id="expense-table-menu" class="table-menu" ng-show="vm.expensePopupVisible" context-menu="vm.expenseHidePopup()">
+        <a class="table-menu-header" ng-click="vm.expenseHidePopup()">
+            <i class="fa fa-arrow-circle-o-down"></i>
+            <span>&nbsp;&nbsp;Menu</span>
+        </a>
+        <a class="table-menu-item" ng-click="vm.editExpense()"><span>Edytuj</span></a>
+        <a class="table-menu-item" ng-click="vm.removeExpense()"><span>Usuń</span></a>
+    </div>
 </div>

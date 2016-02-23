@@ -114,20 +114,50 @@
         vm.Countries = dictionariesService;
 
         //expenses
+        var clickedExpense = null;
+        vm.isEditingExpense = false;
+        vm.expensePopupVisible = false;
+        vm.expenseShowPopup = function (event, epxense) {
+            clickedExpense = epxense;
+            var targetTag = angular.element(document.querySelector('#expense-table-menu'));
+            targetTag.css({
+                position: "fixed",
+                display: "block",
+                left: event.clientX - 290 + 'px',
+                top: event.clientY + 10 + 'px'
+            });
+
+            vm.expensePopupVisible = true;
+        };
+        vm.expenseHidePopup = function () {
+            vm.expensePopupVisible = false;
+        };
+
         vm.NewExpense = userReportsFactoryService.getExpense();
         vm.AddExpenseToReport = function () {
             vm.NewExpense.Date = dateToString(vm.NewExpense.Date);
             vm.Report.Expenses.push(vm.NewExpense);
             vm.NewExpense = userReportsFactoryService.getExpense();
         };
-        vm.RemoveExpense = function (expense) {
+        vm.editExpense = function () {
+            vm.isEditingExpense = true;
+            vm.NewExpense = clickedExpense;
+        };
+        vm.stopEditExpense = function () {
+            vm.NewExpense = new userReportsFactoryService.getExpense();
+            vm.isEditingExpense = false;
+        };
+        vm.removeExpense = function () {
             for (var i = 0; i < vm.Report.Expenses.length; i++) {
-                if (vm.Report.Expenses[i] === expense) {
+                if (vm.Report.Expenses[i] === clickedExpense) {
                     vm.Report.Expenses.splice(i, 1);
                     break;
                 }
             }
+            clickedExpense = null;
         };
+
+        //validation
         vm.ExpenseIsValid = function () {
             return vm.NewExpense.Type !== null
             && vm.NewExpense.Date !== ''
@@ -177,7 +207,7 @@
             vm.mileagePopupVisible = false;
         };
 
-        vm.NewMileage = userReportsFactoryService.getMileage();
+        vm.NewMileage = new userReportsFactoryService.getMileage();
         vm.AddMileageToReport = function () {
             vm.Report.MileageAllowances.push(vm.NewMileage);
             vm.NewMileage = userReportsFactoryService.getMileage();
@@ -186,12 +216,8 @@
             vm.isEditingMileage = true;
             vm.NewMileage = clickedMileage;
         };
-        vm.cancelEditMileage = function () {
-            vm.NewMileage = userReportsFactoryService.getMileage();
-            vm.isEditingMileage = false;
-        };
-        vm.saveMileageEdit = function () {
-            vm.NewMileage = userReportsFactoryService.getMileage();
+        vm.stopEditMileage = function () {
+            vm.NewMileage = new userReportsFactoryService.getMileage();
             vm.isEditingMileage = false;
         };
         vm.removeMileage = function () {
