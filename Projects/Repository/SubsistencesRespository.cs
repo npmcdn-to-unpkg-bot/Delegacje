@@ -34,5 +34,10 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		{
 			this.context.Subsistences.Remove(subsistence);
 		}
+
+        public Subsistence GetById(int subId)
+        {
+            return this.context.Subsistences.Where(s => s.Id == subId).FirstOrDefault();
+        }
 	}
 }

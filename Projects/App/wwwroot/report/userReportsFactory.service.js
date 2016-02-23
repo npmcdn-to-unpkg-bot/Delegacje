@@ -99,6 +99,7 @@
 
         function getSubsistenceDay(date, diet, accomodation, exchangeRate) {
             var s = {};
+            s.ExchangeRate = exchangeRate;
             s.Date = date;
             s.Breakfast = false;
             s.Dinner = false;

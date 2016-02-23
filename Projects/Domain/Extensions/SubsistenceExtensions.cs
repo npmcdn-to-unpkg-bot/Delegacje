@@ -10,6 +10,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
 		public static SubsistenceDTO MapToDTO(this Subsistence subsistence)
 		{
             SubsistenceDTO result = new SubsistenceDTO();
+            result.Id = subsistence.Id;
             result.City = subsistence.City;
             result.CountryId = subsistence.CountryId;
             result.EndDate = subsistence.EndDate.ToAppString();
@@ -22,6 +23,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
                 {
                     Amount = day.Amount,
                     AmountPLN = day.AmountPLN,
+                    ExchangeRate = day.ExchangeRate,
                     Breakfast = day.Breakfast,
                     Date = day.Date.ToAppString(),
                     Dinner = day.Dinner,

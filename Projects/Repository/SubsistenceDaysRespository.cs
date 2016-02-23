@@ -26,5 +26,10 @@ namespace CrazyAppsStudio.Delegacje.Repository
         {
 			this.context.SubsistenceDays.RemoveRange(days);
 		}
+
+        public IEnumerable<SubsistenceDay> GetForsubsistence(int subsistanceId)
+        {
+            return this.context.SubsistenceDays.Where(s => s.SubsistenceId == subsistanceId);
+        }
 	}
 }

@@ -38,6 +38,13 @@
                         return types[i];
                 }
             },
+            VehicleTypeById: function (Id) {
+                var types = $localStorage['VehicleTypes'];
+                for (var i = 0; i < types.length; i++) {
+                    if (types[i].Id === Id)
+                        return types[i];
+                }
+            },
 
 			loadCurrenciesForDate : loadCurrenciesForDate,
 

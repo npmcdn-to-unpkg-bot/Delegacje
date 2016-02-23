@@ -31,6 +31,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.Entities
         /// </summary>
         public bool Night { get; set; }
 
+        public decimal ExchangeRate { get; set; }
         public decimal Amount { get; set; }
         public decimal AmountPLN { get; set; }
 

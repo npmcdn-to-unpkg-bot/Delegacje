@@ -1,5 +1,7 @@
 ﻿<div class="container report-container">
-    <form name="reportForm" ng-submit="vm.Save()" novalidate>
+    <div class="spinner-circular" ng-show="!vm.Report"></div>
+
+    <form name="reportForm" ng-submit="vm.Save()" ng-show="vm.Report" novalidate>
 
         <div class="row">
             <div class="twelve columns text-center">

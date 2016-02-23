@@ -60,21 +60,47 @@
                         var mileageDto = reportDto.MileageAllowances[m];
 
                         var mileage = new userReportsFactoryService.getMileage();
-                       
+                        mileage.id = mileageDto.id;
+                        mileage.Type = dictionariesService.VehicleTypeById(mileageDto.VehicleTypeId);;
+                        mileage.Date = mileageDto.Date;
+                        mileage.Distance = mileageDto.Distance;
+                        mileage.Notes = mileageDto.Notes;
 
                         report.MileageAllowances.push(mileage);
                     }
 
                     //map subsistences
-                    //for (var s = 0; s < reportDto.Subsistences.length; s++) {
-                    //    var subsistanceDto = reportDto.Subsistences[s];
+                    if (reportDto.Subsistence != undefined) {
+                        var subDto = reportDto.Subsistence;
 
-                    //    //var subsistance = new userReportsFactoryService.getMileage();
+                        var subsistance = new userReportsFactoryService.getSubsistence();
+                        subsistance.Id = subDto.Id;
+                        subsistance.StartDate = stringToDate(subDto.StartDate);
+                        subsistance.EndDate = stringToDate(subDto.EndDate);
+                        subsistance.Country = dictionariesService.CountryById(subDto.CountryId);
+                        subsistance.City = subDto.City;
 
+                        vm.NewSubsistence.StartDate = subsistance.StartDate;
+                        vm.NewSubsistence.EndDate = subsistance.EndDate;
+                        vm.NewSubsistence.Country = subsistance.Country;
+                        vm.NewSubsistence.City = subsistance.City;
+                        for (var s = 0; s < subDto.Days.length; s++) {
+                            var day = new userReportsFactoryService.getSubsistenceDay(
+                                subDto.Days[s].Date,
+                                subsistance.Country.SubsistenceAllowance,
+                                subsistance.Country.AccomodationLimit,
+                                subDto.Days[s].ExchangeRate);
 
-                    //    //report.Subsistences.push(mileage);
-                    //}
+                            day.Breakfast = subDto.Days[s].Breakfast;
+                            day.Dinner = subDto.Days[s].Dinner;
+                            day.Supper = subDto.Days[s].Supper;
+                            day.Night = subDto.Days[s].Night;
 
+                            subsistance.Days.push(day);
+                        }
+
+                        report.Subsistence = subsistance;
+                    }
 
                     vm.Report = report;
                 });
@@ -299,6 +325,11 @@
             var year = date.getFullYear();
             return day + '/' + month + '/' + year;
         }
+
+        function stringToDate(date) {
+            var parts = date.split('/');
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        };
 
         function dateToUrlString(date) {
             var day = date.getDate();
