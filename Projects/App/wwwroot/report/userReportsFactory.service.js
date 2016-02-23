@@ -44,6 +44,23 @@
                 }
                 return total;
             };
+            bt.TotalToReturn = function () {
+                var total = 0;
+                for (var e = 0; e < bt.Expenses.length; e++) {
+                    if (!bt.Expenses[e].DoNotReturn) {
+                        total += parseFloat(bt.Expenses[e].FinalAmount());
+                    }
+                }
+                for (var m = 0; m < bt.MileageAllowances.length; m++) {
+                    total += bt.MileageAllowances[m].Amount();
+                }
+                if (bt.Subsistence != null) {
+                    for (var s = 0; s < bt.Subsistence.Days.length; s++) {
+                        total += bt.Subsistence.Days[s].TotalPLN();
+                    }
+                }
+                return total;
+            };
             return bt;
         }
 

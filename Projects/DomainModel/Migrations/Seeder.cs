@@ -58,13 +58,31 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			};
 			UserRole karolBasic = new UserRole() { Role = basicUser, User = karol };
 
-			maciej.Roles.Add(maciejBasic);
+            User basia = new User()
+            {
+                UserName = "b.zaleska@saffron.pl",
+                Email = "b.zaleska@saffron.pl",
+                EmailConfirmed = true,
+                PasswordHash = "AM+qVffwovJO6ncY4wFxZ12RBOlGQ23Z9yyNF95SI6Ij+cW7F0QzPI090Y6FYbimtQ==", //P@ssword1
+                SecurityStamp = "ef0ce398-45dd-41a7-ad99-0f39a28c0f32",
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEndDateUtc = null,
+                LockoutEnabled = false,
+                AccessFailedCount = 0
+            };
+            UserRole basiaBasic = new UserRole() { Role = basicUser, User = basia };
+
+            maciej.Roles.Add(maciejBasic);
 			karol.Roles.Add(karolBasic);
+            basia.Roles.Add(basiaBasic);
 
 			context.Roles.AddOrUpdate(r => new { r.Name }, basicUser);
 			context.Users.AddOrUpdate(u => new { u.UserName }, maciej);
-			context.Users.AddOrUpdate(u => new { u.UserName }, karol);		
-		}
+			context.Users.AddOrUpdate(u => new { u.UserName }, karol);
+            context.Users.AddOrUpdate(u => new { u.UserName }, basia);
+        }
 
 		public void CreateCountries(BusinessTripsContext context)
 		{
