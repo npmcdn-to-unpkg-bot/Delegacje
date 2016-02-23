@@ -9,6 +9,8 @@ using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.Tasks;
 using Tools;
 using CrazyAppsStudio.Delegacje.Domain.Extensions;
+using PdfSharp.Drawing;
+using System;
 
 namespace CrazyAppsStudio.Delegacje.App.Api
 {
@@ -33,6 +35,11 @@ namespace CrazyAppsStudio.Delegacje.App.Api
         public HttpResponseMessage Print(int businessTripId)
         {
             BusinessTrip trip = this.tasks.BusinessTripsTasks.GetBusinessTrip(businessTripId);
+
+			// First of all initialize the global XPrivateFontCollection.
+			XPrivateFontCollection privateFontCollection = XPrivateFontCollection.Global;
+			Uri fontUri = new Uri(MappedApplicationPath + "Fonts\\");
+			LoadPrivateFont(privateFontCollection, fontUri, "./#SourceSansPro-Regular"); //Example of adding a private font family - the font file should be located in the Uri path above, it will get embedded in the PDF.			
 
             Document document = new Document();
             document.Info.Author = "Saffron";
@@ -60,6 +67,38 @@ namespace CrazyAppsStudio.Delegacje.App.Api
                 return response;
             }
         }
+
+
+protected void LoadPrivateFont(XPrivateFontCollection privateFontCollection, Uri fontUri, string sFontFamilyname)
+    {
+        //Every font must be added to the global font collection.  There is probably some better way to do this but this was the only method that seemed to work when deploying to any server.
+        //If the font has previously been added it will just error out and continue, this does not matter.
+        try
+        {
+            privateFontCollection.Add(fontUri, sFontFamilyname);
+        }
+        catch
+        {
+        }
+    }
+    public static string MappedApplicationPath
+    {
+        get
+        {
+            //Returns the absolute path to files from your website - this is needed for font embedding
+            string APP_PATH = System.Web.HttpContext.Current.Request.ApplicationPath.ToLower();
+            if (APP_PATH == "/")      //a site 
+                APP_PATH = "/";
+            else if (!APP_PATH.EndsWith(@"/")) //a virtual 
+                APP_PATH += @"/";
+
+            string it = System.Web.HttpContext.Current.Server.MapPath(APP_PATH);
+            if (!it.EndsWith(@"\"))
+                it += @"\";
+            return it;
+        }
+    } 
+
 
 
         void DefineStyles(Document document)

@@ -257,7 +257,7 @@
     <Compile Include="ApiBackend\Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>    
+  <ItemGroup>
     <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />
@@ -506,6 +506,18 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Fonts\SourceSansPro-Black.otf" />
+    <Content Include="Fonts\SourceSansPro-BlackIt.otf" />
+    <Content Include="Fonts\SourceSansPro-Bold.otf" />
+    <Content Include="Fonts\SourceSansPro-BoldIt.otf" />
+    <Content Include="Fonts\SourceSansPro-ExtraLight.otf" />
+    <Content Include="Fonts\SourceSansPro-ExtraLightIt.otf" />
+    <Content Include="Fonts\SourceSansPro-It.otf" />
+    <Content Include="Fonts\SourceSansPro-Light.otf" />
+    <Content Include="Fonts\SourceSansPro-LightIt.otf" />
+    <Content Include="Fonts\SourceSansPro-Regular.otf" />
+    <Content Include="Fonts\SourceSansPro-Semibold.otf" />
+    <Content Include="Fonts\SourceSansPro-SemiboldIt.otf" />
     <None Include="Properties\PublishProfiles\delegacje-dev - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\delegacje-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - FTP.pubxml" />
