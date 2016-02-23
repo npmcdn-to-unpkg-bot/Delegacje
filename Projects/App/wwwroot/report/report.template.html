@@ -80,9 +80,18 @@
             <div class="ten columns offset-by-one">
                 <h2 class="section section-3">Podsumowanie</h2>
 
-                <span class="total-counter">
-                    {{vm.Report.Total().toFixed(2)}} PLN
-                </span>
+                <div class="total">
+                    <span class="total-label">Całkowita</span>
+                    <span class="total-counter">
+                        {{vm.Report.Total().toFixed(2)}} PLN
+                    </span>
+                </div>
+                <div class="total">
+                    <span class="total-label">Do Zwrotu</span>
+                    <span class="total-to-refund-counter">
+                        {{vm.Report.TotalToReturn().toFixed(2)}} PLN
+                    </span>
+                </div>
             </div>
         </div>
 
