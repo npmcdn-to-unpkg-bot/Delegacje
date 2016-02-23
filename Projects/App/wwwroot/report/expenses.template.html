@@ -45,7 +45,7 @@
                      dropdown-model="vm.NewExpense.CurrencyCode"
                      dropdown-item-label="Name">
                 </div>-->                
-                <select id="currencyCode" class="form-control" data-ng-options="c.Code as c.Name + ' ' + c.Code for c in vm.Dictionaries.Currencies" data-ng-model="vm.NewExpense.CurrencyCode"></select> <!--ng-change="attributeChange()"></select>-->
+                <select id="currencyCode" class="form-control" data-ng-options="c.Code as c.Code + ', ' + c.Name for c in vm.Dictionaries.Currencies" data-ng-model="vm.NewExpense.CurrencyCode"></select> <!--ng-change="attributeChange()"></select>-->
                 <required-icon content="vm.NewExpense.CurrencyCode"></required-icon>
             </div>
             <div class="form-line">
