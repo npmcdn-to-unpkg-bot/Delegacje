@@ -39,7 +39,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
 			// First of all initialize the global XPrivateFontCollection.
 			XPrivateFontCollection privateFontCollection = XPrivateFontCollection.Global;
 			Uri fontUri = new Uri(MappedApplicationPath + "Fonts\\");
-			LoadPrivateFont(privateFontCollection, fontUri, "./#SourceSansPro-Regular"); //Example of adding a private font family - the font file should be located in the Uri path above, it will get embedded in the PDF.			
+			LoadPrivateFont(privateFontCollection, fontUri, "./#Source Sans Pro"); //Example of adding a private font family - the font file should be located in the Uri path above, it will get embedded in the PDF.			
 
             Document document = new Document();
             document.Info.Author = "Saffron";
@@ -51,7 +51,7 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             AddDetails(document, section, trip);
             AddSummary(document, section, trip);
 
-            PdfDocumentRenderer renderer = new PdfDocumentRenderer();
+			PdfDocumentRenderer renderer = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.Always);
             renderer.Document = document;
             renderer.RenderDocument();
 
