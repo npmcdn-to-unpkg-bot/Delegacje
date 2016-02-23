@@ -3,12 +3,12 @@
         <div class="five columns offset-by-one">
             <div class="form-line">
                 <span class="form-row-label">Data</span>
-                <quick-datepicker ng-model='vm.NewMileage.Date'
+                <quick-datepicker ng-model='vm.NewMileage.DateObject'
                                   date-format="d/M/yyyy"
                                   required="true"
                                   disable-timepicker="true"
                                   disable-clear-button="true"></quick-datepicker>
-                <required-icon content="vm.NewMileage.Date"></required-icon>
+                <required-icon content="vm.NewMileage.DateObject"></required-icon>
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label-two-line">Typ Pojazdu</span>
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="ten columns offset-by-one text-right">
-            <input type="button" class="button button-primary" ng-click="vm.AddMileageToReport()" ng-disabled="!vm.MileageIsValid()" value="Dodaj" />
+            <input type="button" class="button button-primary" ng-click="vm.AddMileageToReport()" ng-disabled="!vm.MileageIsValid()" ng-show="!vm.isEditingMileage" value="Dodaj" />
         </div>
     </div>
     <div class="v-spacer v-spacer40"></div>
@@ -59,17 +59,27 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="m in vm.Report.MileageAllowances">
-                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.Date}}</td>
+                        <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.DateFormatted()}}</td>
                         <td><i class="fa fa-car"></i>&nbsp;&nbsp;{{m.Type.Name}}</td>
                         <td><i class="fa fa-map-o"></i>&nbsp;&nbsp;{{m.Distance}} km</td>
                         <td><i class="fa fa-money"></i>&nbsp;&nbsp;{{m.Amount().toFixed(2)}} PLN</td>
                         <td><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{m.Notes}}</td>
                         <td>
-                            <a ng-click="vm.RemoveMileage(m)">Usuń</a>
+                            <i class="fa fa-bars action" ng-click="vm.mileageShowPopup($event, m); $event.stopPropagation()"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
 		</div>
 	</div>
+
+    <!--menu-->
+    <div id="mileage-table-menu" class="table-menu" ng-show="vm.mileagePopupVisible" context-menu="vm.mileageHidePopup()">
+        <a class="table-menu-header" ng-click="vm.mileageHidePopup()">
+            <i class="fa fa-arrow-circle-o-down"></i>
+            <span>&nbsp;&nbsp;Menu</span>
+        </a>
+        <a class="table-menu-item" ng-click="vm.editMileage()"><span>Edytuj</span></a>
+        <a class="table-menu-item" ng-click="vm.removeMileage()"><span>Usuń</span></a>
+    </div>
 </div>

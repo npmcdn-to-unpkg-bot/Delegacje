@@ -51,7 +51,10 @@
             var ma = {};
 
             ma.Type = null;
-            ma.Date = '';
+            ma.DateObject = '';
+            ma.DateFormatted = function () {
+                return formatDate(ma.DateObject);
+            };
             ma.Distance = '';
             ma.Notes = '';
             ma.Amount = function () {
@@ -128,6 +131,9 @@
         }
 
         function formatDate(date) {
+            if (date == null || date == '')
+                return '';
+
             var day = addLeadingZero(date.getDate());
             var month = addLeadingZero(date.getMonth() + 1);
             var year = date.getFullYear();

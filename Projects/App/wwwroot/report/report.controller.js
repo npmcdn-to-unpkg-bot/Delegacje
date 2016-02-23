@@ -13,6 +13,8 @@
         vm.Dictionaries = dictionariesService;
         vm.Report = undefined;
         vm.Currencies = dictionariesService.Currencies;
+
+
         
         switch ($state.current.name) {
             case 'report-new':
@@ -62,7 +64,7 @@
                         var mileage = new userReportsFactoryService.getMileage();
                         mileage.id = mileageDto.id;
                         mileage.Type = dictionariesService.VehicleTypeById(mileageDto.VehicleTypeId);;
-                        mileage.Date = mileageDto.Date;
+                        mileage.DateObject = stringToDate(mileageDto.Date);
                         mileage.Distance = mileageDto.Distance;
                         mileage.Notes = mileageDto.Notes;
 
@@ -156,19 +158,50 @@
         }
 
         //mileages
+        var clickedMileage = null;
+        vm.isEditingMileage = false;
+        vm.mileagePopupVisible = false;
+        vm.mileageShowPopup = function (event, mileage) {
+            clickedMileage = mileage;
+            var targetTag = angular.element(document.querySelector('#mileage-table-menu'));
+            targetTag.css({
+                position: "fixed",
+                display: "block",
+                left: event.clientX - 290 + 'px',
+                top: event.clientY + 10 + 'px'
+            });
+
+            vm.mileagePopupVisible = true;
+        };
+        vm.mileageHidePopup = function () {
+            vm.mileagePopupVisible = false;
+        };
+
         vm.NewMileage = userReportsFactoryService.getMileage();
         vm.AddMileageToReport = function () {
-            vm.NewMileage.Date = dateToString(vm.NewMileage.Date);
             vm.Report.MileageAllowances.push(vm.NewMileage);
             vm.NewMileage = userReportsFactoryService.getMileage();
         };
-        vm.RemoveMileage = function (mileage) {
+        vm.editMileage = function () {
+            vm.isEditingMileage = true;
+            vm.NewMileage = clickedMileage;
+        };
+        vm.cancelEditMileage = function () {
+            vm.NewMileage = userReportsFactoryService.getMileage();
+            vm.isEditingMileage = false;
+        };
+        vm.saveMileageEdit = function () {
+            vm.NewMileage = userReportsFactoryService.getMileage();
+            vm.isEditingMileage = false;
+        };
+        vm.removeMileage = function () {
             for (var i = 0; i < vm.Report.MileageAllowances.length; i++) {
-                if (vm.Report.MileageAllowances[i] === mileage) {
+                if (vm.Report.MileageAllowances[i] === clickedMileage) {
                     vm.Report.MileageAllowances.splice(i, 1);
                     break;
                 }
             }
+            clickedMileage = null;
         };
 
         //subsistences
@@ -233,6 +266,7 @@
             }
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
+                report.MileageAllowances[j].Date = report.MileageAllowances[j].DateFormatted();
                 report.MileageAllowances[j].VehicleTypeId = report.MileageAllowances[j].Type.Id;
             }
 
@@ -311,7 +345,6 @@
         		}
         	}
         });
-
         
         function addDays(date, days) {
             var result = new Date(date);
@@ -320,6 +353,9 @@
         }
 
         function dateToString(date) {
+            if (date == '')
+                return '';
+
             var day = date.getDate();
             var month = date.getMonth() + 1;
             var year = date.getFullYear();

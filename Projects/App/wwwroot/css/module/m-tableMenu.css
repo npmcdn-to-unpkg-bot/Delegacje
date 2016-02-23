@@ -1,4 +1,4 @@
-﻿#table-menu {
+﻿.table-menu {
   display: block;
   width: 290px;
   background-color: #F2F1F1;
@@ -10,7 +10,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-#table-menu .table-menu-header {
+.table-menu .table-menu-header {
   display: block;
   height: 48px;
   line-height: 48px;
@@ -26,13 +26,13 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-#table-menu .table-menu-header > i {
+.table-menu .table-menu-header > i {
   font-size: 19px;
   display: inline-block;
   margin-top: 16px;
   margin-left: 10px;
 }
-#table-menu a.table-menu-item {
+.table-menu a.table-menu-item {
   display: block;
   height: 48px;
   line-height: 48px;
@@ -42,12 +42,12 @@
   color: #16253C;
   cursor: pointer;
 }
-#table-menu a.table-menu-item:hover {
+.table-menu a.table-menu-item:hover {
   background-color: #E5E5E5;
 }
-#table-menu a.table-menu-item > span {
+.table-menu a.table-menu-item > span {
   padding-left: 10px;
 }
-#table-menu .table-menu-item:last-child {
+.table-menu .table-menu-item:last-child {
   border-bottom: none;
 }
