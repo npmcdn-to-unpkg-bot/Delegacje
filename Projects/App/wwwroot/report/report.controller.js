@@ -249,20 +249,28 @@
                 vm.Report.Subsistence.Country = vm.NewSubsistence.Country;
                 vm.Report.Subsistence.City = vm.NewSubsistence.City;
 
-                var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
                 var startDateObj = stringToDate(vm.NewSubsistence.StartDate);
                 var endDateObj = stringToDate(vm.NewSubsistence.EndDate);
-                var daysCount = Math.round(Math.abs((startDateObj.getTime() - endDateObj.getTime()) / (oneDay))) + 1;
+                var daysCount = countDays(startDateObj, endDateObj);
 
                 for (var i = 0; i < daysCount; i++) {
                     var date = addDays(startDateObj, i);
                     var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
+
                     var accLimit = vm.Report.Subsistence.Country.AccomodationLimit;
                     if (i === 0) {
-                        //first day, calculate hours and modify diet
+                        var hours = date.getHours();
+                        if (hours >= 12 && hours < 16)
+                            diet = diet * 0.5;
+                        if (hours >= 16)
+                            diet = diet * 0.3;
                     }
                     if (i === daysCount - 1) {
-                        //last day, calculate hours and modify diet
+                        var hours = endDateObj.getHours();
+                        if (hours >= 8 && hours < 12)
+                            diet = diet * 0.5;
+                        if (hours < 8)
+                            diet = diet * 0.3;
                     }
 
                     var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
@@ -394,6 +402,18 @@
 
         function dateToUrlString(date) {
             return date.split('/').join('-').substr(0, 10);
+        }
+
+        function countDays(date1, date2) {
+            var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+            var d1 = new Date(date1.getTime());
+            d1.setHours(0, 0, 0, 0);
+
+            var d2 = new Date(date2.getTime());
+            d2.setHours(0, 0, 0, 0);
+
+            var daysCount = Math.round(Math.abs((d1.getTime() - d2.getTime()) / (oneDay))) + 1;
+            return daysCount;
         }
 
         
