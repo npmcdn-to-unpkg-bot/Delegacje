@@ -112,3 +112,23 @@ h2.section-3:before {
 input, textarea, select, fieldset {
      margin-bottom: 1.5rem; 
 }
+
+
+/* angular dropdown fix */
+select.currencies { 
+    border-radius : 12px;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-image: url('../img/bg_dropdown.png');
+
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    width:200px;
+}
+
+select.currencies::-ms-expand {
+    display: none;
+}
