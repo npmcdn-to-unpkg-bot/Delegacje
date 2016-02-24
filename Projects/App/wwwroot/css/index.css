@@ -116,6 +116,10 @@ select.currencies {
   text-overflow: '';
   width: 200px;
 }
+select.currencies option {
+  color: #8aa8bd;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 select.currencies::-ms-expand {
   display: none;
 }
