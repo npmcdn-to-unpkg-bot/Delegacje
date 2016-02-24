@@ -251,30 +251,32 @@
 
                 var startDateObj = stringToDate(vm.NewSubsistence.StartDate);
                 var endDateObj = stringToDate(vm.NewSubsistence.EndDate);
-                var daysCount = countDays(startDateObj, endDateObj);
 
-                for (var i = 0; i < daysCount; i++) {
-                    var date = addDays(startDateObj, i);
+                var hourDiff = endDateObj - startDateObj; //in ms
+                var minDiff = hourDiff / 60 / 1000; //in minutes
+                var hDiff = hourDiff / 3600 / 1000; //in hours
+               // var humanReadable = {};
+               // humanReadable.hours = Math.floor(hDiff);
+               // humanReadable.minutes = minDiff - 60 * humanReadable.hours;
+
+
+                for (var i = 0; i < hDiff + 24; i+= 24) {
+                    var date = addDays(startDateObj, i / 24);
                     var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
-
                     var accLimit = vm.Report.Subsistence.Country.AccomodationLimit;
-                    if (i === 0) {
-                        var hours = date.getHours();
-                        if (hours >= 12 && hours < 16)
-                            diet = diet * 0.5;
-                        if (hours >= 16)
-                            diet = diet * 0.3;
-                    }
-                    if (i === daysCount - 1) {
-                        var hours = endDateObj.getHours();
-                        if (hours >= 8 && hours < 12)
-                            diet = diet * 0.5;
-                        if (hours < 8)
-                            diet = diet * 0.3;
-                    }
 
-                    var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
-                    vm.Report.Subsistence.Days.push(s);
+                    var hoursLeft = hDiff - i;
+                    if (hoursLeft < 24 && hoursLeft >= 16)
+                        diet = diet * 0.5;
+                    if (hoursLeft < 16 && hoursLeft >= 12)
+                        diet = diet * 0.3;
+                    if (hoursLeft < 12)
+                        diet = 0;
+
+                    if (diet > 0) {
+                        var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
+                        vm.Report.Subsistence.Days.push(s);
+                    }
                 }
 
                 vm.GettingSubsistenceExchageRate = false;
