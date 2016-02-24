@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CrazyAppsStudio.Delegacje.Repository
 {
+    //TODO MOVE PLN TO DATABASE
 	public class CurrenciesRepository
 	{
 		private BusinessTripsContext context;
@@ -25,18 +26,21 @@ namespace CrazyAppsStudio.Delegacje.Repository
 			}
 		}
 
+        [Obsolete("Use Currencies Tasks")]
 		public CurrencyRate GetCurrencyRate(string code, DateTime date)
 		{
 			DateTime normalizedDate = date.Date;
 			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code && cr.DateRefreshed == normalizedDate).FirstOrDefault();
 		}
 
-		public CurrencyRate GetLastCurrencyRate(string code)
+        [Obsolete("Use Currencies Tasks")]
+        public CurrencyRate GetLastCurrencyRate(string code)
 		{
 			return this.context.CurrencyRates.Where(cr => cr.Currency.Code == code).OrderByDescending(cr => cr.DateRefreshed).FirstOrDefault();
 		}
 
-		public IEnumerable<CurrencyRate> GetAllRatesForDay(DateTime date)
+        [Obsolete("Use Currencies Tasks")]
+        public IEnumerable<CurrencyRate> GetAllRatesForDay(DateTime date)
 		{
 			DateTime normalizedDate = date.Date;
 			return this.context.CurrencyRates.Where(cr => cr.DateRefreshed == normalizedDate);

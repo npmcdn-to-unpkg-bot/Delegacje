@@ -1,5 +1,0 @@
-E:\VSProjects\Delegacje\Projects\Tools\bin\Debug\Tools.dll
-E:\VSProjects\Delegacje\Projects\Tools\bin\Debug\Tools.pdb
-E:\VSProjects\Delegacje\Projects\Tools\obj\Debug\Tools.csprojResolveAssemblyReference.cache
-E:\VSProjects\Delegacje\Projects\Tools\obj\Debug\Tools.dll
-E:\VSProjects\Delegacje\Projects\Tools\obj\Debug\Tools.pdb

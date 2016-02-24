@@ -12,10 +12,13 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 	public class BusinessTripsTasks
 	{
 		private Repositories repo;
+        private CurrenciesTasks currenciesTasks;
 
-		public BusinessTripsTasks()
+
+        public BusinessTripsTasks()
         {
             repo = new Repositories();
+            currenciesTasks = new CurrenciesTasks(repo);
         }
 
         public int CreateNewBusinessTrip(BusinessTripDTO businessTrip, string userName)
@@ -78,7 +81,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 					expense.Country = repo.Dictionaries.GetCountry(expDto.CountryId);
 					expense.CurrencyCode = expDto.CurrencyCode;
 					expense.ExchangeRate = expDto.ExchangeRate;
-					CurrencyRate systemRate = repo.Currencies.GetCurrencyRate(expense.CurrencyCode, expense.Date.Date);
+					CurrencyRate systemRate = currenciesTasks.GetCurrencyRateForDay(expense.CurrencyCode, expense.Date.Date);
 					if (Math.Abs(systemRate.ExchangeRate - expense.ExchangeRate) > 0.0001)
 						expense.ExchangeRateModifiedByUser = true;
 					else

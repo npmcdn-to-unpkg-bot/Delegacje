@@ -29,7 +29,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			this.repo = repo;
 		}
 
-        public CurrencyRateDTO GetPLN(DateTime? date = null)
+        private CurrencyRateDTO GetPLNDTO(DateTime? date = null)
         {
             return new CurrencyRateDTO()
             {
@@ -41,7 +41,23 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             };
         }
 
-		public CurrencyRate[] GetLatestAndRefreshCurrencyRates()
+        private CurrencyRate GetPLN(DateTime? date = null)
+        {
+            return new CurrencyRate()
+            {
+                DateRefreshed = date == null ? DateTime.Now : date.Value,
+                CurrencyId = 0,
+                Id = 0,
+                Currency = new Currency()
+                {
+                    Code = "PLN",
+                    Name = "Złoty"
+                },                
+                ExchangeRate = 1                                
+            };
+        }
+
+        public CurrencyRate[] GetLatestAndRefreshCurrencyRates()
 		{
 			CurrencyRate eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
 			if (eur == null || (eur.DateRefreshed.Date < DateTime.Now.AddDays(-1).Date) ||
@@ -51,12 +67,20 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			}
 
 			eur = this.repo.Currencies.GetLastCurrencyRate("EUR");
-			return this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToArray();
+            List<CurrencyRate> rates = this.repo.Currencies.GetAllRatesForDay(eur.DateRefreshed).ToList();
+            rates.Add(GetPLN());
+
+            return rates.ToArray();
 		}
 
 		public CurrencyRate GetCurrencyRateForDay(string code, DateTime date)
 		{
-			CurrencyRate rate = this.repo.Currencies.GetCurrencyRate(code, date);
+            //TODO : import PLN into database
+            CurrencyRate rate;
+            if (code == "PLN")
+                rate = GetPLN(date);
+            else
+			    rate = this.repo.Currencies.GetCurrencyRate(code, date);
 			if (rate == null)
 			{
 				if (this.repo.Currencies.CurrenciesQueryable.Any(c => c.Code == code))
@@ -70,13 +94,14 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
 		public CurrencyRate[] GetAllCurrencyRatesForDay(DateTime date)
 		{
-			CurrencyRate[] rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
-			if (rates == null || rates.Length == 0)
+            List<CurrencyRate> rates = this.repo.Currencies.GetAllRatesForDay(date).ToList();
+			if (rates == null || rates.Count == 0)
 			{
 				RefreshCurrencies(date);
-				rates = this.repo.Currencies.GetAllRatesForDay(date).ToArray();
-			}            
-			return rates;
+				rates = this.repo.Currencies.GetAllRatesForDay(date).ToList();
+			}
+            rates.Add(GetPLN(date));
+			return rates.ToArray();
 		}
 
 		private void RefreshCurrencies(DateTime refreshDate)

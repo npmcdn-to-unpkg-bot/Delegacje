@@ -19,3 +19,13 @@
 /TaskTests/bin/
 /TaskTests/obj/
 TasksTests/bin/
+/Projects/App/obj
+/Projects/App/bin
+/Projects/Domain/obj
+/Projects/DomainModel/bin
+/Projects/DomainModel/obj
+/Projects/Repository/obj
+/Projects/Repository/bin
+/Projects/Tasks/obj
+/Projects/Tasks/bin
+/Projects/Tools/obj

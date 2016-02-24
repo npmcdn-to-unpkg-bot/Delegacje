@@ -27,9 +27,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
         public DictionariesDTO GetDictionaries()
         {
-            List<CurrencyRateDTO> currencies = currenciesTasks.GetLatestAndRefreshCurrencyRates().Select(cr => cr.MapToDTO()).ToList();
-            currencies.Add(currenciesTasks.GetPLN());
-            currencies.OrderBy(cr => cr.Code);
+            List<CurrencyRateDTO> currencies = currenciesTasks.GetLatestAndRefreshCurrencyRates().Select(cr => cr.MapToDTO()).ToList();            
 
             DictionariesDTO result = new DictionariesDTO()
             {
