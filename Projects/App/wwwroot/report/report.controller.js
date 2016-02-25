@@ -267,29 +267,31 @@
 
                     
                     var hoursLeft = hDiff - i;
-                    //krajowa, krócej niż dobę
-                    if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff < 24) {
-                        if (hoursLeft <= 12 && hoursLeft > 8)
-                            diet = diet * 0.5;
-                        if (hoursLeft <= 8)
-                            diet = 0;
-                    }
-                    //krajowa, dłużej niż dobę
-                    else if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff >= 24) {
-                        if (hoursLeft <= 8)
-                            diet = diet * 0.5;
-                    }
-                    //zagraniczna
-                    else {
-                        if (hoursLeft <= 12 && hoursLeft > 8)
-                            diet = diet * 0.5;
-                        if (hoursLeft <= 8)
-                            diet = diet * 0.3;
-                    }
+                    if (hoursLeft > 0) {
+                        //krajowa, krócej niż dobę
+                        if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff < 24) {
+                            if (hoursLeft <= 12 && hoursLeft > 8)
+                                diet = diet * 0.5;
+                            if (hoursLeft <= 8)
+                                diet = 0;
+                        }
+                            //krajowa, dłużej niż dobę
+                        else if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff >= 24) {
+                            if (hoursLeft <= 8)
+                                diet = diet * 0.5;
+                        }
+                            //zagraniczna
+                        else {
+                            if (hoursLeft <= 12 && hoursLeft > 8)
+                                diet = diet * 0.5;
+                            if (hoursLeft <= 8)
+                                diet = diet * 0.3;
+                        }
 
-                    if (diet > 0) {
-                        var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
-                        vm.Report.Subsistence.Days.push(s);
+                        if (diet > 0) {
+                            var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
+                            vm.Report.Subsistence.Days.push(s);
+                        }
                     }
                 }
 
