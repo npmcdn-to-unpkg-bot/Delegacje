@@ -16,7 +16,7 @@
         return service;
 
         function getExchangeRate(currencyCode, date) {
-            return $http.get('api/currencies/' + currencyCode + '/' + date).then(
+            return $http.post('api/currencies/forCodeAndDate', JSON.stringify({ currencyCode : currencyCode, date : date })).then(
                    function (response) {
                    		return response.data;                   	
                    },
