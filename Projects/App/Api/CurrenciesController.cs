@@ -22,11 +22,11 @@ namespace CrazyAppsStudio.Delegacje.App.Api
             this.tasks = tasks;
         }
 
-		[Route("{currencyCode}/{date}")]
-		[HttpGet]
-		public CurrencyRateDTO GetCurrencyRateForDate(string currencyCode, DateTime date)
+		[Route("forCodeAndDate")]
+		[HttpPost]
+		public CurrencyRateDTO GetCurrencyRateForDate(dynamic data)
 		{            
-			return tasks.CurrenciesTasks.GetCurrencyRateForDay(currencyCode, date).MapToDTO();
+			return tasks.CurrenciesTasks.GetCurrencyRateForDay(((string)data.currencyCode), (DateTime)data.date).MapToDTO();
 		}
 
 		[Route("forDate")]
