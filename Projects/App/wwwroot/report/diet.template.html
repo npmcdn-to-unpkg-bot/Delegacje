@@ -3,9 +3,12 @@
         <div class="five columns offset-by-one">
             <div class="form-line-dropdown">
                 <span class="form-row-label">Państwo</span>
-                <div dropdown-select="vm.Dictionaries.Countries"
+                <!--<div dropdown-select="vm.Dictionaries.Countries"
                      dropdown-model="vm.NewSubsistence.Country"
                      dropdown-item-label="Name">
+                </div>-->
+                <div style="float : left;">
+                    <select id="country" class="form-control angular-dropdown" data-ng-options="c as c.Name for c in vm.Dictionaries.Countries" data-ng-model="vm.NewSubsistence.Country"></select> <!--ng-change="attributeChange()"></select>-->
                 </div>
                 <required-icon content="vm.NewSubsistence.Country"></required-icon>
             </div>
