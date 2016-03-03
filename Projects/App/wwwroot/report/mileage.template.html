@@ -8,13 +8,16 @@
                        rome-max="{{vm.maxDate()}}"
                        ng-model="vm.NewMileage.Date"
                        class="input-icon input-calendar" />
-                <required-icon content="vm.NewMileage.DateObject"></required-icon>
+                <required-icon content="vm.NewMileage.Date"></required-icon>
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label-two-line">Typ Pojazdu</span>
-                <div dropdown-select="vm.Dictionaries.VehicleTypes"
+                <!--<div dropdown-select="vm.Dictionaries.VehicleTypes"
                      dropdown-model="vm.NewMileage.Type"
                      dropdown-item-label="Name">
+                </div>-->
+                <div style="float : left;">
+                    <select id="vehicleType" class="form-control angular-dropdown" data-ng-options="v as v.Name for v in vm.Dictionaries.VehicleTypes" data-ng-model="vm.NewMileage.Type"></select> <!--ng-change="attributeChange()"></select>-->
                 </div>
                 <required-icon content="vm.NewMileage.Type"></required-icon>
             </div>

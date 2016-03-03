@@ -3,9 +3,12 @@
         <div class="five columns offset-by-one">
             <div class="form-line-dropdown">
                 <span class="form-row-label">Kategoria</span>
-                <div dropdown-select="vm.Dictionaries.ExpenseTypes"
+                <!--<div dropdown-select="vm.Dictionaries.ExpenseTypes"
                      dropdown-model="vm.NewExpense.Type"
                      dropdown-item-label="Name">
+                </div>-->
+                <div style="float : left;">
+                    <select id="category" class="form-control angular-dropdown" data-ng-options="t as t.Name for t in vm.Dictionaries.ExpenseTypes" data-ng-model="vm.NewExpense.Type"></select> <!--ng-change="attributeChange()"></select>-->
                 </div>
                 <required-icon content="vm.NewExpense.Type"></required-icon>
             </div>
@@ -20,9 +23,12 @@
             </div>
             <div class="form-line-dropdown">
                 <span class="form-row-label">Państwo</span>
-                <div dropdown-select="vm.Dictionaries.Countries"
+                <!--<div dropdown-select="vm.Dictionaries.Countries"
                      dropdown-model="vm.NewExpense.Country"
                      dropdown-item-label="Name">
+                </div>-->
+                <div style="float : left;">
+                    <select id="country" class="form-control angular-dropdown" data-ng-options="c as c.Name for c in vm.Dictionaries.Countries" data-ng-model="vm.NewExpense.Country"></select> <!--ng-change="attributeChange()"></select>-->
                 </div>
                 <required-icon content="vm.NewExpense.Country"></required-icon>
             </div>
@@ -45,7 +51,7 @@
                      dropdown-item-label="Name">
                 </div>-->                
                 <div style="float : left;">
-                    <select id="currencyCode" class="form-control currencies" data-ng-options="c.Code as c.Code + ', ' + c.Name for c in vm.Dictionaries.Currencies" data-ng-model="vm.NewExpense.CurrencyCode"></select> <!--ng-change="attributeChange()"></select>-->
+                    <select id="currencyCode" class="form-control angular-dropdown" data-ng-options="c.Code as c.Code + ', ' + c.Name for c in vm.Dictionaries.Currencies" data-ng-model="vm.NewExpense.CurrencyCode"></select> <!--ng-change="attributeChange()"></select>-->
                 </div>
                 <required-icon content="vm.NewExpense.CurrencyCode"></required-icon>
             </div>
