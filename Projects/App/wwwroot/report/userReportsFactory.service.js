@@ -134,7 +134,7 @@
                     total -= (isForeign ? 0.3 : 0.25) * diet;
                 }
                 if (s.Night) {
-                    total += 0.25 * accomodation;
+                    total += (isForeign ? 0.25 : 1) * accomodation;
                 }
                 return total;
             };
