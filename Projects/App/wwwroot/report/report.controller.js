@@ -82,8 +82,8 @@
                         subsistance.Country = dictionariesService.CountryById(subDto.CountryId);
                         subsistance.City = subDto.City;
 
-                        vm.NewSubsistence.StartDate = subsistance.StartDate;
-                        vm.NewSubsistence.EndDate = subsistance.EndDate;
+                        vm.NewSubsistence.StartDate = subDto.StartDate;
+                        vm.NewSubsistence.EndDate = subDto.EndDate;
                         vm.NewSubsistence.Country = subsistance.Country;
                         vm.NewSubsistence.City = subsistance.City;
                         for (var s = 0; s < subDto.Days.length; s++) {

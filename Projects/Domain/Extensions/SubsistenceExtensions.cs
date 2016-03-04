@@ -13,8 +13,8 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
             result.Id = subsistence.Id;
             result.City = subsistence.City;
             result.CountryId = subsistence.CountryId;
-            result.EndDate = subsistence.EndDate.ToAppString();
-            result.StartDate = subsistence.StartDate.ToAppString();
+            result.EndDate = subsistence.EndDate.ToAppStringWithTime();
+            result.StartDate = subsistence.StartDate.ToAppStringWithTime();
 
             List<SubsistenceDayDTO> days = new List<SubsistenceDayDTO>();
             foreach (SubsistenceDay day in subsistence.Days)

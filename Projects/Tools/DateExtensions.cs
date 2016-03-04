@@ -16,6 +16,11 @@ namespace Tools
             return sb.ToString();
         }
 
+		public static string ToAppStringWithTime(this DateTime date)
+		{
+			return date.ToString("dd\\/MM\\/yyyy HH:mm");
+		}
+
         public static DateTime ParseAppString(this string date)
         {
             string[] parts = date.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
