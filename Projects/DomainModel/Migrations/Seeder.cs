@@ -219,53 +219,60 @@ Currency AED = new Currency() { Code = "AED", Name = "dirham" };	Country Zjednoc
 				Rate = 0.2302m
             };
 
-			VehicleType carCapacity1 = new VehicleType()
+			VehicleType motorower = new VehicleType()
 			{
-				Name = "Samochód poj. 1",
+				Name = "Motorower",
+				Rate = 0.1382m
+			};
+
+			VehicleType samDo900 = new VehicleType()
+			{
+				Name = "Samochód do 900 cm3",
 				Rate = 0.5214m
 			};
 
-			VehicleType carCapacity2 = new VehicleType()
+			VehicleType samPow900 = new VehicleType()
 			{
-				Name = "Samochód poj. 2",
+				Name = "Samochód pow. 900 cm3",
 				Rate = 0.8358m
             };
 
 			context.VehicleTypes.AddOrUpdate(vt => vt.Name, motorcycle);
-			context.VehicleTypes.AddOrUpdate(vt => vt.Name, carCapacity1);
-			context.VehicleTypes.AddOrUpdate(vt => vt.Name, carCapacity2);
+			context.VehicleTypes.AddOrUpdate(vt => vt.Name, motorower);
+			context.VehicleTypes.AddOrUpdate(vt => vt.Name, samDo900);
+			context.VehicleTypes.AddOrUpdate(vt => vt.Name, samPow900);
 		}
 
         public void CreateExpenseTypes(BusinessTripsContext context)
         {
-            ExpenseType expenseType1 = new ExpenseType()
-            {
-                Id = 1,
-                Name = "Training"
-            };
-
-            ExpenseType expenseType2 = new ExpenseType()
-            {
-                Id = 2,
-                Name = "Stationery"
-            };
-
-            ExpenseType expenseType3 = new ExpenseType()
-            {
-                Id = 3,
-                Name = "MobilePhone"
-            };
-
-            ExpenseType expenseType4 = new ExpenseType()
-            {
-                Id = 4,
-                Name = "Entertainment"
-            };
-
-            context.ExpenseTypes.AddOrUpdate(et => et.Name, expenseType1);
-            context.ExpenseTypes.AddOrUpdate(et => et.Name, expenseType2);
-            context.ExpenseTypes.AddOrUpdate(et => et.Name, expenseType3);
-            context.ExpenseTypes.AddOrUpdate(et => et.Name, expenseType4);
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 1, Name = "Artykuły biurowe" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 2, Name = "Autostrady" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 3, Name = "Bilet lotniczy" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 4, Name = "Katering" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 5, Name = "Hotel" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 6, Name = "Komunikacja publiczna" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 7, Name = "Konferencja-opłata za udział" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 8, Name = "Marketing" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 9, Name = "Napiwek" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 10, Name = "Opłaty notarialne" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 11, Name = "Opłaty za telefon" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 12, Name = "Paliwo" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 13, Name = "Parking" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 14, Name = "Posiłek z klientem" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 15, Name = "Prezent dla klienta" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 16, Name = "Prezent dla pracownika" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 17, Name = "Przesyłki kurierskie" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 18, Name = "Przesyłki pocztowe" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 19, Name = "Różnica kursu walut" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 20, Name = "Rozrywka-klient" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 21, Name = "Rozrywka-pracownik" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 22, Name = "Taxi" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 23, Name = "Trening-opłata za udział" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 24, Name = "Utrzymanie/naprawy samochodu" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 25, Name = "Wydatek za osoby trzecie" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 26, Name = "Wynajem samochodu" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 27, Name = "Wyposażenie biura" });
+			context.ExpenseTypes.AddOrUpdate(et => et.Name, new ExpenseType() { Id = 28, Name = "Wyżywienie" });
         }
 
         public void CreateExpenseDocumentTypes(BusinessTripsContext context)
@@ -273,19 +280,19 @@ Currency AED = new Currency() { Code = "AED", Name = "dirham" };	Country Zjednoc
             ExpenseDocumentType type1 = new ExpenseDocumentType()
             {
                 Id = 1,
-                Name = "Invoice"
+                Name = "Faktura"
             };
 
             ExpenseDocumentType type2 = new ExpenseDocumentType()
             {
                 Id = 2,
-                Name = "Receipt"
+                Name = "Paragon"
             };
 
             ExpenseDocumentType type3 = new ExpenseDocumentType()
             {
                 Id = 3,
-                Name = "NoDocument"
+                Name = "Brak dok."
             };
 
             context.ExpenseDocumentTypes.AddOrUpdate(et => et.Name, type1);
