@@ -239,7 +239,7 @@
         vm.SubsistenceCurrencyData = null;
         vm.InitializeSubsistences = function () {
             vm.GettingSubsistenceExchageRate = true;
-            currenciesService.getExchangeRate(vm.NewSubsistence.Country.Currency.Code, stringToDate(vm.NewSubsistence.StartDate))
+            currenciesService.getExchangeRate(vm.NewSubsistence.Country.LimitCurrency.Code, stringToDate(vm.NewSubsistence.StartDate))
             .then(function (data) {
                 vm.SubsistenceCurrencyData = data;
 
