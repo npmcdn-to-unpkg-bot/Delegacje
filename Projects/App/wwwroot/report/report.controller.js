@@ -271,6 +271,7 @@
 
                     
                     var hoursLeft = hDiff - i;
+                    var isForeign = false;
                     if (hoursLeft > 0) {
                         //krajowa, krócej niż dobę
                         if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff < 24) {
@@ -279,13 +280,14 @@
                             if (hoursLeft <= 8)
                                 diet = 0;
                         }
-                            //krajowa, dłużej niż dobę
+                        //krajowa, dłużej niż dobę
                         else if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff >= 24) {
                             if (hoursLeft <= 8)
                                 diet = diet * 0.5;
                         }
-                            //zagraniczna
+                        //zagraniczna
                         else {
+                            isForeign = true;
                             if (hoursLeft <= 12 && hoursLeft > 8)
                                 diet = diet * 0.5;
                             if (hoursLeft <= 8)
@@ -293,7 +295,7 @@
                         }
 
                         if (diet > 0) {
-                            var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate);
+                            var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate, isForeign);
                             vm.Report.Subsistence.Days.push(s);
                         }
                     }
