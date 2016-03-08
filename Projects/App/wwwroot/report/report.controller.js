@@ -333,6 +333,7 @@
 
             for (var j = 0; j < report.MileageAllowances.length; j++) {
                 report.MileageAllowances[j].VehicleTypeId = report.MileageAllowances[j].Type.Id;
+                report.MileageAllowances[j].Amount = report.MileageAllowances[j].Amount();
             }
 
             if (report.Subsistence != null) {
