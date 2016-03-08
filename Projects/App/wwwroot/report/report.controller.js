@@ -270,11 +270,13 @@
                 for (var i = 0; i < hDiff + 24; i += 24) {
                     var date = addDays(startDateObj, i / 24);
                     var diet = vm.Report.Subsistence.Country.SubsistenceAllowance;
+                    var dietFull = diet;
                     var accLimit = vm.Report.Subsistence.Country.AccomodationLimit;
 
                     
                     var hoursLeft = hDiff - i;
                     var isForeign = false;
+                    
                     if (hoursLeft > 0) {
                         //krajowa, krócej niż dobę
                         if (vm.NewSubsistence.Country.Currency.Code == 'PLN' && hDiff < 24) {
@@ -298,7 +300,7 @@
                         }
 
                         if (diet > 0) {
-                            var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, accLimit, vm.SubsistenceCurrencyData.ExchangeRate, isForeign);
+                            var s = new userReportsFactoryService.getSubsistenceDay(dateToString(date), diet, dietFull, accLimit, vm.SubsistenceCurrencyData.ExchangeRate, isForeign);
                             vm.Report.Subsistence.Days.push(s);
                         }
                     }

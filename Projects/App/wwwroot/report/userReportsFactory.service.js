@@ -114,7 +114,7 @@
             };
         }
 
-        function getSubsistenceDay(date, diet, accomodation, exchangeRate, isForeign) {
+        function getSubsistenceDay(date, diet, dietFull, accomodation, exchangeRate, isForeign) {
             var s = {};
             s.ExchangeRate = exchangeRate;
             s.Date = date;
@@ -125,17 +125,21 @@
             s.Total = function () {
                 var total = diet;
                 if (s.Breakfast) {
-                    total -= (isForeign ? 0.15 : 0.25) * diet;
+                    total -= (isForeign ? 0.15 : 0.25) * dietFull;
                 }
                 if (s.Dinner) {
-                    total -= (isForeign ? 0.3 : 0.5) * diet;
+                    total -= (isForeign ? 0.3 : 0.5) * dietFull;
                 }
                 if (s.Supper) {
-                    total -= (isForeign ? 0.3 : 0.25) * diet;
+                    total -= (isForeign ? 0.3 : 0.25) * dietFull;
                 }
                 if (s.Night) {
                     total += (isForeign ? 0.25 : 1) * accomodation;
                 }
+
+                if (total < 0)
+                    total = 0;
+
                 return total;
             };
             s.TotalPLN = function () {
