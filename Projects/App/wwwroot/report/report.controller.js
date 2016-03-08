@@ -183,7 +183,10 @@
         vm.ReportIsValid = function () {
             return vm.Report !== undefined
                 && vm.Report.Title !== ''
-                && vm.Report.Expenses.length > 0;
+                &&
+                (vm.Report.Expenses.length > 0 ||
+                 vm.Report.MileageAllowances.length > 0 ||
+                 vm.Report.Subsistence != null);
         };
 
         vm.Mode = function () {
