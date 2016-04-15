@@ -5,10 +5,10 @@
         .module('app')
         .factory('userReportsService', userReportsService);
 
-    userReportsService.$inject = ['$http'];
+    userReportsService.$inject = ['$http', 'appSettings'];
 
     /* @ngInject */
-    function userReportsService($http) {
+    function userReportsService($http, appSettings) {
         var reports = null;
 
         var service = {
@@ -27,7 +27,7 @@
             reports = null;
 
             return $http
-                .get('../api/businessTrips')
+                .get(appSettings.baseUrl + '/api/businessTrips')
                 .then(function (response) {
                     console.log(response);
                     reports = response.data;
@@ -36,7 +36,7 @@
 
         function get(Id) {
             var promise = $http
-                .get('../api/businessTrips/' + Id)
+                .get(appSettings.baseUrl + '/api/businessTrips/' + Id)
                 .then(function (response) {
                     console.log(response);
                     return response;
@@ -47,7 +47,7 @@
 
         function create(report) {
             var promise = $http
-                .put('../api/businessTrips/create', report)
+                .put(appSettings.baseUrl + '/api/businessTrips/create', report)
                 .then(function (response) {
                     console.log('Report created');
                 });
@@ -57,7 +57,7 @@
 
         function update(report) {
             var promise = $http
-                .post('../api/businessTrips/update', report)
+                .post(appSettings.baseUrl + '/api/businessTrips/update', report)
                 .then(function (response) {
                     console.log('Report updated');
                 });
@@ -67,7 +67,7 @@
 
         function copy(Id) {
             var promise = $http
-                .get('../api/businessTrips/clone/' + Id)
+                .get(appSettings.baseUrl + '/api/businessTrips/clone/' + Id)
                 .then(function (response) {
                     return response;
                 });
@@ -77,7 +77,7 @@
 
         function remove(Id) {
             var promise = $http
-                .delete('../api/businessTrips/' + Id)
+                .delete(appSettings.baseUrl + '/api/businessTrips/' + Id)
                 .then(function (response) {
                     for (var i = 0; i < reports.length; i++) {
                         if (reports[i].Id == Id) {
@@ -92,7 +92,7 @@
         }
 
         function print(Id) {
-            window.location = '../api/pdf/' + Id;
+        	window.location = appSettings.baseUrl + '/api/pdf/' + Id;
         }
     }
 })();

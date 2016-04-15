@@ -7,8 +7,7 @@
        // .run(run);
 
     config.$inject = [
-        '$stateProvider', '$urlRouterProvider', '$httpProvider', '$logProvider', 'appSettings'
-    ];
+        '$stateProvider', '$urlRouterProvider', '$httpProvider', '$logProvider', 'appSettings'];
 
     function config($stateProvider, $urlRouterProvider, $httpProvider, $logProvider, appSettings) {
         $stateProvider

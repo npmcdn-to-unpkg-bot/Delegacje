@@ -13,7 +13,8 @@
     "ngDialog": "0.5.7",
     "skeleton": "2.0.4",
     "angular-loading-bar": "0.8.0",
-    "rome": "2.1.22"
+    "rome": "2.1.22",
+    "jquery": "1.10.2"
   },
   "resolutions": {
     "angular": "^1.0.8"

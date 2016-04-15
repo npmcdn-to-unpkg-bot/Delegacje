@@ -30,7 +30,7 @@
          */
         vm.register = function () {
             vm.isBusy = true;
-            $http.post('../api/account/register', vm.registerModel)
+            $http.post(appSettings.baseUrl + '/api/account/register', vm.registerModel)
 				.success(function (data, status, headers, config) {
 				    authenticationService.authenticate(vm.registerModel.email, vm.registerModel.password).then(function () {
 				        $state.go('landing');

@@ -519,6 +519,8 @@
     <Content Include="Fonts\SourceSansPro-SemiboldIt.otf" />
     <None Include="Properties\PublishProfiles\delegacje-dev - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\delegacje-dev - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\DelegacjeDevSaffron.pubxml" />
+    <None Include="Properties\PublishProfiles\DelegacjeFilesystem.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - Web Deploy.pubxml" />
     <Content Include="wwwroot\css\index.less" />
