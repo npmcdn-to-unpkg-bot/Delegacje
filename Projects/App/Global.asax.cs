@@ -1,6 +1,8 @@
-﻿using log4net;
+﻿using CrazyAppsStudio.Delegacje.DomainModel;
+using log4net;
 using log4net.Config;
 using System;
+using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -19,6 +21,7 @@ namespace CrazyAppsStudio.Delegacje.App
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            Database.SetInitializer<BusinessTripsContext>(new DbInitializer());
 
             Bootstrapper.Initialise();
         }

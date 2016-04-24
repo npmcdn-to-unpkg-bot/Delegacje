@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessTripsContext.cs" />
+    <Compile Include="DbInitializer.cs" />
     <Compile Include="Migrations\201602222326099_InitialCreate.cs" />
     <Compile Include="Migrations\201602222326099_InitialCreate.Designer.cs">
       <DependentUpon>201602222326099_InitialCreate.cs</DependentUpon>

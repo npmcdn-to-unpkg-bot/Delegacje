@@ -639,6 +639,7 @@
     <None Include="Properties\PublishProfiles\delegacje-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\DelegacjeDevSaffron.pubxml" />
     <None Include="Properties\PublishProfiles\DelegacjeFilesystem.pubxml" />
+    <None Include="Properties\PublishProfiles\DelegacjeLiveSaffron.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\swipeapi - Web Deploy.pubxml" />
     <Content Include="wwwroot\css\index.less" />
@@ -773,10 +774,16 @@
     <None Include="Web.DelegacjeDevSaffron.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="Web.DelegacjeLiveSaffron.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery\src\sizzle\" />
     <Folder Include="wwwroot\lib\jquery\test\qunit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

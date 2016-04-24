@@ -5,10 +5,10 @@
         .module('app')
         .factory('dictionariesService', dictionariesService);
 
-    dictionariesService.$inject = ['$localStorage', '$http'];
+    dictionariesService.$inject = ['appSettings', '$localStorage', '$http'];
 
     /* @ngInject */
-    function dictionariesService($localStorage, $http) {
+    function dictionariesService(appSettings, $localStorage, $http) {
 
         var service = {
             Countries: $localStorage['Countries'],
@@ -55,7 +55,7 @@
 
         function reload() {
             return $http
-                .get('../api/dictionaries')
+                .get(appSettings.baseUrl + 'api/dictionaries')
                 .then(function (response) {
                     console.log(response);
 
@@ -68,7 +68,7 @@
         }
 
         function loadCurrenciesForDate(date) {
-        	return $http.post('api/currencies/forDate', '"' + date + '"').then(
+            return $http.post(appSettings.baseUrl + 'api/currencies/forDate', '"' + date + '"').then(
                    function (response) {
                    		return response.data;                   	
                    },

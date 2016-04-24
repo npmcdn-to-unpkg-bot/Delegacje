@@ -76,3 +76,4 @@ C:\Projekty\DelegacjeTest\TasksTests\bin\Debug\pl\Microsoft.AspNet.Identity.Core
 C:\Projekty\DelegacjeTest\TasksTests\obj\Debug\TasksTests.csprojResolveAssemblyReference.cache
 C:\Projekty\DelegacjeTest\TasksTests\obj\Debug\TasksTests.dll
 C:\Projekty\DelegacjeTest\TasksTests\obj\Debug\TasksTests.pdb
+C:\Projects\Delegacje\TasksTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

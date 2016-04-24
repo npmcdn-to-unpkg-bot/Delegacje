@@ -9,6 +9,7 @@ using CrazyAppsStudio.Delegacje.App.Models;
 using CrazyAppsStudio.Delegacje.App.Providers;
 using System;
 using CrazyAppsStudio.Delegacje.DomainModel;
+using CrazyAppsStudio.Delegacje.Domain.Utils;
 
 namespace CrazyAppsStudio.Delegacje.App
 {
@@ -37,8 +38,8 @@ namespace CrazyAppsStudio.Delegacje.App
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14)
-                //AllowInsecureHttp = true
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AllowInsecureHttp = !Settings.EnforceHTTPS
             };
 
             // Enable the application to use bearer tokens to authenticate users
