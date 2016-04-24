@@ -770,6 +770,9 @@
     <Content Include="wwwroot\lib\jquery\test\data\text.php" />
     <Content Include="wwwroot\lib\jquery\test\data\with_fries_over_jsonp.php" />
     <Content Include="wwwroot\lib\jquery\test\xhtml.php" />
+    <None Include="Web.DelegacjeDevSaffron.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery\src\sizzle\" />
