@@ -12,7 +12,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 		public Configuration()
 		{
 			AutomaticMigrationsEnabled = true;
-			AutomaticMigrationDataLossAllowed = true;
+			AutomaticMigrationDataLossAllowed = false;
 			
 			//ContextKey = "CrazyAppsStudio.Delegacje.DomainModel.BusinessTripsContext";
 		}
