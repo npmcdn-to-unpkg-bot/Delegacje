@@ -22,9 +22,9 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			//if (System.Diagnostics.Debugger.IsAttached == false)//Debugging migrations launched from package manager console
 			//	System.Diagnostics.Debugger.Launch();
 			Seeder seeder = new Seeder();
-			seeder.SeedContext(context);
-			try
-			{
+            //seeder.SeedContext(context);WTF
+            try
+            {
 				context.SaveChanges();
 			}
 			catch (Exception e)
