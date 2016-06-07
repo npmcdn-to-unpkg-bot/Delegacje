@@ -202,7 +202,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
         public void UpdateBusinessTripSubsistences(BusinessTrip trip, BusinessTripDTO businessTripDto)
         {
             //remove existing days, if they exist
-            if (businessTripDto.Subsistence.Id != null)
+			if (businessTripDto.Subsistence != null && businessTripDto.Subsistence.Id != null)
             {
                 var existingSub = repo.Subsistences.GetById(businessTripDto.Subsistence.Id.Value);
 
