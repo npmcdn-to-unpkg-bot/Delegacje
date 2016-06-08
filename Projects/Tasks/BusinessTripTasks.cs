@@ -23,38 +23,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 
         public int CreateNewBusinessTrip(BusinessTripDTO businessTrip, string userName)
         {
-			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
-
-            Subsistence sub = null;
-            if (businessTrip.Subsistence != null)
-            {
-                sub = repo.Subsistences.Create(new Subsistence()
-                {
-                    StartDate = DateExtensions.ParseAppString(businessTrip.Subsistence.StartDate),
-                    EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate),
-                    City = businessTrip.Subsistence.City,
-                    Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId)
-                });
-                
-                List<SubsistenceDay> days = new List<SubsistenceDay>();
-                foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
-                {
-                    days.Add(new SubsistenceDay()
-                    {
-                        Amount = dayDto.Amount,
-                        AmountPLN = dayDto.AmountPLN,
-                        ExchangeRate = dayDto.ExchangeRate,
-                        Breakfast = dayDto.Breakfast,
-                        Date = DateExtensions.ParseAppString(dayDto.Date),
-                        Dinner = dayDto.Dinner,
-                        Supper = dayDto.Supper,
-                        Night = dayDto.Night,
-                        Subsistence = sub
-                    });
-                }
-
-                repo.SubsistenceDays.CreateSet(days);                
-            }            
+			User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);            
 
             BusinessTrip trip = repo.BusinessTrips.Create(new BusinessTrip() {
 				Title = businessTrip.Title,
@@ -62,11 +31,15 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 				BusinessReason = businessTrip.BusinessReason,
 				BusinessPurpose = businessTrip.BusinessPurpose,
 				Notes = businessTrip.Notes,
-				User = user,
-                Subsistence = sub				
+				User = user
 			});
+            
+            if (businessTrip.Subsistence != null)
+            {
+                CreateBusinessTripSubsistence(trip, businessTrip);
+            }
 
-			List<Expense> expenses = new List<Expense>();
+            List<Expense> expenses = new List<Expense>();
 			if (businessTrip.Expenses != null)
 			{
 				foreach (ExpenseDTO expDto in businessTrip.Expenses)
@@ -141,7 +114,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             trip.User = user;
 
 			UpdateBusinessTripExpenses(trip, businessTripDto);
-			UpdateBusinessTripSubsistences(trip, businessTripDto);
+			CreateUpdateBusinessTripSubsistences(trip, businessTripDto);
 			UpdateBusinessTripMileageAllowances(trip, businessTripDto);
 
 			this.repo.SaveChanges();
@@ -199,12 +172,44 @@ namespace CrazyAppsStudio.Delegacje.Tasks
 			}
 		}
 
-        public void UpdateBusinessTripSubsistences(BusinessTrip trip, BusinessTripDTO businessTripDto)
+        public void CreateBusinessTripSubsistence(BusinessTrip trip, BusinessTripDTO businessTrip)
         {
+            Subsistence sub = repo.Subsistences.Create(new Subsistence()
+            {
+                StartDate = DateExtensions.ParseAppString(businessTrip.Subsistence.StartDate),
+                EndDate = DateExtensions.ParseAppString(businessTrip.Subsistence.EndDate),
+                City = businessTrip.Subsistence.City,
+                Country = repo.Dictionaries.GetCountry(businessTrip.Subsistence.CountryId)
+            });            
+
+            List<SubsistenceDay> days = new List<SubsistenceDay>();
+            foreach (SubsistenceDayDTO dayDto in businessTrip.Subsistence.Days)
+            {
+                days.Add(new SubsistenceDay()
+                {
+                    Amount = dayDto.Amount,
+                    AmountPLN = dayDto.AmountPLN,
+                    ExchangeRate = dayDto.ExchangeRate,
+                    Breakfast = dayDto.Breakfast,
+                    Date = DateExtensions.ParseAppString(dayDto.Date),
+                    Dinner = dayDto.Dinner,
+                    Supper = dayDto.Supper,
+                    Night = dayDto.Night,
+                    Subsistence = sub
+                });
+            }
+
+            repo.SubsistenceDays.CreateSet(days);
+            trip.Subsistence = sub;   
+        }
+
+        public void CreateUpdateBusinessTripSubsistences(BusinessTrip trip, BusinessTripDTO businessTripDto)
+        {
+            Subsistence sub = null;
             //remove existing days, if they exist
 			if (businessTripDto.Subsistence != null && businessTripDto.Subsistence.Id != null)
             {
-                var existingSub = repo.Subsistences.GetById(businessTripDto.Subsistence.Id.Value);
+                sub = repo.Subsistences.GetById(businessTripDto.Subsistence.Id.Value);
 
                 var currentDays = repo.SubsistenceDays.GetForsubsistence(businessTripDto.Subsistence.Id.Value);
                 repo.SubsistenceDays.Remove(currentDays);
@@ -222,12 +227,16 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                         Dinner = dayDto.Dinner,
                         Supper = dayDto.Supper,
                         Night = dayDto.Night,
-                        Subsistence = existingSub
+                        Subsistence = sub
                     });
                 }
 
                 repo.SubsistenceDays.CreateSet(newDays);
             }
+            else if (businessTripDto.Subsistence != null)
+            {
+                CreateBusinessTripSubsistence(trip, businessTripDto);
+            }            
         }
 
 		public void UpdateBusinessTripMileageAllowances(BusinessTrip trip, BusinessTripDTO businessTripDto)
