@@ -195,7 +195,9 @@ namespace CrazyAppsStudio.Delegacje.Tasks
                     Dinner = dayDto.Dinner,
                     Supper = dayDto.Supper,
                     Night = dayDto.Night,
-                    Subsistence = sub
+                    Subsistence = sub,
+                    Diet = dayDto.Diet,
+                    IsForeign = dayDto.IsForeign
                 });
             }
 

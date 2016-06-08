@@ -28,7 +28,9 @@ namespace CrazyAppsStudio.Delegacje.Domain.Extensions
                     Date = day.Date.ToAppString(),
                     Dinner = day.Dinner,
                     Supper = day.Supper,
-                    Night = day.Night
+                    Night = day.Night,
+                    Diet = day.Diet,
+                    IsForeign = day.IsForeign
                 });
             }
 

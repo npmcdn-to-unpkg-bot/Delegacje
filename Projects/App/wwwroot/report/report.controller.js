@@ -86,12 +86,15 @@
                         vm.NewSubsistence.EndDate = subDto.EndDate;
                         vm.NewSubsistence.Country = subsistance.Country;
                         vm.NewSubsistence.City = subsistance.City;
+
                         for (var s = 0; s < subDto.Days.length; s++) {
                             var day = new userReportsFactoryService.getSubsistenceDay(
                                 subDto.Days[s].Date,
+                                subDto.Days[s].Diet,
                                 subsistance.Country.SubsistenceAllowance,
                                 subsistance.Country.AccomodationLimit,
-                                subDto.Days[s].ExchangeRate);
+                                subDto.Days[s].ExchangeRate,
+                                subDto.Days[s].IsForeign);
 
                             day.Breakfast = subDto.Days[s].Breakfast;
                             day.Dinner = subDto.Days[s].Dinner;
@@ -262,10 +265,6 @@
                 var hourDiff = endDateObj - startDateObj; //in ms
                 var minDiff = hourDiff / 60 / 1000; //in minutes
                 var hDiff = hourDiff / 3600 / 1000; //in hours
-               // var humanReadable = {};
-               // humanReadable.hours = Math.floor(hDiff);
-               // humanReadable.minutes = minDiff - 60 * humanReadable.hours;
-
 
                 for (var i = 0; i < hDiff + 24; i += 24) {
                     var date = addDays(startDateObj, i / 24);

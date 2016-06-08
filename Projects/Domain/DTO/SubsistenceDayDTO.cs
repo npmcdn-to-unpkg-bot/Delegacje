@@ -15,5 +15,7 @@ namespace CrazyAppsStudio.Delegacje.Domain.DTO
         public decimal ExchangeRate { get; set; }
         public decimal Amount { get; set; }
         public decimal AmountPLN { get; set; }
+        public decimal Diet { get; set; }
+        public bool IsForeign { get; set; }
     }
 }

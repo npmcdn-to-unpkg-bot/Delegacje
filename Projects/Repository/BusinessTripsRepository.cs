@@ -45,6 +45,7 @@ namespace CrazyAppsStudio.Delegacje.Repository
 		public void Remove(int businessTripId)
 		{
 			BusinessTrip trip = this.context.BusinessTrips.First(bt => bt.Id == businessTripId);
+            this.context.Subsistences.Remove(trip.Subsistence);
 			this.context.BusinessTrips.Remove(trip);			
 		}
 	}

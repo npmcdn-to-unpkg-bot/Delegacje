@@ -118,6 +118,8 @@
             var s = {};
             s.ExchangeRate = exchangeRate;
             s.Date = date;
+            s.Diet = diet;
+            s.IsForeign = isForeign
             s.Breakfast = false;
             s.Dinner = false;
             s.Supper = false;
