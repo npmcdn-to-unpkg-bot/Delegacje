@@ -13,12 +13,12 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606082041313_SubsDayModified"; }
+            get { return "201606090604130_SubsDayModified"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

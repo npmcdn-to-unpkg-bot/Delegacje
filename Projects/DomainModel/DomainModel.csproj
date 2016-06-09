@@ -92,9 +92,9 @@
     <Compile Include="Migrations\201602241050147_fixCascades.Designer.cs">
       <DependentUpon>201602241050147_fixCascades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606082041313_SubsDayModified.cs" />
-    <Compile Include="Migrations\201606082041313_SubsDayModified.Designer.cs">
-      <DependentUpon>201606082041313_SubsDayModified.cs</DependentUpon>
+    <Compile Include="Migrations\201606090604130_SubsDayModified.cs" />
+    <Compile Include="Migrations\201606090604130_SubsDayModified.Designer.cs">
+      <DependentUpon>201606090604130_SubsDayModified.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
@@ -123,8 +123,8 @@
     <EmbeddedResource Include="Migrations\201602241050147_fixCascades.resx">
       <DependentUpon>201602241050147_fixCascades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606082041313_SubsDayModified.resx">
-      <DependentUpon>201606082041313_SubsDayModified.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606090604130_SubsDayModified.resx">
+      <DependentUpon>201606090604130_SubsDayModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
