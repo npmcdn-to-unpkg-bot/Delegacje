@@ -35,7 +35,7 @@
                     total += parseFloat(bt.Expenses[e].FinalAmount());
                 }
                 for (var m = 0; m < bt.MileageAllowances.length; m++) {
-                    total += bt.MileageAllowances[m].Amount();
+                    total += bt.MileageAllowances[m].CalculateAmount();
                 }
                 if (bt.Subsistence != null) {
                     for (var s = 0; s < bt.Subsistence.Days.length; s++) {
@@ -52,7 +52,7 @@
                     }
                 }
                 for (var m = 0; m < bt.MileageAllowances.length; m++) {
-                    total += bt.MileageAllowances[m].Amount();
+                    total += bt.MileageAllowances[m].CalculateAmount();
                 }
                 if (bt.Subsistence != null) {
                     for (var s = 0; s < bt.Subsistence.Days.length; s++) {
@@ -71,7 +71,7 @@
             ma.Date= '';
             ma.Distance = '';
             ma.Notes = '';
-            ma.Amount = function () {
+            ma.CalculateAmount = function () {
                 if (ma.Type === null || ma.Distance === '')
                     return '';
 

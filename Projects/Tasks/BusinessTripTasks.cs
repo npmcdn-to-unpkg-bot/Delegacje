@@ -107,7 +107,7 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             User user = repo.Users.UsersQueryable.FirstOrDefault(u => u.UserName == userName);
 
             trip.Title = businessTripDto.Title;
-			trip.Date = Convert.ToDateTime(businessTripDto.Date);
+			trip.Date = businessTripDto.Date.ParseAppString();
 			trip.BusinessReason = businessTripDto.BusinessReason;
 			trip.BusinessPurpose = businessTripDto.BusinessPurpose;
 			trip.Notes = businessTripDto.Notes;

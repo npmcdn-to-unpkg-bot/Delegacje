@@ -28,7 +28,7 @@
             </div>
             <div class="form-line">
                 <span class="form-row-label">Kwota</span>
-                <span class="form-readonly-value input-icon input-pln">{{vm.NewMileage.Amount().toFixed(2)}}</span>
+                <span class="form-readonly-value input-icon input-pln">{{vm.NewMileage.CalculateAmount().toFixed(2)}}</span>
             </div>
         </div>
         <div class="five columns text-center">
@@ -66,7 +66,7 @@
                         <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{m.Date}}</td>
                         <td><i class="fa fa-car"></i>&nbsp;&nbsp;{{m.Type.Name}}</td>
                         <td><i class="fa fa-map-o"></i>&nbsp;&nbsp;{{m.Distance}} km</td>
-                        <td><i class="fa fa-money"></i>&nbsp;&nbsp;{{m.Amount().toFixed(2)}} PLN</td>
+                        <td><i class="fa fa-money"></i>&nbsp;&nbsp;{{m.CalculateAmount().toFixed(2)}} PLN</td>
                         <td><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{m.Notes}}</td>
                         <td>
                             <i class="fa fa-bars action" ng-click="vm.mileageShowPopup($event, m); $event.stopPropagation()"></i>
