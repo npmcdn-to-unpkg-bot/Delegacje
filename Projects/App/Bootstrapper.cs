@@ -37,7 +37,7 @@ namespace CrazyAppsStudio.Delegacje.App
             container.RegisterType<ITasksRepository, TasksRepository>();
             container.RegisterType<IRepositories, Repositories>();
 
-            //this line is quite a mystery but apparently we need to register account related controllers like that to make them wotk with Unity DI
+            //this line is quite a mystery but apparently we need to register account related controllers like that to make them wotk with Unity DI            
             container.RegisterType<AccountController>(new InjectionConstructor());
         }
     }

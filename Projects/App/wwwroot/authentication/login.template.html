@@ -1,11 +1,12 @@
 <div id="login-container">
     <div id="login-form">
-        <form name="form" ng-submit="vm.login()" novalidate>
+        <form name="form" ng-submit="vm.login()" novalidate style="text-align: center">
             <input type="text" class="input" placeholder="Login..." maxlength="100" ng-model="vm.userName" autofocus required />
             <input type="password" class="input" placeholder="Hasło..." maxlength="100" ng-model="vm.password" required />
 
             <input type="submit" class="button button-login" value="Zaloguj" class="button button-primary" ng-disabled="form.$invalid || vm.isBusy" />
             <a ui-sref="register" class="button button-register">Zarejestruj</a>
+            <a ui-sref="resetPassword" style="margin-top : 15px; color: white; display : inline-block">Zapomniałeś hasła?</a>
         </form>
     </div>
 

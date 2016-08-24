@@ -1,15 +1,27 @@
 ﻿<div id="login-container">
     <div id="login-form">
-        <form name="form" ng-submit="vm.register()" novalidate>
+        <form name="form" ng-submit="vm.register()" ng-show="vm.showRegistrationForm" novalidate>
             <input type="email" class="input" placeholder="E--Mail..." maxlength="100" ng-model="vm.registerModel.email" autofocus required />
             <input type="password" class="input" placeholder="Hasło..." maxlength="100" ng-model="vm.registerModel.password" required ng-minlength="6" />
             <input type="password" class="input" placeholder="Potwierdź hasło..." maxlength="100" ng-model="vm.registerModel.confirmPassword" required ng-minlength="6" />
-
+            <input type="text" class="input" placeholder="Nazwa Firmy..." maxlength="100" ng-model="vm.registerModel.companyName" required />
+            
+            <div style="width: 550px; margin : auto; color: white;">
+                <label style="display : inline-block; width: 530px; margin-left: 20px;">
+                    Wysłanie niniejszego formularza jest równoważne z akceptacją Regulaminu świadczenia usług dla użytkowników aplikacji Delegacje.
+                </label>
+                <input style="float: left;" type="checkbox" ng-checked="vm.registerModel.marketingAccepted" />
+                <label style="display : inline-block; width: 530px">Wyrażam zgodę na przetwarzanie swoich danych osobowych w celach marketingowych przez ClaimIt Sp. z o.o. zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych (tekst jednolity: Dz. U. 2002 r. Nr 101 poz. 926 z późn. zm.) oraz na otrzymywanie od ClaimIt Sp. z o.o. informacji handlowych drogą elektroniczną zgodnie z ustawą z dnia 18.07.2002 r. (Dz.U. nr 144, poz.1204 z późn. zm.) o świadczeniu usług drogą elektroniczną."</label>
+            </div>
             <div id="register-actions">
                 <input type="submit" class="button button-register2 pull-left" value="Zarejestruj się" class="button button-primary" ng-disabled="form.$invalid || vm.isBusy || !vm.passwordsMatch()" />
                 <a ui-sref="login" class="button button-cancel pull-right">Anuluj</a>
             </div>
         </form>
+        <div ng-show="!vm.showRegistrationForm" style="width: 550px; margin : auto; color: white;">
+            <span>Email aktywujący konto został wysłany. Póki konto nie zostanie aktywowane, nie można z niego korzystać.</span>
+            <a ui-sref="login" class="button button-login" style="width : 250px">Powrót do strony logowania</a>
+        </div>
     </div>
 
     <div id="login-footer">&nbsp;</div>

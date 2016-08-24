@@ -23,5 +23,18 @@ namespace CrazyAppsStudio.Delegacje.Repository
                 return this.context.Users.AsQueryable<User>();
             }
         }
+
+        public User FindUserByActivationCode(string activationCode)
+        {
+            return this.context.Users.Where(u => u.ActivationCode == activationCode).FirstOrDefault();
+        }
+
+        public void ActivateUser(int userId)
+        {
+            User user = this.context.Users.Where(u => u.Id == userId).FirstOrDefault();
+            user.IsActive = true;
+            //user.ActivationCode = null;
+            context.SaveChanges();
+        }
     }
 }

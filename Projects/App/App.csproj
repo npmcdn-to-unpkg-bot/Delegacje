@@ -258,6 +258,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\authentication\activateAccount.controller.js" />
+    <Content Include="wwwroot\authentication\activateAccount.template.html" />
+    <Content Include="wwwroot\authentication\resetPassword.controller.js" />
+    <Content Include="wwwroot\authentication\resetPassword.template.html" />
     <Content Include="wwwroot\authentication\userData.controller.js" />
     <Content Include="wwwroot\authentication\register.controller.js" />
     <Content Include="wwwroot\authentication\register.template.html" />

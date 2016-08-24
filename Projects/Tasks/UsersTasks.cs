@@ -1,5 +1,6 @@
 ﻿
 using CrazyAppsStudio.Delegacje.Domain.DTO;
+using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
 using CrazyAppsStudio.Delegacje.Repository;
 
 namespace CrazyAppsStudio.Delegacje.Tasks
@@ -19,6 +20,16 @@ namespace CrazyAppsStudio.Delegacje.Tasks
             //UserDetailsDTO userDTO = user.MapToDetails();
             // return userDTO;
             return null;
+        }
+
+        public User GetUserByActivationCode(string activationCode)
+        {
+            return repo.Users.FindUserByActivationCode(activationCode);
+        }
+
+        public void ActivateUser(int userId)
+        {
+            repo.Users.ActivateUser(userId);
         }
     }
 }

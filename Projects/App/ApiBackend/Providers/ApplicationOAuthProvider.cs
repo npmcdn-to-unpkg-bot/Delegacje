@@ -41,15 +41,25 @@ namespace CrazyAppsStudio.Delegacje.App.Providers
 
 			//ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
 			//   OAuthDefaults.AuthenticationType);
-			ClaimsIdentity oAuthIdentity = await userManager.CreateIdentityAsync(user, OAuthDefaults.AuthenticationType);
+			//ClaimsIdentity oAuthIdentity = await userManager.CreateIdentityAsync(user, OAuthDefaults.AuthenticationType);
 			//ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
 			//	CookieAuthenticationDefaults.AuthenticationType);
 			ClaimsIdentity cookiesIdentity = await userManager.CreateIdentityAsync(user, CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+            //AuthenticationProperties properties = CreateProperties(user.UserName);
+            //AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+
+            AuthenticationTicket ticket = GenerateAuthenticationTicket(user, userManager);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
+        }
+
+        public static AuthenticationTicket GenerateAuthenticationTicket(User user, DelegacjeUserManager userManager)
+        {            
+            ClaimsIdentity oAuthIdentity = userManager.CreateIdentityAsync(user, OAuthDefaults.AuthenticationType).Result;            
+            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+            return ticket;
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)

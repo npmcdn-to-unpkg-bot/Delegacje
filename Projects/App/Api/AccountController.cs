@@ -10,6 +10,14 @@ using System.Web.Http;
 using CrazyAppsStudio.Delegacje.Domain.Entities;
 using CrazyAppsStudio.Delegacje.DomainModel;
 using CrazyAppsStudio.Delegacje.Domain.Entities.Identity;
+using System;
+using System.Net.Mail;
+using System.Net;
+using System.ComponentModel;
+using CrazyAppsStudio.Delegacje.Tasks;
+using Newtonsoft.Json.Linq;
+using CrazyAppsStudio.Delegacje.App.Providers;
+using CrazyAppsStudio.Delegacje.Domain.DTO;
 
 namespace CrazyAppsStudio.Delegacje.App.Controllers
 {
@@ -19,18 +27,20 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private DelegacjeUserManager _userManager;
+        private readonly ITasksRepository tasks;
 
         public AccountController()
         {
-
+            this.tasks = new TasksRepository();
         }
 
-		public AccountController(DelegacjeUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
-        {
-            UserManager = userManager;
-            AccessTokenFormat = accessTokenFormat;
-        }
+		//public AccountController(DelegacjeUserManager userManager,
+  //          ISecureDataFormat<AuthenticationTicket> accessTokenFormat, ITasksRepository tasks)
+  //      {
+  //          UserManager = userManager;
+  //          AccessTokenFormat = accessTokenFormat;
+  //          this.tasks = tasks;
+  //      }
 
 		public DelegacjeUserManager UserManager
         {
@@ -323,7 +333,12 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
 				return BadRequest(ModelState);
 			}
 
-			var user = new User() { UserName = model.Email, Email = model.Email };
+            if (!model.MarketingAccepted)
+            {
+                return BadRequest("Proszę wyrazić zgodę na przetwarzanie danych osobowych.");
+            }
+
+			var user = new User() { UserName = model.Email, Email = model.Email, CompanyName = model.CompanyName, ActivationCode = Guid.NewGuid().ToString() };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -332,8 +347,155 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
 				return GetErrorResult(result);
 			}
 
-			return Ok();
-		}		
+            var request = HttpContext.Current.Request;
+
+            string siteUrl = string.Format("{0}://{1}{2}{3}",
+                      request.Url.Scheme,
+                      request.Url.Host,
+                      request.Url.Port == 80
+                        ? string.Empty : ":" + request.Url.Port,
+                      request.ApplicationPath);
+
+            if (!siteUrl.EndsWith("/"))
+            {
+                siteUrl += "/";
+            }
+
+            string callbackUrl = string.Format(siteUrl + "#/activateAccount?code={0}", user.ActivationCode);
+
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(@"noreply@claimit.delegacje.pl");
+            message.To.Add(user.Email);
+            message.Subject = "TEST";
+            message.Body = "<b>Hi:</b>  <br/><br>Name: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
+                             "<br/><br>Message: " +
+                             "<br/><br>";
+            message.IsBodyHtml = true;
+            message.Priority = MailPriority.High;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Send(message);
+            return Ok();
+            //smtp.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);                        
+
+            //return Ok(smtp.SendMailAsync(message));
+		}
+
+        //private void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+        //{
+        //    return;
+        //}
+
+        [AllowAnonymous]
+        [Route("activate")]
+        [HttpPost]
+        public async Task<IHttpActionResult> ActivateAccount([FromBody]string activationCode)
+        {
+            if (string.IsNullOrEmpty(activationCode))
+            {
+                return BadRequest("Kod aktywacyjny jest wymagany.");
+            }
+
+            User user = tasks.UsersTasks.GetUserByActivationCode(activationCode);
+
+            if (user == null)
+            {
+                return BadRequest("Kod aktywacyjny już wykorzystany");
+            }
+
+            tasks.UsersTasks.ActivateUser(user.Id);
+            
+            return Ok(GenerateAccessTokenResponse(user));           
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IHttpActionResult> SendPasswordResetEmail(string emailAddress)
+        {
+            User user = await this.UserManager.FindByEmailAsync(emailAddress);
+
+            if (user == null)
+            {
+                return BadRequest("Nieprawidłowy adres email");
+            }
+
+            string token = await this.UserManager.GeneratePasswordResetTokenAsync(user.Id);
+
+            var request = HttpContext.Current.Request;
+
+            string siteUrl = string.Format("{0}://{1}{2}{3}",
+              request.Url.Scheme,
+              request.Url.Host,
+              request.Url.Port == 80
+                ? string.Empty : ":" + request.Url.Port,
+              request.ApplicationPath);
+            if (!siteUrl.EndsWith("/"))
+                siteUrl += "/";
+
+            string callbackUrl = string.Format(
+                    siteUrl + "#/resetPassword?userId={0}&passwordResetToken={1}",
+                    user.Id,
+                    HttpUtility.UrlEncode(token));
+
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(@"noreply@claimit.delegacje.pl");
+            message.To.Add(emailAddress);
+            message.Subject = "TEST";
+            message.Body = "<b>Hi:</b>  <br/><br>Name: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
+                             "<br/><br>Message: " +
+                             "<br/><br>";
+            message.IsBodyHtml = true;
+            message.Priority = MailPriority.High;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Send(message);
+            return Ok();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("ResetPassword")]
+        public async Task<IHttpActionResult> ResetPassword(ResetPasswordDto resetPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await this.UserManager.FindByIdAsync(resetPassword.UserId);
+                if (user != null)
+                {//if the user does not exist, still send success response
+                    var result = await this.UserManager.ResetPasswordAsync(user.Id, resetPassword.Code, resetPassword.Password);
+                    if (!result.Succeeded)
+                    {
+                        return GetErrorResult(result);
+                    }
+                }
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok("Password has been successfully changed.");
+        }
+
+        private JObject GenerateAccessTokenResponse(User user)
+        {
+
+            var tokenExpiration = TimeSpan.FromDays(1);
+
+            AuthenticationTicket ticket = ApplicationOAuthProvider.GenerateAuthenticationTicket(user, this.UserManager);
+
+            var accessToken = Startup.OAuthOptions.AccessTokenFormat.Protect(ticket);            
+
+            JObject tokenResponse = new JObject(
+                                        new JProperty("userName", user.UserName),                                        
+                                        new JProperty("access_token", accessToken),
+                                        new JProperty("token_type", "bearer"),
+                                        new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),
+                                        new JProperty(".issued", ticket.Properties.IssuedUtc.ToString()),
+                                        new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString())                                        
+            );
+
+            return tokenResponse;
+        }
 
         //// POST api/Account/RegisterExternal
         //[OverrideAuthentication]

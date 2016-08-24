@@ -41,15 +41,24 @@ namespace CrazyAppsStudio.Delegacje.App.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Hasło musi mieć co najmniej {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
+        [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Potwierdź hasło")]
+        [Compare("Password", ErrorMessage = "Hasła muszą się zgadzać")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Nazwa Firmy")]
+        public string CompanyName { get; set; }
+
+        [Required]
+        [Display(Name = "Zgoda na przetwarzanie danych osobowych")]
+        public bool MarketingAccepted { get; set; }
     }
 
     public class RegisterExternalBindingModel

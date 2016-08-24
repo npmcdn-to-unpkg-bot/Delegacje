@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201606090604130_SubsDayModified.Designer.cs">
       <DependentUpon>201606090604130_SubsDayModified.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608221512082_AddCompanyAndActivationCode.cs" />
+    <Compile Include="Migrations\201608221512082_AddCompanyAndActivationCode.Designer.cs">
+      <DependentUpon>201608221512082_AddCompanyAndActivationCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606090604130_SubsDayModified.resx">
       <DependentUpon>201606090604130_SubsDayModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221512082_AddCompanyAndActivationCode.resx">
+      <DependentUpon>201608221512082_AddCompanyAndActivationCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

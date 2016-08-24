@@ -17,6 +17,18 @@
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
+            .state('activateAccount', {
+                url: '/activateAccount',
+                templateUrl: 'wwwroot/authentication/activateAccount.template.html',
+                controller: 'ActivateAccountController',
+                controllerAs: 'vm'
+            })
+            .state('resetPassword', {
+                url: '/resetPassword',
+                templateUrl: 'wwwroot/authentication/resetPassword.template.html',
+                controller: 'ResetPasswordController',
+                controllerAs: 'vm'
+            })
 			.state('register', {
 				url: '/register',
 				templateUrl: 'wwwroot/authentication/register.template.html',

@@ -41,6 +41,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel
 			modelBuilder.Entity<UserRole>().ToTable("UserRoles", "dbo");
 			modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
 			modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
+            
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();                        
         }
 

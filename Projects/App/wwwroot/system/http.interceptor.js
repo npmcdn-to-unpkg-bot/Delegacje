@@ -30,20 +30,20 @@
             }
             else {
                 //// Circular dependency if inject |toastr| directly
-                //var msg;
-               // var toastr = $injector.get('toastr');
-               // var data = response.data;
+                var msg;
+                var toastr = $injector.get('toastr');
+                var data = response.data;
 
-                //if (data) {
+                if (data) {
                     console.log(response);
-                   // msg = data['error_description'] || data.error ||
-                   //     data.ExceptionMessage || data.Message ||
-                  //      data.message;
-               // } else {
-               //     msg = response.statusText || response.statusCode;
-               // }
+                    msg = data['error_description'] || data.error ||
+                        data.ExceptionMessage || data.Message ||
+                        data.message;
+                } else {
+                    msg = response.statusText || response.statusCode;
+                }
 
-              //  toastr.error(msg);
+                toastr.error(msg);
             }
             return $q.reject(response);
         }

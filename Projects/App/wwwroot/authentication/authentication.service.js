@@ -14,7 +14,8 @@
             authenticate: authenticate,
             isAuthenticated: isAuthenticated,
             user: function () { return $localStorage['user']; },
-            logout: logout
+            logout: logout,
+            activateAccount: activateAccount
         };
         return service;
 
@@ -80,10 +81,34 @@
             return $http(request)
                 .then(function(response) {
                     var user = response.data;
-                    $localStorage['user'] = user.userName;
-                    saveToken(user['access_token']);
+                    saveAuthorizationData(user.userName, user['access_token'])
+                    //$localStorage['user'] = user.userName;
+                    //saveToken(user['access_token']);
                     dictionariesService.reload();
                 });
+        }
+
+        function activateAccount(activationCode) {            
+
+            var promise = $http
+                .post(appSettings.baseUrl + 'api/account/activate', '"' + activationCode + '"')
+                .then(
+                   function (response) {
+                       saveAuthorizationData(response.data.userName, response.data.access_token);
+                       dictionariesService.reload();
+                       return response.data;
+                   },
+                 function (response) {
+                     console.log(response);
+                     return null;
+                 });
+            return promise;
+        }
+
+        function saveAuthorizationData(userName, accessToken)
+        {
+            $localStorage['user'] = userName;
+            saveToken(accessToken);
         }
 
         /**
