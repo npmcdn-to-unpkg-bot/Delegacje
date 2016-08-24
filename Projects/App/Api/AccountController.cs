@@ -373,6 +373,7 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
             message.IsBodyHtml = true;
             message.Priority = MailPriority.High;
             SmtpClient smtp = new SmtpClient();
+            smtp.UseDefaultCredentials = true;
             smtp.Send(message);
             return Ok();
             //smtp.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);                        
@@ -446,6 +447,7 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
             message.IsBodyHtml = true;
             message.Priority = MailPriority.High;
             SmtpClient smtp = new SmtpClient();
+            smtp.UseDefaultCredentials = true;
             smtp.Send(message);
             return Ok();
         }

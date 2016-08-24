@@ -22,6 +22,7 @@ namespace CrazyAppsStudio.Delegacje.App
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             Database.SetInitializer<BusinessTripsContext>(new DbInitializer());
+            //Database.SetInitializer<BusinessTripsContext>(new DropCreateDatabaseAlways<BusinessTripsContext>());
 
             Bootstrapper.Initialise();
         }
