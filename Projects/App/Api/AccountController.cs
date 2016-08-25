@@ -366,10 +366,9 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
             MailMessage message = new MailMessage();
             message.From = new MailAddress(@"noreply@claimit.delegacje.pl");
             message.To.Add(user.Email);
-            message.Subject = "TEST";
-            message.Body = "<b>Hi:</b>  <br/><br>Name: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
-                             "<br/><br>Message: " +
-                             "<br/><br>";
+            message.Subject = "Rejestracja w claimit.delegacje.pl";
+            message.Body = "<p style=\"font-family: Verdana\">Witaj,  <br/><br>Aby aktywować swoje konto, kliknij w to łącze: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
+                             "<br/><br>Pozdrawiamy,<br/><br>Zespół Claim It</p>";            
             message.IsBodyHtml = true;
             message.Priority = MailPriority.High;
             SmtpClient smtp = new SmtpClient();
@@ -440,10 +439,10 @@ namespace CrazyAppsStudio.Delegacje.App.Controllers
             MailMessage message = new MailMessage();
             message.From = new MailAddress(@"noreply@claimit.delegacje.pl");
             message.To.Add(emailAddress);
-            message.Subject = "TEST";
-            message.Body = "<b>Hi:</b>  <br/><br>Name: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
-                             "<br/><br>Message: " +
-                             "<br/><br>";
+            message.Subject = "Resetowanie hasła";
+            message.Body = "<p style=\"font-family: Verdana\">Witaj,  <br/><br>Aby zresetować hasło, kliknij w to łącze: " + "<a href=\"" + callbackUrl + "\">" + callbackUrl + "</a>" +
+                             "<br/><br>Pozdrawiamy,<br/><br>Zespół Claim It</p>";
+
             message.IsBodyHtml = true;
             message.Priority = MailPriority.High;
             SmtpClient smtp = new SmtpClient();
