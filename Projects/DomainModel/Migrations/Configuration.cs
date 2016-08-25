@@ -22,7 +22,7 @@ namespace CrazyAppsStudio.Delegacje.DomainModel.Migrations
 			//if (System.Diagnostics.Debugger.IsAttached == false)//Debugging migrations launched from package manager console
 			//	System.Diagnostics.Debugger.Launch();
 			Seeder seeder = new Seeder();
-			seeder.SeedContext(context);
+			//seeder.SeedContext(context);
 			try
 			{
 				context.SaveChanges();
